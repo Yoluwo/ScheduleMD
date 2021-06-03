@@ -18,6 +18,8 @@
                <input type="text" name="username" value="${username}"><br>
                <label>Password: </label>
                <input type="password" name="password" value="${password}"><br>
+               <input type="checkbox" id="signedin" name="signedin" value="signin">
+               <label for="signedin">Keep me signed in</label>
                <input type="submit" value="Log in">
           </form>
      </body>
