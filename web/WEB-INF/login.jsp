@@ -12,14 +12,14 @@
           <title>Schedule MD</title>
      </head>
      <body>
-          <h1>LOG IN</h1>
+          <h1>Welcome Back :)</h1>
           <form method="POST" action="login">
                <label>Username: </label>
                <input type="text" name="username" value="${username}"><br>
                <label>Password: </label>
                <input type="password" name="password" value="${password}"><br>
                <input type="checkbox" id="signedin" name="signedin" value="signin">
-               <label for="signedin">Keep me signed in</label>
+               <label for="signedin">Remember me</label><br>
                <input type="submit" value="Log in">
           </form>
      </body>
