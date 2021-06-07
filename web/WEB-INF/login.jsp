@@ -14,9 +14,9 @@
      <body>
           <h1>Welcome Back :)</h1>
           <form method="POST" action="login">
-               <label>Username: </label>
+               <label><span>Username: </span></label>
                <input type="text" name="username" value="${username}"><br>
-               <label>Password: </label>
+               <label><span>Password: </span></label>
                <input type="password" name="password" value="${password}"><br>
                <input type="checkbox" id="signedin" name="signedin" value="signin">
                <label for="signedin">Remember me</label><br>
