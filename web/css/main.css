@@ -8,3 +8,31 @@ and open the template in the editor.
     Author     : 805580
 */
 
+* {
+     box-sizing: border-box;
+}
+
+body {
+     background-color: #dbf3fa;
+     color: #00254d;
+     font-family: 'merriweather', sans-serif;
+     display: block;
+     text-align: center;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     height: 100vh;
+     overflow: hidden;
+     margin: 0;
+}
+
+h1 {
+     font-family: 'lato', sans-serif;
+ 
+}
+
+.logo {
+     background-color: #094c72;
+     color: #fff;
+     text-align: center;
+}

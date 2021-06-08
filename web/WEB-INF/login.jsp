@@ -11,19 +11,46 @@
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <title>Schedule MD</title>
           <link href="css/main.css" rel="stylesheet" type="text/css" >
-          
+          <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
+          <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
+
      </head>
      <body>
+          <div class="logo">
+               <h1>ScheduleMD</h1>
+          </div>
           <div class="container">
-          <h1>Welcome Back :)</h1>
           <form method="POST" action="login">
                <div class="form-control">
-               <input type="text" name="username" value="${username}" required><br>
-               <label><span>Username: </span></label>
+               <h2>Welcome Back :)</h2>
+               <input type="text" name="username" value="${username}" required>
+               <label>Username: 
+                    <!--
+               <span style="transition-delay: 0ms">U</span>
+               <span style="transition-delay: 0ms">s</span>
+               <span style="transition-delay: 0ms">e</span>
+               <span style="transition-delay: 0ms">r</span>
+               <span style="transition-delay: 0ms">n</span>
+               <span style="transition-delay: 0ms">a</span>
+               <span style="transition-delay: 0ms">m</span>
+               <span style="transition-delay: 0ms">e</span>
+               -->
+               </label>
                </div>
                <div class="form-control">
-               <input type="password" name="password" value="${password}" required><br>
-               <label><span>Password: </span></label>
+               <input type="password" name="password" value="${password}" required>
+               <label>Password: 
+               <!--
+               <span style="transition-delay: 0ms">P</span>
+               <span style="transition-delay: 0ms">a</span>
+               <span style="transition-delay: 0ms">s</span>
+               <span style="transition-delay: 0ms">s</span>
+               <span style="transition-delay: 0ms">w</span>
+               <span style="transition-delay: 0ms">o</span>
+               <span style="transition-delay: 0ms">r</span>
+               <span style="transition-delay: 0ms">d</span>
+               -->
+               </label>
                </div>
                <input type="checkbox" id="signedin" name="signedin" value="signin">
                <label for="signedin">Remember me</label><br>
