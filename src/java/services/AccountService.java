@@ -20,7 +20,7 @@ import model.User;
 public class AccountService {
     
     private String dbUrl = "jdbc:mysql://localhost:3306/userdb";
-    private String dbUname = "root";
+    private String dbEmail = "root";
     private String dbPassword = "rootpasswordgiven";
     private String dbDriver = "com.mysql.cj.jdbc.Driver";
     
@@ -35,7 +35,7 @@ public class AccountService {
     public Connection getConnection() {
         Connection con = null;
         try {
-            con = DriverManager.getConnection(dbUrl, dbUname, dbPassword);
+            con = DriverManager.getConnection(dbUrl, dbEmail, dbPassword);
         } catch (SQLException ex) {
             Logger.getLogger(AccountService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -52,8 +52,8 @@ public class AccountService {
         PreparedStatement ps;
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, User.getEmail());
-            ps.setString(2, User.getPassword());
+            ps.setString(1, user.getEmail());
+            ps.setString(2, user.getPassword());
             
         ResultSet rs = ps.executeQuery();
         status = rs.next();
