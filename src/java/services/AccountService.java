@@ -28,7 +28,7 @@ public class AccountService {
         try {
             Class.forName(dbDriver);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LoginDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AccountService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -37,12 +37,12 @@ public class AccountService {
         try {
             con = DriverManager.getConnection(dbUrl, dbUname, dbPassword);
         } catch (SQLException ex) {
-            Logger.getLogger(LoginDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AccountService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return con;
     }
 
-    public boolean validate(LoginBean loginBean) {
+    public boolean validate(User user) {
         loadDriver(dbDriver);
         Connection con = getConnection();
         boolean status = false;
@@ -52,14 +52,14 @@ public class AccountService {
         PreparedStatement ps;
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, loginBean.getUsername());
-            ps.setString(2, loginBean.getPassword());
+            ps.setString(1, User.getEmail());
+            ps.setString(2, User.getPassword());
             
         ResultSet rs = ps.executeQuery();
         status = rs.next();
         
         } catch (SQLException ex) {
-            Logger.getLogger(LoginDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AccountService.class.getName()).log(Level.SEVERE, null, ex);
         }
                 
         return status;
