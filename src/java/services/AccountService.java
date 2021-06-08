@@ -42,7 +42,7 @@ public class AccountService {
         return con;
     }
 
-    public boolean validate(User user) {
+    public boolean login(User user) {
         loadDriver(dbDriver);
         Connection con = getConnection();
         boolean status = false;
@@ -67,22 +67,7 @@ public class AccountService {
     }
     
     
-    public User login(String email, String password) {
-        //UserDB userDB = new UserDB();
-        User user = null;
-        try{
-            //user = userDB.get(email);
-            //if(password.equals(user.getPassword()) && user.getActive()) {
-            //    return user;
-            //}
-            //else{
-            //    user = null;
-            //}
-        } catch(Exception e){
-            
-        }
-        return user;
-    }
+   
     public void changePassword(String email, String oldPassword, String newPassword) {
         
     }
