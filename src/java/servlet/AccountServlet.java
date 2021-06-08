@@ -6,7 +6,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,10 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.User;
 import services.AccountService;
 
-/**
- *
- * @author 805580
- */
 public class AccountServlet extends HttpServlet {
 
      @Override
@@ -30,6 +25,7 @@ public class AccountServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        /*
         String  email = request.getParameter("email");
         String  password = request.getParameter("password");
         
@@ -39,15 +35,11 @@ public class AccountServlet extends HttpServlet {
         
         AccountService acc = new AccountService();
         
-       if( acc.login(user)) {
+       if (acc.login(user)) {
            response.sendRedirect("account.jsp");
-       }
-       else
-       {
+       } else {
            response.sendRedirect("login.jsp");
-       }
-        
-         
+       }      
+       */
     }
-
 }
