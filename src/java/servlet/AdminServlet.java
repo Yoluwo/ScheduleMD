@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets;
+package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 805580
  */
-public class AccountServlet extends HttpServlet {
+public class AdminServlet extends HttpServlet {
 
      /**
       * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,10 +35,10 @@ public class AccountServlet extends HttpServlet {
                out.println("<!DOCTYPE html>");
                out.println("<html>");
                out.println("<head>");
-               out.println("<title>Servlet AccountServlet</title>");               
+               out.println("<title>Servlet AdminServlet</title>");               
                out.println("</head>");
                out.println("<body>");
-               out.println("<h1>Servlet AccountServlet at " + request.getContextPath() + "</h1>");
+               out.println("<h1>Servlet AdminServlet at " + request.getContextPath() + "</h1>");
                out.println("</body>");
                out.println("</html>");
           }
