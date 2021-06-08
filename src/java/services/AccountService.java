@@ -20,7 +20,7 @@ import model.User;
 public class AccountService {
     
     private String dbUrl = "jdbc:mysql://localhost:3306/userdb";
-    private String dbUname = "root";
+    private String dbEmail = "root";
     private String dbPassword = "rootpasswordgiven";
     private String dbDriver = "com.mysql.cj.jdbc.Driver";
     
@@ -35,14 +35,14 @@ public class AccountService {
     public Connection getConnection() {
         Connection con = null;
         try {
-            con = DriverManager.getConnection(dbUrl, dbUname, dbPassword);
+            con = DriverManager.getConnection(dbUrl, dbEmail, dbPassword);
         } catch (SQLException ex) {
             Logger.getLogger(AccountService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return con;
     }
 
-    public boolean validate(User user) {
+    public boolean login(User user) {
         loadDriver(dbDriver);
         Connection con = getConnection();
         boolean status = false;
@@ -52,8 +52,8 @@ public class AccountService {
         PreparedStatement ps;
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, User.getEmail());
-            ps.setString(2, User.getPassword());
+            ps.setString(1, user.getEmail());
+            ps.setString(2, user.getPassword());
             
         ResultSet rs = ps.executeQuery();
         status = rs.next();
@@ -67,22 +67,7 @@ public class AccountService {
     }
     
     
-    public User login(String email, String password) {
-        //UserDB userDB = new UserDB();
-        User user = null;
-        try{
-            //user = userDB.get(email);
-            //if(password.equals(user.getPassword()) && user.getActive()) {
-            //    return user;
-            //}
-            //else{
-            //    user = null;
-            //}
-        } catch(Exception e){
-            
-        }
-        return user;
-    }
+   
     public void changePassword(String email, String oldPassword, String newPassword) {
         
     }
