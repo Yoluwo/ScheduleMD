@@ -16,13 +16,13 @@
 
      </head>
      <body>
-          <div class="logo">
+          <div class="navigation">
                <h1>ScheduleMD</h1>
           </div>
           <div class="container">
+                <h2>Welcome Back</h2>
           <form method="POST" action="login">
                <div class="form-control">
-               <h2>Welcome Back :)</h2>
                <input type="text" name="username" value="${username}" required>
                <label>Username: 
                     <!--
@@ -52,9 +52,9 @@
                -->
                </label>
                </div>
-               <input type="checkbox" id="signedin" name="signedin" value="signin">
-               <label for="signedin">Remember me</label><br>
-               <button class="btn">Log in </button>
+               <a href="#">Forgot your password?</a>
+               <br>
+               <button class="btn">Log in</button>
           </form>
           </div>
           <script src="js/script.js"></script>
