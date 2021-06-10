@@ -31,10 +31,12 @@ public class LoginServlet extends HttpServlet {
            User currentUser = accountService.login(email, password);
            
             if (currentUser == null) {
-            request.setAttribute("message", "Your account either does not exist, or was deactivated");
+            request.setAttribute("message", "Your account does not exist");
             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 
             return;
+            
+            
         }
            
            

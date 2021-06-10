@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.User;
-import services.AccountService;
+import services.AccountServiceWrong;
 
 public class AccountServlet extends HttpServlet {
 
