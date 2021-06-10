@@ -24,33 +24,11 @@
           <form method="POST" action="login">
                <div class="form-control">
                <input type="text" name="username" value="${username}" required>
-               <label>Username: 
-                    <!--
-               <span style="transition-delay: 0ms">U</span>
-               <span style="transition-delay: 0ms">s</span>
-               <span style="transition-delay: 0ms">e</span>
-               <span style="transition-delay: 0ms">r</span>
-               <span style="transition-delay: 0ms">n</span>
-               <span style="transition-delay: 0ms">a</span>
-               <span style="transition-delay: 0ms">m</span>
-               <span style="transition-delay: 0ms">e</span>
-               -->
-               </label>
+               <label>Username: </label>
                </div>
                <div class="form-control">
                <input type="password" name="password" value="${password}" required>
-               <label>Password: 
-               <!--
-               <span style="transition-delay: 0ms">P</span>
-               <span style="transition-delay: 0ms">a</span>
-               <span style="transition-delay: 0ms">s</span>
-               <span style="transition-delay: 0ms">s</span>
-               <span style="transition-delay: 0ms">w</span>
-               <span style="transition-delay: 0ms">o</span>
-               <span style="transition-delay: 0ms">r</span>
-               <span style="transition-delay: 0ms">d</span>
-               -->
-               </label>
+               <label>Password: </label>
                </div>
                <a href="#">Forgot your password?</a>
                <br>
