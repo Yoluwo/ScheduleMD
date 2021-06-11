@@ -16,7 +16,7 @@ public class Resident extends User {
     //private Request deniedRequests;
 
     public Resident(Integer userID, String firstName, String lastName, String email, String password, boolean isActive){ //All 3 Requests variables will be added when Requests has been created
-        super(userID, firstName, lastName, email,password,isActive);
+        super(userID, firstName, lastName, email, password, isActive);
         //this.approvedRequests = approvedRequests;
         //this.pendingRequests = pendingRequests;
         //this.deniedRequests = deniedRequests;
