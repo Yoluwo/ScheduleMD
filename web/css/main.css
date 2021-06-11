@@ -67,7 +67,7 @@ body {
      border-bottom: 2px #fff solid;
      display: block;
      width: 90%;
-     padding: 18px 0px 0px 0px;
+     padding: 40px 0px 0px 0px;
      font-size: 18px;
      font-family: 'merriweather', sans-serif;
 }
@@ -75,19 +75,13 @@ body {
 .form-control input:focus, 
 .form-control input:valid{
      outline: 0;
-     transform: translateY(40px);
+     transform: translateY(20px);
 }
 
 .form-control label{
      position: absolute;
      top: 15px;
      left: 0;
-     
-}
-
-.form-control label span{
-     display: inline-block;
-     min-width: 5px;
 }
 
 .form-control input:focus,
@@ -117,6 +111,7 @@ body {
      background-color: #bdd2d9;
 }
 
-.text{
-     margin-top: 30px;
+p{
+     font-family: 'merriweather', sans-serif;
+     color: #659f74;
 }

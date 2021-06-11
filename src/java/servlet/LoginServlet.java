@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
            if (currentUser == null) {
             request.setAttribute("email", email);
             request.setAttribute("password", password);
-            request.setAttribute("message", "Login invalid.");
+            request.setAttribute("message", "Sorry, login is invalid");
             this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
         }

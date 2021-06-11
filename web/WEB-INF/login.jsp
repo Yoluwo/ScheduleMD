@@ -23,13 +23,13 @@
                 <h2>Welcome Back</h2>
           <form method="POST" action="login">
                 <div class="form-control">
-                     <label for="email"><span>Email: </span></label>
-                     <input type="text" name="email" id="email"><br>
+                     <label for="email">Email: </label>
+                     <input type="text" name="email" id="email" autocomplete="email" required><br>
                </div>
                
                <div class="form-control">
-                    <label for="password"><span>Password:</span></label>
-                    <input type="password" name="password" id="password" ><br>
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" id="password" required><br>
                </div>
                
                <a href="#">Forgot your password?</a>
