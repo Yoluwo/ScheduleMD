@@ -8,7 +8,7 @@ public class AccountService {
         UserDB userDB = new UserDB();
         User user = null;
         try {
-             user = userDB.get(email);
+            user = userDB.get(email);
             if (password.equals(user.getPassword())) {
                 return user;
             }
