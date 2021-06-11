@@ -29,13 +29,13 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
         AccountService accountService = new AccountService();
 
-        String username = request.getParameter("username");
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        User currentUser = accountService.login(username, password);
+        User currentUser = accountService.login(email, password);
 
         if (currentUser == null) {
-            request.setAttribute("message", "Your account does not exist");
+            request.setAttribute("message", email);
             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 
             return;

@@ -22,13 +22,11 @@
           <div class="container">
                 <h2>Welcome Back</h2>
           <form method="POST" action="login">
-               <div class="form-control">
-               <input type="text" name="username" value="${username}" required>
-               <label>Username: </label>
+                <div class="form-control">
+                Email: <input type="text" name="email"><br>
                </div>
                <div class="form-control">
-               <input type="password" name="password" value="${password}" required>
-               <label>Password: </label>
+                Password:<input type="password" name="password" ><br>
                </div>
                <a href="#">Forgot your password?</a>
                <p> ${message}</p>
