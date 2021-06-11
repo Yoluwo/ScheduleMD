@@ -96,7 +96,6 @@ body {
 .btn:active{
      transform: scale(0.96);
      background-color: #bdd2d9;
-     color: #88cff9;
 }
 
 .text{
