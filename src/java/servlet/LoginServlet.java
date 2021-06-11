@@ -27,10 +27,10 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
         AccountService accountService = new AccountService();
 
-        String email = request.getParameter("email");
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        User currentUser = accountService.login(email, password);
+        User currentUser = accountService.login(username, password);
 
         if (currentUser == null) {
             request.setAttribute("message", "Your account does not exist");

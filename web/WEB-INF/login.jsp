@@ -31,6 +31,7 @@
                <label>Password: </label>
                </div>
                <a href="#">Forgot your password?</a>
+               <p> ${message}</p>
                <br>
                <button class="btn">Log in</button>
           </form>
