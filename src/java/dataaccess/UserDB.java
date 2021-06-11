@@ -1,23 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dataaccess;
+
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import model.User;
-/**
- *
- * @author alexz
- */
+
+
 public class UserDB {
-    public UserDB() {
-        
-    }
-    
-      public User get(String email) {
+    public User get(String email) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
         try {
@@ -27,6 +17,7 @@ public class UserDB {
             em.close();
         }
     }
+    
      public List<User> getAll() throws Exception {
        EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
@@ -38,6 +29,7 @@ public class UserDB {
         }
 
     }
+     
     public void delete(User user) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
