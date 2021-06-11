@@ -7,8 +7,10 @@ package model;
  */
 public class Admin extends User{
     
-    public Admin(String email, String password, String firstName, String lastName, int userID) {
-        super(email, password, firstName, lastName, 0, userID);
+    public Admin(Integer userID, String firstName, String lastName, String email, String password, boolean isActive) {
+        super(userID, firstName, lastName, email,password,isActive);
+        Role adminRole = new Role(0);
+        super.setRoleID(adminRole);
     }
     
    // private Boolean addAdmin();

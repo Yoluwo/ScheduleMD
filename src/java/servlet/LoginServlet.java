@@ -6,25 +6,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import services.AccountServiceWrong;
+import model.Role;
+import services.AccountService;
 import model.User;
 
 public class LoginServlet extends HttpServlet {
+    
+  @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    
+             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp")
+                .forward(request, response);
+    
 
+    }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp")
-                .forward(request, response);
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-
+        
+    
         HttpSession session = request.getSession();
-        AccountServiceWrong accountService = new AccountServiceWrong();
+        AccountService accountService = new AccountService();
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -32,21 +35,28 @@ public class LoginServlet extends HttpServlet {
         User currentUser = accountService.login(email, password);
 
         if (currentUser == null) {
-            request.setAttribute("message", "Your account does not exist");
+            request.setAttribute("message", email + password);
             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 
             return;
             
         }
-
-        if (currentUser.getRoleId() == 0)  {
-              response.sendRedirect("admin");
+        
+        Role roleCheck = currentUser.getRoleID();
+        if (roleCheck.getRoleName().equals("system admin"))  {
+              //response.sendRedirect("admin");
+               request.setAttribute("message", "logged in admin");
         } else {
-              response.sendRedirect("resident");
+              //response.sendRedirect("resident");
+               request.setAttribute("message", "logged in resident");
             }
+        
+        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp")
+            .forward(request, response);
 
         }
 
-    }
+  
+}
 
 
