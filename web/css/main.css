@@ -84,11 +84,6 @@ body {
      left: 0;
 }
 
-.form-control input:focus,
-.form-control input:valid {
-     outline: 0;
-}
-
 .btn{
      cursor: pointer;
      display: inline-block;
@@ -102,6 +97,10 @@ body {
      box-shadow: 1px 1px 1px 0px #2f739c;
 }
 
+.btn:hover{
+     color: #88cff9;
+}
+
 .btn:focus{
      outline: 0;
 }
@@ -109,6 +108,7 @@ body {
 .btn:active{
      transform: scale(0.96);
      background-color: #bdd2d9;
+     color: #094c72;
 }
 
 p{
