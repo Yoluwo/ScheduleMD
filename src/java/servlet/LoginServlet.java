@@ -34,12 +34,20 @@ public class LoginServlet extends HttpServlet {
 
         User currentUser = accountService.login(email, password);
 
-        if (currentUser == null) {
+        /*if (currentUser == null) {
             request.setAttribute("message", email + password);
             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 
             return;
             
+        }*/
+        
+           if (currentUser == null) {
+            request.setAttribute("email", email);
+            request.setAttribute("password", password);
+            request.setAttribute("message", "Login invalid.");
+            this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+            return;
         }
         
         Role roleCheck = currentUser.getRoleID();
