@@ -11,19 +11,21 @@ import services.AccountService;
 import model.User;
 
 public class LoginServlet extends HttpServlet {
+    
+  @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    
+             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp")
+                .forward(request, response);
+    
 
+    }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp")
-                .forward(request, response);
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-
+        
+    
         HttpSession session = request.getSession();
         AccountService accountService = new AccountService();
 
@@ -48,9 +50,13 @@ public class LoginServlet extends HttpServlet {
               //response.sendRedirect("resident");
                request.setAttribute("message", "logged in resident");
             }
+        
+        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp")
+            .forward(request, response);
 
         }
 
-    }
+  
+}
 
 
