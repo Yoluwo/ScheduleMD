@@ -28,6 +28,7 @@
                </div>
                <div class="form-control">
                <input type="password" name="password" value="${password}" required>
+               <br>
                <label>Password: </label>
                </div>
                <a href="#">Forgot your password?</a>

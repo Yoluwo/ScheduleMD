@@ -1,8 +1,3 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
 /* 
     Created on : 3-Jun-2021, 2:27:32 PM
     Author     : 805580
@@ -43,7 +38,7 @@ body {
      margin-left: auto;
      margin-right: auto;
      background-color: #88cff9;
-     padding: 30px 40px 30px 40px;
+     padding: 30px 40px 70px 40px;
      border: 2px solid #5ec3ff;
      border-radius: 5px;
      box-shadow: 0px 0px 2px 2px #2f739c; 
@@ -54,7 +49,7 @@ body {
 .container a {
      text-decoration: none;
      color: #114bd9;
-     font-size: 1rem;
+     font-size: 14px;
 }
 
 .form-control{
@@ -79,7 +74,6 @@ body {
 .form-control input:focus, 
 .form-control input:valid{
      outline: 0;
-     
 }
 
 .btn{
@@ -102,4 +96,20 @@ body {
 .btn:active{
      transform: scale(0.96);
      background-color: #bdd2d9;
+     color: #88cff9;
+}
+
+.text{
+     margin-top: 30px;
+}
+
+.form-control label{
+     position: absolute;
+     top: 15px;
+     left: 0;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+     transform: translateY(30px);
 }
