@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.User;
+import model.User_nonjpa;
 /**
  *
  * @author epaul
@@ -42,7 +42,7 @@ public class AccountServiceWrong {
         return con;
     }
 
-    public boolean login(User user) {
+    public boolean login(User_nonjpa user) {
         loadDriver(dbDriver);
         Connection con = getConnection();
         boolean status = false;
@@ -72,7 +72,7 @@ public class AccountServiceWrong {
         
     }
 
-     public User login(String email, String password) {
+     public User_nonjpa login(String email, String password) {
           throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
      }
 }

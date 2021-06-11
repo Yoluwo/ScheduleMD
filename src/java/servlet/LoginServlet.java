@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import services.AccountServiceWrong;
-import model.User;
+import model.User_nonjpa;
 
 public class LoginServlet extends HttpServlet {
 
@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        User currentUser = accountService.login(email, password);
+        User_nonjpa currentUser = accountService.login(email, password);
 
         if (currentUser == null) {
             request.setAttribute("message", "Your account does not exist");
