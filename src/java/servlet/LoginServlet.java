@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import services.AccountServiceWrong;
+import model.User;
 
 public class LoginServlet extends HttpServlet {
 
@@ -48,4 +49,4 @@ public class LoginServlet extends HttpServlet {
 
     }
 
-}
+

@@ -79,6 +79,14 @@ public class User {
     public void setUserID(int userID) {
         this.userID = userID;
     }
+
+     public int getRoleId() {
+          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     }
+
+     public boolean getActive() {
+          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     }
     
     
 }

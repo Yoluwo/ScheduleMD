@@ -71,4 +71,8 @@ public class AccountServiceWrong {
     public void changePassword(String email, String oldPassword, String newPassword) {
         
     }
+
+     public User login(String email, String password) {
+          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     }
 }
