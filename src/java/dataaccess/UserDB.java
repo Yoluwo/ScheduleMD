@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package dataaccess;
-import model.User_nonjpa;
+import model.User;
 /**
  *
  * @author alexz
@@ -14,11 +14,11 @@ public class UserDB {
         
     }
     
-    public User_nonjpa get(String email) {
+    public User get(String email) {
         
         return null;
     }
-    public User_nonjpa[] getAll() {
+    public User[] getAll() {
         
         return null;
     }

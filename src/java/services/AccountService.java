@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package services;
-import model.User_nonjpa;
+import model.User;
 import dataaccess.UserDB;
 
 /**
@@ -13,13 +13,13 @@ import dataaccess.UserDB;
  */
 public class AccountService {
     
-    public User_nonjpa login(String email, String password) {
+    public User login(String email, String password) {
 
         UserDB userDB = new UserDB();
-        User_nonjpa user = null;
+        User user = null;
         try {
             user = userDB.get(email);
-            if (password.equals(user.getPassword()) && user.getActive()) {
+            if (password.equals(user.getPassword()) && user.getIsActive()) {
                 return user;
             } else {
                 user = null;

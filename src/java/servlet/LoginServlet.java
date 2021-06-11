@@ -6,8 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import services.AccountServiceWrong;
-import model.User_nonjpa;
+import model.Role;
+import services.AccountService;
+import model.User;
 
 public class LoginServlet extends HttpServlet {
 
@@ -24,12 +25,12 @@ public class LoginServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 
         HttpSession session = request.getSession();
-        AccountServiceWrong accountService = new AccountServiceWrong();
+        AccountService accountService = new AccountService();
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        User_nonjpa currentUser = accountService.login(email, password);
+        User currentUser = accountService.login(email, password);
 
         if (currentUser == null) {
             request.setAttribute("message", "Your account does not exist");
@@ -38,8 +39,9 @@ public class LoginServlet extends HttpServlet {
             return;
             
         }
-
-        if (currentUser.getRoleId() == 0)  {
+        
+        Role roleCheck = currentUser.getRoleID();
+        if (roleCheck.getRoleName().equals("system admin"))  {
               response.sendRedirect("admin");
         } else {
               response.sendRedirect("resident");
