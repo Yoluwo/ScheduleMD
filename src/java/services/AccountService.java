@@ -5,6 +5,7 @@
  */
 package services;
 import model.User;
+import dataaccess.UserDB;
 
 /**
  *
