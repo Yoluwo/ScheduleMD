@@ -1,6 +1,6 @@
 /* 
     Created on : 3-Jun-2021, 2:27:32 PM
-    Author     : 805580
+    Author     : Yetunde Oluwo
 */
 
 * {
@@ -14,7 +14,7 @@ body {
      color: #094c72;
      font-family: 'merriweather', sans-serif;
      text-align: center;
-     line-height: 1.6;;
+     line-height: 1.6;
      margin: 0;
      height: 100vh;
      overflow: hidden;
@@ -38,7 +38,7 @@ body {
      margin-left: auto;
      margin-right: auto;
      background-color: #88cff9;
-     padding: 30px 40px 70px 40px;
+     padding: 30px 40px 50px 40px;
      border: 2px solid #5ec3ff;
      border-radius: 5px;
      box-shadow: 0px 0px 2px 2px #2f739c; 
@@ -67,12 +67,31 @@ body {
      border-bottom: 2px #fff solid;
      display: block;
      width: 90%;
-     padding: 15px 0;
+     padding: 18px 0px 0px 0px;
      font-size: 18px;
+
 }
 
 .form-control input:focus, 
 .form-control input:valid{
+     outline: 0;
+     transform: translateY(40px);
+}
+
+.form-control label{
+     position: absolute;
+     top: 15px;
+     left: 0;
+     
+}
+
+.form-control label span{
+     display: inline-block;
+     min-width: 5px;
+}
+
+.form-control input:focus,
+.form-control input:valid {
      outline: 0;
 }
 
@@ -100,15 +119,4 @@ body {
 
 .text{
      margin-top: 30px;
-}
-
-.form-control label{
-     position: absolute;
-     top: 15px;
-     left: 0;
-}
-
-.form-control input:focus,
-.form-control input:valid {
-     transform: translateY(30px);
 }

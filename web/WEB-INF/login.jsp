@@ -1,7 +1,7 @@
 <%-- 
     Document   : login
     Created on : 3-Jun-2021, 11:14:07 AM
-    Author     : 805580
+    Author     : Yetunde Oluwo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,14 +23,17 @@
                 <h2>Welcome Back</h2>
           <form method="POST" action="login">
                 <div class="form-control">
-                Email: <input type="text" name="email"><br>
+                     <label for="email"><span>Email: </span></label>
+                     <input type="text" name="email" id="email"><br>
                </div>
+               
                <div class="form-control">
-                Password:<input type="password" name="password" ><br>
+                    <label for="password"><span>Password:</span></label>
+                    <input type="password" name="password" id="password" ><br>
                </div>
+               
                <a href="#">Forgot your password?</a>
                <p> ${message}</p>
-               <br>
                <button class="btn">Log in</button>
           </form>
           </div>
