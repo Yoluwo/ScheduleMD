@@ -13,28 +13,17 @@ and open the template in the editor.
 }
 
 body {
-     background-image: url(../images/doctor0.jpg);
-     background-size: cover;
-     background-repeat: no-repeat;
+     background: url(../images/doctor2.jpg) no-repeat center center fixed;
+     background-size: cover !important;
      background-color: #dbf3fa;
-     color: #00254d;
+     color: #094c72;
      font-family: 'merriweather', sans-serif;
      text-align: center;
      line-height: 1.6;;
      margin: 0;
+     height: 100vh;
+     overflow: hidden;
 
-}
-
-.container {
-     max-width: 280px;
-     margin-top: 100px;
-     margin-left: auto;
-     margin-right: auto;
-     background-color: #abddfc;
-     padding: 1em;
-     border: 2px solid #000;
-     border-radius: 5px;
-     overflow: auto;
 }
 
 .navigation h1{
@@ -42,16 +31,75 @@ body {
      font-size: 40px;
      background-color: #094c72;
      color: #fff;
-     text-align: center;
      margin-top: 0;
+     border: 2px solid #00254d;
+     border-radius: 5px;
 
+}
+
+.container {
+     max-width: 350px;
+     margin-top: 100px;
+     margin-left: auto;
+     margin-right: auto;
+     background-color: #88cff9;
+     padding: 30px 40px 30px 40px;
+     border: 2px solid #5ec3ff;
+     border-radius: 5px;
+     box-shadow: 0px 0px 2px 2px #2f739c; 
+     overflow: auto;
+    
 }
 
 .container a {
      text-decoration: none;
-     color: #0d3aa9;
+     color: #114bd9;
+     font-size: 1rem;
 }
 
-.form-label input{
-     text-decoration: none;
+.form-control{
+     position: relative;
+     margin: 20px 0 20px 0px;
+     width: 280px;
+     text-align: left;
+     color: #094c72;
+     font-size: 20px;
+}
+
+.form-control input {
+     background-color: transparent;
+     border: 0;
+     border-bottom: 2px #fff solid;
+     display: block;
+     width: 90%;
+     padding: 15px 0;
+     font-size: 18px;
+}
+
+.form-control input:focus, 
+.form-control input:valid{
+     outline: 0;
+     
+}
+
+.btn{
+     cursor: pointer;
+     display: inline-block;
+     width: 100%;
+     background-color: #dbf3fa;
+     padding: 15px;
+     font-size: 18px;
+     font-family: inherit;
+     color: #094c72;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+}
+
+.btn:focus{
+     outline: 0;
+}
+
+.btn:active{
+     transform: scale(0.96);
+     background-color: #bdd2d9;
 }
