@@ -42,9 +42,11 @@ public class LoginServlet extends HttpServlet {
         
         Role roleCheck = currentUser.getRoleID();
         if (roleCheck.getRoleName().equals("system admin"))  {
-              response.sendRedirect("admin");
+              //response.sendRedirect("admin");
+               request.setAttribute("message", "logged in admin");
         } else {
-              response.sendRedirect("resident");
+              //response.sendRedirect("resident");
+               request.setAttribute("message", "logged in resident");
             }
 
         }
