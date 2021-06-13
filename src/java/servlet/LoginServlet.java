@@ -34,33 +34,28 @@ public class LoginServlet extends HttpServlet {
 
         User currentUser = accountService.login(email, password);
 
-        /*if (currentUser == null) {
-            request.setAttribute("message", email + password);
+        if (currentUser == null) {
+            request.setAttribute("message", "Invalid Login");
             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 
             return;
             
-        }*/
-        
-           if (currentUser == null) {
-            request.setAttribute("email", email);
-            request.setAttribute("password", password);
-            request.setAttribute("message", "Sorry, login is invalid");
-            this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-            return;
         }
-        
+    
         Role roleCheck = currentUser.getRoleID();
+        
+        session.setAttribute("email", email);
+        session.setAttribute("role", roleCheck);
+        
         if (roleCheck.getRoleName().equals("system admin"))  {
-              //response.sendRedirect("admin");
-               request.setAttribute("message", "logged in admin");
+               response.sendRedirect("admin");
+            
         } else {
-              //response.sendRedirect("resident");
-               request.setAttribute("message", "logged in resident");
+               response.sendRedirect("resident");
+          
             }
         
-        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp")
-            .forward(request, response);
+    
 
         }
 
