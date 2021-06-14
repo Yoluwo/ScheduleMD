@@ -15,11 +15,17 @@ public class LoginServlet extends HttpServlet {
   @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
-             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp")
-                .forward(request, response);
-    
-
+        
+        HttpSession session = request.getSession();
+        
+          if (request.getParameter("logout") != null) {
+            session.invalidate();
+            request.setAttribute("message", "Succesfully Logged Out");
+            getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+        }
+          
+        session.invalidate();
+        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -34,33 +40,28 @@ public class LoginServlet extends HttpServlet {
 
         User currentUser = accountService.login(email, password);
 
-        /*if (currentUser == null) {
-            request.setAttribute("message", email + password);
+        if (currentUser == null) {
+            request.setAttribute("message", "Invalid Login");
             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 
             return;
             
-        }*/
-        
-           if (currentUser == null) {
-            request.setAttribute("email", email);
-            request.setAttribute("password", password);
-            request.setAttribute("message", "Sorry, login is invalid");
-            this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-            return;
         }
-        
+    
         Role roleCheck = currentUser.getRoleID();
+        
+        session.setAttribute("email", email);
+        session.setAttribute("role", roleCheck);
+        
         if (roleCheck.getRoleName().equals("system admin"))  {
-              //response.sendRedirect("admin");
-               request.setAttribute("message", "logged in admin");
+               response.sendRedirect("admin");
+            
         } else {
-              //response.sendRedirect("resident");
-               request.setAttribute("message", "logged in resident");
+               response.sendRedirect("resident");
+          
             }
         
-        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp")
-            .forward(request, response);
+    
 
         }
 
