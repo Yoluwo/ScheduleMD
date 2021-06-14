@@ -9,7 +9,7 @@
 <html>
      <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-          <title>Schedule MD</title>
+          <title>ScheduleMD</title>
           <link href="css/main.css" rel="stylesheet" type="text/css" >
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
@@ -24,12 +24,14 @@
           <form method="POST" action="login">
                 <div class="form-control">
                      <label for="email">Email: </label>
-                     <input type="text" name="email" id="email" autocomplete="email" required><br>
+                     <input type="text" name="email" id="email" autocomplete="email" required>
+                     <br>
                </div>
                
                <div class="form-control">
                     <label for="password">Password: </label>
-                    <input type="password" name="password" id="password" required><br>
+                    <input type="password" name="password" id="password" required>
+                    <br>
                </div>
                
                <a href="#">Forgot your password?</a>
@@ -37,6 +39,5 @@
                <button class="btn">Log in</button>
           </form>
           </div>
-          <script src="js/script.js"></script>
      </body>
 </html>
