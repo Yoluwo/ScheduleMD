@@ -69,6 +69,25 @@
                          <div class="back"></div>
                               <h1>Profile</h1>
                     </div>
+                    <div class="submain">
+                    <div>
+                         <div class="form-control">
+                         <label for="oldpassword">Old Password: </label>
+                         <input type="password" name="oldpassword" id="oldpassword" required>
+                         </div>
+                    </div>
+                    <div class="form-control">
+                         <label for="newpassword">New Password: </label>
+                         <input type="password" name="newpassword" id="newpassword" required>
+                    </div>
+                    <div class="form-control">
+                         <label for="newpassword">Confirm Password: </label>
+                         <input type="password" name="newpassword" id="newpassword" required>
+                    </div>
+                         <button class="btn">Submit</button>
+                    </div>
+                    </div>
+                    </div>
           </div>
      </body>
 </html>
