@@ -111,9 +111,10 @@ h1 {
      justify-content: center;
      align-items: center;
      color: #095280;
+     border: 1px solid #5ec3ff;
 }
 
-.form-control{
+.form-control {
      position: relative;
      margin: 10px 0 10px 0px;
      width: 280px;
@@ -130,7 +131,7 @@ h1 {
      display: block;
      width: 100%;
      padding: 35px 0px 0px 0px;
-     font-size: 18px;
+     font-size: 15px;
      font-family: 'merriweather', sans-serif;
 }
 
@@ -178,4 +179,10 @@ h1 {
 
 .submain {
      margin: 50px 0px 10px 40px;
+}
+
+p {
+     color: #094c72;
+     font-size: 18px;
+     margin: 20px;
 }
