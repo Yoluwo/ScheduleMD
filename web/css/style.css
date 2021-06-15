@@ -47,10 +47,13 @@ h1 {
 }
 
 .navigation ul li:hover {
-     background: #dbf3fa;
+     background: #88cff9;
      
 }
 
+.navigation ul li:nth-child(1){
+     margin-bottom: 20px;
+}
 
 .navigation ul li:nth-child(1):hover {
      background: transparent;
@@ -86,6 +89,7 @@ h1 {
      position: relative;
      display: block;
      padding: 0 10px;
+     height: 60px;
      line-height: 60px;
-     text-align: center;
+     white-space: nowrap;
 }

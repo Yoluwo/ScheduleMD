@@ -22,20 +22,20 @@
                     <ul> 
                     <li>
                          <a href="#">
-                         <span class="icon"></span>
-                         <span class="title"><h1>Schedule MD</h1></span>
-                         </a>
-                    </li>
-                    <li>
-                         <a href="#">
-                         <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                         <span class="title">Profile</span>
+                         <span class="icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+                         <span class="title"><h1>ScheduleMD</h1></span>
                          </a>
                     </li>
                     <li>
                          <a href="#">
                          <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                          <span class="title">Schedule</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="#">
+                         <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                         <span class="title">Profile</span>
                          </a>
                     </li>
                     <li>
