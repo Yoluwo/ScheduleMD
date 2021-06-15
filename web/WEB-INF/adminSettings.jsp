@@ -1,6 +1,6 @@
 <%-- 
-    Document   : review
-    Created on : 14-Jun-2021, 7:07:38 PM
+    Document   : adminSettings
+    Created on : 15-Jun-2021, 9:52:44 AM
     Author     : 805580
 --%>
 
@@ -10,7 +10,7 @@
      <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
-          <title>Review Time off requests</title>
+          <title>Settings</title>
           <link href="css/style.css" rel="stylesheet" type="text/css">
           <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" rel="stylesheet" >
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
@@ -61,10 +61,12 @@
                <div class="main">
                     <div class="topbar">
                          <div class="back"></div>
-                              <h1>Review Time Off Requests</h1>
+                              <h1>Settings</h1>
                     </div>
                </div>
                
           </div>
      </body>
 </html>
+
+

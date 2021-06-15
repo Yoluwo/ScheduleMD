@@ -27,7 +27,7 @@
                          </a>
                     </li>
                     <li>
-                         <a href="schedule">
+                         <a href="createSchedule">
                          <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                          <span class="title">Schedule</span>
                          </a>
@@ -39,13 +39,13 @@
                          </a>
                     </li>
                     <li>
-                         <a href="#">
+                         <a href="manageUsers">
                          <span class="icon"><i class="fa fa-user-plus" aria-hidden="true"></i></span>
                          <span class="title">Manage Users</span>
                          </a>
                     </li>
                     <li>
-                         <a href="settings">
+                         <a href="adminSettings">
                          <span class="icon"><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
                          <span class="title">Setting</span>
                          </a>

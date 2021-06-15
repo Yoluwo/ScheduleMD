@@ -56,6 +56,18 @@
         <servlet-name>ScheduleServlet</servlet-name>
         <servlet-class>servlet.ScheduleServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateScheduleServlet</servlet-name>
+        <servlet-class>servlet.CreateScheduleServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminSettingsServlet</servlet-name>
+        <servlet-class>servlet.AdminSettingsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageUsersServlet</servlet-name>
+        <servlet-class>servlet.ManageUsersServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -91,6 +103,18 @@
     <servlet-mapping>
         <servlet-name>ScheduleServlet</servlet-name>
         <url-pattern>/schedule</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateScheduleServlet</servlet-name>
+        <url-pattern>/createSchedule</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminSettingsServlet</servlet-name>
+        <url-pattern>/adminSettings</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageUsersServlet</servlet-name>
+        <url-pattern>/manageUsers</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
