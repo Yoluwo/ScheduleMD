@@ -52,6 +52,10 @@
         <servlet-name>PasswordServlet</servlet-name>
         <servlet-class>servlet.PasswordServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ScheduleServlet</servlet-name>
+        <servlet-class>servlet.ScheduleServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -83,6 +87,10 @@
     <servlet-mapping>
         <servlet-name>PasswordServlet</servlet-name>
         <url-pattern>/password</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ScheduleServlet</servlet-name>
+        <url-pattern>/schedule</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
