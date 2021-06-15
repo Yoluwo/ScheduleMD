@@ -47,7 +47,7 @@ public class ProfileServlet extends HttpServlet {
          boolean isChanged = accountService.changePassword(email, oldPassword, newPassword);
          
          if(!isChanged){
-             request.setAttribute("message", "Password did not meet requirments, Please try again.");
+             request.setAttribute("message", "Password did not meet requirements, Please try again.");
              getServletContext().getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
          }
          else{
