@@ -13,7 +13,7 @@ public class AccountService {
                 return user;
             }
         } catch (Exception e) {}
-        return user;
+        return null;
 /*
         UserDB userDB = new UserDB();
         User user = null;
