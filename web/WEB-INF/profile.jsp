@@ -71,20 +71,24 @@
                     </div>
                     <div class="submain">
                     <div>
+                    <form method="POST" action="profile">
                          <div class="form-control">
-                         <label for="oldpassword">Old Password: </label>
-                         <input type="password" name="oldpassword" id="oldpassword" required>
+                         <label for="oldPassword">Old Password: </label>
+                         <input type="password" name="oldPassword" id="oldpassword" required>
                          </div>
                     </div>
                     <div class="form-control">
-                         <label for="newpassword">New Password: </label>
-                         <input type="password" name="newpassword" id="newpassword" required>
+                         <label for="newPassword">New Password: </label>
+                         <input type="password" name="newPassword" id="newpassword" required>
                     </div>
                     <div class="form-control">
-                         <label for="newpassword">Confirm Password: </label>
-                         <input type="password" name="newpassword" id="newpassword" required>
+                         <label for="newPassword">Confirm Password: </label>
+                         <input type="password" name="newPassword" id="newpassword" required>
                     </div>
                          <button class="btn">Submit</button>
+                    </form>
+                        <br>
+                          <p> ${message}</p>
                     </div>
                     </div>
                     </div>
