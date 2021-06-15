@@ -56,3 +56,28 @@ h1 {
      background: transparent;
      
 }
+
+
+.navigation ul li a {
+     position: relative;
+     display: block;
+     width: 100%;
+     display:flex;
+     text-decoration: none;
+     color: #dbf3fa;
+     
+}
+
+.navigation ul li a .icon {
+     position: relative;
+     display: block;
+     min-width: 60px;
+     height: 60px;
+     line-height: 60px;
+     text-align: center;
+}
+
+.navigation ul li a .icon .fa {
+     color: #dbf3fa;
+     font-size: 24px;
+}

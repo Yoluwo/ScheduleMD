@@ -21,28 +21,40 @@
                <div class="navigation">
                     <ul> 
                     <li>
+                         <a href="#">
                          <span class="icon"></span>
                          <span class="title"><h1>Schedule MD</h1></span>
+                         </a>
                     </li>
                     <li>
+                         <a href="#">
                          <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
                          <span class="title">View Request Time Off</span>
+                         </a>
                     </li>
                     <li>
+                         <a href="#">
                          <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                          <span class="title">Schedule</span>
+                         </a>
                     </li>
                     <li>
+                         <a href="#">
                          <span class="icon"><i class="fa fa-user-plus" aria-hidden="true"></i></span>
                          <span class="title">Manage Users</span>
+                         </a>
                     </li>
                     <li>
+                         <a href="#">
                          <span class="icon"><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
                          <span class="title">Setting</span>
+                         </a>
                     </li>
                     <li>
+                         <a href="#">
                          <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
                          <span class="title">Logout</span>
+                         </a>
                     </li>
                     </ul>
                </div>

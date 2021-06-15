@@ -21,32 +21,46 @@
                <div class="navigation">
                     <ul> 
                     <li>
+                         <a href="#">
                          <span class="icon"></span>
                          <span class="title"><h1>Schedule MD</h1></span>
+                         </a>
                     </li>
                     <li>
+                         <a href="#">
                          <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
                          <span class="title">Profile</span>
+                         </a>
                     </li>
                     <li>
+                         <a href="#">
                          <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                          <span class="title">Schedule</span>
+                         </a>
                     </li>
                     <li>
+                         <a href="#">
                          <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
                          <span class="title">Request Time off</span>
+                         </a>
                     </li>
                     <li>
+                         <a href="#">
                          <span class="icon"><i class="fa fa-comment" aria-hidden="true"></i></span>
                          <span class="title">Messages</span>
+                         </a>
                     </li>
                     <li>
+                         <a href="#">
                          <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
                          <span class="title">Settings</span>
+                         </a>
                     </li>
                     <li>
+                         <a href="#">
                          <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
                          <span class="title">Logout</span>
+                         </a>
                     </li>
                     </ul>
                </div>
