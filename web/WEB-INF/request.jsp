@@ -1,6 +1,6 @@
 <%-- 
-    Document   : admin
-    Created on : 3-Jun-2021, 5:34:36 PM
+    Document   : request
+    Created on : 14-Jun-2021, 6:47:02 PM
     Author     : Yetunde Oluwo
 --%>
 
@@ -10,9 +10,9 @@
      <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
-          <title>Admin Panel</title>
-          <link href="css/style.css" rel="stylesheet" type="text/css">
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous>
+          <title>Request Time Off</title>
+          <link href="css/style.css" rel="stylesheet" type="text/css" >
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
      </head>
@@ -33,21 +33,27 @@
                          </a>
                     </li>
                     <li>
-                         <a href="#">
+                         <a href="profile">
+                         <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                         <span class="title">Profile</span>
+                         </a>
+                    </li>
+                    <li>
+                         <a href="request">
                          <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
-                         <span class="title">View Request Time Off</span>
+                         <span class="title">Request Time Off</span>
                          </a>
                     </li>
                     <li>
-                         <a href="#">
-                         <span class="icon"><i class="fa fa-user-plus" aria-hidden="true"></i></span>
-                         <span class="title">Manage Users</span>
+                         <a href="messages">
+                         <span class="icon"><i class="fa fa-comment" aria-hidden="true"></i></span>
+                         <span class="title">Messages</span>
                          </a>
                     </li>
                     <li>
-                         <a href="#">
-                         <span class="icon"><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
-                         <span class="title">Setting</span>
+                         <a href="settings">
+                         <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                         <span class="title">Settings</span>
                          </a>
                     </li>
                     <li>
@@ -61,10 +67,9 @@
                <div class="main">
                     <div class="topbar">
                          <div class="back"></div>
-                              <h1>Schedule Details</h1>
+                              <h1>Request Time Off</h1>
                     </div>
-               </div>
-               
           </div>
      </body>
 </html>
+

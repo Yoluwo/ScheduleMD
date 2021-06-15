@@ -93,3 +93,22 @@ h1 {
      line-height: 60px;
      white-space: nowrap;
 }
+
+.main {
+     position: absolute;
+     width:100%;
+     left: 300px;
+     min-height: 100vh;
+     background: #f5fdff;
+     transition: 0.5s;
+}
+
+.main .topbar {
+     width:calc(100% - 300px);
+     background: #88cff9;
+     height: 60px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: #095280;
+}

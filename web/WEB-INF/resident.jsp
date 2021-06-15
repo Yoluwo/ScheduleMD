@@ -1,7 +1,7 @@
 <%-- 
     Document   : account
     Created on : 3-Jun-2021, 5:34:48 PM
-    Author     : 805580
+    Author     : Yetunde Oluwo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -27,43 +27,48 @@
                          </a>
                     </li>
                     <li>
-                         <a href="#">
+                         <a href="resident">
                          <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                          <span class="title">Schedule</span>
                          </a>
                     </li>
                     <li>
-                         <a href="#">
+                         <a href="profile">
                          <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
                          <span class="title">Profile</span>
                          </a>
                     </li>
                     <li>
-                         <a href="#">
+                         <a href="request">
                          <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
-                         <span class="title">Request Time off</span>
+                         <span class="title">Request Time Off</span>
                          </a>
                     </li>
                     <li>
-                         <a href="#">
+                         <a href="messages">
                          <span class="icon"><i class="fa fa-comment" aria-hidden="true"></i></span>
                          <span class="title">Messages</span>
                          </a>
                     </li>
                     <li>
-                         <a href="#">
+                         <a href="settings">
                          <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
                          <span class="title">Settings</span>
                          </a>
                     </li>
                     <li>
-                         <a href="#">
+                         <a href="login">
                          <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
                          <span class="title">Logout</span>
                          </a>
                     </li>
                     </ul>
                </div>
+               <div class="main">
+                    <div class="topbar">
+                         <div class="back"></div>
+                              <h1>Schedule Details</h1>
+                    </div>
           </div>
      </body>
 </html>
