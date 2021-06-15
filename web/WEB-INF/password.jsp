@@ -21,12 +21,12 @@
                <h1><i class="fa fa-hospital-o" aria-hidden="true"></i>ScheduleMD</h1>
           <div class="form-control">
                <label for="oldpassword">Old Password: </label>
-               <input type="text" name="oldpassword" id="oldpassword" required>
+               <input type="password" name="oldpassword" id="oldpassword" required>
                <br>
           </div>
           <div class="form-control">
                <label for="newpassword">New Password: </label>
-               <input type="text" name="newpassword" id="newpassword" required>
+               <input type="password" name="newpassword" id="newpassword" required>
                <br>
           </div>
           <button class="btn">Submit</button>
