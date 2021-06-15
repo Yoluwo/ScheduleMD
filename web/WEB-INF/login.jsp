@@ -19,7 +19,7 @@
      </head>
      <body>
           <div class="navigation"> 
-               <h1><i class="fa fa-hospital-o" aria-hidden="true"></i>ScheduleMD</h1>
+               <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
           </div>
           <div class="container">
                 <h2>Welcome Back</h2>

@@ -18,7 +18,7 @@
      </head>
      <body>
           <div class="container">
-               <h1><i class="fa fa-hospital-o" aria-hidden="true"></i>ScheduleMD</h1>
+               <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
           <div class="form-control">
                <label for="oldpassword">Old Password: </label>
                <input type="password" name="oldpassword" id="oldpassword" required>

@@ -22,13 +22,13 @@ body {
 }
 
 .navigation h1{
-     font-family: 'merriweather', sans-serif;
-     font-size: 40px;
      background-color: #094c72;
      color: #fff;
-     margin-top: 0;
      border: 2px solid #00254d;
      border-radius: 5px;
+     font-family: 'merriweather', sans-serif;
+     font-size: 40px;
+     margin-top: 0;
 
 }
 
@@ -113,4 +113,9 @@ body {
 p{
      font-family: 'merriweather', sans-serif;
      color: #659f74;
+}
+
+.navigation .icon .fa {
+     color: #dbf3fa;
+     font-size: 35px;
 }
