@@ -1,7 +1,7 @@
 <%-- 
-    Document   : account
-    Created on : 3-Jun-2021, 5:34:48 PM
-    Author     : Yetunde Oluwo
+    Document   : schedule
+    Created on : 14-Jun-2021, 7:22:32 PM
+    Author     : 805580
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,7 +10,7 @@
      <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
-          <title>Resident</title>
+          <title>Schedule</title>
           <link href="css/style.css" rel="stylesheet" type="text/css" >
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
@@ -27,7 +27,7 @@
                          </a>
                     </li>
                     <li>
-                         <a href="schedule">
+                         <a href="resident">
                          <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                          <span class="title">Schedule</span>
                          </a>
@@ -67,8 +67,9 @@
                <div class="main">
                     <div class="topbar">
                          <div class="back"></div>
-                              <h1>Dashboard</h1>
+                              <h1>Schedule</h1>
                     </div>
           </div>
      </body>
 </html>
+
