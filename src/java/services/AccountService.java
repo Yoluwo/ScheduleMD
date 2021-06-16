@@ -2,6 +2,12 @@ package services;
 import model.User;
 import dataaccess.UserDB;
 
+/*
+    The AccountService class is used to validate a user and allow them access
+    into the application. It also is used to change a users password.
+    
+*/
+
 public class AccountService {
     
     public User login(String email, String password) {

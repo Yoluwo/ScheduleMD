@@ -36,6 +36,7 @@ public class ProfileServlet extends HttpServlet {
          
          String oldPassword = request.getParameter("oldPassword");
          String newPassword = request.getParameter("newPassword");
+         String confirmPassword = request.getParameter("confirmPassword");
          String email = (String) session.getAttribute("email");
          
          if(oldPassword.equals(newPassword)){
@@ -43,7 +44,10 @@ public class ProfileServlet extends HttpServlet {
              getServletContext().getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
              
          }
-         
+         if(!newPassword.equals(confirmPassword)){
+             request.setAttribute("message", "New Password and Confirm Password must match");
+             getServletContext().getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+         }
          boolean isChanged = accountService.changePassword(email, oldPassword, newPassword);
          
          if(!isChanged){

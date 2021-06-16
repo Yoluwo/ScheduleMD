@@ -82,8 +82,8 @@
                          <input type="password" name="newPassword" id="newpassword" required>
                     </div>
                     <div class="form-control">
-                         <label for="newPassword">Confirm Password: </label>
-                         <input type="password" name="newPassword" id="newpassword" required>
+                         <label for="confirmPassword">Confirm Password: </label>
+                         <input type="password" name="confirmPassword" id="confirmPassword" required>
                     </div>
                          <button class="btn">Submit</button>
                     </form>
