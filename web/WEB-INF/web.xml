@@ -22,51 +22,51 @@
     </filter-mapping>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>servlet.LoginServlet</servlet-class>
+        <servlet-class>servlets.LoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminServlet</servlet-name>
-        <servlet-class>servlet.AdminServlet</servlet-class>
+        <servlet-class>servlets.AdminServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ResidentServlet</servlet-name>
-        <servlet-class>servlet.ResidentServlet</servlet-class>
+        <servlet-class>servlets.ResidentServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MessagesServlet</servlet-name>
-        <servlet-class>servlet.MessagesServlet</servlet-class>
+        <servlet-class>servlets.MessagesServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProfileServlet</servlet-name>
-        <servlet-class>servlet.ProfileServlet</servlet-class>
+        <servlet-class>servlets.ProfileServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SettingsServlet</servlet-name>
-        <servlet-class>servlet.SettingsServlet</servlet-class>
+        <servlet-class>servlets.SettingsServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ReviewServlet</servlet-name>
-        <servlet-class>servlet.ReviewServlet</servlet-class>
+        <servlet-class>servlets.ReviewServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PasswordServlet</servlet-name>
-        <servlet-class>servlet.PasswordServlet</servlet-class>
+        <servlet-class>servlets.PasswordServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ScheduleServlet</servlet-name>
-        <servlet-class>servlet.ScheduleServlet</servlet-class>
+        <servlet-class>servlets.ScheduleServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CreateScheduleServlet</servlet-name>
-        <servlet-class>servlet.CreateScheduleServlet</servlet-class>
+        <servlet-class>servlets.CreateScheduleServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminSettingsServlet</servlet-name>
-        <servlet-class>servlet.AdminSettingsServlet</servlet-class>
+        <servlet-class>servlets.AdminSettingsServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ManageUsersServlet</servlet-name>
-        <servlet-class>servlet.ManageUsersServlet</servlet-class>
+        <servlet-class>servlets.ManageUsersServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>

@@ -1,5 +1,5 @@
 package services;
-import model.User;
+import models.User;
 import dataaccess.UserDB;
 
 /*

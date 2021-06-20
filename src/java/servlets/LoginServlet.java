@@ -1,4 +1,4 @@
-package servlet;
+package servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,9 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Role;
+import models.Role;
 import services.AccountService;
-import model.User;
+import models.User;
 
 public class LoginServlet extends HttpServlet {
     

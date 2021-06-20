@@ -3,8 +3,8 @@
   <persistence-unit name="Schedule-MDPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <non-jta-data-source>java:/comp/env/jdbc/schedulemddb</non-jta-data-source>
-    <class>model.Role</class>
-    <class>model.User</class>
+    <class>models.User</class>
+    <class>models.Role</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
   </persistence-unit>
 </persistence>

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlet;
+package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,22 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author 805580
+ * @author Yetunde Oluwo
  */
-public class ScheduleServlet extends HttpServlet {
+public class CreateScheduleServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/schedule.jsp")
+        getServletContext().getRequestDispatcher("/WEB-INF/createSchedule.jsp")
                 .forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/schedule.jsp")
+        getServletContext().getRequestDispatcher("/WEB-INF/createSchedule.jsp")
                 .forward(request, response);
     }
 }
-
