@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author 743851
+ * @author Alex Zecevic
  */
 @Entity
 @Table(name = "role")
@@ -32,9 +32,6 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Role.findByRoleName", query = "SELECT r FROM Role r WHERE r.roleName = :roleName")})
 public class Role implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "roleID")
-    private Collection<User> userCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -43,6 +40,8 @@ public class Role implements Serializable {
     @Basic(optional = false)
     @Column(name = "RoleName")
     private String roleName;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "role")
+    private Collection<User> userCollection;
 
     public Role() {
     }
@@ -72,6 +71,15 @@ public class Role implements Serializable {
         this.roleName = roleName;
     }
 
+    @XmlTransient
+    public Collection<User> getUserCollection() {
+        return userCollection;
+    }
+
+    public void setUserCollection(Collection<User> userCollection) {
+        this.userCollection = userCollection;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -94,16 +102,7 @@ public class Role implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Role[ roleID=" + roleID + " ]";
-    }
-
-    @XmlTransient
-    public Collection<User> getUserCollection() {
-        return userCollection;
-    }
-
-    public void setUserCollection(Collection<User> userCollection) {
-        this.userCollection = userCollection;
+        return "models.Role[ roleID=" + roleID + " ]";
     }
     
 }

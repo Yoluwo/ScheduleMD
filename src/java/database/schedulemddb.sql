@@ -45,12 +45,12 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`user` (
     `Password` VARCHAR(20) NOT NULL,
     `IsActive` TINYINT(1) NOT NULL,
     PRIMARY KEY (`UserID`),
-    CONSTRAINT `fk_role_id`
+    CONSTRAINT `fk_role_id_user`
         FOREIGN KEY (`Role`)
-        REFERENCES `schedulemddb`.`role` (RoleID),
-    CONSTRAINT `fk_hospital_id`
+        REFERENCES `schedulemddb`.`role` (`RoleID`),
+    CONSTRAINT `fk_hospital_id_user`
         FOREIGN KEY (`Hospital`)
-        REFERENCES `schedulemddb`.`hospital` (HospitalID)
+        REFERENCES `schedulemddb`.`hospital` (`HospitalID`)
 );
 
 -- -----------------------------------------------------
@@ -58,15 +58,59 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`user` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `schedulemddb`.`timeoff` (
     `TimeOffID` INT(6) NOT NULL AUTO_INCREMENT,
-    `UserID` INT(4) NOT NULL,
+    `User` INT(4) NOT NULL,
     `RequestedDate` DATE NOT NULL,
     `StartDate` DATE NOT NULL,
     `EndDate` DATE NOT NULL,
     `IsApproved` TINYINT(1) NOT NULL,
     PRIMARY KEY (`TimeOffID`),
-    CONSTRAINT `fk_user_id`
-        FOREIGN KEY (`UserID`)
-        REFERENCES `schedulemddb`.`user` (UserID)
+    CONSTRAINT `fk_user_id_timeoff`
+        FOREIGN KEY (`User`)
+        REFERENCES `schedulemddb`.`user` (`UserID`)
+);
+
+-- -----------------------------------------------------
+-- Table `schedulemddb`.`schedule`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `schedulemddb`.`schedule` (
+    `ScheduleID` INT(6) NOT NULL AUTO_INCREMENT,
+    `Hospital` INT(3) NOT NULL,
+    `StartDate` DATE NOT NULL,
+    `EndDate` DATE NOT NULL,
+    PRIMARY KEY (`ScheduleID`),
+    CONSTRAINT `fk_hospital_id_schedule`
+        FOREIGN KEY (`Hospital`)
+        REFERENCES `schedulemddb`.`hospital` (`HospitalID`)
+); 
+
+-- -----------------------------------------------------
+-- Table `schedulemddb`.`shift`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `schedulemddb`.`shift` (
+    `ShiftID` INT(6) NOT NULL AUTO_INCREMENT,
+    `Schedule` INT(6) NOT NULL,
+    `StartTime` DATETIME NOT NULL,
+    `EndTime` DATETIME NOT NULL,
+    PRIMARY KEY (`ShiftID`),
+    CONSTRAINT `fk_schedule_id_shift`
+        FOREIGN KEY (`Schedule`)
+        REFERENCES `schedulemddb`.`schedule` (`ScheduleID`)
+);
+
+-- -----------------------------------------------------
+-- Table `schedulemddb`.`personalSchedule`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `schedulemddb`.`personalSchedule` (
+    `PersonalSchduleID` INT(6) NOT NULL AUTO_INCREMENT,
+    `User` INT(4) NOT NULL,
+    `Shift` INT(6) NOT NULL,
+    PRIMARY KEY (`personalSchduleID`),
+    CONSTRAINT `fk_user_id_personal_schedule`
+        FOREIGN KEY (`User`)
+        REFERENCES `schedulemddb`.`user` (`UserID`),
+    CONSTRAINT `fk_shift_id_personal_schedule`
+        FOREIGN KEY (`Shift`)
+        REFERENCES `schedulemddb`.`shift` (`ShiftID`)
 );
 
 -- -----------------------------------------------------
@@ -75,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`timeoff` (
 -- real production data instead.
 -- -----------------------------------------------------
 
-INSERT INTO `hospital` VALUES (0, 'test');
+INSERT INTO `hospital` VALUES (0, 'test', 'test type');
 
 INSERT INTO `role` VALUES (0, 'system admin');
 INSERT INTO `role` VALUES (1, 'regular user');

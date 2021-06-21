@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
             
         }
     
-        Role roleCheck = currentUser.getRoleID();
+        Role roleCheck = currentUser.getRole();
         
         session.setAttribute("email", email);
         session.setAttribute("role", roleCheck);

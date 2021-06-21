@@ -6,7 +6,9 @@
 package models;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,12 +18,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author 743851
+ * @author Alex Zecevic
  */
 @Entity
 @Table(name = "user")
@@ -57,9 +61,16 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "IsActive")
     private boolean isActive;
-    @JoinColumn(name = "RoleID", referencedColumnName = "RoleID")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Collection<Personalschedule> personalscheduleCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Collection<Timeoff> timeoffCollection;
+    @JoinColumn(name = "Hospital", referencedColumnName = "HospitalID")
     @ManyToOne(optional = false)
-    private Role roleID;
+    private Hospital hospital;
+    @JoinColumn(name = "Role", referencedColumnName = "RoleID")
+    @ManyToOne(optional = false)
+    private Role role;
 
     public User() {
     }
@@ -125,12 +136,38 @@ public class User implements Serializable {
         this.isActive = isActive;
     }
 
-    public Role getRoleID() {
-        return roleID;
+    @XmlTransient
+    public Collection<Personalschedule> getPersonalscheduleCollection() {
+        return personalscheduleCollection;
     }
 
-    public void setRoleID(Role roleID) {
-        this.roleID = roleID;
+    public void setPersonalscheduleCollection(Collection<Personalschedule> personalscheduleCollection) {
+        this.personalscheduleCollection = personalscheduleCollection;
+    }
+
+    @XmlTransient
+    public Collection<Timeoff> getTimeoffCollection() {
+        return timeoffCollection;
+    }
+
+    public void setTimeoffCollection(Collection<Timeoff> timeoffCollection) {
+        this.timeoffCollection = timeoffCollection;
+    }
+
+    public Hospital getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override
@@ -155,7 +192,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "model.User[ userID=" + userID + " ]";
+        return "models.User[ userID=" + userID + " ]";
     }
     
 }

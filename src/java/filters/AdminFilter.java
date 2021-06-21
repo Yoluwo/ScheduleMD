@@ -22,7 +22,7 @@ public class AdminFilter implements Filter {
             HttpSession session = httpRequest.getSession();
             String email = (String)session.getAttribute("email");
             UserDB userDB = new UserDB();
-            int role = userDB.get(email).getRoleID().getRoleID();
+            int role = userDB.get(email).getRole().getRoleID();
 
             if (role != 0) {
                 HttpServletResponse httpResponse = (HttpServletResponse) response;

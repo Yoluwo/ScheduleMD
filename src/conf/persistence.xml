@@ -5,6 +5,11 @@
     <non-jta-data-source>java:/comp/env/jdbc/schedulemddb</non-jta-data-source>
     <class>models.User</class>
     <class>models.Role</class>
+    <class>models.Shift</class>
+    <class>models.Personalschedule</class>
+    <class>models.Hospital</class>
+    <class>models.Timeoff</class>
+    <class>models.Schedule</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
   </persistence-unit>
 </persistence>
