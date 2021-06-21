@@ -1,4 +1,3 @@
-//less broken
 package servlets;
 
 import java.io.IOException;
