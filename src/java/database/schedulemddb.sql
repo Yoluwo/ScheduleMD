@@ -119,16 +119,16 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`personalSchedule` (
 -- real production data instead.
 -- -----------------------------------------------------
 
-INSERT INTO `hospital` VALUES (0, 'test', 'test type');
+INSERT INTO `hospital` VALUES (1, 'test', 'test type');
 
 INSERT INTO `role` VALUES (0, 'system admin');
 INSERT INTO `role` VALUES (1, 'regular user');
 
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`)
-    VALUES (0, 0, 'Admin', 'Admin', 'admin@gmail.com', 'password', true);
+    VALUES (0, 1, 'Admin', 'Admin', 'admin@gmail.com', 'password', true);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`)
-    VALUES (1, 0, 'Alex', 'Zecevic', 'alexz@gmail.com', 'password', true);
+    VALUES (1, 1, 'Alex', 'Zecevic', 'alexz@gmail.com', 'password', true);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`)
-    VALUES (1, 0, 'Tom', 'Skiff', 'toms@gmail.com', 'password', true);
+    VALUES (1, 1, 'Tom', 'Skiff', 'toms@gmail.com', 'password', true);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`)
-    VALUES (1, 0, 'Ethan', 'Paul', 'ethanp@gmail.com', 'password', true);
+    VALUES (1, 1, 'Ethan', 'Paul', 'ethanp@gmail.com', 'password', true);
