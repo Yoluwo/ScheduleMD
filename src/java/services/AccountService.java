@@ -9,7 +9,7 @@ import dataaccess.UserDB;
 */
 
 public class AccountService {
-    
+    //Confirms that user logging in has entered a valid login, and returns the User
     public User login(String email, String password) {
         UserDB userDB = new UserDB();
         User user = null;
@@ -36,6 +36,8 @@ public class AccountService {
         return user;
 */
     }
+    //Validates the new password when User is changing password, ensures all password
+    //requirements have been met
     public boolean changePassword(String email, String oldPassword, String newPassword) {
         //Passwords requirements -- 1 uppercase, 1 lowercase, 1 number, minimum 8 length
         boolean hasUpperCase = false;
