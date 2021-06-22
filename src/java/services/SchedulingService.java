@@ -35,7 +35,9 @@ public class SchedulingService {
     
     public getAllActiveResdients() {
         
-    } **/
+    }
+     * @param hospitalID
+     * @return  **/
     
     public static Hospital getHospital(Integer hospitalID) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
