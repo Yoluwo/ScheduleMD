@@ -55,7 +55,7 @@ public class SchedulingService {
     public static Schedule getShift(DateTime startDate, Integer hospitalID) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         try {
-            Schedule shift = em.find(Schedule.class, hospitalID);
+            Schedule shift = em.find(Schedule.class, startDate);
         return shift;
         } finally {
             em.close();
