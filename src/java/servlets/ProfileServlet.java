@@ -16,7 +16,7 @@ import services.AccountService;
 
 /**
  *
- * @author 805580
+ * @author Yetunde Oluwo
  */
 public class ProfileServlet extends HttpServlet {
      @Override

@@ -61,7 +61,7 @@
                <div class="main">
                     <div class="topbar">
                          <div class="back"></div>
-                              <h1>Admin</h1>
+                              <h1>Administrator Panel</h1>
                     </div>
                </div>
                
