@@ -20,13 +20,8 @@
           <div class="container">
                <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
           <div class="form-control">
-               <label for="oldpassword">Old Password: </label>
-               <input type="password" name="oldpassword" id="oldpassword" required>
-               <br>
-          </div>
-          <div class="form-control">
-               <label for="newpassword">New Password: </label>
-               <input type="password" name="newpassword" id="newpassword" required>
+               <label for="email">Email: </label>
+               <input type="text" name="email" id="email" required>
                <br>
           </div>
           <button class="btn">Submit</button>
