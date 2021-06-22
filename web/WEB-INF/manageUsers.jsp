@@ -17,6 +17,7 @@
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
      </head>
      <body>
+          <!--Java Single Page for the Admin to Manage User account settings -->
           <div class="container">
                <div class="navigation">
                     <ul> 
