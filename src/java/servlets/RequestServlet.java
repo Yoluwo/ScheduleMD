@@ -17,7 +17,7 @@ import services.AccountService;
 
 /**
  *
- * @author 805580
+ * @author Yetunde Oluwo
  */
 @WebServlet(name = "RequestServlet", urlPatterns = {"/request"})
 public class RequestServlet extends HttpServlet {
