@@ -14,12 +14,20 @@ import org.eclipse.persistence.jpa.jpql.parser.DateTime;
  *
  * @author Kilanga Maxwell
  */
+
+/*
+    The SchedulingService class is used to perform queries to the database 
+    for data on residents, shifts, hospitals and status of requests.
+*/
+
+
 public class SchedulingService {
     /**
     public getAllResidents() {
         
     }
-    
+    */
+    /**
     public getAllResidents(Integer RoleID) {
         
     }
