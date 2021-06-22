@@ -12,6 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * This class filters all of the incoming login attempts and only allows
+ * users that are admins to be able to access the admin servlet. The filter
+ * will check the role associated with the user and if the user does not have
+ * a valid admin role it will redirect them to the resident servlet otherwise
+ * it will allow them to pass to the admin servlet.
+ * 
+ * @author Alex Zecevic
+ */
+
 public class AdminFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,

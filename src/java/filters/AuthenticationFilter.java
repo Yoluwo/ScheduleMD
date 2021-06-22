@@ -11,6 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * This class filters all of the incoming login attempts and only allows
+ * users that are logged in successfully access to the resident servlet. The 
+ * filter will check if the user logged in successfully and if they have not
+ * then it will redirect them back to the login page otherwise it will allow
+ * them to proceed to the resident servlet.
+ * 
+ * @author Alex Zecevic
+ */
+
 public class AuthenticationFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
