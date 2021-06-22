@@ -15,12 +15,18 @@ import org.eclipse.persistence.jpa.jpql.parser.DateTime;
  * @author Kilanga Maxwell
  */
 public class SchedulingService {
-    
+    /**
     public getAllResidents() {
         
     }
     
-    public getAllResidents 
+    public getAllResidents(Integer RoleID) {
+        
+    }
+    
+    public getAllActiveResdients() {
+        
+    }
     
     public Hospital getHospital(Integer hospitalID) {
         return hospital;
@@ -30,4 +36,15 @@ public class SchedulingService {
         return Shift();
     }
     
+    public getAllAprovedRequests(DateTime startDate) {
+        
+    }
+    
+    public getAllDeniedRequests() {
+        
+    }
+    
+    public getAllPendingRequests() {
+        
+    } */
 }
