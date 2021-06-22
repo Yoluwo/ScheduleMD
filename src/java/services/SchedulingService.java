@@ -5,10 +5,29 @@
  */
 package services;
 
+import models.Hospital;
+import static models.Schedule_.hospital;
+import org.eclipse.persistence.jpa.jpql.parser.DateTime;
+
+
 /**
  *
- * @author 585594
+ * @author Kilanga Maxwell
  */
 public class SchedulingService {
+    
+    public getAllResidents() {
+        
+    }
+    
+    public getAllResidents 
+    
+    public Hospital getHospital(Integer hospitalID) {
+        return hospital;
+    }
+    
+    public Shift getShift(DateTime startDate, Integer hospitalID) {
+        return Shift();
+    }
     
 }
