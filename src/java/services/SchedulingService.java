@@ -8,6 +8,7 @@ package services;
 import dataaccess.DBUtil;
 import javax.persistence.EntityManager;
 import models.Hospital;
+import models.Schedule;
 import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 
@@ -45,11 +46,14 @@ public class SchedulingService {
         hospital = em.find(Hospital.class, hospitalID);
         return hospital;
     }
-    /**
-    public Shift getShift(DateTime startDate, Integer hospitalID) {
-        return Shift();
+    
+    public static Schedule getShift(DateTime startDate, Integer hospitalID) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        Schedule shift = em.find(Schedule.class, hospitalID);
+        return shift;
     }
     
+    /**
     public getAllAprovedRequests(DateTime startDate) {
         
     }
