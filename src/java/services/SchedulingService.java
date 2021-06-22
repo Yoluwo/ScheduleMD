@@ -42,15 +42,24 @@ public class SchedulingService {
     
     public static Hospital getHospital(Integer hospitalID) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
-        Hospital hospital;
-        hospital = em.find(Hospital.class, hospitalID);
-        return hospital;
+        try {
+            Hospital hospital;
+            hospital = em.find(Hospital.class, hospitalID);
+            return hospital;
+        } finally {
+            em.close();
+        }
+        
     }
     
     public static Schedule getShift(DateTime startDate, Integer hospitalID) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
-        Schedule shift = em.find(Schedule.class, hospitalID);
+        try {
+            Schedule shift = em.find(Schedule.class, hospitalID);
         return shift;
+        } finally {
+            em.close();
+        }
     }
     
     /**
