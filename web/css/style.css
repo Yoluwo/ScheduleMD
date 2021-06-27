@@ -12,7 +12,6 @@
 
 body {
      overflow-x: hidden;
-     
 }
 
 .container {
@@ -22,33 +21,39 @@ body {
 
 h1 {
      font-family: 'lato', sans-serif;
+     font-size: 25px;
+     padding: 0 0 0 10px;
+    
 }
+
 .navigation {
      position: fixed;
-     width: 300px;
+     width: 260px;
      height: 100%;
      background: #094c72;
      transition: 0.5s;
      overflow: hidden;
 }
+
+.navigation.active{
+     width: 60px;
+}
+
 .navigation ul {
      position: absolute;
      top: 0;
      left: 0;
      width: 100%;
-     
 }
 
 .navigation ul li {
      position: relative;
      width: 100%;
-     list-style: none;
-     
+     list-style: none; 
 }
 
 .navigation ul li:hover {
      background: #88cff9;
-     
 }
 
 .navigation ul li:nth-child(1){
@@ -57,18 +62,15 @@ h1 {
 
 .navigation ul li:nth-child(1):hover {
      background: transparent;
-     
 }
-
 
 .navigation ul li a {
      position: relative;
      display: block;
      width: 100%;
-     display:flex;
+     display: flex;
      text-decoration: none;
      color: #dbf3fa;
-     
 }
 
 .navigation ul li a .icon {
@@ -96,22 +98,45 @@ h1 {
 
 .main {
      position: absolute;
-     width:100%;
-     left: 300px;
+     width: 100%;
+     left: 260px;
      min-height: 100vh;
      background: #f5fdff;
      transition: 0.5s;
 }
 
+.main.active{
+     width: calc(100% - 60px);
+     left: 60px;
+}
+
 .main .topbar {
-     width:calc(100% - 300px);
+     width: 100%;
      background: #88cff9;
      height: 60px;
      display: flex;
-     justify-content: center;
+     justify-content: flex-start;
      align-items: center;
      color: #095280;
      border: 1px solid #5ec3ff;
+}
+
+.toggle {
+     position: relative;
+     width: 60px;
+     height: 60px;
+     cursor: pointer;
+}
+
+.toggle::before {
+     content: '\f0c9';
+     font-family: fontAwesome;
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     line-height: 60px;
+     font-size: 24px;
+     text-align: center;
 }
 
 .form-control {
@@ -147,7 +172,6 @@ h1 {
      left: 0;
      padding: 20px;
 }
-
 
 .btn{
      cursor: pointer;

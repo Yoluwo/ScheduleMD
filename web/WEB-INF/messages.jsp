@@ -67,9 +67,10 @@
                </div>
                <div class="main">
                     <div class="topbar">
-                         <div class="back"></div>
+                         <div class="toggle" onclick="toggleMenu()"></div>
                               <h1>Messages</h1>
                     </div>
           </div>
+               <script type="text/javascript" src="js/script.js"></script>
      </body>
 </html>
