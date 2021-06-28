@@ -68,6 +68,10 @@
         <servlet-name>ManageUsersServlet</servlet-name>
         <servlet-class>servlets.ManageUsersServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ResetPassword</servlet-name>
+        <servlet-class>servlets.ResetPassword</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -115,6 +119,10 @@
     <servlet-mapping>
         <servlet-name>ManageUsersServlet</servlet-name>
         <url-pattern>/manageUsers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPassword</servlet-name>
+        <url-pattern>/resetPassword</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

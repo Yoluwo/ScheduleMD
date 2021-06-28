@@ -1,5 +1,5 @@
 /* 
-    Created on : 3-Jun-2021, 2:27:32 PM
+    Created on : 28-Jun-2021, 2:23:11 PM
     Author     : Yetunde Oluwo
 */
 
@@ -29,40 +29,28 @@ body {
      font-family: 'merriweather', sans-serif;
      font-size: 40px;
      margin-top: 0;
-
+     height: 80%;
 }
 
 .container {
-     max-width: 350px;
+     max-width: 480px;
      margin-top: 100px;
      margin-left: auto;
      margin-right: auto;
      background-color: #88cff9;
-     padding: 30px 40px 50px 40px;
+     padding: 50px 50px 60px 50px;
      border: 2px solid #5ec3ff;
      border-radius: 5px;
      box-shadow: 0px 0px 2px 2px #2f739c; 
-
+    
 }
 
 @media screen and (max-width: 480px){
      .container {
-          max-width: 290px;
+          width: 90%;
           margin-top: 50px;
           padding: 10px 30px 50px 30px;
      }
-
-     .form-control input {
-          width: 40%;
-          padding: 20px 0px 0px 0px;
-     }
-
-}
-
-.container a {
-     text-decoration: none;
-     color: #114bd9;
-     font-size: 14px;
 }
 
 .form-control{
@@ -122,11 +110,6 @@ body {
      transform: scale(0.96);
      background-color: #bdd2d9;
      color: #094c72;
-}
-
-p{
-     font-family: 'merriweather', sans-serif;
-     color: #659f74;
 }
 
 .navigation .icon .fa {

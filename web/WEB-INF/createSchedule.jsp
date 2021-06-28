@@ -21,48 +21,48 @@
           <div class="container">
                <div class="navigation">
                     <ul> 
-                    <li>
-                         <a href="#">
-                         <span class="icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
-                         <span class="title"><h1>ScheduleMD</h1></span>
-                         </a>
-                    </li>
-                    <li>
-                         <a href="createSchedule">
-                         <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                         <span class="title">Schedule</span>
-                         </a>
-                    </li>
-                    <li>
-                         <a href="review">
-                         <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
-                         <span class="title">View Request Time Off</span>
-                         </a>
-                    </li>
-                    <li>
-                         <a href="manageUsers">
-                         <span class="icon"><i class="fa fa-user-plus" aria-hidden="true"></i></span>
-                         <span class="title">Manage Users</span>
-                         </a>
-                    </li>
-                    <li>
-                         <a href="adminSettings">
-                         <span class="icon"><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
-                         <span class="title">Setting</span>
-                         </a>
-                    </li>
-                    <li>
-                         <a href="login">
-                         <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
-                         <span class="title">Logout</span>
-                         </a>
-                    </li>
+                         <li>
+                              <a href="#">
+                                   <span class="icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+                                   <span class="title"><h1>ScheduleMD</h1></span>
+                              </a>
+                         </li>
+                         <li>
+                              <a href="createSchedule">
+                                   <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                   <span class="title">Schedule</span>
+                              </a>
+                         </li>
+                         <li>
+                              <a href="review">
+                                   <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
+                                   <span class="title">View Request Time Off</span>
+                              </a>
+                         </li>
+                         <li>
+                              <a href="manageUsers">
+                                   <span class="icon"><i class="fa fa-user-plus" aria-hidden="true"></i></span>
+                                   <span class="title">Manage Users</span>
+                              </a>
+                         </li>
+                         <li>
+                              <a href="adminSettings">
+                                   <span class="icon"><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
+                                   <span class="title">Setting</span>
+                              </a>
+                         </li>
+                         <li>
+                              <a href="login">
+                                   <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                                   <span class="title">Logout</span>
+                              </a>
+                         </li>
                     </ul>
                </div>
                <div class="main">
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
-                              <h1>Schedule</h1>
+                         <h1>Schedule</h1>
                     </div>
                </div>       
           </div>

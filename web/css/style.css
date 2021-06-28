@@ -16,7 +16,7 @@ body {
 }
 
 @media (orientation: landscape) and (max-width: 500px){
-     
+
 }
 
 .container {
@@ -29,7 +29,7 @@ h1 {
      font-family: 'lato', sans-serif;
      font-size: 25px;
      padding: 0 0 0 10px;
-    
+
 }
 
 .navigation {

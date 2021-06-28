@@ -23,24 +23,24 @@
                <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
           </div>
           <div class="container">
-                <h2>Welcome Back</h2>
-          <form method="POST" action="login">
-                <div class="form-control">
-                     <label for="email">Email: </label>
-                     <input type="text" name="email" id="email" autocomplete="email" required>
-                     <br>
-               </div>
-               
-               <div class="form-control">
-                    <label for="password">Password: </label>
-                    <input type="password" name="password" id="password" required>
-                    <br>
-               </div>
-               
-               <a href="password">Forgot your password?</a>
-               <p> ${message}</p>
-               <button class="btn">Log in</button>
-          </form>
+               <h2>Welcome Back</h2>
+               <form method="POST" action="login">
+                    <div class="form-control">
+                         <label for="email">Email: </label>
+                         <input type="text" name="email" id="email" autocomplete="email" required>
+                         <br>
+                    </div>
+
+                    <div class="form-control">
+                         <label for="password">Password: </label>
+                         <input type="password" name="password" id="password" required>
+                         <br>
+                    </div>
+
+                    <a href="password">Forgot your password?</a>
+                    <p> ${message}</p>
+                    <button class="btn">Log in</button>
+               </form>
           </div>
      </body>
 </html>

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : password
-    Created on : 14-Jun-2021, 7:31:00 PM
-    Author     : Yetunde Oluwo
+    Document   : resetPassword
+    Created on : 28-Jun-2021, 2:51:22 PM
+    Author     : 805580
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,13 +22,24 @@
                <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
           </div>
           <div class="container">
-               <h2>Forgot Password?</h2>
+               <h2>Reset Password?</h2>
+               <div>
+                    <form method="POST" action="profile">
+                         <div class="form-control">
+                              <label for="oldPassword">Old Password: </label>
+                              <input type="password" name="oldPassword" id="oldpassword" required>
+                         </div>
+               </div>
                <div class="form-control">
-                    <label for="email">Email: </label>
-                    <input type="text" name="email" id="email" required>
-                    <br>
+                    <label for="newPassword">New Password: </label>
+                    <input type="password" name="newPassword" id="newpassword" required>
+               </div>
+               <div class="form-control">
+                    <label for="confirmPassword">Confirm Password: </label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" required>
                </div>
                <button class="btn">Submit</button>
-          </div>
-     </body>
+          </form>
+     </div>
+</body>
 </html>
