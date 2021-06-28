@@ -36,7 +36,7 @@
                     <li>
                          <a href="review">
                          <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
-                         <span class="title">View Time Off Requests</span>
+                         <span class="title">View Requests</span>
                          </a>
                     </li>
                     <li>
