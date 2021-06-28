@@ -10,7 +10,7 @@
      <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
-          <title>Review Time off requests</title>
+          <title>Review time off requests</title>
           <link href="css/style.css" rel="stylesheet" type="text/css">
           <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" rel="stylesheet" >
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
@@ -30,13 +30,13 @@
                     <li>
                          <a href="createSchedule">
                          <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                         <span class="title">Schedule</span>
+                         <span class="title">Create Schedule</span>
                          </a>
                     </li>
                     <li>
                          <a href="review">
                          <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
-                         <span class="title">View Request Time Off</span>
+                         <span class="title">View Time Off Requests</span>
                          </a>
                     </li>
                     <li>
@@ -48,7 +48,7 @@
                     <li>
                          <a href="adminSettings">
                          <span class="icon"><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
-                         <span class="title">Setting</span>
+                         <span class="title">Settings</span>
                          </a>
                     </li>
                     <li>

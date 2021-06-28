@@ -23,12 +23,14 @@
           </div>
           <div class="container">
                <h2>Forgot Password?</h2>
-               <div class="form-control">
-                    <label for="email">Email: </label>
-                    <input type="text" name="email" id="email" required>
-                    <br>
-               </div>
-               <button class="btn">Submit</button>
+               <form method="POST" action="password">
+                    <div class="form-control">
+                         <label for="email">Email: </label>
+                         <input type="text" name="email" id="email" required>
+                         <br>
+                    </div>
+                    <button class="btn">Submit</button>
+               </form>
           </div>
      </body>
 </html>

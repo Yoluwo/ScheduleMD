@@ -30,7 +30,7 @@
                     <li>
                          <a href="createSchedule">
                          <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                         <span class="title">Schedule</span>
+                         <span class="title">Create Schedule</span>
                          </a>
                     </li>
                     <li>
@@ -48,7 +48,7 @@
                     <li>
                          <a href="adminSettings">
                          <span class="icon"><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
-                         <span class="title">Setting</span>
+                         <span class="title">Settings</span>
                          </a>
                     </li>
                     <li>

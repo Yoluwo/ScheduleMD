@@ -9,7 +9,7 @@
 <html>
      <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-          <title>Forgot Password</title>
+          <title>Reset Password</title>
           <link href="css/forgot.css" rel="stylesheet" type="text/css" >
           <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" rel="stylesheet" >
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
@@ -17,29 +17,30 @@
 
      </head>
      <body>
-          <!--Java Single Page for the forgot password link -->
+          <!--Java Single Page for the reset password link -->
           <div class="navigation"> 
                <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
           </div>
           <div class="container">
                <h2>Reset Password?</h2>
-               <div>
-                    <form method="POST" action="profile">
-                         <div class="form-control">
-                              <label for="oldPassword">Old Password: </label>
-                              <input type="password" name="oldPassword" id="oldpassword" required>
-                         </div>
-               </div>
-               <div class="form-control">
-                    <label for="newPassword">New Password: </label>
-                    <input type="password" name="newPassword" id="newpassword" required>
-               </div>
-               <div class="form-control">
-                    <label for="confirmPassword">Confirm Password: </label>
-                    <input type="password" name="confirmPassword" id="confirmPassword" required>
-               </div>
-               <button class="btn">Submit</button>
-          </form>
-     </div>
-</body>
+               <form method="POST" action="resetPassword">
+                    <div class="form-control">
+                         <label for="oldPassword">Old Password: </label>
+                         <input type="password" name="oldPassword" id="oldpassword" required>
+                         <br>
+                    </div>
+                    <div class="form-control">
+                         <label for="newPassword">New Password: </label>
+                         <input type="password" name="newPassword" id="newpassword" required>
+                         <br>
+                    </div>
+                    <div class="form-control">
+                         <label for="confirmPassword">Confirm Password: </label>
+                         <input type="password" name="confirmPassword" id="confirmPassword" required>
+                         <br>
+                    </div>
+                    <button class="btn">Submit</button>
+               </form>
+          </div>
+     </body>
 </html>
