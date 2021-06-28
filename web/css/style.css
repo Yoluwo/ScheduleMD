@@ -15,10 +15,6 @@ body {
      padding-bottom: 50px;
 }
 
-@media (orientation: landscape) and (max-width: 500px){
-
-}
-
 .container {
      position: relative;
      width: 100%;
@@ -29,14 +25,14 @@ h1 {
      font-family: 'lato', sans-serif;
      font-size: 25px;
      padding: 0 0 0 10px;
-
 }
 
 .navigation {
      position: fixed;
-     width: 260px;
+     width: 255px;
      height: 100%;
      background: #094c72;
+     border-right: 1px #00254d solid;
      transition: 0.5s;
      overflow: hidden;
 }
@@ -96,7 +92,7 @@ h1 {
 .navigation ul li a .title {
      position: relative;
      display: block;
-     padding: 0 10px;
+     padding: 0;
      height: 60px;
      line-height: 60px;
      white-space: nowrap;
@@ -105,7 +101,7 @@ h1 {
 .main {
      position: absolute;
      width: 100%;
-     left: 260px;
+     left: 255px;
      min-height: 100vh;
      transition: 0.5s;
 }
@@ -142,6 +138,39 @@ h1 {
      line-height: 60px;
      font-size: 24px;
      text-align: center;
+}
+
+@media screen and (max-width: 480px){
+     .navigation {
+     width: 180px;
+     background: #094c72;
+     border-right: 1px #00254d solid;
+     font-size: 15px;
+     }
+     
+     .main {
+     width: 100%;
+     left: 180px;
+     }
+     
+     .navigation ul li a .icon .fa {
+     font-size: 18px;
+     }
+     
+     h1 {
+     font-family: 'lato', sans-serif;
+     font-size: 22px;
+     padding: 0;
+     }
+     
+     .navigation ul li a .title {
+     height: 40px;
+     }
+     
+     .navigation ul li a .icon {
+     min-width: 40px;
+     height: 45px;
+     }
 }
 
 .form-control {
