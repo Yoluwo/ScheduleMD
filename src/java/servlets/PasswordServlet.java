@@ -11,6 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import services.EmailService;
+import dataaccess.*;
+import models.User;
 
 /**
  *
@@ -27,6 +30,18 @@ public class PasswordServlet extends HttpServlet {
      @Override
      protected void doPost(HttpServletRequest request, HttpServletResponse response)
              throws ServletException, IOException {
-          getServletContext().getRequestDispatcher("/WEB-INF/password.jsp").forward(request, response);
+         UserDB userDB = new UserDB();
+         User user = null;
+         String email = request.getParameter("email");
+         try{
+             user = userDB.get(email);
+         } catch (Exception e) {}
+         
+         if (user != null){
+             EmailService es = new EmailService();
+             es.sendForgotPasswordEmail(user.getEmail());
+         }
+         request.setAttribute("message", "Please check email to change password.");
+         getServletContext().getRequestDispatcher("/WEB-INF/password.jsp").forward(request, response);
      }
 }

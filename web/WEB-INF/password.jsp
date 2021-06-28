@@ -20,12 +20,16 @@
           <!--Java Single Page for the forgot password link -->
           <div class="container">
                <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
-          <div class="form-control">
-               <label for="email">Email: </label>
-               <input type="text" name="email" id="email" required>
-               <br>
-          </div>
-          <button class="btn">Submit</button>
+               
+          <form method="POST" action="password">
+                <div class="form-control">
+                    <label for="email">Email: </label>
+                    <input type="text" name="email" id="email" required>
+                    <br>
+                </div>
+                <button class="btn">Submit</button>
+          </form>
+               ${message}
           </div>
      </body>
 </html>
