@@ -19,6 +19,8 @@ import java.util.Date;
 import java.sql.Timestamp;
 import java.net.URL;
 import java.net.MalformedURLException;
+import java.security.SecureRandom;
+import java.security.NoSuchAlgorithmException;
 
 /**
  *
@@ -31,7 +33,7 @@ public class EmailService {
     private String host = "smtp.gmail.com";
     private String recipient;
     
-    public void sendForgotPasswordEmail(String recipientEmail, int userID) throws MalformedURLException {
+    public void sendForgotPasswordEmail(String recipientEmail, int userID) throws MalformedURLException, NoSuchAlgorithmException {
         String token = "";
         boolean unique = false;
         //While loop Generates a Token, and checks if the token exists in database already, if it does, it will generate new token until it does not match one in database.
@@ -51,9 +53,11 @@ public class EmailService {
             UserResetTokenDB urtDB = new UserResetTokenDB();
             UserResetToken urt = urtDB.getUserID(userID);
             Date date = new Date();
+            date.setMinutes(date.getMinutes() + 10);
             Timestamp timestamp = new Timestamp(date.getTime());
             urt.setExpirationdate(timestamp);
             urt.setToken(token);
+            urt.setIsActive(true);
             urtDB.update(urt);
         } catch (Exception e){}
         URL url = new URL("http://localhost:8080/Schedule-MD/resetPassword?t=" + token);
@@ -87,9 +91,13 @@ public class EmailService {
         } catch (MessagingException mex) {}
     }
     public String generateToken() {
-        
-        
-        
-        return "abcd";
+        String token = "";
+        String chars = "0123456789abcdefghijklmnopqrstuvwxyz-_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        try{
+            SecureRandom sr = SecureRandom.getInstanceStrong();
+            token = sr.ints(20, 0, chars.length()).mapToObj(i -> chars.charAt(i))
+                .collect(StringBuilder::new, StringBuilder::append, StringBuilder::append).toString();    
+        } catch(NoSuchAlgorithmException ae){}
+        return token;
     }
 }

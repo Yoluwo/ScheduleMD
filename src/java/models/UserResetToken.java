@@ -29,7 +29,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "UserResetToken.findAll", query = "SELECT u FROM UserResetToken u")
     , @NamedQuery(name = "UserResetToken.findByUserID", query = "SELECT u FROM UserResetToken u WHERE u.userID = :userID")
     , @NamedQuery(name = "UserResetToken.findByToken", query = "SELECT u FROM UserResetToken u WHERE u.token = :token")
-    , @NamedQuery(name = "UserResetToken.findByExpirationdate", query = "SELECT u FROM UserResetToken u WHERE u.expirationdate = :expirationdate")})
+    , @NamedQuery(name = "UserResetToken.findByExpirationdate", query = "SELECT u FROM UserResetToken u WHERE u.expirationdate = :expirationdate")
+    , @NamedQuery(name = "UserResetToken.findByIsActive", query = "SELECT u FROM UserResetToken u WHERE u.isActive = :isActive")})
 public class UserResetToken implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,17 +38,25 @@ public class UserResetToken implements Serializable {
     @Basic(optional = false)
     @Column(name = "UserID")
     private Integer userID;
+    @Basic(optional = false)
     @Column(name = "Token")
     private String token;
     @Column(name = "Expiration_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date expirationdate;
+    @Column(name = "is_active")
+    private Boolean isActive;
 
     public UserResetToken() {
     }
 
     public UserResetToken(Integer userID) {
         this.userID = userID;
+    }
+
+    public UserResetToken(Integer userID, String token) {
+        this.userID = userID;
+        this.token = token;
     }
 
     public Integer getUserID() {
@@ -72,6 +81,14 @@ public class UserResetToken implements Serializable {
 
     public void setExpirationdate(Date expirationdate) {
         this.expirationdate = expirationdate;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
     }
 
     @Override

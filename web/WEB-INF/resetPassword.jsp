@@ -23,7 +23,7 @@
           </div>
           <div class="container">
                <h2>Reset Password?</h2>
-                    <form method="POST" action="resetPassword">
+               <form method="POST" action="resetPassword">
                         <div class="form-control">
                             <label for="newPassword">New Password: </label>
                             <input type="password" name="newPassword" id="newPassword" required>
@@ -36,7 +36,7 @@
                         </div>
                         <button class="btn">Submit</button>
                     </form>
-                    ${message}
+                            ${message}</br>
           </div>
      </body>
 </html>

@@ -15,7 +15,9 @@ import models.UserResetToken;
 import models.User;
 import dataaccess.UserResetTokenDB;
 import dataaccess.UserDB;
+import java.sql.Timestamp;
 import services.AccountService;
+import java.util.Date;
 
 /**
  *
@@ -42,30 +44,41 @@ public class ResetPasswordServlet extends HttpServlet {
                 UserResetTokenDB urtDB = new UserResetTokenDB();
                 urt = urtDB.getToken(token);           
 
-            if(urt.getToken().equals(token)){
-                User user = null;
-                UserDB userDB = new UserDB();
-                user = userDB.getUserByID(urt.getUserID());
-                if(!newPassword.equals(confirmPassword)){
-                    request.setAttribute("message", "New Password and Confirm Password must match");
-                    getServletContext().getRequestDispatcher("/WEB-INF/resetPassword.jsp").forward(request, response);
+            if(urt.getToken().equals(token) && urt.getIsActive()){
+                Date date = new Date();
+                if(urt.getExpirationdate().getTime() > date.getTime()){
+                    
+                    User user = null;
+                    UserDB userDB = new UserDB();
+                    user = userDB.getUserByID(urt.getUserID());
+                    if(!newPassword.equals(confirmPassword)){
+                        request.setAttribute("message", "New Password and Confirm Password must match");
+                        getServletContext().getRequestDispatcher("/WEB-INF/resetPassword.jsp").forward(request, response);
+                    }
+                    if(user.getPassword().equals(newPassword)){
+                        request.setAttribute("message", "Old and New passwords cannot be the same");
+                        getServletContext().getRequestDispatcher("/WEB-INF/resetPassword.jsp").forward(request, response);
+                    }
+                        AccountService ac = new AccountService();
+                        boolean isChanged = ac.changePassword(user.getEmail(), user.getPassword(), newPassword);
+                    if(!isChanged){
+                        request.setAttribute("message", "Password did not meet requirements, please try again.");
+                        getServletContext().getRequestDispatcher("/WEB-INF/resetPassword.jsp").forward(request, response);
+                    }
+                    else{
+                        urt.setIsActive(false);
+                        urtDB.update(urt);
+                        request.setAttribute("message", "Password succesfully changed");
+                        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+                    }
+                } else{
+                        request.setAttribute("message", "Reset link expired, please try again.");
+                        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
                 }
-                if(user.getPassword().equals(newPassword)){
-                    request.setAttribute("message", "Old and New passwords cannot be the same");
-                    getServletContext().getRequestDispatcher("/WEB-INF/resetPassword.jsp").forward(request, response);
-                }
-                AccountService ac = new AccountService();
-                boolean isChanged = ac.changePassword(user.getEmail(), user.getPassword(), newPassword);
-                if(!isChanged){
-                    request.setAttribute("message", "Password did not meet requirements, please try again.");
-                    getServletContext().getRequestDispatcher("/WEB-INF/resetPassword.jsp").forward(request, response);
-                }
-                else{
-                    request.setAttribute("message", "Password succesfully changed");
-                    getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-                }
-            }
+            } 
          } catch(Exception e){}
+            request.setAttribute("message", "Reset link expired, please try again.");
+            getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 
      }
 }

@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import services.EmailService;
 import dataaccess.*;
+import java.net.MalformedURLException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.User;
 
 /**
@@ -39,7 +43,10 @@ public class PasswordServlet extends HttpServlet {
          
          if (user != null){
              EmailService es = new EmailService();
-             es.sendForgotPasswordEmail(user.getEmail(), user.getUserID());
+             try {
+                 es.sendForgotPasswordEmail(user.getEmail(), user.getUserID());
+             }
+               catch (NoSuchAlgorithmException ex) {}
          }
          request.setAttribute("message", "Please check email to change password.");
          getServletContext().getRequestDispatcher("/WEB-INF/password.jsp").forward(request, response);

@@ -58,8 +58,9 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`user` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `schedulemddb`.`user_reset_token` (
     `UserID` INT(4) NOT NULL,
-    `Token` VARCHAR(20),
+    `Token` VARCHAR(20) NOT NULL,
     `Expiration_date` DATETIME,
+    `is_active` BOOLEAN,
     PRIMARY KEY (`UserID`)
 );
 
@@ -143,7 +144,7 @@ INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Passwor
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`)
     VALUES (1, 1, 'Ethan', 'Paul', 'ethanp@gmail.com', 'password', true);
 
-INSERT INTO `user_reset_token` (`UserID`) VALUES (1);
-INSERT INTO `user_reset_token` (`UserID`) VALUES (2);
-INSERT INTO `user_reset_token` (`UserID`) VALUES (3);
-INSERT INTO `user_reset_token` (`UserID`) VALUES (4);
+INSERT INTO `user_reset_token` (`UserID`, `Token`) VALUES (1, '');
+INSERT INTO `user_reset_token` (`UserID`, `Token`) VALUES (2, '');
+INSERT INTO `user_reset_token` (`UserID`, `Token`) VALUES (3, '');
+INSERT INTO `user_reset_token` (`UserID`, `Token`) VALUES (4, '');
