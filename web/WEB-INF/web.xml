@@ -17,6 +17,26 @@
         <servlet-name>ResidentServlet</servlet-name>
     </filter-mapping>
     <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <servlet-name>ProfileServlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <servlet-name>MessagesServlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <servlet-name>SettingsServlet</servlet-name>
+        <filter-mapping>
+            <filter-name>AdminFilter</filter-name>
+            <servlet-name>AdminServlet</servlet-name>
+        </filter-mapping>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <servlet-name>ScheduleServlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
         <filter-name>AdminFilter</filter-name>
         <servlet-name>AdminServlet</servlet-name>
     </filter-mapping>
@@ -69,7 +89,7 @@
         <servlet-class>servlets.ManageUsersServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ResetPassword</servlet-name>
+        <servlet-name>ResetPasswordServlet</servlet-name>
         <servlet-class>servlets.ResetPasswordServlet</servlet-class>
     </servlet>
     <servlet-mapping>
@@ -121,7 +141,7 @@
         <url-pattern>/manageUsers</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ResetPassword</servlet-name>
+        <servlet-name>ResetPasswordServlet</servlet-name>
         <url-pattern>/resetPassword</url-pattern>
     </servlet-mapping>
     <session-config>
