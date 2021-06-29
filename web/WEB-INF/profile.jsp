@@ -71,13 +71,12 @@
                               <h1>Profile</h1>
                     </div>
                     <div class="submain">
-                    <div>
                     <form method="POST" action="profile">
+                         <h2>Reset Password </h2>
                          <div class="form-control">
                          <label for="oldPassword">Old Password: </label>
                          <input type="password" name="oldPassword" id="oldpassword" required>
                          </div>
-                    </div>
                     <div class="form-control">
                          <label for="newPassword">New Password: </label>
                          <input type="password" name="newPassword" id="newpassword" required>
@@ -90,7 +89,6 @@
                     </form>
                         <br>
                           <p> ${message}</p>
-                    </div>
                     </div>
                     </div>
           </div>

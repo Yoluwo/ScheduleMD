@@ -12,7 +12,6 @@
 
 body {
      overflow: hidden;
-     padding-bottom: 50px;
 }
 
 .container {
@@ -23,13 +22,21 @@ body {
 
 h1 {
      font-family: 'lato', sans-serif;
-     font-size: 25px;
-     padding: 0 0 0 10px;
+     font-size: 27px;
+     padding: 0;
 }
+
+h2 {
+        font-family: 'lato', sans-serif;
+        font-size: 25px;
+        padding: 15px;  
+        color: #094c72;
+        text-align: center;
+     }
 
 .navigation {
      position: fixed;
-     width: 255px;
+     width: 230px;
      height: 100%;
      background: #094c72;
      border-right: 1px #00254d solid;
@@ -86,7 +93,7 @@ h1 {
 
 .navigation ul li a .icon .fa {
      color: #dbf3fa;
-     font-size: 24px;
+     font-size: 26px;
 }
 
 .navigation ul li a .title {
@@ -96,12 +103,13 @@ h1 {
      height: 60px;
      line-height: 60px;
      white-space: nowrap;
+     font-size: 1rem;
 }
 
 .main {
      position: absolute;
      width: 100%;
-     left: 255px;
+     left: 230px;
      min-height: 100vh;
      transition: 0.5s;
 }
@@ -158,13 +166,12 @@ h1 {
      }
      
      h1 {
-     font-family: 'lato', sans-serif;
      font-size: 22px;
-     padding: 0;
      }
      
      .navigation ul li a .title {
      height: 40px;
+     font-size: 14px;
      }
      
      .navigation ul li a .icon {
@@ -180,11 +187,20 @@ h1 {
      width: calc(100% - 40px);
      left: 40px;
      }
+     
+     .form-control label{
+     padding: 0 0 0 20px;
+     font-size: 16px;
+     }
+     
+     .submain {
+     margin: 10px 0px 10px 0;
+     }
 }
 
 .form-control {
      position: relative;
-     margin: 10px 0 10px 0px;
+     margin: 0;
      width: 280px;
      text-align: left;
      color: #094c72;
@@ -213,7 +229,8 @@ h1 {
      position: absolute;
      top: 15px;
      left: 0;
-     padding: 20px;
+     padding: 0 0 0 20px;
+     font-size: 20px;
 }
 
 .btn{
@@ -227,7 +244,7 @@ h1 {
      color: #094c72;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin-left: 105px;
+     margin: 15px 0 0 105px;
 }
 
 .btn:hover{
@@ -245,7 +262,9 @@ h1 {
 }
 
 .submain {
-     margin: 50px 0px 10px 40px;
+     margin: 20px 0px 10px 20px;
+     background-color: #dbf3fa;
+     width: 280px;
 }
 
 p {
