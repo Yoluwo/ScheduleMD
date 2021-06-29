@@ -10,6 +10,7 @@
     <class>models.Hospital</class>
     <class>models.Timeoff</class>
     <class>models.Schedule</class>
+    <class>models.UserResetToken</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
   </persistence-unit>
 </persistence>

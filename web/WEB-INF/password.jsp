@@ -29,6 +29,7 @@
                          <input type="text" name="email" id="email" required>
                          <br>
                     </div>
+                   ${message}
                     <button class="btn">Submit</button>
                </form>
           </div>

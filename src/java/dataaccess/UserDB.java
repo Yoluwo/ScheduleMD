@@ -17,6 +17,16 @@ public class UserDB {
             em.close();
         }
     }
+    public User getUserByID(int userID) throws Exception {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+
+        try {
+            User user = em.createNamedQuery("User.findByUserID", User.class).setParameter("userID", userID).getSingleResult();
+            return user;
+        } finally {
+            em.close();
+        }
+    }
     
      public List<User> getAll() throws Exception {
        EntityManager em = DBUtil.getEmFactory().createEntityManager();

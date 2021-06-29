@@ -70,7 +70,7 @@
     </servlet>
     <servlet>
         <servlet-name>ResetPassword</servlet-name>
-        <servlet-class>servlets.ResetPassword</servlet-class>
+        <servlet-class>servlets.ResetPasswordServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>

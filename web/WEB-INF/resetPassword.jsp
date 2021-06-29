@@ -23,24 +23,20 @@
           </div>
           <div class="container">
                <h2>Reset Password?</h2>
-               <form method="POST" action="resetPassword">
-                    <div class="form-control">
-                         <label for="oldPassword">Old Password: </label>
-                         <input type="password" name="oldPassword" id="oldpassword" required>
-                         <br>
-                    </div>
-                    <div class="form-control">
-                         <label for="newPassword">New Password: </label>
-                         <input type="password" name="newPassword" id="newpassword" required>
-                         <br>
-                    </div>
-                    <div class="form-control">
-                         <label for="confirmPassword">Confirm Password: </label>
-                         <input type="password" name="confirmPassword" id="confirmPassword" required>
-                         <br>
-                    </div>
-                    <button class="btn">Submit</button>
-               </form>
+                    <form method="POST" action="resetPassword">
+                        <div class="form-control">
+                            <label for="newPassword">New Password: </label>
+                            <input type="password" name="newPassword" id="newPassword" required>
+                        </div>
+                        <div class="form-control">
+                            <label for="confirmPassword">Confirm Password: </label>
+                            <input type="password" name="confirmPassword" id="confirmPassword" required>
+                            <input type="hidden" name="t" id="t" value="<%= request.getParameter("t") %>">
+                            <input type="hidden" name="token" id="token" value="<%= request.getAttribute("token") %>">
+                        </div>
+                        <button class="btn">Submit</button>
+                    </form>
+                    ${message}
           </div>
      </body>
 </html>

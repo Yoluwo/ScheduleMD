@@ -54,6 +54,16 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`user` (
 );
 
 -- -----------------------------------------------------
+-- Table `schedulemddb`.`user_reset_token`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `schedulemddb`.`user_reset_token` (
+    `UserID` INT(4) NOT NULL,
+    `Token` VARCHAR(20),
+    `Expiration_date` DATETIME,
+    PRIMARY KEY (`UserID`)
+);
+
+-- -----------------------------------------------------
 -- Table `schedulemddb`.`timeoff`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `schedulemddb`.`timeoff` (
@@ -132,3 +142,8 @@ INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Passwor
     VALUES (1, 1, 'Tom', 'Skiff', 'toms@gmail.com', 'password', true);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`)
     VALUES (1, 1, 'Ethan', 'Paul', 'ethanp@gmail.com', 'password', true);
+
+INSERT INTO `user_reset_token` (`UserID`) VALUES (1);
+INSERT INTO `user_reset_token` (`UserID`) VALUES (2);
+INSERT INTO `user_reset_token` (`UserID`) VALUES (3);
+INSERT INTO `user_reset_token` (`UserID`) VALUES (4);

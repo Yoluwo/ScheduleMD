@@ -39,7 +39,7 @@ public class PasswordServlet extends HttpServlet {
          
          if (user != null){
              EmailService es = new EmailService();
-             es.sendForgotPasswordEmail(user.getEmail());
+             es.sendForgotPasswordEmail(user.getEmail(), user.getUserID());
          }
          request.setAttribute("message", "Please check email to change password.");
          getServletContext().getRequestDispatcher("/WEB-INF/password.jsp").forward(request, response);
