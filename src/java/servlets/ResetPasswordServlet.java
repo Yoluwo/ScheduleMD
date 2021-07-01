@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,39 +9,34 @@ import models.UserResetToken;
 import models.User;
 import dataaccess.UserResetTokenDB;
 import dataaccess.UserDB;
-import java.sql.Timestamp;
 import services.AccountService;
 import java.util.Date;
 
-/**
- *
- * @author Yetunde Oluwo
- */
 public class ResetPasswordServlet extends HttpServlet {
 
-     @Override
-     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-             throws ServletException, IOException {
-          getServletContext().getRequestDispatcher("/WEB-INF/resetPassword.jsp")
-                  .forward(request, response);
-     }
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        getServletContext().getRequestDispatcher("/WEB-INF/resetPassword.jsp")
+                .forward(request, response);
+    }
 
-     @Override
-     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-             throws ServletException, IOException {
-         String token = request.getParameter("t");
-         String newPassword = request.getParameter("newPassword");
-         String confirmPassword = request.getParameter("confirmPassword");
-         request.setAttribute("token", token);
-         UserResetToken urt = null;
-         try{           
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String token = request.getParameter("t");
+        String newPassword = request.getParameter("newPassword");
+        String confirmPassword = request.getParameter("confirmPassword");
+        request.setAttribute("token", token);
+        UserResetToken urt = null;
+        try {           
                 UserResetTokenDB urtDB = new UserResetTokenDB();
                 urt = urtDB.getToken(token);           
 
             if(urt.getToken().equals(token) && urt.getIsActive()){
                 Date date = new Date();
                 if(urt.getExpirationdate().getTime() > date.getTime()){
-                    
+
                     User user = null;
                     UserDB userDB = new UserDB();
                     user = userDB.getUserByID(urt.getUserID());
@@ -76,9 +65,8 @@ public class ResetPasswordServlet extends HttpServlet {
                         getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
                 }
             } 
-         } catch(Exception e){}
-            request.setAttribute("message", "Reset link expired, please try again.");
-            getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-
-     }
+        } catch(Exception e){}
+           request.setAttribute("message", "Reset link expired, please try again.");
+           getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+    }
 }

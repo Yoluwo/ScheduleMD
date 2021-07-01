@@ -6,14 +6,11 @@
 package services;
 
 import dataaccess.*;
-import javax.persistence.EntityManager;
-import models.Hospital;
-import models.Schedule;
-import org.eclipse.persistence.jpa.jpql.parser.DateTime;
+import javax.persistence.EntityManager; //***Not used anywhere
+import org.eclipse.persistence.jpa.jpql.parser.DateTime; //***Not used anywhere
 import java.time.temporal.ChronoUnit; //***Idk what this is xD
 import java.util.*;
-import models.Timeoff;
-import models.User;
+import models.*;
 
 
 /**
@@ -25,13 +22,25 @@ import models.User;
 /*
     The SchedulingService class is used to perform queries to the database 
     for data on all residents, shifts, hospitals and status of requests.
+
+    LocalDate localStartDate = LocalDate.of(2021, Month.JANUARY, 1);
+    LocalDate localEndDate = LocalDate.of(2021, Month.JANUARY, 1);
+
+    long noOfDaysDifference = ChronoUnit.DAYS.between(localStartDate, localEndDate);
+
+
 */
 
 
 public class SchedulingService {
  
 
-    public void generateSchedule(Date startDate, Date endDate, Hospital hospital){
+    public void generateSchedule(Date startDate, Hospital hospital){
+
+          
+
+           Calendar ca = Calendar.getInstance();
+           ca.add(Calendar.Date, 28); //***Cannot find Date symbol
 
         List<User> accessResidents = null;
         List<User> traumaResidents = null;
@@ -39,12 +48,13 @@ public class SchedulingService {
         List<Timeoff> approvedTimeOffs = null;
         List<User> activeResidents;
 
-        long daysBetween = DAYS.between(startDate,endDate); //***Missing proper import
+       
+
+        long daysBetween = ChronoUnit.DAYS.between(startDate,endDate); //***endDate is missing
 
         approvedTimeOffs = loadAllAprovedRequests(); //***Needs to be updated to reflect method below
 
         activeResidents = loadAllActiveResdients();
-        loadResidentsByRole(activeResidents); //***Missing method
         
         for(int i = 0; i < activeResidents.size(); i++){
            User currentUser = accessResidents.get(i);
@@ -58,6 +68,8 @@ public class SchedulingService {
                seniorResidents.add(currentUser);
            }
         }
+
+
 
         //2 weekends per block, housecall 7 in a block, homecall max 9 
 
@@ -91,31 +103,6 @@ public class SchedulingService {
 
     }
     
-    //*** This needs to be removed
-    public static Hospital getHospital(Integer hospitalID) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
-        try {
-            Hospital hospital;
-            hospital = em.find(Hospital.class, hospitalID);
-            return hospital;
-        } finally {
-            em.close();
-        }
-        
-    }
-    
-    //** This needs to be removed
-    public static Schedule getShift(DateTime startDate, Integer hospitalID) {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
-        try {
-            Schedule shift = em.find(Schedule.class, startDate);
-        return shift;
-        } finally {
-            em.close();
-        }
-    }
-    
-    
     public List<Timeoff> loadAllAprovedRequests(Date startDate, Date endDate) {
         TimeoffDB timeOff = new TimeoffDB();
         List<Timeoff> timeOffToLoad = new List<>(); //***Abstract need to specify type of List
@@ -143,6 +130,15 @@ public class SchedulingService {
             }
         }
         return timeOffToLoad;
+    }
+
+    public List<Shift> generateShifts(Calendar startDate, List acess, List trauma, List senior, Hospital hospital){
+        int blockLength = 28;
+
+        Calendar //***Word
+
+
+
     }
     
 }
