@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/**
 package services;
 
 import dataaccess.*;
@@ -29,7 +30,7 @@ import models.*;
     long noOfDaysDifference = ChronoUnit.DAYS.between(localStartDate, localEndDate);
 
 
-*/
+
 
 
 public class SchedulingService {
@@ -142,3 +143,4 @@ public class SchedulingService {
     }
     
 }
+*/
