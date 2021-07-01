@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package models;
 
 import java.io.Serializable;
@@ -19,13 +24,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * This class is used to model data from User table from the database for 
- * use in the java program. This class contains all the getters and setters
- * as well as all the named queries for the database.
- * 
- * @author Alex Zecevic
+ *
+ * @author alexz
  */
-
 @Entity
 @Table(name = "user")
 @XmlRootElement
@@ -61,7 +62,7 @@ public class User implements Serializable {
     @Column(name = "IsActive")
     private boolean isActive;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private Collection<Personalschedule> personalscheduleCollection;
+    private Collection<PersonalSchedule> personalScheduleCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Collection<Timeoff> timeoffCollection;
     @JoinColumn(name = "Hospital", referencedColumnName = "HospitalID")
@@ -136,12 +137,12 @@ public class User implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Personalschedule> getPersonalscheduleCollection() {
-        return personalscheduleCollection;
+    public Collection<PersonalSchedule> getPersonalScheduleCollection() {
+        return personalScheduleCollection;
     }
 
-    public void setPersonalscheduleCollection(Collection<Personalschedule> personalscheduleCollection) {
-        this.personalscheduleCollection = personalscheduleCollection;
+    public void setPersonalScheduleCollection(Collection<PersonalSchedule> personalScheduleCollection) {
+        this.personalScheduleCollection = personalScheduleCollection;
     }
 
     @XmlTransient

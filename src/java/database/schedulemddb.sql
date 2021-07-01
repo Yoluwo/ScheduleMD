@@ -95,33 +95,37 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`schedule` (
 ); 
 
 -- -----------------------------------------------------
--- Table `schedulemddb`.`shift`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `schedulemddb`.`shift` (
-    `ShiftID` INT(6) NOT NULL AUTO_INCREMENT,
-    `Schedule` INT(6) NOT NULL,
-    `StartTime` DATETIME NOT NULL,
-    `EndTime` DATETIME NOT NULL,
-    PRIMARY KEY (`ShiftID`),
-    CONSTRAINT `fk_schedule_id_shift`
-        FOREIGN KEY (`Schedule`)
-        REFERENCES `schedulemddb`.`schedule` (`ScheduleID`)
-);
-
--- -----------------------------------------------------
 -- Table `schedulemddb`.`personalSchedule`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `schedulemddb`.`personalSchedule` (
     `PersonalSchduleID` INT(6) NOT NULL AUTO_INCREMENT,
     `User` INT(4) NOT NULL,
-    `Shift` INT(6) NOT NULL,
+    `IsFridaySunday` TINYINT(1) NOT NULL,
+    `IsSaturday` TINYINT(1) NOT NULL,
     PRIMARY KEY (`personalSchduleID`),
     CONSTRAINT `fk_user_id_personal_schedule`
         FOREIGN KEY (`User`)
-        REFERENCES `schedulemddb`.`user` (`UserID`),
-    CONSTRAINT `fk_shift_id_personal_schedule`
-        FOREIGN KEY (`Shift`)
-        REFERENCES `schedulemddb`.`shift` (`ShiftID`)
+        REFERENCES `schedulemddb`.`user` (`UserID`)
+);
+
+-- -----------------------------------------------------
+-- Table `schedulemddb`.`shift`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `schedulemddb`.`shift` (
+    `ShiftID` INT(6) NOT NULL AUTO_INCREMENT,
+    `Schedule` INT(6) NOT NULL,
+    `PersonalSchedule` INT(6) NOT NULL,
+    `StartTime` DATETIME NOT NULL,
+    `EndTime` DATETIME NOT NULL,
+    `IsWeekend` TINYINT(1) NOT NULL,
+    `IsHoliday` TINYINT(1) NOT NULL,
+    PRIMARY KEY (`ShiftID`),
+    CONSTRAINT `fk_schedule_id_shift`
+        FOREIGN KEY (`Schedule`)
+        REFERENCES `schedulemddb`.`schedule` (`ScheduleID`),
+    CONSTRAINT `fk_personal_schedule_id`
+        FOREIGN KEY (`PersonalSchedule`)
+        REFERENCES  `schedulemddb`.`personalSchedule` (`PersonalSchduleID`)
 );
 
 -- -----------------------------------------------------

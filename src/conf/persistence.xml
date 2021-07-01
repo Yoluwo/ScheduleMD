@@ -11,6 +11,7 @@
     <class>models.Timeoff</class>
     <class>models.Schedule</class>
     <class>models.UserResetToken</class>
+    <class>models.PersonalSchedule</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
   </persistence-unit>
 </persistence>

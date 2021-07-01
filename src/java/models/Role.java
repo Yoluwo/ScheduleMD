@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package models;
 
 import java.io.Serializable;
@@ -15,13 +20,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * This class is used to model data from Role table from the database for 
- * use in the java program. This class contains all the getters and setters
- * as well as all the named queries for the database.
- * 
- * @author Alex Zecevic
+ *
+ * @author alexz
  */
-
 @Entity
 @Table(name = "role")
 @XmlRootElement

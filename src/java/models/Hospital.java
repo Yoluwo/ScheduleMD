@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package models;
 
 import java.io.Serializable;
@@ -15,13 +20,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * This class is used to model data from Hospital table from the database for 
- * use in the java program. This class contains all the getters and setters
- * as well as all the named queries for the database.
- * 
- * @author Alex Zecevic
+ *
+ * @author alexz
  */
-
 @Entity
 @Table(name = "hospital")
 @XmlRootElement
@@ -112,7 +113,7 @@ public class Hospital implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work if the case the id fields are not set
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Hospital)) {
             return false;
         }

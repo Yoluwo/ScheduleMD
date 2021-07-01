@@ -6,11 +6,9 @@
 package services;
 
 import dataaccess.*;
-import javax.persistence.EntityManager; //***Not used anywhere
-import org.eclipse.persistence.jpa.jpql.parser.DateTime; //***Not used anywhere
-import java.time.temporal.ChronoUnit; //***Idk what this is xD
 import java.util.*;
 import models.*;
+
 
 
 /**
@@ -35,57 +33,66 @@ import models.*;
 public class SchedulingService {
  
 
-    public void generateSchedule(Date startDate, Hospital hospital){
+    public void generateSchedule(Calendar startDate, Hospital hospital){
 
-          
+        ArrayList<User> activeResidents = new ArrayList<>();
+        ArrayList<User> accessResidents = new ArrayList<>();
+        ArrayList<User> traumaResidents = new ArrayList<>();
+        ArrayList<User> seniorResidents = new ArrayList<>();
+        ArrayList<Timeoff> approvedTimeOffs = new ArrayList<>();
+        ArrayList<Shift> shift = new ArrayList<>();
+      
 
-           Calendar ca = Calendar.getInstance();
-           ca.add(Calendar.Date, 28); //***Cannot find Date symbol
-
-        List<User> accessResidents = null;
-        List<User> traumaResidents = null;
-        List<User> seniorResidents = null;
-        List<Timeoff> approvedTimeOffs = null;
-        List<User> activeResidents;
-
-       
-
-        long daysBetween = ChronoUnit.DAYS.between(startDate,endDate); //***endDate is missing
-
-        approvedTimeOffs = loadAllAprovedRequests(); //***Needs to be updated to reflect method below
+        Calendar endDate = startDate;
+        endDate.add(Calendar.DAY_OF_MONTH, 28);
+      
+        approvedTimeOffs = loadAllAprovedRequests(startDate,endDate);
 
         activeResidents = loadAllActiveResdients();
-        
+
         for(int i = 0; i < activeResidents.size(); i++){
            User currentUser = accessResidents.get(i);
-           if (currentUser.getRole().getRoleID() == 1) { //***This should be replaced by a switch statment
-               accessResidents.add(currentUser);
-           }
-           else if (currentUser.getRole().getRoleID() == 2){
-               traumaResidents.add(currentUser);
-           }
-           else if (currentUser.getRole().getRoleID() == 3){
-               seniorResidents.add(currentUser);
-           }
+           int currentUserRole = accessResidents.get(i).getRole().getRoleID();
+        
+            switch(currentUserRole) {
+                case 1:
+                    accessResidents.add(currentUser);
+                break;
+
+                case 2:
+                    traumaResidents.add(currentUser);
+                break;
+
+                case 3:
+                    seniorResidents.add(currentUser);
+                break;
+            }
         }
+
+       // ArrayList<Personalschedule> acess = GeneratePersonalSchedule(shifts, accessResidents, approvedTimeOffs);
+        
+
+    }
 
 
 
         //2 weekends per block, housecall 7 in a block, homecall max 9 
 
-    }
-
-    public List<User> loadAllActiveResdients() {
+    public ArrayList<User> loadAllActiveResdients() {
         UserDB userDB = new UserDB();
         
         //List of residents to check if active
-        List<User> activeCheck = new List<>(); //***Abstract need to specify type of List
+        ArrayList<User> activeCheck = new ArrayList<>();
 
         //List of active residents to return
-        List<User> activeResidents = new List<>(); //***Abstract need to specify type of List
+        ArrayList<User> activeResidents = new ArrayList<>();
 
         //Getting a list of all the residents in the database
-        activeCheck = userDB.getAll(); //***Exception here
+        try {
+            activeCheck = (ArrayList) userDB.getAll();
+        } catch (Exception e) {
+            //*** add sum here later
+        }
 
         //Loop that check the list for active residents, then loads them into a list
         for(int i = 0; i > activeCheck.size(); i++){
@@ -103,13 +110,17 @@ public class SchedulingService {
 
     }
     
-    public List<Timeoff> loadAllAprovedRequests(Date startDate, Date endDate) {
+    public ArrayList<Timeoff> loadAllAprovedRequests(Calendar start, Calendar end) {
         TimeoffDB timeOff = new TimeoffDB();
-        List<Timeoff> timeOffToLoad = new List<>(); //***Abstract need to specify type of List
-        List<Timeoff> approvedTimeOffs = null;
+        ArrayList<Timeoff> timeOffToLoad = new ArrayList<>();
+        ArrayList<Timeoff> approvedTimeOffs = new ArrayList<>();
+        
+        Date startDate= start.getTime();
+        Date endDate = end.getTime();
+
         //Getting list of approved time off requests
         try {
-            approvedTimeOffs = timeOff.getIsApproved();
+            approvedTimeOffs = (ArrayList) timeOff.getIsApproved();
         } catch (Exception e) {
             //***change this later probs
         }
@@ -118,8 +129,8 @@ public class SchedulingService {
 
             //Getting timeOffRequest object information
             Timeoff currentTimeOff = approvedTimeOffs.get(i);
-            Date currentRequestStartDate = request.getStartDate(); //***Where request come from?
-            Date currentRequestEndDate = request.getEndDate(); //***Where request come from?
+            Date currentRequestStartDate = currentTimeOff.getStartDate();
+            Date currentRequestEndDate = currentTimeOff.getEndDate();
 
             //Checking if the requst endDate is before the schedule startdate
             if(currentRequestEndDate.after(startDate)){
@@ -132,13 +143,103 @@ public class SchedulingService {
         return timeOffToLoad;
     }
 
-    public List<Shift> generateShifts(Calendar startDate, List acess, List trauma, List senior, Hospital hospital){
-        int blockLength = 28;
+    public ArrayList<Shift> generateShifts(Calendar startDate,Calendar endDate){
+        
+        ArrayList<Shift> shiftList = new ArrayList<>();
+        Calendar dayIncrement = startDate;
+        endDate.add(Calendar.DATE,1);
+       
+        //Need to boolean add boolean for weekend 
+        while(!dayIncrement.equals(endDate)){
 
-        Calendar //***Word
+            //Setting booleans for if the shift is a weekend or a holiday
+            boolean isWeekend = false;
+            boolean isHoliday = false;
 
+            //Getting the day of the week 
+            int dayOfWeek = dayIncrement.get(Calendar.DAY_OF_WEEK);
 
+            //Checking to see if the day of the week is a weekend(friday,saturday,sunday)
+            if(dayOfWeek == 1 || dayOfWeek == 7 || dayOfWeek == 6){
+                isWeekend = true;
+            }
+
+            //Creating date objects from the calender objects to be inserted into the shift contructor
+            Date startDateShift = dayIncrement.getTime();
+            dayIncrement.add(Calendar.DATE,1);
+            Date endDateShift = dayIncrement.getTime();
+
+            //Constructing new shift object with date information
+            Shift newShift =  new Shift(0,startDateShift,endDateShift);//needs to be added : isWeekend,isHoldiay);
+            shiftList.add(newShift);
+
+            //Incrementing to the next day 
+            dayIncrement.add(Calendar.DATE, 1);
+        }
+
+        return shiftList;
 
     }
+
+
+    public void GeneratePersonalSchedule(ArrayList<Shift> shift,ArrayList<User> user,ArrayList<Timeoff> approvedTimeOffs){
+        ArrayList<PersonalSchedule> personalSchedules = new ArrayList<>();
+
+
+        for(int l = 0; l < user.size(); l++){
+            User curUser = user.get(l);
+            PersonalSchedule p = new PersonalSchedule();
+            p.setUser(curUser);
+            personalSchedules.add(p);
+            ArrayList <PersonalSchedule> oldPersonalScheduleCollection = new ArrayList<>(curUser.getPersonalScheduleCollection()); 
+            oldPersonalScheduleCollection.add(p);
+            curUser.setPersonalScheduleCollection(oldPersonalScheduleCollection);
+        }   
+        for(int i = 0; i < shift.size(); i++){
+            boolean canWork = false;
+            Shift curShift = shift.get(i);
+            while(!canWork){
+                int rnd = new Random().nextInt(user.size());
+                for(int b = 0; b < approvedTimeOffs.size(); b++){
+                    User curUser = user.get(rnd);
+                    if(curUser.getUserID() == approvedTimeOffs.get(b).getUser().getUserID()){
+                        Date timeOffStartDate = approvedTimeOffs.get(b).getStartDate();
+                        Date timeOffEndDate = approvedTimeOffs.get(b).getEndDate();
+                        Date shiftStartTime = curShift.getStartTime();
+                        // Test case: 
+                        // timeOffStartDate = July 2, timeOffEndDate = July 6
+                        // shiftStartTime = July 4
+                        if(!timeOffStartDate.equals(shiftStartTime) || !timeOffEndDate.equals(shiftStartTime) ){
+                            if(shiftStartTime.before(timeOffStartDate)) {
+                                    //can work                                   
+                                    user.remove(rnd);
+                                    canWork = true;
+                            }
+                            else if(shiftStartTime.after(timeOffStartDate) && shiftStartTime.before(timeOffEndDate)){
+                                //cant work
+                            }
+                            else if(shiftStartTime.after(timeOffStartDate) && shiftStartTime.after(timeOffEndDate)){
+                                //can work
+                                user.remove(rnd);
+                                canWork = true;
+                            }
+                        }
+                        else{
+                            //cant work
+                        }
+
+                        if(canWork){
+                            if(curShift.getIsWeekend()){
+                              PersonalSchedule
+                            }
+                        }                        
+                    }
+                }
+            }
+            
+        }
+
+        
     
+    }
 }

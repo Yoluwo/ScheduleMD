@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author epaul
+ * @author alexz
  */
 @Entity
 @Table(name = "user_reset_token")
