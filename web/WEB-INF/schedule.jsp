@@ -84,7 +84,7 @@
                                    <div>Sun</div>
                                    <div>Mon</div>
                                    <div>Tue</div>
-                                   <div>Wed</div>
+                                   <div>Wed </div>
                                    <div>Thur</div>
                                    <div>Fri</div>
                                    <div>Sat</div>

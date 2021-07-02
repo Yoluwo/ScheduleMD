@@ -2,6 +2,11 @@
     Created on : 14-Jun-2021, 2:34:10 PM
     Author     : Yetunde Oluwo
 */
+
+/*
+* Cascading style sheet for designing the webpages
+*/
+
 * {
      margin:0;
      padding:0;
@@ -232,12 +237,8 @@ p {
      height: 100vh;                  
 }
 
-.weekdays {
-     color: #5eb4ff;
-}
-
 .calendar {
-     width: 800px;
+     width: 600px;
      height: 60%;
      background-color: #dcf4fc;
      box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
@@ -282,10 +283,12 @@ p {
 
 .weekdays {
      width: 100%;
-     height: 60px;
+     height: 50px;
      padding: 0 9px;
      display: flex;
      align-items: center;
+     background-color: #2f739c;
+     color: #bdd2d9;
 }
 .weekdays div {
      font-size: 20px;
@@ -293,13 +296,29 @@ p {
      letter-spacing: 2px;
      width: calc(49rem/7);
      display: flex;
+     justify-content: center;
+     align-items: center;
 }
 
 .days {
      color: #095280;
-     
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     padding: 3px; 
 }
 
+.days div {
+     font-size: 20px;
+     margin: 5px;
+     width: calc(32.5rem/7);
+     height: 40px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+/* Cascading style sheets for designing the page's responsiveness */
 @media screen and (max-width: 480px) {
      .navigation {
           width: 175px;
@@ -346,8 +365,42 @@ p {
           width: calc(100% - 40px);
           left: 40px;
      }
-     
+
      .calendar {
-          width: 80%;
+          width: 90%;
+     }
+
+     .weekdays {
+          width: 100%;
+          height: 40px;
+          padding: 0 1px;
+          display: flex;
+          align-items: center;
+          background-color: #2f739c;
+          color: #bdd2d9;
+     }
+     .weekdays div {
+          font-size: 14px;
+          font-weight: lighter;
+          letter-spacing: 1px;
+          width: calc(42rem/7);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+     }
+
+     .days div {
+          font-size: 16px;
+          margin: 4px;
+     }
+
+     .days div {
+          font-size: 15px;
+          margin: 5px;
+          width: calc(13.2rem/7);
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
      }
 }
