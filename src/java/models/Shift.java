@@ -35,7 +35,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Shift.findByStartTime", query = "SELECT s FROM Shift s WHERE s.startTime = :startTime")
     , @NamedQuery(name = "Shift.findByEndTime", query = "SELECT s FROM Shift s WHERE s.endTime = :endTime")
     , @NamedQuery(name = "Shift.findByIsWeekend", query = "SELECT s FROM Shift s WHERE s.isWeekend = :isWeekend")
-    , @NamedQuery(name = "Shift.findByIsHoliday", query = "SELECT s FROM Shift s WHERE s.isHoliday = :isHoliday")})
+    , @NamedQuery(name = "Shift.findByIsHoliday", query = "SELECT s FROM Shift s WHERE s.isHoliday = :isHoliday")
+    , @NamedQuery(name = "Shift.findByNumberInBlock", query = "SELECT s FROM Shift s WHERE s.numberInBlock = :numberInBlock")
+    , @NamedQuery(name = "Shift.findByDayOfWeek", query = "SELECT s FROM Shift s WHERE s.dayOfWeek = :dayOfWeek")})
 public class Shift implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,12 +54,14 @@ public class Shift implements Serializable {
     @Column(name = "EndTime")
     @Temporal(TemporalType.TIMESTAMP)
     private Date endTime;
-    @Basic(optional = false)
     @Column(name = "IsWeekend")
-    private boolean isWeekend;
-    @Basic(optional = false)
+    private Boolean isWeekend;
     @Column(name = "IsHoliday")
-    private boolean isHoliday;
+    private Boolean isHoliday;
+    @Column(name = "NumberInBlock")
+    private Integer numberInBlock;
+    @Column(name = "DayOfWeek")
+    private Integer dayOfWeek;
     @JoinColumn(name = "PersonalSchedule", referencedColumnName = "PersonalSchduleID")
     @ManyToOne(optional = false)
     private PersonalSchedule personalSchedule;
@@ -72,12 +76,10 @@ public class Shift implements Serializable {
         this.shiftID = shiftID;
     }
 
-    public Shift(Integer shiftID, Date startTime, Date endTime, boolean isWeekend, boolean isHoliday) {
+    public Shift(Integer shiftID, Date startTime, Date endTime) {
         this.shiftID = shiftID;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.isWeekend = isWeekend;
-        this.isHoliday = isHoliday;
     }
 
     public Integer getShiftID() {
@@ -104,20 +106,36 @@ public class Shift implements Serializable {
         this.endTime = endTime;
     }
 
-    public boolean getIsWeekend() {
+    public Boolean getIsWeekend() {
         return isWeekend;
     }
 
-    public void setIsWeekend(boolean isWeekend) {
+    public void setIsWeekend(Boolean isWeekend) {
         this.isWeekend = isWeekend;
     }
 
-    public boolean getIsHoliday() {
+    public Boolean getIsHoliday() {
         return isHoliday;
     }
 
-    public void setIsHoliday(boolean isHoliday) {
+    public void setIsHoliday(Boolean isHoliday) {
         this.isHoliday = isHoliday;
+    }
+
+    public Integer getNumberInBlock() {
+        return numberInBlock;
+    }
+
+    public void setNumberInBlock(Integer numberInBlock) {
+        this.numberInBlock = numberInBlock;
+    }
+
+    public Integer getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public void setDayOfWeek(Integer dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
     }
 
     public PersonalSchedule getPersonalSchedule() {
