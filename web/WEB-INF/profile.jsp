@@ -28,7 +28,7 @@
                          </a>
                     </li>
                     <li>
-                         <a href="resident">
+                         <a href="schedule">
                          <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                          <span class="title">Schedule</span>
                          </a>
