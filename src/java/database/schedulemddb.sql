@@ -117,8 +117,10 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`shift` (
     `PersonalSchedule` INT(6) NOT NULL,
     `StartTime` DATETIME NOT NULL,
     `EndTime` DATETIME NOT NULL,
-    `IsWeekend` TINYINT(1) NOT NULL,
-    `IsHoliday` TINYINT(1) NOT NULL,
+    `IsWeekend` TINYINT(1),
+    `IsHoliday` TINYINT(1),
+    `NumberInBlock` INT(40),
+    `DayOfWeek` INT(1), 
     PRIMARY KEY (`ShiftID`),
     CONSTRAINT `fk_schedule_id_shift`
         FOREIGN KEY (`Schedule`)

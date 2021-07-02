@@ -6,7 +6,9 @@
 package models;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +18,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -48,6 +52,8 @@ public class PersonalSchedule implements Serializable {
     @JoinColumn(name = "User", referencedColumnName = "UserID")
     @ManyToOne(optional = false)
     private User user;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personalSchedule")
+    private Collection<Shift> shiftCollection;
 
     public PersonalSchedule() {
     }
@@ -92,6 +98,15 @@ public class PersonalSchedule implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @XmlTransient
+    public Collection<Shift> getShiftCollection() {
+        return shiftCollection;
+    }
+
+    public void setShiftCollection(Collection<Shift> shiftCollection) {
+        this.shiftCollection = shiftCollection;
     }
 
     @Override
