@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package models;
 
 import java.io.Serializable;
@@ -15,20 +20,18 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * This class is used to model data from PersonalSchedule table from the 
- * database for use in the java program. This class contains all the 
- * getters and setters as well as all the named queries for the database.
- * 
- * @author Alex Zecevic
+ *
+ * @author alexz
  */
-
 @Entity
 @Table(name = "personalschedule")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Personalschedule.findAll", query = "SELECT p FROM Personalschedule p")
-    , @NamedQuery(name = "Personalschedule.findByPersonalSchduleID", query = "SELECT p FROM Personalschedule p WHERE p.personalSchduleID = :personalSchduleID")})
-public class Personalschedule implements Serializable {
+    @NamedQuery(name = "PersonalSchedule.findAll", query = "SELECT p FROM PersonalSchedule p")
+    , @NamedQuery(name = "PersonalSchedule.findByPersonalSchduleID", query = "SELECT p FROM PersonalSchedule p WHERE p.personalSchduleID = :personalSchduleID")
+    , @NamedQuery(name = "PersonalSchedule.findByIsFridaySunday", query = "SELECT p FROM PersonalSchedule p WHERE p.isFridaySunday = :isFridaySunday")
+    , @NamedQuery(name = "PersonalSchedule.findByIsSaturday", query = "SELECT p FROM PersonalSchedule p WHERE p.isSaturday = :isSaturday")})
+public class PersonalSchedule implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -36,18 +39,27 @@ public class Personalschedule implements Serializable {
     @Basic(optional = false)
     @Column(name = "PersonalSchduleID")
     private Integer personalSchduleID;
-    @JoinColumn(name = "Shift", referencedColumnName = "ShiftID")
-    @ManyToOne(optional = false)
-    private Shift shift;
+    @Basic(optional = false)
+    @Column(name = "IsFridaySunday")
+    private boolean isFridaySunday;
+    @Basic(optional = false)
+    @Column(name = "IsSaturday")
+    private boolean isSaturday;
     @JoinColumn(name = "User", referencedColumnName = "UserID")
     @ManyToOne(optional = false)
     private User user;
 
-    public Personalschedule() {
+    public PersonalSchedule() {
     }
 
-    public Personalschedule(Integer personalSchduleID) {
+    public PersonalSchedule(Integer personalSchduleID) {
         this.personalSchduleID = personalSchduleID;
+    }
+
+    public PersonalSchedule(Integer personalSchduleID, boolean isFridaySunday, boolean isSaturday) {
+        this.personalSchduleID = personalSchduleID;
+        this.isFridaySunday = isFridaySunday;
+        this.isSaturday = isSaturday;
     }
 
     public Integer getPersonalSchduleID() {
@@ -58,12 +70,20 @@ public class Personalschedule implements Serializable {
         this.personalSchduleID = personalSchduleID;
     }
 
-    public Shift getShift() {
-        return shift;
+    public boolean getIsFridaySunday() {
+        return isFridaySunday;
     }
 
-    public void setShift(Shift shift) {
-        this.shift = shift;
+    public void setIsFridaySunday(boolean isFridaySunday) {
+        this.isFridaySunday = isFridaySunday;
+    }
+
+    public boolean getIsSaturday() {
+        return isSaturday;
+    }
+
+    public void setIsSaturday(boolean isSaturday) {
+        this.isSaturday = isSaturday;
     }
 
     public User getUser() {
@@ -84,10 +104,10 @@ public class Personalschedule implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Personalschedule)) {
+        if (!(object instanceof PersonalSchedule)) {
             return false;
         }
-        Personalschedule other = (Personalschedule) object;
+        PersonalSchedule other = (PersonalSchedule) object;
         if ((this.personalSchduleID == null && other.personalSchduleID != null) || (this.personalSchduleID != null && !this.personalSchduleID.equals(other.personalSchduleID))) {
             return false;
         }
@@ -96,7 +116,7 @@ public class Personalschedule implements Serializable {
 
     @Override
     public String toString() {
-        return "models.Personalschedule[ personalSchduleID=" + personalSchduleID + " ]";
+        return "models.PersonalSchedule[ personalSchduleID=" + personalSchduleID + " ]";
     }
     
 }

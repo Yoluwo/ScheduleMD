@@ -1,10 +1,13 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package models;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,21 +17,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * This class is used to model data from Shift table from the database for 
- * use in the java program. This class contains all the getters and setters
- * as well as all the named queries for the database.
- * 
- * @author Alex Zecevic
+ *
+ * @author alexz
  */
-
 @Entity
 @Table(name = "shift")
 @XmlRootElement
@@ -36,7 +33,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Shift.findAll", query = "SELECT s FROM Shift s")
     , @NamedQuery(name = "Shift.findByShiftID", query = "SELECT s FROM Shift s WHERE s.shiftID = :shiftID")
     , @NamedQuery(name = "Shift.findByStartTime", query = "SELECT s FROM Shift s WHERE s.startTime = :startTime")
-    , @NamedQuery(name = "Shift.findByEndTime", query = "SELECT s FROM Shift s WHERE s.endTime = :endTime")})
+    , @NamedQuery(name = "Shift.findByEndTime", query = "SELECT s FROM Shift s WHERE s.endTime = :endTime")
+    , @NamedQuery(name = "Shift.findByIsWeekend", query = "SELECT s FROM Shift s WHERE s.isWeekend = :isWeekend")
+    , @NamedQuery(name = "Shift.findByIsHoliday", query = "SELECT s FROM Shift s WHERE s.isHoliday = :isHoliday")})
 public class Shift implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,8 +52,15 @@ public class Shift implements Serializable {
     @Column(name = "EndTime")
     @Temporal(TemporalType.TIMESTAMP)
     private Date endTime;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shift")
-    private Collection<Personalschedule> personalscheduleCollection;
+    @Basic(optional = false)
+    @Column(name = "IsWeekend")
+    private boolean isWeekend;
+    @Basic(optional = false)
+    @Column(name = "IsHoliday")
+    private boolean isHoliday;
+    @JoinColumn(name = "PersonalSchedule", referencedColumnName = "PersonalSchduleID")
+    @ManyToOne(optional = false)
+    private PersonalSchedule personalSchedule;
     @JoinColumn(name = "Schedule", referencedColumnName = "ScheduleID")
     @ManyToOne(optional = false)
     private Schedule schedule;
@@ -66,10 +72,12 @@ public class Shift implements Serializable {
         this.shiftID = shiftID;
     }
 
-    public Shift(Integer shiftID, Date startTime, Date endTime) {
+    public Shift(Integer shiftID, Date startTime, Date endTime, boolean isWeekend, boolean isHoliday) {
         this.shiftID = shiftID;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.isWeekend = isWeekend;
+        this.isHoliday = isHoliday;
     }
 
     public Integer getShiftID() {
@@ -96,13 +104,28 @@ public class Shift implements Serializable {
         this.endTime = endTime;
     }
 
-    @XmlTransient
-    public Collection<Personalschedule> getPersonalscheduleCollection() {
-        return personalscheduleCollection;
+    public boolean getIsWeekend() {
+        return isWeekend;
     }
 
-    public void setPersonalscheduleCollection(Collection<Personalschedule> personalscheduleCollection) {
-        this.personalscheduleCollection = personalscheduleCollection;
+    public void setIsWeekend(boolean isWeekend) {
+        this.isWeekend = isWeekend;
+    }
+
+    public boolean getIsHoliday() {
+        return isHoliday;
+    }
+
+    public void setIsHoliday(boolean isHoliday) {
+        this.isHoliday = isHoliday;
+    }
+
+    public PersonalSchedule getPersonalSchedule() {
+        return personalSchedule;
+    }
+
+    public void setPersonalSchedule(PersonalSchedule personalSchedule) {
+        this.personalSchedule = personalSchedule;
     }
 
     public Schedule getSchedule() {
