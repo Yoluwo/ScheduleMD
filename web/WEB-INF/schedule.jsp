@@ -76,7 +76,7 @@
                                    <i class="fa fa-angle-left prev" aria-hidden="true"></i>
                                    <div class="date">
                                         <h1>June 2021</h1>
-                                        <p>Friday June 28, 2021</p>  
+                                        <h4>Friday June 28, 2021</h4>  
                                    </div>
                                    <i class="fa fa-angle-right next" aria-hidden="true"></i>
                               </div>
