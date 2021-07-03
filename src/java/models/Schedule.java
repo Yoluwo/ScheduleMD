@@ -6,8 +6,8 @@
 package models;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -58,7 +58,7 @@ public class Schedule implements Serializable {
     @ManyToOne(optional = false)
     private Hospital hospital;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "schedule")
-    private Collection<Shift> shiftCollection;
+    private List<Shift> shiftList;
 
     public Schedule() {
     }
@@ -106,12 +106,12 @@ public class Schedule implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Shift> getShiftCollection() {
-        return shiftCollection;
+    public List<Shift> getShiftList() {
+        return shiftList;
     }
 
-    public void setShiftCollection(Collection<Shift> shiftCollection) {
-        this.shiftCollection = shiftCollection;
+    public void setShiftList(List<Shift> shiftList) {
+        this.shiftList = shiftList;
     }
 
     @Override

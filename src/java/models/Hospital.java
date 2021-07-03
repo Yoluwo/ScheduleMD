@@ -6,7 +6,7 @@
 package models;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -45,9 +45,9 @@ public class Hospital implements Serializable {
     @Column(name = "HospitalType")
     private String hospitalType;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "hospital")
-    private Collection<Schedule> scheduleCollection;
+    private List<Schedule> scheduleList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "hospital")
-    private Collection<User> userCollection;
+    private List<User> userList;
 
     public Hospital() {
     }
@@ -87,21 +87,21 @@ public class Hospital implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Schedule> getScheduleCollection() {
-        return scheduleCollection;
+    public List<Schedule> getScheduleList() {
+        return scheduleList;
     }
 
-    public void setScheduleCollection(Collection<Schedule> scheduleCollection) {
-        this.scheduleCollection = scheduleCollection;
+    public void setScheduleList(List<Schedule> scheduleList) {
+        this.scheduleList = scheduleList;
     }
 
     @XmlTransient
-    public Collection<User> getUserCollection() {
-        return userCollection;
+    public List<User> getUserList() {
+        return userList;
     }
 
-    public void setUserCollection(Collection<User> userCollection) {
-        this.userCollection = userCollection;
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 
     @Override

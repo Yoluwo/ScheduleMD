@@ -6,7 +6,7 @@
 package models;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,13 +30,14 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "user")
 @XmlRootElement
-@NamedQueries({ @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
-        @NamedQuery(name = "User.findByUserID", query = "SELECT u FROM User u WHERE u.userID = :userID"),
-        @NamedQuery(name = "User.findByFirstName", query = "SELECT u FROM User u WHERE u.firstName = :firstName"),
-        @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName"),
-        @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
-        @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
-        @NamedQuery(name = "User.findByIsActive", query = "SELECT u FROM User u WHERE u.isActive = :isActive") })
+@NamedQueries({
+    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
+    , @NamedQuery(name = "User.findByUserID", query = "SELECT u FROM User u WHERE u.userID = :userID")
+    , @NamedQuery(name = "User.findByFirstName", query = "SELECT u FROM User u WHERE u.firstName = :firstName")
+    , @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName")
+    , @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")
+    , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")
+    , @NamedQuery(name = "User.findByIsActive", query = "SELECT u FROM User u WHERE u.isActive = :isActive")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,9 +62,9 @@ public class User implements Serializable {
     @Column(name = "IsActive")
     private boolean isActive;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private Collection<PersonalSchedule> personalScheduleCollection;
+    private List<PersonalSchedule> personalScheduleList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private Collection<Timeoff> timeoffCollection;
+    private List<Timeoff> timeoffList;
     @JoinColumn(name = "Hospital", referencedColumnName = "HospitalID")
     @ManyToOne(optional = false)
     private Hospital hospital;
@@ -136,21 +137,21 @@ public class User implements Serializable {
     }
 
     @XmlTransient
-    public Collection<PersonalSchedule> getPersonalScheduleCollection() {
-        return personalScheduleCollection;
+    public List<PersonalSchedule> getPersonalScheduleList() {
+        return personalScheduleList;
     }
 
-    public void setPersonalScheduleCollection(Collection<PersonalSchedule> personalScheduleCollection) {
-        this.personalScheduleCollection = personalScheduleCollection;
+    public void setPersonalScheduleList(List<PersonalSchedule> personalScheduleList) {
+        this.personalScheduleList = personalScheduleList;
     }
 
     @XmlTransient
-    public Collection<Timeoff> getTimeoffCollection() {
-        return timeoffCollection;
+    public List<Timeoff> getTimeoffList() {
+        return timeoffList;
     }
 
-    public void setTimeoffCollection(Collection<Timeoff> timeoffCollection) {
-        this.timeoffCollection = timeoffCollection;
+    public void setTimeoffList(List<Timeoff> timeoffList) {
+        this.timeoffList = timeoffList;
     }
 
     public Hospital getHospital() {
@@ -183,8 +184,7 @@ public class User implements Serializable {
             return false;
         }
         User other = (User) object;
-        if ((this.userID == null && other.userID != null)
-                || (this.userID != null && !this.userID.equals(other.userID))) {
+        if ((this.userID == null && other.userID != null) || (this.userID != null && !this.userID.equals(other.userID))) {
             return false;
         }
         return true;
@@ -194,5 +194,5 @@ public class User implements Serializable {
     public String toString() {
         return "models.User[ userID=" + userID + " ]";
     }
-
+    
 }
