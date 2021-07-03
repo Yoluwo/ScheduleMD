@@ -22,7 +22,7 @@
                <div class="navigation">
                     <ul> 
                          <li>
-                              <a href="#">
+                              <a href="resident">
                                    <span class="icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
                                    <span class="title"><h1>ScheduleMD</h1></span>
                               </a>
@@ -131,10 +131,10 @@
                                    <div class="next-date">7</div>
                                    <div class="next-date">8</div>
                                    <div class="next-date">9</div>
-                             </div>
+                              </div>
                          </div>
                     </div>
                </div>
-               <script type="text/javascript" src="js/script.js"></script>
+          <script type="text/javascript" src="js/script.js"></script>
      </body>
 </html>

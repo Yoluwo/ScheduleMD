@@ -22,13 +22,13 @@
                <div class="navigation">
                     <ul> 
                     <li>
-                         <a href="#">
+                         <a href="resident">
                          <span class="icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
                          <span class="title"><h1>ScheduleMD</h1></span>
                          </a>
                     </li>
                     <li>
-                         <a href="resident">
+                         <a href="schedule">
                          <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                          <span class="title">Schedule</span>
                          </a>

@@ -21,76 +21,76 @@
           <div class="container">
                <div class="navigation">
                     <ul> 
-                    <li>
-                         <a href="#">
-                         <span class="icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
-                         <span class="title"><h1>ScheduleMD</h1></span>
-                         </a>
-                    </li>
-                    <li>
-                         <a href="schedule">
-                         <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                         <span class="title">Schedule</span>
-                         </a>
-                    </li>
-                    <li>
-                         <a href="profile">
-                         <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                         <span class="title">Profile</span>
-                         </a>
-                    </li>
-                    <li>
-                         <a href="request">
-                         <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
-                         <span class="title">Request Time Off</span>
-                         </a>
-                    </li>
-                    <li>
-                         <a href="messages">
-                         <span class="icon"><i class="fa fa-comment" aria-hidden="true"></i></span>
-                         <span class="title">Messages</span>
-                         </a>
-                    </li>
-                    <li>
-                         <a href="settings">
-                         <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                         <span class="title">Settings</span>
-                         </a>
-                    </li>
-                    <li>
-                         <a href="login">
-                         <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
-                         <span class="title">Logout</span>
-                         </a>
-                    </li>
+                         <li>
+                              <a href="resident">
+                                   <span class="icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+                                   <span class="title"><h1>ScheduleMD</h1></span>
+                              </a>
+                         </li>
+                         <li>
+                              <a href="schedule">
+                                   <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                   <span class="title">Schedule</span>
+                              </a>
+                         </li>
+                         <li>
+                              <a href="profile">
+                                   <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                   <span class="title">Profile</span>
+                              </a>
+                         </li>
+                         <li>
+                              <a href="request">
+                                   <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
+                                   <span class="title">Request Time Off</span>
+                              </a>
+                         </li>
+                         <li>
+                              <a href="messages">
+                                   <span class="icon"><i class="fa fa-comment" aria-hidden="true"></i></span>
+                                   <span class="title">Messages</span>
+                              </a>
+                         </li>
+                         <li>
+                              <a href="settings">
+                                   <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                                   <span class="title">Settings</span>
+                              </a>
+                         </li>
+                         <li>
+                              <a href="login">
+                                   <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                                   <span class="title">Logout</span>
+                              </a>
+                         </li>
                     </ul>
                </div>
                <div class="main">
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
-                              <h1>Profile</h1>
+                         <h1>Profile</h1>
                     </div>
                     <div class="submain">
-                    <form method="POST" action="profile">
-                         <h2>Reset Password </h2>
-                         <div class="form-control">
-                         <label for="oldPassword">Old Password: </label>
-                         <input type="password" name="oldPassword" id="oldpassword" required>
-                         </div>
-                    <div class="form-control">
-                         <label for="newPassword">New Password: </label>
-                         <input type="password" name="newPassword" id="newpassword" required>
+                         <form method="POST" action="profile">
+                              <h2>Reset Password </h2>
+                              <div class="form-control">
+                                   <label for="oldPassword">Old Password: </label>
+                                   <input type="password" name="oldPassword" id="oldpassword" required>
+                              </div>
+                              <div class="form-control">
+                                   <label for="newPassword">New Password: </label>
+                                   <input type="password" name="newPassword" id="newpassword" required>
+                              </div>
+                              <div class="form-control">
+                                   <label for="confirmPassword">Confirm Password: </label>
+                                   <input type="password" name="confirmPassword" id="confirmPassword" required>
+                              </div>
+                              <button class="btn">Submit</button>
+                         </form>
+                         <br>
+                         <p> ${message}</p>
                     </div>
-                    <div class="form-control">
-                         <label for="confirmPassword">Confirm Password: </label>
-                         <input type="password" name="confirmPassword" id="confirmPassword" required>
-                    </div>
-                         <button class="btn">Submit</button>
-                    </form>
-                        <br>
-                          <p> ${message}</p>
-                    </div>
-                    </div>
+               </div>
           </div>
           <script type="text/javascript" src="js/script.js"></script>
      </body>

@@ -38,7 +38,7 @@
                     </div>
 
                     <a href="password">Forgot your password?</a>
-                    <p> ${message}</p>
+                    <p>${message}</p>
                     <button class="btn">Log in</button>
                </form>
           </div>

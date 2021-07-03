@@ -22,7 +22,7 @@
                <div class="navigation">
                     <ul> 
                     <li>
-                         <a href="#">
+                         <a href="admin">
                          <span class="icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
                          <span class="title"><h1>ScheduleMD</h1></span>
                          </a>
