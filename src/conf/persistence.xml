@@ -6,7 +6,6 @@
     <class>models.User</class>
     <class>models.Role</class>
     <class>models.Shift</class>
-    <class>models.Personalschedule</class>
     <class>models.Hospital</class>
     <class>models.Timeoff</class>
     <class>models.Schedule</class>
