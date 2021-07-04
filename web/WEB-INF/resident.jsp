@@ -70,7 +70,34 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Dashboard</h1>
                     </div>
+                    <div class="dash">
+                         <img src="images/dashboard.jpg" alt="Image of doctor doing work">
+                         <div class="text-wrapper">
+                              <h2>Welcome back, ${firstName} </h2>
+                         </div>
+                    </div>
+                    <div class="cards">
+                         <div class="card">
+                              <div>
+                                   <div class="schedule">Weekly Schedule</div>
+                                   <div class="cardName">View Schedule</div>
+                              </div>
+                              <div class="iconBox">
+                                   <i class="fa fa-calendar" aria-hidden="true"></i>
+                              </div>
+                         </div>
+                         <div class="card">
+                              <div>
+                                   <div class="message">Your messages</div>
+                                   <div class="cardName">Messages</div>
+                              </div>
+                              <div class="iconBox">
+                                   <i class="fa fa-comment" aria-hidden="true"></i>
+                              </div>
+                         </div>
+                    </div>
                </div>
                <script type="text/javascript" src="js/script.js"></script>
+          </div>
      </body>
 </html>

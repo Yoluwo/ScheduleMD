@@ -22,7 +22,7 @@
           <div class="navigation"> 
                <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
           </div>
-               <div class="container">
+          <div class="container">
                <h2>Welcome Back</h2>
                <form method="POST" action="login">
                     <div class="form-control">
