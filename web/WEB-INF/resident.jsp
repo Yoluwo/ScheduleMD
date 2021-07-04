@@ -71,7 +71,7 @@
                          <h1>Dashboard</h1>
                     </div>
                     <div class="dash">
-                         <img src="images/dashboard.jpg" alt="Image of doctor doing work">
+                         <img src="images/dashboard_1.jpg" alt="Image of doctor doing work">
                          <div class="text-wrapper">
                               <h2>Welcome back, ${firstName} </h2>
                          </div>
