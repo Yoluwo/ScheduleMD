@@ -30,7 +30,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Hospital.findAll", query = "SELECT h FROM Hospital h")
     , @NamedQuery(name = "Hospital.findByHospitalID", query = "SELECT h FROM Hospital h WHERE h.hospitalID = :hospitalID")
     , @NamedQuery(name = "Hospital.findByHospitalName", query = "SELECT h FROM Hospital h WHERE h.hospitalName = :hospitalName")
-    , @NamedQuery(name = "Hospital.findByHospitalType", query = "SELECT h FROM Hospital h WHERE h.hospitalType = :hospitalType")})
+    , @NamedQuery(name = "Hospital.findByHospitalType", query = "SELECT h FROM Hospital h WHERE h.hospitalType = :hospitalType")
+    , @NamedQuery(name = "Hospital.findByRoleList", query = "SELECT h FROM Hospital h WHERE h.roleList = :roleList")})
 public class Hospital implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,6 +45,8 @@ public class Hospital implements Serializable {
     @Basic(optional = false)
     @Column(name = "HospitalType")
     private String hospitalType;
+    @Column(name = "RoleList")
+    private String roleList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "hospital")
     private List<Schedule> scheduleList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "hospital")
@@ -84,6 +87,14 @@ public class Hospital implements Serializable {
 
     public void setHospitalType(String hospitalType) {
         this.hospitalType = hospitalType;
+    }
+
+    public String getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(String roleList) {
+        this.roleList = roleList;
     }
 
     @XmlTransient

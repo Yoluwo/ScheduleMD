@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`hospital` (
     `HospitalID` INT(3) NOT NULL,
     `HospitalName` VARCHAR(30) NOT NULL,
     `HospitalType` VARCHAR(30) NOT NULL,
+    `RoleList` VARCHAR(30),
     PRIMARY KEY (`HospitalID`)
 );
 
@@ -128,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`shift` (
 -- real production data instead.
 -- -----------------------------------------------------
 
-INSERT INTO `hospital` VALUES (1, 'test', 'test type');
+INSERT INTO `hospital` VALUES (1, 'test', 'test type','ATS');
 
 INSERT INTO `role` VALUES (0, 'system admin');
 INSERT INTO `role` VALUES (1, 'regular user');

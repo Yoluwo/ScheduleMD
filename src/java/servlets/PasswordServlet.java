@@ -38,10 +38,10 @@ public class PasswordServlet extends HttpServlet {
         } catch(Exception e){}
         SchedulingService ss = new SchedulingService();
         Calendar c = Calendar.getInstance();
-        c.add(Calendar.DAY_OF_MONTH, 4);
+        c.add(Calendar.DAY_OF_MONTH, 1);
         Hospital h = new Hospital();
         h.setHospitalID(1);
-        ss.generateSchedule(c, h);
+        ss.generateSchedule(c, ho);
         //Test ends
         UserDB userDB = new UserDB();
         User user = null;

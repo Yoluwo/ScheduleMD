@@ -12,42 +12,87 @@ import servlets.PasswordServlet;
 public class SchedulingService {
 
     public Schedule generateSchedule(Calendar startDate, Hospital hospital) {
-        //Testingttessinfwefnwerjfbasjlkfbseadljkfbanserwjklfnbseajlfsdanjlfk;
-      
-        ArrayList<User> activeResidents = new ArrayList<>();
+
+        HospitalService hospitalService = new HospitalService();
+        UserService userService = new UserService();
+        ShiftService shiftService = new ShiftService();
+
+        ArrayList<User> acess = new ArrayList<>();
+        ArrayList<User> trauma = new ArrayList<>();
+        ArrayList<User> senior = new ArrayList<>();
+        ArrayList<Shift> shifts = new ArrayList<>();
+        Calendar endDate;
+
+        endDate = findEndDate(startDate);
+        ArrayList<Integer> rolesToLoad = hospitalService.findHospitalRoles(hospital);
+
+        for (int roleID : rolesToLoad) {
+            switch (roleID) {
+                case 1:
+                    acess = userService.findAllActiveUsersByRoleByHospital(roleID, hospital);
+                    break;
+                case 2:
+                    trauma = userService.findAllActiveUsersByRoleByHospital(roleID, hospital);
+                    break;
+                case 3:
+                    senior = userService.findAllActiveUsersByRoleByHospital(roleID, hospital);
+                    break;
+            }
+        }
+
+        Schedule schedule = new Schedule(0, startDate.getTime(), endDate.getTime());
+        Schedule scheduleToLoad = null;
+
+        schedule.setHospital(hospital);
+        ScheduleDB scheduleDB = new ScheduleDB();
+        List<Schedule> sList = new ArrayList<>();
+
+        try {
+            sList = scheduleDB.getAll();
+        } catch (Exception e) {
+        }
+
+        if (sList.size() == 0) {
+            try {
+                scheduleDB.insert(schedule);
+                scheduleToLoad = scheduleDB.getByScheduleID(1);
+            } catch (Exception e) {
+            }
+        } else {
+            try {
+                scheduleDB.insert(schedule);
+                scheduleToLoad = scheduleDB.getByScheduleID(sList.size() + 1);
+            } catch (Exception e) {
+            }
+        }
+
+        shifts = shiftService.generateShifts(startDate, endDate, schedule);
+        System.out.println("XD");
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        /* ArrayList<User> activeResidents = new ArrayList<>();
         ArrayList<User> accessResidents = new ArrayList<>();
         ArrayList<User> traumaResidents = new ArrayList<>();
         ArrayList<User> seniorResidents = new ArrayList<>();
         ArrayList<Timeoff> approvedTimeOffs = new ArrayList<>();
         ArrayList<Shift> shifts = new ArrayList<>();
         
-        Calendar endDate = Calendar.getInstance();
-        endDate.setTime(startDate.getTime());
-        endDate.add(Calendar.DAY_OF_MONTH, 28);
+       
+        
+        
          
          
            //TEST STARTS HERE
         
-        Schedule s = new Schedule(0, startDate.getTime(), endDate.getTime());
-        Schedule s2 = null;
-        s.setHospital(hospital); 
-        ScheduleDB sDB =  new ScheduleDB();
-        List<Schedule> sList = new ArrayList<>();
-        try{
-            sList = sDB.getAll();
-        } catch(Exception e){}
-        
-        if(sList.size() == 0){
-            try{
-                sDB.insert(s);
-                s2 = sDB.getByScheduleID(1);
-            } catch(Exception e){}
-        } else {
-            try{
-                sDB.insert(s);
-                s2 = sDB.getByScheduleID(sList.size() + 1);
-            } catch(Exception e){}
-        }        
+              
 
         
         //TEST ENDS HERE
@@ -56,7 +101,7 @@ public class SchedulingService {
 
         activeResidents = loadAllActiveResdients();
 
-        for (int i = 0; i < activeResidents.size(); i++) {
+       /* for (int i = 0; i < activeResidents.size(); i++) {
             User currentUser = activeResidents.get(i);
             int currentUserRole = activeResidents.get(i).getRole().getRoleID();
 
@@ -92,41 +137,20 @@ public class SchedulingService {
       //  schedule.setTraumaPersonalSchedules(traumaPersonalSchedulesLoaded);
         //schedule.setSeniorPersonalSchedules(seniorPersonalSchedulesLoaded);
         return schedule;
+**/
+        return new Schedule();
     }
 
-    // 2 weekends per block, housecall 7 in a block, homecall max 9
+    public Calendar findEndDate(Calendar startDate) {
 
-    public ArrayList<User> loadAllActiveResdients() {
-        UserDB userDB = new UserDB();
+        Calendar endDate = Calendar.getInstance();
+        endDate.setTime(startDate.getTime());
+        endDate.add(Calendar.DAY_OF_MONTH, 28);
 
-        // List of residents to check if active
-        ArrayList<User> activeCheck = new ArrayList<>();
-
-        // List of active residents to return
-        ArrayList<User> activeResidents = new ArrayList<>();
-
-        // Getting a list of all the residents in the database
-        try {
-            activeCheck = new ArrayList<>(userDB.getAll());
-        } catch (Exception e) {
-            // *** add sum here later
-        }
-
-        // Loop that check the list for active residents, then loads them into a list
-        for (int i = 0; i < activeCheck.size(); i++) {
-
-            User currentUser = activeCheck.get(i);
-
-            if (currentUser.getIsActive()) {
-
-                activeResidents.add(currentUser);
-            }
-
-        }
-        // List of active residents to return
-        return activeResidents;
-
+        return endDate;
     }
+
+
 
     public ArrayList<Timeoff> loadAllAprovedRequests(Calendar start, Calendar end) {
         TimeoffDB timeOff = new TimeoffDB();
@@ -162,117 +186,13 @@ public class SchedulingService {
         return timeOffToLoad;
     }
 
-    public ArrayList<Shift> generateShifts(Calendar startDate, Calendar endDate,Schedule sc) {
-
-        ArrayList<Shift> shiftList = new ArrayList<>();
-        int dayOfWeek;
-        Calendar dayIncrement = Calendar.getInstance();
-        dayIncrement.setTime(startDate.getTime());
-        Date startDateShift;
-        Date endDateShift;
-        
-        
- 
-
-        
-        // Need to boolean add boolean for weekend
-        int increment = 1;
-        while (!dayIncrement.equals(endDate)) {
-
-            startDateShift = dayIncrement.getTime();
-            //dayIncrement.add(Calendar.DATE, 1);
-            System.out.println(dayIncrement.getTime());
-            //System.out.println(endDate.());
-            endDateShift = dayIncrement.getTime();
-
-            // Constructing new shift object with date information
-            Shift newShift = new Shift(0, startDateShift, endDateShift); // change constructor
-            dayOfWeek = shiftDayOfWeekCheck(newShift);
-
-            newShift.setNumberInBlock(increment);
-            newShift.setDayOfWeek(dayOfWeek); // needs to be added
-            newShift.setIsWeekend(weekendCheck(dayOfWeek));
-            newShift.setIsHoliday(holidayCheck(newShift));
-            
-            //Testing adding sched to shift
-            newShift.setSchedule(sc);
-            
-            //fix this by removing personal sched
-            //newShift.setPersonalSchedule(new PersonalSchedule(new User(0)));
-            shiftList.add(newShift);
-            saveShift(newShift);
-
-            // Incrementing to the next day
-            dayIncrement.add(Calendar.DATE, 1);
-            System.out.println(dayIncrement.getTime());
-            increment++;
-            
-        }
-
-        return shiftList;
-
-    }
-
-    public ArrayList<PersonalSchedule> GeneratePersonalSchedule(ArrayList<User> user) {
-        // List for personal schedules we are creating
-        ArrayList<PersonalSchedule> personalSchedules = new ArrayList<>();
-
-        for (int i = 0; i < user.size(); i++) {
-            // Getting a user from the list
-            User curUser = user.get(i);
-            // Creating a new schedule object for the user and adding it to the list to
-            // return
-            PersonalSchedule p = new PersonalSchedule();
-            p.setUser(curUser);
-            personalSchedules.add(p);
-            // Getting the users list of personlSchedules and adding the new one
-            try{
-                ArrayList<PersonalSchedule> oldPersonalScheduleCollection = new ArrayList<>(
-                        curUser.getPersonalScheduleList());
-            
-                oldPersonalScheduleCollection.add(p);
-                curUser.setPersonalScheduleList(oldPersonalScheduleCollection);
-            } catch(Exception e){}
-        }
-        // Returning List of personal Schedules
-        return personalSchedules;
-    }
-
-    public int shiftDayOfWeekCheck(Shift shift) {
-
-        Calendar shiftDayCal = Calendar.getInstance();
-        shiftDayCal.setTime(shift.getStartTime());
-
-        return shiftDayCal.get(Calendar.DAY_OF_WEEK);
-    }
-
-    public boolean holidayCheck(Shift shift) {
-        boolean isHoliday = false;
-        return isHoliday;
-    }
-
-    public boolean weekendCheck(int dayOfWeek) {
-        switch (dayOfWeek) {
-            case 1:
-                // sunday
-                return true;
-            case 6:
-                // friday
-                return true;
-            case 7:
-                // saturday
-                return true;
-        }
-        return false;
-    }
-
     public boolean shiftAvalibiltyCheck(List<Timeoff> timeOffRequests, User user, Shift shift) {
 
         Date timeOffStartDate;
         Date timeOffEndDate;
         Date shiftStartTime = shift.getStartTime();
         boolean canWork = false;
-        if(timeOffRequests.isEmpty()){
+        if (timeOffRequests.isEmpty()) {
             return true;
         }
         for (int i = 0; i < timeOffRequests.size(); i++) {
@@ -302,53 +222,52 @@ public class SchedulingService {
         return canWork;
     }
 
-    public ArrayList<PersonalSchedule> sortShiftsForAssigning(ArrayList<Shift> shifts,ArrayList<User> users, ArrayList<Timeoff> approvedTimeOffs, ArrayList<PersonalSchedule> personalSchedules){
-        ArrayList <Shift> weekdays = new ArrayList<>();
-        ArrayList <Shift> friday = new ArrayList<>();
-        ArrayList <Shift> saturday = new ArrayList<>();
-        ArrayList <Shift> sunday = new ArrayList<>();
-        ArrayList <User> fridaySundayShifts = new ArrayList<>();
-        ArrayList <User> saturdayShifts = new ArrayList<>();
-        ArrayList <User> weekdayShifts = new ArrayList<>();
-        ArrayList <PersonalSchedule> personalSchedulesToReturn = new ArrayList<>();
+    public ArrayList<PersonalSchedule> sortShiftsForAssigning(ArrayList<Shift> shifts, ArrayList<User> users, ArrayList<Timeoff> approvedTimeOffs, ArrayList<PersonalSchedule> personalSchedules) {
+        ArrayList<Shift> weekdays = new ArrayList<>();
+        ArrayList<Shift> friday = new ArrayList<>();
+        ArrayList<Shift> saturday = new ArrayList<>();
+        ArrayList<Shift> sunday = new ArrayList<>();
+        ArrayList<User> fridaySundayShifts = new ArrayList<>();
+        ArrayList<User> saturdayShifts = new ArrayList<>();
+        ArrayList<User> weekdayShifts = new ArrayList<>();
+        ArrayList<PersonalSchedule> personalSchedulesToReturn = new ArrayList<>();
         int personalScheduleShiftCounter = 0;
         boolean canWork = false;
         boolean worksFriday = false;
-        
-        for(int i = 0; i < shifts.size(); i++){
+
+        for (int i = 0; i < shifts.size(); i++) {
             Shift currentShift = shifts.get(i);
-            
-            if(currentShift.getIsWeekend()){
+
+            if (currentShift.getIsWeekend()) {
                 int dayOfWeek = currentShift.getDayOfWeek();
-                  switch (dayOfWeek) {
-                        case 1:
-                            sunday.add(currentShift);
-                            break;
-                        case 6:
-                            friday.add(currentShift);
-                            break;
-                        case 7:
-                            saturday.add(currentShift);
-                            break;
-                  }
-            }
-            else{
+                switch (dayOfWeek) {
+                    case 1:
+                        sunday.add(currentShift);
+                        break;
+                    case 6:
+                        friday.add(currentShift);
+                        break;
+                    case 7:
+                        saturday.add(currentShift);
+                        break;
+                }
+            } else {
                 weekdays.add(currentShift);
             }
         }
-        
-        for(int i = 0; i < friday.size(); i++){
-            while(!canWork){
+
+        for (int i = 0; i < friday.size(); i++) {
+            while (!canWork) {
                 int rnd = new Random().nextInt(users.size());
-                for(int z = 0; z < fridaySundayShifts.size(); z++){
-                    if(fridaySundayShifts.get(z).getUserID() == users.get(rnd).getUserID()){
+                for (int z = 0; z < fridaySundayShifts.size(); z++) {
+                    if (fridaySundayShifts.get(z).getUserID() == users.get(rnd).getUserID()) {
                         worksFriday = true;
                     }
                 }
                 canWork = shiftAvalibiltyCheck(approvedTimeOffs, users.get(rnd), friday.get(i));
-                if(canWork && !worksFriday){
+                if (canWork && !worksFriday) {
                     canWork = shiftAvalibiltyCheck(approvedTimeOffs, users.get(rnd), sunday.get(i));
-                    if(canWork){
+                    if (canWork) {
                         PersonalSchedule ps = loadShiftToPersonalSchedule(users.get(rnd), personalSchedules, friday.get(i));
                         personalSchedulesToReturn.add(ps);
                         ps = loadShiftToPersonalSchedule(users.get(rnd), personalSchedules, sunday.get(i));
@@ -358,37 +277,35 @@ public class SchedulingService {
                 }
             }
         }
-        canWork = false; 
-        for(int i = 0; i < saturday.size(); i++){
-            while(!canWork){
+        canWork = false;
+        for (int i = 0; i < saturday.size(); i++) {
+            while (!canWork) {
                 int rnd = new Random().nextInt(users.size());
                 canWork = shiftAvalibiltyCheck(approvedTimeOffs, users.get(rnd), saturday.get(i));
-                if(canWork){
-                    for(int z = 0; z < personalSchedules.size(); z++){
+                if (canWork) {
+                    for (int z = 0; z < personalSchedules.size(); z++) {
                         PersonalSchedule currentPersonalSchedule = personalSchedulesToReturn.get(z);
-                        int personalScheduleUserID = currentPersonalSchedule.getUser().getUserID(); 
-                    
-                        if(users.get(rnd).getUserID() == personalScheduleUserID){
-                            ArrayList <Shift> currentPersonalScheduleShifts = new ArrayList<>(currentPersonalSchedule.getShiftList());
-                            if(!currentPersonalScheduleShifts.isEmpty()){
-                                
+                        int personalScheduleUserID = currentPersonalSchedule.getUser().getUserID();
+
+                        if (users.get(rnd).getUserID() == personalScheduleUserID) {
+                            ArrayList<Shift> currentPersonalScheduleShifts = new ArrayList<>(currentPersonalSchedule.getShiftList());
+                            if (!currentPersonalScheduleShifts.isEmpty()) {
+
                                 Date fridayShift = currentPersonalScheduleShifts.get(0).getStartTime();
                                 Date sundayShift = currentPersonalScheduleShifts.get(1).getStartTime();
 
-                                if(!saturday.get(i).getStartTime().after(fridayShift) && !saturday.get(i).getStartTime().before(sundayShift)){
+                                if (!saturday.get(i).getStartTime().after(fridayShift) && !saturday.get(i).getStartTime().before(sundayShift)) {
                                     personalSchedulesToReturn.add(loadShiftToPersonalSchedule(users.get(rnd), personalSchedules, saturday.get(i)));
                                 }
-                                
-                                
-                            }
-                            else{
+
+                            } else {
                                 personalSchedulesToReturn.add(loadShiftToPersonalSchedule(users.get(rnd), personalSchedules, saturday.get(i)));
                             }
-                           
+
                         }
-                       
+
                     }
-                    
+
                 }
             }
         }
@@ -396,80 +313,40 @@ public class SchedulingService {
         //if they work x numbers days in a row or if they have worked over 7 total days.1L
         //if they have a timeOffRequest 
         canWork = false;
-        for(int i = 0; i < weekdays.size(); i++){
-            while(!canWork){
+        for (int i = 0; i < weekdays.size(); i++) {
+            while (!canWork) {
                 int rnd = new Random().nextInt(users.size());
                 canWork = shiftAvalibiltyCheck(approvedTimeOffs, users.get(rnd), weekdays.get(i));
-                if(canWork){
-                    
+                if (canWork) {
+
                     personalSchedulesToReturn.add(loadShiftToPersonalSchedule(users.get(rnd), personalSchedules, weekdays.get(i)));
                 }
             }
         }
         return personalSchedulesToReturn;
         //shiftAvalibiltyCheck(timeOffRequests, user, weekdays);
-         
+
         //Calendar calendar = Calendar.getInstance();
         //calendar.setTime(weekdays.get(i).getStartTime());
-
     }
 
-    public void daysInARowCheck(ArrayList<PersonalSchedule> personalSchedules, User user, Shift shift) {
 
-    }
-
-    public PersonalSchedule loadShiftToPersonalSchedule(User user, ArrayList<PersonalSchedule> personalSchedules,
-            Shift shift) {
-
-        int currentUserID = user.getUserID();
-        PersonalSchedule currentPersonalSchedule = null;
-        int personalScheduleUserID;
-
-        // Loop for searching through the personal schedules to find the one that
-        // matches the user
-        for (int i = 0; i < personalSchedules.size(); i++) {
-
-            currentPersonalSchedule = personalSchedules.get(i);
-            personalScheduleUserID = currentPersonalSchedule.getUser().getUserID();
-
-            // If we find the personal schedule that belongs to the user we add the shift to
-            // the users personal schedule
-            if (currentUserID == personalScheduleUserID) {
-                ArrayList<Shift> personalScheduleShifts = new ArrayList<>(currentPersonalSchedule.getShiftList());
-                personalScheduleShifts.add(shift);
-                currentPersonalSchedule.setShiftList(personalScheduleShifts);
-            }
-        }
-        // Returning the personalSchedule object after adding the shift
-        return currentPersonalSchedule;
-    }
     //test
-    public void saveSchedule(Schedule schedule){
+    public void saveSchedule(Schedule schedule) {
         ScheduleDB scdb = new ScheduleDB();
-           try{
-               
-              scdb.insert(schedule);
-        }
-        catch(Exception e){
+        try {
+
+            scdb.insert(schedule);
+        } catch (Exception e) {
             System.out.println("oh no");
         }
     }
+
     //test
-      public Schedule loadSchedule(Date startDate,Hospital hospital) throws Exception{
+    public Schedule loadSchedule(Date startDate, Hospital hospital) throws Exception {
         ScheduleDB scdb = new ScheduleDB();
-        return  scdb.getByStartDate(startDate, hospital);
-      
-     
-    }
-      public void saveShift(Shift shift){
-        ShiftDB shiftdb = new ShiftDB();
-           try{
-               
-              shiftdb.insert(shift);
-        }
-        catch(Exception e){
-            System.out.println("oh no");
-        }
+        return scdb.getByStartDate(startDate, hospital);
+
     }
 
 }
