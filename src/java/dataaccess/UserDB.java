@@ -43,7 +43,7 @@ public class UserDB {
     public List<User> getAllActive(boolean isActive) throws Exception{
          EntityManager em = DBUtil.getEmFactory().createEntityManager();
            try {
-            List<User> users = em.createNamedQuery("User.findByIsActive", User.class).setParameter("IsActive", isActive).getResultList();
+            List<User> users = em.createNamedQuery("User.findByIsActive", User.class).setParameter("isActive", isActive).getResultList();
             return users;
         } finally {
             em.close();
