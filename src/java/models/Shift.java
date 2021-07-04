@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author alexz
+ * @author 743851
  */
 @Entity
 @Table(name = "shift")
@@ -62,12 +62,15 @@ public class Shift implements Serializable {
     private Integer numberInBlock;
     @Column(name = "DayOfWeek")
     private Integer dayOfWeek;
-    @JoinColumn(name = "PersonalSchedule", referencedColumnName = "PersonalSchduleID")
-    @ManyToOne(optional = false)
-    private PersonalSchedule personalSchedule;
+    @JoinColumn(name = "Role", referencedColumnName = "RoleID")
+    @ManyToOne
+    private Role role;
     @JoinColumn(name = "Schedule", referencedColumnName = "ScheduleID")
     @ManyToOne(optional = false)
     private Schedule schedule;
+    @JoinColumn(name = "User", referencedColumnName = "UserID")
+    @ManyToOne(optional = false)
+    private User user;
 
     public Shift() {
     }
@@ -138,12 +141,12 @@ public class Shift implements Serializable {
         this.dayOfWeek = dayOfWeek;
     }
 
-    public PersonalSchedule getPersonalSchedule() {
-        return personalSchedule;
+    public Role getRole() {
+        return role;
     }
 
-    public void setPersonalSchedule(PersonalSchedule personalSchedule) {
-        this.personalSchedule = personalSchedule;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public Schedule getSchedule() {
@@ -152,6 +155,14 @@ public class Shift implements Serializable {
 
     public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

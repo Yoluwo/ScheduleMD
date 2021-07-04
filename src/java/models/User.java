@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author alexz
+ * @author 743851
  */
 @Entity
 @Table(name = "user")
@@ -62,7 +62,7 @@ public class User implements Serializable {
     @Column(name = "IsActive")
     private boolean isActive;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<PersonalSchedule> personalScheduleList;
+    private List<Shift> shiftList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Timeoff> timeoffList;
     @JoinColumn(name = "Hospital", referencedColumnName = "HospitalID")
@@ -137,12 +137,12 @@ public class User implements Serializable {
     }
 
     @XmlTransient
-    public List<PersonalSchedule> getPersonalScheduleList() {
-        return personalScheduleList;
+    public List<Shift> getShiftList() {
+        return shiftList;
     }
 
-    public void setPersonalScheduleList(List<PersonalSchedule> personalScheduleList) {
-        this.personalScheduleList = personalScheduleList;
+    public void setShiftList(List<Shift> shiftList) {
+        this.shiftList = shiftList;
     }
 
     @XmlTransient

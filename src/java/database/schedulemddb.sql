@@ -94,19 +94,6 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`schedule` (
         REFERENCES `schedulemddb`.`hospital` (`HospitalID`)
 ); 
 
--- -----------------------------------------------------
--- Table `schedulemddb`.`personalSchedule`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `schedulemddb`.`personalSchedule` (
-    `PersonalSchduleID` INT(6) NOT NULL AUTO_INCREMENT,
-    `User` INT(4) NOT NULL,
-    `IsFridaySunday` TINYINT(1) NOT NULL,
-    `IsSaturday` TINYINT(1) NOT NULL,
-    PRIMARY KEY (`personalSchduleID`),
-    CONSTRAINT `fk_user_id_personal_schedule`
-        FOREIGN KEY (`User`)
-        REFERENCES `schedulemddb`.`user` (`UserID`)
-);
 
 -- -----------------------------------------------------
 -- Table `schedulemddb`.`shift`
@@ -114,21 +101,26 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`personalSchedule` (
 CREATE TABLE IF NOT EXISTS `schedulemddb`.`shift` (
     `ShiftID` INT(6) NOT NULL AUTO_INCREMENT,
     `Schedule` INT(6) NOT NULL,
-    `PersonalSchedule` INT(6) NOT NULL,
+    `User` INT(4) NOT NULL,
     `StartTime` DATETIME NOT NULL,
     `EndTime` DATETIME NOT NULL,
     `IsWeekend` TINYINT(1),
     `IsHoliday` TINYINT(1),
     `NumberInBlock` INT(40),
     `DayOfWeek` INT(1), 
+    `Role` INT(2),
     PRIMARY KEY (`ShiftID`),
     CONSTRAINT `fk_schedule_id_shift`
         FOREIGN KEY (`Schedule`)
         REFERENCES `schedulemddb`.`schedule` (`ScheduleID`),
-    CONSTRAINT `fk_personal_schedule_id`
-        FOREIGN KEY (`PersonalSchedule`)
-        REFERENCES  `schedulemddb`.`personalSchedule` (`PersonalSchduleID`)
+    CONSTRAINT `fk_role_id_shift`
+        FOREIGN KEY (`Role`)
+        REFERENCES `schedulemddb`.`role` (`RoleID`),
+    CONSTRAINT `fk_user_id_shift`
+        FOREIGN KEY (`User`)
+        REFERENCES `schedulemddb`.`user` (`UserID`)
 );
+
 
 -- -----------------------------------------------------
 -- This section is used to insert test data into the

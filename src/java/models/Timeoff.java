@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author alexz
+ * @author 743851
  */
 @Entity
 @Table(name = "timeoff")
