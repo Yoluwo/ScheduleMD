@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import services.EmailService;
 import dataaccess.*;
 import java.security.NoSuchAlgorithmException;
+import javax.servlet.http.HttpSession;
 import models.User;
 
 public class PasswordServlet extends HttpServlet {
@@ -15,6 +16,10 @@ public class PasswordServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        
+        session.invalidate();
+        
         getServletContext().getRequestDispatcher("/WEB-INF/password.jsp")
                 .forward(request, response);
     }
