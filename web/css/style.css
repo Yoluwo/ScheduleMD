@@ -320,7 +320,7 @@ p {
 
 .dash {
      width: 95%;
-     margin: 20px 20px 10px 15px;
+     margin: 10px 10px 10px 10px;
 }
 
 .dash img {
@@ -335,8 +335,8 @@ p {
 }
 
 .text-wrapper h2 {
-     font-size: 25px;
-     padding: 5px 10px;
+     font-size: 40px;
+     padding: 60px 40px;
      text-align: left;
 }
 
@@ -428,7 +428,7 @@ p {
 
      .dash {
           width: 95%;
-          margin: 10px 10px;
+          margin: 10px 7px;
      }
 
      .dash img {

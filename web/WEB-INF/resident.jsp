@@ -73,7 +73,7 @@
                     <div class="dash">
                          <img src="images/dashboard_1.jpg" alt="Image of doctor doing work">
                          <div class="text-wrapper">
-                              <h2>Welcome back, ${firstName} </h2>
+                              <h2>Welcome back, ${firstName}</h2>
                          </div>
                     </div>
                     <div class="cards">

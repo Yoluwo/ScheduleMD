@@ -64,6 +64,32 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Administrator Panel</h1>
                     </div>
+                    <div class="dash">
+                         <img src="images/dashboard_1.jpg" alt="Image of doctor doing work">
+                         <div class="text-wrapper">
+                              <h2>Welcome back,</h2>
+                         </div>
+                    </div>
+                    <div class="cards">
+                         <div class="card">
+                              <div>
+                                   <div class="schedule">Weekly Schedule</div>
+                                   <div class="cardName">View Schedule</div>
+                              </div>
+                              <div class="iconBox">
+                                   <i class="fa fa-calendar" aria-hidden="true"></i>
+                              </div>
+                         </div>
+                         <div class="card">
+                              <div>
+                                   <div class="message">Time off requests</div>
+                                   <div class="cardName">Requests</div>
+                              </div>
+                              <div class="iconBox">
+                                   <i class="fa fa-calendar-times-o" aria-hidden="true"></i>
+                              </div>
+                         </div>
+                    </div>
                </div>
           </div>
           <script type="text/javascript" src="js/script.js"></script>
