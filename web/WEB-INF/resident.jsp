@@ -76,23 +76,43 @@
                               <h2>Welcome back, ${firstName}</h2>
                          </div>
                     </div>
-                    <div class="cards">
-                         <div class="card">
-                              <div>
-                                   <div class="schedule">Weekly Schedule</div>
-                                   <div class="cardName">View Schedule</div>
+                    <div class="cardMain">
+                         <div class="cards">
+                              <div class="card">
+                                   <div>
+                                        <div class="schedule">11</div>
+                                        <div class="cardName">Open shifts</div>
+                                   </div>
+                                   <div class="iconBox">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                   </div>
                               </div>
-                              <div class="iconBox">
-                                   <i class="fa fa-calendar" aria-hidden="true"></i>
+                              <div class="card">
+                                   <div>
+                                        <div class="message">2</div>
+                                        <div class="cardName">Messages</div>
+                                   </div>
+                                   <div class="iconBox">
+                                        <i class="fa fa-comment" aria-hidden="true"></i>
+                                   </div>
                               </div>
-                         </div>
-                         <div class="card">
-                              <div>
-                                   <div class="message">Your messages</div>
-                                   <div class="cardName">Messages</div>
+                              <div class="card">
+                                   <div>
+                                        <div class="numbers">20</div>
+                                        <div class="cardName">Users</div>
+                                   </div>
+                                   <div class="iconBox">
+                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                   </div>
                               </div>
-                              <div class="iconBox">
-                                   <i class="fa fa-comment" aria-hidden="true"></i>
+                              <div class="card">
+                                   <div>
+                                        <div class="message">4</div>
+                                        <div class="cardName">Downloads</div>
+                                   </div>
+                                   <div class="iconBox">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                   </div>
                               </div>
                          </div>
                     </div>
