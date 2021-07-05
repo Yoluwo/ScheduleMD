@@ -3,8 +3,13 @@
     Author     : Yetunde Oluwo
 */
 
+/* CSS for designing the layout of webpages */
 * {
      box-sizing: border-box;
+}
+
+html {
+     scroll-behavior: smooth;
 }
 
 body {
@@ -20,7 +25,8 @@ body {
      overflow: hidden;
 }
 
-.navigation h1{
+/* CSS for designing the logo */
+.logo h1{
      background-color: #094c72;
      color: #fff;
      border: 2px solid #00254d;
@@ -30,32 +36,20 @@ body {
      margin-top: 0;
 }
 
+/* CSS for designing the forgot and reset password forms */
 .container {
-     max-width: 350px;
+     max-width: 400px;
      margin-top: 100px;
      margin-left: auto;
      margin-right: auto;
      background-color: #88cff9;
-     padding: 30px 40px 50px 40px;
+     padding: 30px 40px 25px 40px;
      border: 2px solid #5ec3ff;
      border-radius: 5px;
      box-shadow: 0px 0px 2px 2px #2f739c; 
 }
 
-@media screen and (max-width: 480px){
-     .container {
-          max-width: 290px;
-          margin-top: 50px;
-          padding: 10px 30px 50px 30px;
-     }
-
-     .form-control input {
-          width: 40%;
-          padding: 20px 0px 0px 0px;
-     }
-}
-
-.form-control{
+.form-control {
      position: relative;
      margin: 20px 0 20px 0px;
      width: 100%;
@@ -70,7 +64,7 @@ body {
      border-bottom: 2px #fff solid;
      display: block;
      width: 100%;
-     padding: 40px 0px 0px 0px;
+     padding: 50px 0 0px 0;
      font-size: 18px;
      font-family: 'merriweather', sans-serif;
 }
@@ -81,17 +75,18 @@ body {
      transform: translateY(20px);
 }
 
-.form-control label{
+.form-control label {
      position: absolute;
      top: 15px;
      left: 0;
 }
 
-.btn{
+.btn {
      cursor: pointer;
      display: inline-block;
      width: 100%;
      background-color: #dbf3fa;
+     margin: 20px 0 0 0;
      padding: 15px;
      font-size: 18px;
      font-family: inherit;
@@ -100,15 +95,15 @@ body {
      box-shadow: 1px 1px 1px 0px #2f739c;
 }
 
-.btn:hover{
+.btn:hover {
      color: #88cff9;
 }
 
-.btn:focus{
+.btn:focus {
      outline: none;
 }
 
-.btn:active{
+.btn:active {
      transform: scale(0.96);
      background-color: #bdd2d9;
      color: #094c72;
@@ -117,4 +112,20 @@ body {
 .navigation .icon .fa {
      color: #dbf3fa;
      font-size: 35px;
+}
+
+/* Cascading style sheets for designing the page's responsiveness */
+@media screen and (max-width: 480px){
+     .container {
+          max-width: 290px;
+          margin-top: 50px;
+     }
+
+     .logo h1 {
+          font-size: 35px;
+     }
+     
+     .container h2 {
+          font-size: 23px;
+     }
 }

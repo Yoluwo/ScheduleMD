@@ -19,7 +19,7 @@
      </head>
      <body>
           <!--Java Single Page for log in  -->
-          <div class="navigation"> 
+          <div class="logo"> 
                <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
           </div>
           <div class="container">

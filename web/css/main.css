@@ -3,8 +3,13 @@
     Author     : Yetunde Oluwo
 */
 
+/*CSS for designing the layout of the Login page */
 * {
      box-sizing: border-box;
+}
+
+html {
+     scroll-behavior: smooth;
 }
 
 body {
@@ -20,7 +25,8 @@ body {
      overflow: hidden;
 }
 
-.navigation h1{
+/* CSS for designing the logo */
+.logo h1 {
      background-color: #094c72;
      color: #fff;
      border: 2px solid #00254d;
@@ -30,8 +36,14 @@ body {
      margin-top: 0;
 }
 
+.logo .icon .fa {
+     color: #dbf3fa;
+     font-size: 35px;
+}
+
+/* CSS for designing the login form */
 .container {
-     max-width: 350px;
+     max-width: 400px;
      margin-top: 100px;
      margin-left: auto;
      margin-right: auto;
@@ -42,26 +54,13 @@ body {
      box-shadow: 0px 0px 2px 2px #2f739c; 
 }
 
-@media screen and (max-width: 480px){
-     .container {
-          max-width: 290px;
-          margin-top: 50px;
-          padding: 10px 30px 50px 30px;
-     }
-
-     .form-control input {
-          width: 40%;
-          padding: 20px 0px 0px 0px;
-     }
-}
-
 .container a {
      text-decoration: none;
      color: #114bd9;
      font-size: 14px;
 }
 
-.form-control{
+.form-control {
      position: relative;
      margin: 20px 0 20px 0px;
      width: 100%;
@@ -87,13 +86,13 @@ body {
      transform: translateY(20px);
 }
 
-.form-control label{
+.form-control label {
      position: absolute;
      top: 15px;
      left: 0;
 }
 
-.btn{
+.btn {
      cursor: pointer;
      display: inline-block;
      width: 100%;
@@ -106,26 +105,33 @@ body {
      box-shadow: 1px 1px 1px 0px #2f739c;
 }
 
-.btn:hover{
+.btn:hover {
      color: #88cff9;
 }
 
-.btn:focus{
+.btn:focus {
      outline: none;
 }
 
-.btn:active{
+.btn:active {
      transform: scale(0.96);
      background-color: #bdd2d9;
      color: #094c72;
 }
 
-p{
+p {
      font-family: 'merriweather', sans-serif;
      color: #659f74;
 }
 
-.navigation .icon .fa {
-     color: #dbf3fa;
-     font-size: 35px;
+/* Cascading style sheets for designing the page's responsiveness */
+@media screen and (max-width: 480px){
+     .container {
+          max-width: 290px;
+          margin-top: 50px;
+     }
+
+     .logo h1 {
+          font-size: 35px;
+     }
 }

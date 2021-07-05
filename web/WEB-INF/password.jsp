@@ -18,7 +18,7 @@
      </head>
      <body>
           <!--Java Single Page for the forgot password link -->
-          <div class="navigation"> 
+          <div class="logo"> 
                <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
           </div>
           <div class="container">
@@ -27,7 +27,6 @@
                     <div class="form-control">
                          <label for="email">Email: </label>
                          <input type="text" name="email" id="email" required>
-                         <br>
                     </div>
                    ${message}
                     <button class="btn">Submit</button>

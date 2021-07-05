@@ -3,15 +3,16 @@
     Author     : Yetunde Oluwo
 */
 
-/*
-* Cascading style sheet for designing the webpages
-*/
-
+/* Cascading style sheet for designing the layout of the webpages*/
 * {
      margin:0;
      padding:0;
      box-sizing: border-box;
      font-family: 'merriweather', sans-serif;
+}
+
+html {
+     scroll-behavior: smooth;
 }
 
 body {
@@ -39,6 +40,7 @@ h2 {
      text-align: center;
 }
 
+/*CSS for designing the navigation of the pages */
 .navigation {
      position: fixed;
      width: 230px;
@@ -111,6 +113,7 @@ h2 {
      font-size: 1rem;
 }
 
+/*CSS for designing the main section and the top bar of the pages */
 .main {
      position: absolute;
      width: 100%;
@@ -153,6 +156,7 @@ h2 {
      text-align: center;
 }
 
+/*CSS for designing the Reset password form of the profile page */
 .form-control {
      position: relative;
      margin: 0;
@@ -216,6 +220,7 @@ h2 {
      color: #094c72;
 }
 
+/*CSS for designing the submain and calendar UI for the schedule pages*/
 .submain {
      margin: 20px 0px 10px 20px;
      background-color: #dbf3fa;
@@ -239,7 +244,7 @@ p {
 
 .calendar {
      width: 600px;
-     height: 60%;
+     height: 500px;
      background-color: #dcf4fc;
      box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
 }
@@ -318,6 +323,21 @@ p {
      align-items: center;
 }
 
+.days div:hover:not(.today) {
+     background-color: #dbf3fa;
+     border: 3px solid #095280;
+     cursor: pointer;
+}
+
+.prev-date, .next-date {
+     opacity: 0.65;
+}
+
+.today {
+     background-color: #5ccbff; 
+}
+
+/*CSS for designing the Welcome back portion of the resident and admin pages */
 .dash {
      width: 95%;
      margin: 10px 10px 10px 10px;
@@ -341,7 +361,7 @@ p {
 }
 
 /* Cascading style sheets for designing the page's responsiveness */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
      .navigation {
           width: 175px;
           background: #094c72;
@@ -388,8 +408,17 @@ p {
           left: 40px;
      }
 
+     .wrapper {
+          margin-left: 10px;
+          margin-top: 10px;
+          padding: 0;
+          width: 100%;
+          height: 100vh;                  
+     }
+
      .calendar {
-          width: 90%;
+          width: 300px;
+          height: 440px;
      }
 
      .weekdays {
@@ -419,15 +448,15 @@ p {
      .days div {
           font-size: 15px;
           margin: 5px;
-          width: calc(13.2rem/7);
+          width: calc(13.9rem/7);
           height: 40px;
           display: flex;
           justify-content: center;
           align-items: center;
      }
-     
+
      .dash {
-     width: 95%;
-     margin: 10px 7px;
+          width: 95%;
+          margin: 10px 7px;
      }
 }

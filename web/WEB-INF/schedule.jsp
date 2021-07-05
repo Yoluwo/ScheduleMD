@@ -76,7 +76,7 @@
                                    <i class="fa fa-angle-left prev" aria-hidden="true"></i>
                                    <div class="date">
                                         <h1>July 2021</h1>
-                                        <p>Saturday July 3, 2021</p>  
+                                        <p>Tuesday July 6, 2021</p>  
                                    </div>
                                    <i class="fa fa-angle-right next" aria-hidden="true"></i>
                               </div>
@@ -90,16 +90,16 @@
                                    <div>Sat</div>
                               </div>
                               <div class="days">
-                                   <div class="prev-date">30</div>
-                                   <div class="prev-date">29</div>
-                                   <div class="prev-date">28</div>
                                    <div class="prev-date">27</div>
+                                   <div class="prev-date">28</div>
+                                   <div class="prev-date">29</div>
+                                   <div class="prev-date">30</div>
                                    <div>1</div>
                                    <div>2</div>
                                    <div>3</div>
                                    <div>4</div>
                                    <div>5</div>
-                                   <div>6</div>
+                                   <div class="today">6</div>
                                    <div>7</div>
                                    <div>8</div>
                                    <div>9</div>
@@ -125,16 +125,18 @@
                                    <div>29</div>
                                    <div>30</div>
                                    <div>31</div>
+                                   <div class="next-date">1</div>
+                                   <div class="next-date">2</div>
+                                   <div class="next-date">3</div>
                                    <div class="next-date">4</div>
                                    <div class="next-date">5</div>
                                    <div class="next-date">6</div>
                                    <div class="next-date">7</div>
-                                   <div class="next-date">8</div>
-                                   <div class="next-date">9</div>
                               </div>
                          </div>
                     </div>
                </div>
-          <script type="text/javascript" src="js/script.js"></script>
+               <script type="text/javascript" src="js/script.js"></script>
+               <script type="text/javascript" src="js/calscript.js"></script>
      </body>
 </html>
