@@ -75,7 +75,7 @@
                               <div class="month">
                                    <i class="fa fa-angle-left prev" aria-hidden="true"></i>
                                    <div class="date">
-                                        <h1>July 2021</h1>
+                                        <h1>July</h1>
                                         <p>Tuesday July 6, 2021</p>  
                                    </div>
                                    <i class="fa fa-angle-right next" aria-hidden="true"></i>
@@ -98,8 +98,8 @@
                                    <div>2</div>
                                    <div>3</div>
                                    <div>4</div>
-                                   <div>5</div>
-                                   <div class="today">6</div>
+                                   <div class="today">5</div>
+                                   <div>6</div>
                                    <div>7</div>
                                    <div>8</div>
                                    <div>9</div>
