@@ -17,7 +17,6 @@ function toggleMenu() {
 /* Create a new date object */
 const date = new Date();
 
-/* */
 const loadCalendar = () => {
 
      date.setDate(1);
@@ -65,7 +64,7 @@ const loadCalendar = () => {
      /* Display the dates in the month of the calendar*/
      let days = "";
 
-     /* Display the first dates of the month */
+     /* Display the dates of the month */
      for (let x = firstDayIndex; x > 0; x--) {
           days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
      }
