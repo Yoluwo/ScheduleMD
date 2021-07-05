@@ -16,11 +16,19 @@ public class SchedulingService {
         HospitalService hospitalService = new HospitalService();
         UserService userService = new UserService();
         ShiftService shiftService = new ShiftService();
-
+        TimeOffService timeOffService = new TimeOffService();
+        
         ArrayList<User> acess = new ArrayList<>();
         ArrayList<User> trauma = new ArrayList<>();
         ArrayList<User> senior = new ArrayList<>();
         ArrayList<Shift> shifts = new ArrayList<>();
+        ArrayList<Shift> accessShifts = new ArrayList<>();
+        ArrayList<Shift> seniorShifts = new ArrayList<>();
+        ArrayList<Shift> traumaShifts = new ArrayList<>();
+        ArrayList<Shift> loadedShiftsFinal = new ArrayList<>();
+        ArrayList<User> usersToUpdate = new ArrayList<>();
+
+        ArrayList<Timeoff> approvedTimeOff = new ArrayList<>();
         Calendar endDate;
 
         endDate = findEndDate(startDate);
@@ -67,80 +75,23 @@ public class SchedulingService {
         }
 
         shifts = shiftService.generateShifts(startDate, endDate, schedule);
-        System.out.println("XD");
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-        /* ArrayList<User> activeResidents = new ArrayList<>();
-        ArrayList<User> accessResidents = new ArrayList<>();
-        ArrayList<User> traumaResidents = new ArrayList<>();
-        ArrayList<User> seniorResidents = new ArrayList<>();
-        ArrayList<Timeoff> approvedTimeOffs = new ArrayList<>();
-        ArrayList<Shift> shifts = new ArrayList<>();
-        
-       
-        
-        
-         
-         
-           //TEST STARTS HERE
-        
-              
-
-        
-        //TEST ENDS HERE
-        
-        approvedTimeOffs = loadAllAprovedRequests(startDate, endDate);
-
-        activeResidents = loadAllActiveResdients();
-
-       /* for (int i = 0; i < activeResidents.size(); i++) {
-            User currentUser = activeResidents.get(i);
-            int currentUserRole = activeResidents.get(i).getRole().getRoleID();
-
-            switch (currentUserRole) {
-                case 1:
-                    accessResidents.add(currentUser);
-                    break;
-
-                case 2:
-                    traumaResidents.add(currentUser);
-                    break;
-
-                case 3:
-                    seniorResidents.add(currentUser);
-                    break;
-            }
-        }
-        shifts = generateShifts(startDate, endDate,s2);
-        
-      
-        ArrayList<PersonalSchedule> accessPersonalSchedules = GeneratePersonalSchedule(accessResidents);
-        ArrayList<PersonalSchedule> traumaPersonalSchedules = GeneratePersonalSchedule(traumaResidents);
-        ArrayList<PersonalSchedule> seniorPersonalSchedules = GeneratePersonalSchedule(seniorResidents);
-
-        ArrayList<PersonalSchedule> accessPersonalSchedulesLoaded = sortShiftsForAssigning(shifts, accessResidents,
-                approvedTimeOffs, accessPersonalSchedules);
-        ArrayList<PersonalSchedule> traumaPersonalSchedulesLoaded = sortShiftsForAssigning(shifts, traumaResidents,
-                approvedTimeOffs, traumaPersonalSchedules);
-        ArrayList<PersonalSchedule> seniorPersonalSchedulesLoaded = sortShiftsForAssigning(shifts, seniorResidents,
-                approvedTimeOffs, seniorPersonalSchedules);
-        Schedule schedule = new Schedule();
-        //schedule.setAccessPersonalSchedules(accessPersonalSchedulesLoaded);
-      //  schedule.setTraumaPersonalSchedules(traumaPersonalSchedulesLoaded);
-        //schedule.setSeniorPersonalSchedules(seniorPersonalSchedulesLoaded);
+        approvedTimeOff = timeOffService.loadAllAprovedRequests(startDate, endDate);
+        accessShifts = shiftService.sortShiftsForAssigning(shifts, acess, approvedTimeOff);
+        //traumaShifts = shiftService.sortShiftsForAssigning(shifts, trauma, approvedTimeOff);
+        //seniorShifts = shiftService.sortShiftsForAssigning(shifts, senior, approvedTimeOff);
+        loadedShiftsFinal.addAll(accessShifts);
+        //loadedShiftsFinal.addAll(traumaShifts);
+        //loadedShiftsFinal.addAll(seniorShifts);
+        shiftService.saveShifts(loadedShiftsFinal);
+        usersToUpdate.addAll(acess);
+        //usersToUpdate.addAll(senior);
+        //usersToUpdate.addAll(trauma);
+        userService.usersToSave(usersToUpdate);
         return schedule;
-**/
-        return new Schedule();
     }
 
+   
+    
     public Calendar findEndDate(Calendar startDate) {
 
         Calendar endDate = Calendar.getInstance();
@@ -152,39 +103,7 @@ public class SchedulingService {
 
 
 
-    public ArrayList<Timeoff> loadAllAprovedRequests(Calendar start, Calendar end) {
-        TimeoffDB timeOff = new TimeoffDB();
-        ArrayList<Timeoff> timeOffToLoad = new ArrayList<>();
-        ArrayList<Timeoff> approvedTimeOffs = new ArrayList<>();
-
-        Date startDate = start.getTime();
-        Date endDate = end.getTime();
-
-        // Getting list of approved time off requests
-        try {
-            approvedTimeOffs = new ArrayList<>(timeOff.getIsApproved());
-        } catch (Exception e) {
-            // ***change this later probs
-        }
-        // Looping through list of approved time off requests
-        for (int i = 0; i > approvedTimeOffs.size(); i++) {
-
-            // Getting timeOffRequest object information
-            Timeoff currentTimeOff = approvedTimeOffs.get(i);
-            Date currentRequestStartDate = currentTimeOff.getStartDate();
-            Date currentRequestEndDate = currentTimeOff.getEndDate();
-
-            // Checking if the requst endDate is before the schedule startdate
-            if (currentRequestEndDate.after(startDate)) {
-                // Checking if the start date is within the schedule period
-                if ((currentRequestStartDate.before(startDate) || currentRequestStartDate.equals(startDate))
-                        && currentRequestStartDate.before(endDate)) {
-                    timeOffToLoad.add(currentTimeOff);
-                }
-            }
-        }
-        return timeOffToLoad;
-    }
+    
 
     //test
     public void saveSchedule(Schedule schedule) {

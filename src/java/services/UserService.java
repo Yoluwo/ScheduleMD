@@ -29,4 +29,12 @@ public class UserService {
         return activeUsersByRole;
 
     }
+    public void usersToSave(ArrayList<User> userList){
+        UserDB userDB = new UserDB();
+        for(User user : userList){
+            try{
+                userDB.update(user);
+            }catch(Exception e){}
+        } 
+    }
 }

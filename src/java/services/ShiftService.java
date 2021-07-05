@@ -2,6 +2,7 @@ package services;
 
 import dataaccess.ScheduleDB;
 import dataaccess.ShiftDB;
+import dataaccess.UserDB;
 import java.util.*;
 import models.*;
 
@@ -42,7 +43,6 @@ public class ShiftService {
             //fix this by removing personal sched
             //newShift.setPersonalSchedule(new PersonalSchedule(new User(0)));
             shiftList.add(newShift);
-            saveShift(newShift);
 
             // Incrementing to the next day
             dayIncrement.add(Calendar.DATE, 1);
@@ -55,17 +55,25 @@ public class ShiftService {
 
     }
 
-    public void sortShiftsForAssigning(ArrayList<Shift> shifts, ArrayList<User> users, ArrayList<Timeoff> approvedTimeOffs) {
+    public ArrayList<Shift> sortShiftsForAssigning(ArrayList<Shift> shifts, ArrayList<User> users, ArrayList<Timeoff> approvedTimeOffs) {
         ArrayList<Shift> weekdays = new ArrayList<>();
         ArrayList<Shift> friday = new ArrayList<>();
         ArrayList<Shift> saturday = new ArrayList<>();
         ArrayList<Shift> sunday = new ArrayList<>();
-        
+        ArrayList<User> unScheduledUsers = new ArrayList<>();
+        ArrayList<User> usersBeforeScheduling = users;
+        unScheduledUsers.addAll(usersBeforeScheduling);
         ArrayList<Shift> shiftsFilled = new ArrayList<>();
        
-   
+        UserDB userDB = new UserDB();
+        User extender = null;
+        try{
+            extender = userDB.get("extender@gmail.com");
+        } catch(Exception e){}
+        
         boolean canWork = false;
         boolean worksFriday = false;
+        int counter = 0;
 
         for (int i = 0; i < shifts.size(); i++) {
             Shift currentShift = shifts.get(i);
@@ -87,77 +95,100 @@ public class ShiftService {
                 weekdays.add(currentShift);
             }
         }
-
+        
         for (int i = 0; i < friday.size(); i++) {
+            canWork = false;
             while (!canWork) {
+                
+                worksFriday = false;
                 int rnd = new Random().nextInt(users.size());
+                User userRandom = users.get(rnd);
                 for (int z = 0; z < shiftsFilled.size(); z++) {
                     
-                    if (shiftsFilled.get(z).getUser().getUserID() == users.get(rnd).getUserID()) {
+                    if (shiftsFilled.get(z).getUser().getUserID() == userRandom.getUserID()) {
                         worksFriday = true;
                     }
                 }
-                canWork = shiftAvalibiltyCheck(approvedTimeOffs, users.get(rnd), friday.get(i));
-                
+                if((shiftsFilled.size() / 2) == users.size()){
+                    worksFriday = true;
+                    canWork = false;
+                    List<Shift> shiftList = new ArrayList<>();
+                    shiftList = extender.getShiftList();
+                    shiftList.add(friday.get(i));
+                    shiftList.add(sunday.get(i));
+                    extender.setShiftList(shiftList);
+                    shiftsFilled.add(friday.get(i));
+                    shiftsFilled.add(sunday.get(i));
+                    
+                }
+                if(!worksFriday){
+                    canWork = shiftAvalibiltyCheck(approvedTimeOffs, userRandom, friday.get(i));
+                }
                 if (canWork && !worksFriday) {
-                    canWork = shiftAvalibiltyCheck(approvedTimeOffs, users.get(rnd), sunday.get(i));
+                    canWork = shiftAvalibiltyCheck(approvedTimeOffs, userRandom, sunday.get(i));
                     if (canWork) {
                         
-                        friday.get(i).setUser(users.get(rnd));
-                        sunday.get(i).setUser(users.get(rnd));
+                        friday.get(i).setUser(userRandom);
+                        sunday.get(i).setUser(userRandom);
                         
                         List<Shift> shiftList = new ArrayList<>();
-                        shiftList = users.get(rnd).getShiftList();
+                        shiftList = userRandom.getShiftList();
                         shiftList.add(friday.get(i));
                         shiftList.add(sunday.get(i));
-                        users.get(rnd).setShiftList(shiftList);
+                        userRandom.setShiftList(shiftList);
                         
                         shiftsFilled.add(friday.get(i));
+                        counter++;
                         shiftsFilled.add(sunday.get(i));
-                        canWork = true;
+                        counter++;
                     }
                 }
             }
         }
-        canWork = false;
         for (int i = 0; i < saturday.size(); i++) {
+            canWork = false;
             while (!canWork) {
-                int rnd = new Random().nextInt(users.size());
-                canWork = shiftAvalibiltyCheck(approvedTimeOffs, users.get(rnd), saturday.get(i));
+                int rnd = new Random().nextInt(unScheduledUsers.size());
+                User userRandom = unScheduledUsers.get(rnd);
+                canWork = shiftAvalibiltyCheck(approvedTimeOffs, userRandom, saturday.get(i));
                 if (canWork) {
-                    if (weekendAvalibilityCheck(shiftsFilled, saturday.get(i), users.get(rnd))) {
-                        
+                    if (weekendAvalibilityCheck(shiftsFilled, saturday.get(i), userRandom)) {
+                        saturday.get(i).setUser(userRandom);
                         List<Shift> shiftList = new ArrayList<>();
-                        shiftList = users.get(rnd).getShiftList();
+                        shiftList = userRandom.getShiftList();
                         shiftList.add(saturday.get(i));
-                        users.get(rnd).setShiftList(shiftList);
-                        canWork = true;
+                        userRandom.setShiftList(shiftList);
+                        shiftsFilled.add(saturday.get(i));
+                        unScheduledUsers.remove(rnd);
                     }
 
                 }
             }
         }
-
+        unScheduledUsers.clear();
+        unScheduledUsers.addAll(usersBeforeScheduling);
         //if they work x numbers days in a row or if they have worked over 7 total days.1L
         //if they have a timeOffRequest 
-        canWork = false;
         for (int i = 0; i < weekdays.size(); i++) {
+            canWork = false;
             while (!canWork) {
-                int rnd = new Random().nextInt(users.size());
-                
-                canWork = shiftAvalibiltyCheck(approvedTimeOffs, users.get(rnd), weekdays.get(i));
+                int rnd = new Random().nextInt(unScheduledUsers.size());
+                User userRandom = unScheduledUsers.get(rnd);
+                canWork = shiftAvalibiltyCheck(approvedTimeOffs, userRandom, weekdays.get(i));
                 if (canWork) {
-
+                    
+                    weekdays.get(i).setUser(userRandom);
                     List<Shift> shiftList = new ArrayList<>();
-                    shiftList = users.get(rnd).getShiftList();
+                    shiftList = userRandom.getShiftList();
                     shiftList.add(weekdays.get(i));
-                    users.get(rnd).setShiftList(shiftList);
+                    userRandom.setShiftList(shiftList);
+                    shiftsFilled.add(weekdays.get(i));
                     
                     canWork = true;
                 }
             }
         }
-        
+        return shiftsFilled;
     }
 
     public boolean shiftAvalibiltyCheck(List<Timeoff> timeOffRequests, User user, Shift shift) {
@@ -196,14 +227,14 @@ public class ShiftService {
         return canWork;
     }
 
-    public void saveShift(Shift shift) {
-        ShiftDB shiftdb = new ShiftDB();
-        try {
-
-            shiftdb.insert(shift);
-        } catch (Exception e) {
-            System.out.println("oh no");
+    public void saveShifts(ArrayList<Shift> shiftList) {
+        ShiftDB shiftDB = new ShiftDB();
+        for(Shift shift : shiftList){
+            try{
+                shiftDB.insert(shift);
+            } catch(Exception e){}
         }
+
     }
 
     public int shiftDayOfWeekCheck(Shift shift) {
@@ -261,10 +292,11 @@ public class ShiftService {
         }
 
         if (hasFriday && hasSunday) {
-            if ((saturdayShiftInt - 1) != fridayShiftInt) {
-                return true;
+            if ((saturdayShiftInt - 1) == fridayShiftInt) {
+                return false;
             }
+            
         }
-        return false;
+        return true;
     }
 }

@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author 743851
+ * @author epaul
  */
 @Entity
 @Table(name = "user")
@@ -37,7 +37,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName")
     , @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")
     , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")
-    , @NamedQuery(name = "User.findByIsActive", query = "SELECT u FROM User u WHERE u.isActive = :isActive")})
+    , @NamedQuery(name = "User.findByIsActive", query = "SELECT u FROM User u WHERE u.isActive = :isActive")
+    , @NamedQuery(name = "User.findByIsExtender", query = "SELECT u FROM User u WHERE u.isExtender = :isExtender")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,6 +62,8 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "IsActive")
     private boolean isActive;
+    @Column(name = "IsExtender")
+    private Boolean isExtender;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Shift> shiftList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -134,6 +137,14 @@ public class User implements Serializable {
 
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
+    }
+
+    public Boolean getIsExtender() {
+        return isExtender;
+    }
+
+    public void setIsExtender(Boolean isExtender) {
+        this.isExtender = isExtender;
     }
 
     @XmlTransient
