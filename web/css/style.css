@@ -382,7 +382,30 @@ p {
      position: relative;
      background: #dcf4fc;
      padding: 20px;
+     display: flex;
+     justify-content: space-between;
+     cursor: pointer;
 }
+
+.cards .card .numbers {
+     position: relative;
+     font-size: 32px;
+     font-weight: 500;
+}
+
+.cards .card .cardName {
+     color: #00254d;
+}
+
+.cards .card .iconBox {
+     font-size: 40px;
+     color: #5ccbff;
+}
+
+.cards .card .icon {
+     color: #00254d;
+}
+
 
 /* Cascading style sheets for designing the page's responsiveness */
 @media screen and (max-width: 500px) {

@@ -101,14 +101,17 @@
                               </div>
                               <div class="card">
                                    <div>
-                                        <div class="message">40</div>
+                                        <div class="numbers">40</div>
                                         <div class="cardName">Downloads</div>
                                    </div>
                                    <div class="iconBox">
                                         <i class="fa fa-download" aria-hidden="true"></i>
                                    </div>
                               </div>
-                         </div>
+                              <div class="details">
+                                   
+                              </div>
+                         </div> 
                     </div>
                </div>
           </div>

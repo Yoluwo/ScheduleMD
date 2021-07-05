@@ -80,8 +80,8 @@
                          <div class="cards">
                               <div class="card">
                                    <div>
-                                        <div class="schedule">11</div>
-                                        <div class="cardName">Open shifts</div>
+                                        <div class="numbers">200</div>
+                                        <div class="cardName">Hours Worked</div>
                                    </div>
                                    <div class="iconBox">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -89,7 +89,7 @@
                               </div>
                               <div class="card">
                                    <div>
-                                        <div class="message">2</div>
+                                        <div class="numbers">2</div>
                                         <div class="cardName">Messages</div>
                                    </div>
                                    <div class="iconBox">
@@ -107,12 +107,15 @@
                               </div>
                               <div class="card">
                                    <div>
-                                        <div class="message">4</div>
+                                        <div class="numbers">4</div>
                                         <div class="cardName">Downloads</div>
                                    </div>
                                    <div class="iconBox">
                                         <i class="fa fa-download" aria-hidden="true"></i>
                                    </div>
+                              </div>
+                              <div class="details">
+                                   
                               </div>
                          </div>
                     </div>
