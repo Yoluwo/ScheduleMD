@@ -12,6 +12,7 @@
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
           <title>Admin Panel</title>
           <link href="css/style.css" rel="stylesheet" type="text/css">
+          <link href="css/dashboard.css" rel="stylesheet" type="text/css">
           <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" rel="stylesheet" >
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
@@ -67,26 +68,46 @@
                     <div class="dash">
                          <img src="images/dashboard_1.jpg" alt="Image of doctor doing work">
                          <div class="text-wrapper">
-                              <h2>Welcome back,</h2>
+                              <h2>Welcome back, ${firstname}</h2>
                          </div>
                     </div>
-                    <div class="cards">
-                         <div class="card">
-                              <div>
-                                   <div class="schedule">Weekly Schedule</div>
-                                   <div class="cardName">View Schedule</div>
+                    <div class="cardMain">
+                         <div class="cards">
+                              <div class="card">
+                                   <div>
+                                        <div class="numbers">50</div>
+                                        <div class="cardName">Visits</div>
+                                   </div>
+                                   <div class="iconBox">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                   </div>
                               </div>
-                              <div class="iconBox">
-                                   <i class="fa fa-calendar" aria-hidden="true"></i>
+                              <div class="card">
+                                   <div>
+                                        <div class="numbers">15</div>
+                                        <div class="cardName">Open Shifts</div>
+                                   </div>
+                                   <div class="iconBox">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                   </div>
                               </div>
-                         </div>
-                         <div class="card">
-                              <div>
-                                   <div class="message">Time off requests</div>
-                                   <div class="cardName">Requests</div>
+                              <div class="card">
+                                   <div>
+                                        <div class="numbers">20</div>
+                                        <div class="cardName">Users</div>
+                                   </div>
+                                   <div class="iconBox">
+                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                   </div>
                               </div>
-                              <div class="iconBox">
-                                   <i class="fa fa-calendar-times-o" aria-hidden="true"></i>
+                              <div class="card">
+                                   <div>
+                                        <div class="message">40</div>
+                                        <div class="cardName">Downloads</div>
+                                   </div>
+                                   <div class="iconBox">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                   </div>
                               </div>
                          </div>
                     </div>

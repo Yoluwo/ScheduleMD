@@ -339,8 +339,8 @@ p {
 
 /*CSS for designing the Welcome back portion of the resident and admin pages */
 .dash {
-     width: 95%;
-     margin: 10px 10px 10px 10px;
+     width: 85%;
+     margin: 10px 10px 10px 20px;
 }
 
 .dash img {
@@ -358,6 +358,30 @@ p {
      font-size: 40px;
      padding: 60px 40px;
      text-align: left;
+}
+
+/* CSS for designing the cards */
+.cardMain {
+     margin-left: 20px;
+     margin-top: 45px;
+     padding: 0;
+     width: 85%;
+     height: 100vh;                  
+}
+
+.cards {
+     position: relative;
+     width: 100%;
+     padding: 0px;
+     display: grid;
+     grid-template-columns: repeat(4,1fr);
+     grid-gap: 20px;
+}
+
+.cards .card {
+     position: relative;
+     background: #dcf4fc;
+     padding: 20px;
 }
 
 /* Cascading style sheets for designing the page's responsiveness */
@@ -458,5 +482,17 @@ p {
      .dash {
           width: 95%;
           margin: 10px 7px;
+     }
+
+     .text-wrapper {
+          width: 100%;
+          position: relative;
+          margin-top: -20%;
+     }
+
+     .text-wrapper h2 {
+          font-size: 22px;
+          padding: 20px 40px 20px 10px;
+          text-align: left;
      }
 }
