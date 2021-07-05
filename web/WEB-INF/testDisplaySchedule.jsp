@@ -23,23 +23,9 @@
             </tr>
             <c:forEach items="${shifts}" var="shift">
                 <tr style="border: 1px solid black">
-                    <td style="border: 1px solid black">${shift.dayOfWeek}</td>
+                    <td style="border: 1px solid black">${shift.numberInBlock}</td>
                     <td style="border: 1px solid black">${shift.startTime}</td>
                     <td style="border: 1px solid black">${shift.user.firstName}</td>
-                </tr>
-            </c:forEach>
-        </table>
-        <table style="border: 1px solid black">
-            <tr style="border: 1px solid black">
-                <th style="border: 1px solid black; padding-left: 50px; padding-right: 50px">Day of Week</th>
-                <th style="border: 1px solid black; padding-left: 50px; padding-right: 50px">Date</th>
-                <th style="border: 1px solid black; padding-left: 50px; padding-right: 50px">Name</th>
-            </tr>
-            <c:forEach items="${shifts1}" var="shift1">
-                <tr style="border: 1px solid black">
-                    <td style="border: 1px solid black">${shift1.dayOfWeek}</td>
-                    <td style="border: 1px solid black">${shift1.startTime}</td>
-                    <td style="border: 1px solid black">${shift1.user.firstName}</td>
                 </tr>
             </c:forEach>
         </table>

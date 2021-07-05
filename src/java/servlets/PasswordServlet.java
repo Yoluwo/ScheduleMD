@@ -30,19 +30,7 @@ public class PasswordServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //TESTING
-        HospitalDB hDB = new HospitalDB();
-        Hospital ho = null;
-        try{
-            ho = hDB.getByHospitalID(1);
-        } catch(Exception e){}
-        SchedulingService ss = new SchedulingService();
-        Calendar c = Calendar.getInstance();
-        c.add(Calendar.DAY_OF_MONTH, 1);
-        Hospital h = new Hospital();
-        h.setHospitalID(1);
-        ss.generateSchedule(c, ho);
-        //Test ends
+
         UserDB userDB = new UserDB();
         User user = null;
         String email = request.getParameter("email");

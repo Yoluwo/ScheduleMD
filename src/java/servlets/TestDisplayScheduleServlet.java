@@ -43,21 +43,17 @@ public class TestDisplayScheduleServlet extends HttpServlet {
         
         ScheduleDB scheduleDB = new ScheduleDB();
         Schedule schedule = null;
-        Schedule schedule1 = null;
         try {
             schedule = scheduleDB.getByScheduleID(1);
-            schedule1 = scheduleDB.getByScheduleID(2);
         } catch (Exception ex) {
             Logger.getLogger(TestDisplayScheduleServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
 
         List<Shift> shifts = schedule.getShiftList();
-        List<Shift> shifts1 = schedule.getShiftList();
 
         request.setAttribute("schedule", schedule);
         request.setAttribute("shifts", shifts);
-        request.setAttribute("shifts1", shifts1);
         
         getServletContext().getRequestDispatcher("/WEB-INF/testDisplaySchedule.jsp")
                 .forward(request, response);
