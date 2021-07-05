@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import servlets.PasswordServlet;
 
 public class SchedulingService {
@@ -26,6 +27,7 @@ public class SchedulingService {
         ArrayList<Shift> seniorShifts = new ArrayList<>();
         ArrayList<Shift> traumaShifts = new ArrayList<>();
         ArrayList<Shift> loadedShiftsFinal = new ArrayList<>();
+        ArrayList<Shift> sortedShifts = new ArrayList<>();
         ArrayList<User> usersToUpdate = new ArrayList<>();
 
         ArrayList<Timeoff> approvedTimeOff = new ArrayList<>();
@@ -82,7 +84,8 @@ public class SchedulingService {
         loadedShiftsFinal.addAll(accessShifts);
         //loadedShiftsFinal.addAll(traumaShifts);
         //loadedShiftsFinal.addAll(seniorShifts);
-        shiftService.saveShifts(loadedShiftsFinal);
+        sortedShifts = sortShifts(loadedShiftsFinal);
+        shiftService.saveShifts(sortedShifts);
         usersToUpdate.addAll(acess);
         //usersToUpdate.addAll(senior);
         //usersToUpdate.addAll(trauma);
@@ -90,6 +93,12 @@ public class SchedulingService {
         return schedule;
     }
 
+    public ArrayList<Shift> sortShifts(ArrayList<Shift> shifts){
+        Comparator<Shift> shiftComparator = Comparator.comparing(Shift::getNumberInBlock);
+        shifts.sort(shiftComparator);
+        
+        return shifts;
+    }
    
     
     public Calendar findEndDate(Calendar startDate) {

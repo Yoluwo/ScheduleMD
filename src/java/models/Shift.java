@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Shift.findByIsHoliday", query = "SELECT s FROM Shift s WHERE s.isHoliday = :isHoliday")
     , @NamedQuery(name = "Shift.findByNumberInBlock", query = "SELECT s FROM Shift s WHERE s.numberInBlock = :numberInBlock")
     , @NamedQuery(name = "Shift.findByDayOfWeek", query = "SELECT s FROM Shift s WHERE s.dayOfWeek = :dayOfWeek")})
-public class Shift implements Serializable {
+public class Shift implements Serializable, Comparable<Shift> {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -189,5 +189,8 @@ public class Shift implements Serializable {
     public String toString() {
         return "models.Shift[ shiftID=" + shiftID + " ]";
     }
-    
+    @Override
+    public int compareTo(Shift shift){
+        return this.numberInBlock - shift.numberInBlock;
+    }
 }
