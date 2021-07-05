@@ -31,11 +31,12 @@ h1 {
      padding: 0;
 }
 
-.container h2 {
+h2 {
      font-family: 'lato', sans-serif;
      font-size: 25px;
      padding: 15px;  
      color: #094c72;
+     text-align: center;
 }
 
 .navigation {
@@ -217,7 +218,7 @@ h1 {
 
 .submain {
      margin: 20px 0px 10px 20px;
-     background-color: #dcf4fc;
+     background-color: #dbf3fa;
      width: 280px;
      border: 1px dashed #095280;     
 }
@@ -289,7 +290,6 @@ p {
      background-color: #2f739c;
      color: #bdd2d9;
 }
-
 .weekdays div {
      font-size: 20px;
      font-weight: lighter;
@@ -425,20 +425,9 @@ p {
           justify-content: center;
           align-items: center;
      }
-
-     .dash {
-          width: 95%;
-          margin: 10px 7px;
-     }
-
-     .dash img {
-          width: 100%;
-          border-radius: 0px;
-     }
      
-     .text-wrapper h2 {
-          text-align: left;
-          padding: 5px 5px;
-          font-size: 20px;
+     .dash {
+     width: 95%;
+     margin: 10px 7px;
      }
 }

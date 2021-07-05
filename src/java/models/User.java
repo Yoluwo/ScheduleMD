@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author alexz
+ * @author epaul
  */
 @Entity
 @Table(name = "user")
@@ -37,7 +37,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName")
     , @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")
     , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")
-    , @NamedQuery(name = "User.findByIsActive", query = "SELECT u FROM User u WHERE u.isActive = :isActive")})
+    , @NamedQuery(name = "User.findByIsActive", query = "SELECT u FROM User u WHERE u.isActive = :isActive")
+    , @NamedQuery(name = "User.findByIsExtender", query = "SELECT u FROM User u WHERE u.isExtender = :isExtender")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,8 +62,10 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "IsActive")
     private boolean isActive;
+    @Column(name = "IsExtender")
+    private Boolean isExtender;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<PersonalSchedule> personalScheduleList;
+    private List<Shift> shiftList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Timeoff> timeoffList;
     @JoinColumn(name = "Hospital", referencedColumnName = "HospitalID")
@@ -136,13 +139,21 @@ public class User implements Serializable {
         this.isActive = isActive;
     }
 
-    @XmlTransient
-    public List<PersonalSchedule> getPersonalScheduleList() {
-        return personalScheduleList;
+    public Boolean getIsExtender() {
+        return isExtender;
     }
 
-    public void setPersonalScheduleList(List<PersonalSchedule> personalScheduleList) {
-        this.personalScheduleList = personalScheduleList;
+    public void setIsExtender(Boolean isExtender) {
+        this.isExtender = isExtender;
+    }
+
+    @XmlTransient
+    public List<Shift> getShiftList() {
+        return shiftList;
+    }
+
+    public void setShiftList(List<Shift> shiftList) {
+        this.shiftList = shiftList;
     }
 
     @XmlTransient

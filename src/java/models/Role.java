@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author alexz
+ * @author epaul
  */
 @Entity
 @Table(name = "role")
@@ -40,6 +40,8 @@ public class Role implements Serializable {
     @Basic(optional = false)
     @Column(name = "RoleName")
     private String roleName;
+    @OneToMany(mappedBy = "role")
+    private List<Shift> shiftList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "role")
     private List<User> userList;
 
@@ -69,6 +71,15 @@ public class Role implements Serializable {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
+    }
+
+    @XmlTransient
+    public List<Shift> getShiftList() {
+        return shiftList;
+    }
+
+    public void setShiftList(List<Shift> shiftList) {
+        this.shiftList = shiftList;
     }
 
     @XmlTransient

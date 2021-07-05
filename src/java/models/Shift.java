@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author alexz
+ * @author epaul
  */
 @Entity
 @Table(name = "shift")
@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Shift.findByIsHoliday", query = "SELECT s FROM Shift s WHERE s.isHoliday = :isHoliday")
     , @NamedQuery(name = "Shift.findByNumberInBlock", query = "SELECT s FROM Shift s WHERE s.numberInBlock = :numberInBlock")
     , @NamedQuery(name = "Shift.findByDayOfWeek", query = "SELECT s FROM Shift s WHERE s.dayOfWeek = :dayOfWeek")})
-public class Shift implements Serializable {
+public class Shift implements Serializable, Comparable<Shift> {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -62,12 +62,15 @@ public class Shift implements Serializable {
     private Integer numberInBlock;
     @Column(name = "DayOfWeek")
     private Integer dayOfWeek;
-    @JoinColumn(name = "PersonalSchedule", referencedColumnName = "PersonalSchduleID")
-    @ManyToOne(optional = false)
-    private PersonalSchedule personalSchedule;
+    @JoinColumn(name = "Role", referencedColumnName = "RoleID")
+    @ManyToOne
+    private Role role;
     @JoinColumn(name = "Schedule", referencedColumnName = "ScheduleID")
     @ManyToOne(optional = false)
     private Schedule schedule;
+    @JoinColumn(name = "User", referencedColumnName = "UserID")
+    @ManyToOne(optional = false)
+    private User user;
 
     public Shift() {
     }
@@ -138,12 +141,12 @@ public class Shift implements Serializable {
         this.dayOfWeek = dayOfWeek;
     }
 
-    public PersonalSchedule getPersonalSchedule() {
-        return personalSchedule;
+    public Role getRole() {
+        return role;
     }
 
-    public void setPersonalSchedule(PersonalSchedule personalSchedule) {
-        this.personalSchedule = personalSchedule;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public Schedule getSchedule() {
@@ -152,6 +155,14 @@ public class Shift implements Serializable {
 
     public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
@@ -178,5 +189,8 @@ public class Shift implements Serializable {
     public String toString() {
         return "models.Shift[ shiftID=" + shiftID + " ]";
     }
-    
+    @Override
+    public int compareTo(Shift shift){
+        return this.numberInBlock - shift.numberInBlock;
+    }
 }

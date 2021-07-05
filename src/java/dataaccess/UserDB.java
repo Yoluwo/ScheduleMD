@@ -40,6 +40,17 @@ public class UserDB {
 
     }
      
+    public List<User> getAllActive(boolean isActive) throws Exception{
+         EntityManager em = DBUtil.getEmFactory().createEntityManager();
+           try {
+            List<User> users = em.createNamedQuery("User.findByIsActive", User.class).setParameter("isActive", isActive).getResultList();
+            return users;
+        } finally {
+            em.close();
+        }
+    }
+        
+     
     public void delete(User user) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();

@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`hospital` (
     `HospitalID` INT(3) NOT NULL,
     `HospitalName` VARCHAR(30) NOT NULL,
     `HospitalType` VARCHAR(30) NOT NULL,
+    `RoleList` VARCHAR(30),
     PRIMARY KEY (`HospitalID`)
 );
 
@@ -44,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`user` (
     `Email` VARCHAR(40) NOT NULL,
     `Password` VARCHAR(20) NOT NULL,
     `IsActive` TINYINT(1) NOT NULL,
+    `IsExtender` TINYINT(1),
     PRIMARY KEY (`UserID`),
     CONSTRAINT `fk_role_id_user`
         FOREIGN KEY (`Role`)
@@ -94,19 +96,6 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`schedule` (
         REFERENCES `schedulemddb`.`hospital` (`HospitalID`)
 ); 
 
--- -----------------------------------------------------
--- Table `schedulemddb`.`personalSchedule`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `schedulemddb`.`personalSchedule` (
-    `PersonalSchduleID` INT(6) NOT NULL AUTO_INCREMENT,
-    `User` INT(4) NOT NULL,
-    `IsFridaySunday` TINYINT(1) NOT NULL,
-    `IsSaturday` TINYINT(1) NOT NULL,
-    PRIMARY KEY (`personalSchduleID`),
-    CONSTRAINT `fk_user_id_personal_schedule`
-        FOREIGN KEY (`User`)
-        REFERENCES `schedulemddb`.`user` (`UserID`)
-);
 
 -- -----------------------------------------------------
 -- Table `schedulemddb`.`shift`
@@ -114,21 +103,26 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`personalSchedule` (
 CREATE TABLE IF NOT EXISTS `schedulemddb`.`shift` (
     `ShiftID` INT(6) NOT NULL AUTO_INCREMENT,
     `Schedule` INT(6) NOT NULL,
-    `PersonalSchedule` INT(6) NOT NULL,
+    `User` INT(4) NOT NULL,
     `StartTime` DATETIME NOT NULL,
     `EndTime` DATETIME NOT NULL,
     `IsWeekend` TINYINT(1),
     `IsHoliday` TINYINT(1),
     `NumberInBlock` INT(40),
     `DayOfWeek` INT(1), 
+    `Role` INT(2),
     PRIMARY KEY (`ShiftID`),
     CONSTRAINT `fk_schedule_id_shift`
         FOREIGN KEY (`Schedule`)
         REFERENCES `schedulemddb`.`schedule` (`ScheduleID`),
-    CONSTRAINT `fk_personal_schedule_id`
-        FOREIGN KEY (`PersonalSchedule`)
-        REFERENCES  `schedulemddb`.`personalSchedule` (`PersonalSchduleID`)
+    CONSTRAINT `fk_role_id_shift`
+        FOREIGN KEY (`Role`)
+        REFERENCES `schedulemddb`.`role` (`RoleID`),
+    CONSTRAINT `fk_user_id_shift`
+        FOREIGN KEY (`User`)
+        REFERENCES `schedulemddb`.`user` (`UserID`)
 );
+
 
 -- -----------------------------------------------------
 -- This section is used to insert test data into the
@@ -136,21 +130,64 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`shift` (
 -- real production data instead.
 -- -----------------------------------------------------
 
-INSERT INTO `hospital` VALUES (1, 'test', 'test type');
+INSERT INTO `hospital` VALUES (1, 'test', 'test type','ATS');
 
 INSERT INTO `role` VALUES (0, 'system admin');
 INSERT INTO `role` VALUES (1, 'regular user');
 
-INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`)
-    VALUES (0, 1, 'Admin', 'Admin', 'admin@gmail.com', 'password', true);
-INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`)
-    VALUES (1, 1, 'Alex', 'Zecevic', 'alexz@gmail.com', 'password', true);
-INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`)
-    VALUES (1, 1, 'Tom', 'Skiff', 'toms@gmail.com', 'password', true);
-INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`)
-    VALUES (1, 1, 'Ethan', 'Paul', 'ethanp@gmail.com', 'password', true);
 
 INSERT INTO `user_reset_token` (`UserID`, `Token`) VALUES (1, '');
 INSERT INTO `user_reset_token` (`UserID`, `Token`) VALUES (2, '');
 INSERT INTO `user_reset_token` (`UserID`, `Token`) VALUES (3, '');
 INSERT INTO `user_reset_token` (`UserID`, `Token`) VALUES (4, '');
+
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (0, 1, 'Admin', 'Admin', 'admin@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'Alex', 'Zecevic', 'alexz@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'Tom', 'Skiff', 'toms@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'Ethan', 'Paul', 'ethanp@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test1first', 'test1last', 'test1@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test2first', 'test2last', 'test2@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test3first', 'test3last', 'test3@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test4first', 'test4last', 'test4@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test5first', 'test5last', 'test5@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test6first', 'test6last', 'test6@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test7first', 'test7last', 'test7@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test8first', 'test8last', 'test8@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test9first', 'test9last', 'test9@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test9first', 'test9last', 'test9@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test10first', 'test10last', 'test10@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test11first', 'test11last', 'test11@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test12first', 'test12last', 'test12@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test13first', 'test13last', 'test13@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test13first', 'test13last', 'test13@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test14first', 'test14last', 'test14@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test15first', 'test15last', 'test15@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test16first', 'test16last', 'test16@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test17first', 'test17last', 'test17@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'test18first', 'test18last', 'test18@gmail.com', 'password', true,false);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (1, 1, 'Extender', 'Extender', 'Extender@gmail.com', 'password', true,true);
