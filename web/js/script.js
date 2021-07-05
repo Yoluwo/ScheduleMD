@@ -64,12 +64,12 @@ const loadCalendar = () => {
      /* Display the dates in the month of the calendar*/
      let days = "";
 
-     /* Display the dates of the month */
+     /* Display the last dates of the previous month */
      for (let x = firstDayIndex; x > 0; x--) {
           days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
      }
 
-     /* Display the last dates of the previous month */
+     /* Display the dates of the month */
      for (let i = 1; i <= lastDay; i++) {
           /* Highlight the current date in the month */
           if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
