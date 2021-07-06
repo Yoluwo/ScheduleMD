@@ -634,7 +634,7 @@ input:checked[type="checkbox"]:before {
           margin-top: 10px;
           padding: 0;
           width: 90%;
-          height: 55vh;  
+          height: 65vh;  
           background-color: #dcf4fc;
      }
 
@@ -656,7 +656,6 @@ input:checked[type="checkbox"]:before {
           font-size: 10px;
      }
 
-
      .btn-cancel {
           cursor: pointer;
           display: inline-block;
@@ -668,7 +667,7 @@ input:checked[type="checkbox"]:before {
           color: #094c72;
           border-radius: 5px;
           box-shadow: 1px 1px 1px 0px #2f739c;
-          margin: 15px 0px 0 115px;
+          margin: 15px 0px 0 95px;
      }
 
      .btn-save {
@@ -684,5 +683,4 @@ input:checked[type="checkbox"]:before {
           box-shadow: 1px 1px 1px 0px #2f739c;
           margin: 15px 0px 0 5px;
      }
-
 }

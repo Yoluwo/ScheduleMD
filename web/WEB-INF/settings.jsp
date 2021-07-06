@@ -71,7 +71,6 @@
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Settings</h1>
-
                     </div>
 
                     <!-- flexbox container -->
@@ -88,7 +87,7 @@
                               <div class="row">
                                    <section class="user">
                                         <h2>User Account</h2>
-                                        <input type="email" name="email" value="alexz@gmail.com">
+                                        <input type="email" name="email" value="resident@gmail.com">
                                         <input type="password" name="password" value="settings1">
                                    </section>
                               </div>

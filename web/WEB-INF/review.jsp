@@ -73,7 +73,7 @@
                                         <th>Approve</th>
                                         <th>Resident</th>
                                         <th>Days</th> 
-                                        <th>Time Off</th>
+                                        <th>Time</th>
                                    </tr>
                                    <tr>
                                         <td class="center"><input type="checkbox" name="open"></td>
