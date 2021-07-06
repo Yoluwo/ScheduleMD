@@ -76,43 +76,43 @@
                                         <th>Time Off</th>
                                    </tr>
                                    <tr>
-                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td class="center"><input type="checkbox" name="open"></td>
                                         <td>Susan</td>
                                         <td>Sun</td>
                                         <td>10:00am - 7:00pm</td>
                                    </tr>
                                    <tr>
-                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td class="center"><input type="checkbox" name="open"></td>
                                         <td>Alice</td>
                                         <td>Mon</td>
                                         <td>9:00am - 8:00pm</td>
                                    </tr>
                                    <tr>
-                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td class="center"><input type="checkbox" name="open"></td>
                                         <td>Theo</td>
                                         <td>Wed - Thurs</td>
                                         <td>11:00am - 8:00pm</td>
                                    </tr>
                                    <tr>
-                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td class="center"><input type="checkbox" name="open"></td>
                                         <td>Adam</td>
                                         <td>Tues</td>
                                         <td>9:00am - 5:00pm</td>
                                    </tr>
                                    <tr>
-                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td class="center"><input type="checkbox" name="open"></td>
                                         <td>Andrew</td>
                                         <td>Thurs - Tues</td>
                                         <td>1:00pm - 5:00pm</td>
                                    </tr>
                                    <tr>
-                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td class="center"><input type="checkbox" name="open"></td>
                                         <td>Peter</td>
                                         <td>Sun - Wed</td>
                                         <td>9:00am - 4:00pm</td>
                                    </tr>
                                    <tr>
-                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td class="center"><input type="checkbox" name="open"></td>
                                         <td>John</td>
                                         <td>Sat</td>
                                         <td>9:00am - 5:00pm</td>

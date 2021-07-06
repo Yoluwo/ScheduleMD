@@ -11,7 +11,7 @@
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
           <title>Request Time Off</title>
-          <link href="css/style.css" rel="stylesheet" type="text/css" >
+          <link href="css/style.css" rel="stylesheet" type="text/css">
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
@@ -78,55 +78,57 @@
                               <tr>
                                    <th>Days</th>
                                    <th>Open</th> 
-                                   <th>Time slot</th>
+                                   <th>From </th>
+                                   <th></th>
+                                   <th>To</th>
                               </tr>
                               <tr>
                                    <td>Sunday</td>
-                                   <td>Open</td>
+                                   <td class="center"><input type="checkbox" name="open"></td>
                                    <td><input type="time" id="time" name=time"></td>
-                                   <td>TO </td>
+                                   <td>-</td>
                                    <td><input type="time" id="time" name=time"></td>
                               </tr>
                               <tr>
                                    <td>Monday</td>
-                                   <td>Open</td>
+                                   <td class="center"><input type="checkbox" name="open"></td>
                                    <td><input type="time" id="time" name=time"></td>
-                                   <td>TO </td>
+                                   <td>-</td>
                                    <td><input type="time" id="time" name=time"></td>
                               </tr>
                               <tr>
                                    <td>Tuesday</td>
-                                   <td>Open</td>
+                                   <td class="center"><input type="checkbox" name="open"></td>
                                    <td><input type="time" id="time" name=time"></td>
-                                   <td>TO </td>
+                                   <td>-</td>
                                    <td><input type="time" id="time" name=time"></td>
                               </tr>
                               <tr>
                                    <td>Wednesday</td>
-                                   <td>Open</td>
+                                   <td class="center"><input type="checkbox" name="open"></td>
                                    <td><input type="time" id="time" name=time"></td>
-                                   <td>TO </td>
+                                   <td>-</td>
                                    <td><input type="time" id="time" name=time"></td>
                               </tr>
                               <tr>
                                    <td>Thursday</td>
-                                   <td>Open</td>
+                                   <td class="center"><input type="checkbox" name="open"></td>
                                    <td><input type="time" id="time" name=time"></td>
-                                   <td>TO </td>
+                                   <td>-</td>
                                    <td><input type="time" id="time" name=time"></td>
                               </tr>
                               <tr>
                                    <td>Friday</td>
-                                   <td>Open</td>
+                                   <td class="center"><input type="checkbox" name="open"></td>
                                    <td><input type="time" id="time" name=time"></td>
-                                   <td>TO</td>
+                                   <td>-</td>
                                    <td><input type="time" id="time" name=time"></td>
                               </tr>
                               <tr>
                                    <td>Saturday</td>
-                                   <td>Open</td>
+                                   <td class="center"><input type="checkbox" name="open"></td>
                                    <td><input type="time" id="time" name=time"></td>
-                                   <td>TO </td>
+                                   <td>-</td>
                                    <td><input type="time" id="time" name=time"></td>
                               </tr>
                          </table>

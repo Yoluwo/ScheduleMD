@@ -210,32 +210,32 @@ h2 {
      cursor: pointer;
      display: inline-block;
      width: 100px;
-     background-color: #dbf3fa;
+     background-color: #88cff9;
      padding: 10px 5px;
      font-size: 15px;
      font-family: inherit;
-     color: #094c72;
+     color: #00254d;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 0 195px;
+     margin: 15px 0px 0 180px;
 }
 
 .btn-save {
      cursor: pointer;
      display: inline-block;
      width: 100px;
-     background-color: #dbf3fa;
+     background-color: #88cff9;
      padding: 10px 5px;
      font-size: 15px;
      font-family: inherit;
-     color: #094c72;
+     color: #00254d;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
      margin: 15px 0px 0 20px;
 }
 
 .btn:hover, .btn-cancel:hover, .btn-save:hover {
-     color: #88cff9;
+     color: #dcf4fc;
 }
 
 .btn:focus, .btn-cancel:focus, .btn-save:focus {
@@ -461,6 +461,44 @@ td {
      margin: 20px 20px;
 }
 
+.center {
+     transform: translate(1%, 4%);
+}
+
+input[type="checkbox"] {
+     position: relative;
+     width: 25px;
+     height: 12px;
+     -webkit-appearance: none;
+     background: #bdc3c7;
+     outline: none;
+     border-radius: 20px;
+     box-shadow: inset 0 0 5px #00254d;
+}
+
+input:checked[type="checkbox"] {
+     background: #88cff9;
+}
+
+input[type="checkbox"]:before {
+     content: "";
+     position: absolute;
+     width: 10px;
+     height: 11px;
+     border-radius: 20px;
+     top:0px;
+     left:0px;
+     background: #fff;
+     transform: scale(1.1);
+     transition: 0.5s;
+     box-shadow: 0 2px 5px #bdc3c7;
+}
+
+input:checked[type="checkbox"]:before {
+     left: 14px;
+}
+
+
 /* Cascading style sheets for designing the page's responsiveness */
 @media screen and (max-width: 500px) {
      .navigation {
@@ -531,6 +569,7 @@ td {
           background-color: #2f739c;
           color: #bdd2d9;
      }
+     
      .weekdays div {
           font-size: 14px;
           font-weight: lighter;
