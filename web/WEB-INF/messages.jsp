@@ -159,7 +159,7 @@
                                <td></td>
                                <td></td>
                                <td>
-                                   <label for="chkbox4" id="text3">Password Succefully Changed</label>
+                                   <label for="chkbox4" id="text3">Password Successfully Changed</label>
                                </td>
                            </tr>
                            <tr>
