@@ -70,6 +70,70 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Request Time Off</h1>
                     </div>
+                    <div class="time-off">
+                         <h2>Request Time off</h2>
+                         <form>
+                         <h2>Week 27</h2>
+                         <table>
+                              <tr>
+                                   <th>Days</th>
+                                   <th>Open</th> 
+                                   <th>Time slot</th>
+                              </tr>
+                              <tr>
+                                   <td>Sunday</td>
+                                   <td>Open</td>
+                                   <td><input type="time" id="time" name=time"></td>
+                                   <td>TO </td>
+                                   <td><input type="time" id="time" name=time"></td>
+                              </tr>
+                              <tr>
+                                   <td>Monday</td>
+                                   <td>Open</td>
+                                   <td><input type="time" id="time" name=time"></td>
+                                   <td>TO </td>
+                                   <td><input type="time" id="time" name=time"></td>
+                              </tr>
+                              <tr>
+                                   <td>Tuesday</td>
+                                   <td>Open</td>
+                                   <td><input type="time" id="time" name=time"></td>
+                                   <td>TO </td>
+                                   <td><input type="time" id="time" name=time"></td>
+                              </tr>
+                              <tr>
+                                   <td>Wednesday</td>
+                                   <td>Open</td>
+                                   <td><input type="time" id="time" name=time"></td>
+                                   <td>TO </td>
+                                   <td><input type="time" id="time" name=time"></td>
+                              </tr>
+                              <tr>
+                                   <td>Thursday</td>
+                                   <td>Open</td>
+                                   <td><input type="time" id="time" name=time"></td>
+                                   <td>TO </td>
+                                   <td><input type="time" id="time" name=time"></td>
+                              </tr>
+                              <tr>
+                                   <td>Friday</td>
+                                   <td>Open</td>
+                                   <td><input type="time" id="time" name=time"></td>
+                                   <td>TO</td>
+                                   <td><input type="time" id="time" name=time"></td>
+                              </tr>
+                              <tr>
+                                   <td>Saturday</td>
+                                   <td>Open</td>
+                                   <td><input type="time" id="time" name=time"></td>
+                                   <td>TO </td>
+                                   <td><input type="time" id="time" name=time"></td>
+                              </tr>
+                         </table>
+                         <button class="btn-cancel">Cancel</button>
+                         <button class="btn-save">Save</button>
+                         </form>
+                    </div>      
                </div>
                <script type="text/javascript" src="js/script.js"></script>
      </body>

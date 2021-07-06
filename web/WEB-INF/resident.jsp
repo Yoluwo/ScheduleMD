@@ -115,7 +115,7 @@
                                    </div>
                               </div>
                               <div class="details">
-                                   
+                                   <div class="recent"></div>
                               </div>
                          </div>
                     </div>
