@@ -440,24 +440,24 @@ p {
      margin-top: 15px;
      padding: 0;
      width: 30%;
-     height: 65vh;  
+     height: 85vh;  
      background-color: #dcf4fc;
 }
 
 th {
-     text-align: left;
+     text-align: center;
      color: #094c72;
      font-size: 19px;
      padding: 5px 7px;
 }
 
 td {
-     text-align: left;
+     text-align: center;
      color: #094c72;
      padding: 5px 7px;
 }
 
-form {
+.time-off form {
      margin: 20px 20px;
 }
 

@@ -64,6 +64,64 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Review Time Off Requests</h1>
                     </div>
+                    <div class="time-off">
+                         <h2>Request Time off</h2>
+                         <h2>Week 27</h2>
+                         <form>
+                              <table>
+                                   <tr>
+                                        <th>Approve</th>
+                                        <th>Resident</th>
+                                        <th>Days</th> 
+                                        <th>Time Off</th>
+                                   </tr>
+                                   <tr>
+                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td>Susan</td>
+                                        <td>Sun</td>
+                                        <td>10:00am - 7:00pm</td>
+                                   </tr>
+                                   <tr>
+                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td>Alice</td>
+                                        <td>Mon</td>
+                                        <td>9:00am - 8:00pm</td>
+                                   </tr>
+                                   <tr>
+                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td>Theo</td>
+                                        <td>Wed - Thurs</td>
+                                        <td>11:00am - 8:00pm</td>
+                                   </tr>
+                                   <tr>
+                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td>Adam</td>
+                                        <td>Tues</td>
+                                        <td>9:00am - 5:00pm</td>
+                                   </tr>
+                                   <tr>
+                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td>Andrew</td>
+                                        <td>Thurs - Tues</td>
+                                        <td>1:00pm - 5:00pm</td>
+                                   </tr>
+                                   <tr>
+                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td>Peter</td>
+                                        <td>Sun - Wed</td>
+                                        <td>9:00am - 4:00pm</td>
+                                   </tr>
+                                   <tr>
+                                        <td><input type="checkbox" id="tick" name="tick"></td>
+                                        <td>John</td>
+                                        <td>Sat</td>
+                                        <td>9:00am - 5:00pm</td>
+                                   </tr>
+                              </table>
+                              <button class="btn-cancel">Cancel</button>
+                              <button class="btn-save">Save</button>
+                         </form>
+                    </div>      
                </div>
           </div>
           <script type="text/javascript" src="js/script.js"></script>
