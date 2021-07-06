@@ -70,6 +70,118 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                               <h1>Messages</h1>
                     </div>
+                   <div>
+                       <table>
+                           <tr>
+                               <td>
+                                   <input type="checkbox" id="chkbox1" name="chkbox1" >
+                                   <label for="chkbox1"> Actions</label>
+                                   <label for="chkbox1" id="up1">&#9650</label>
+                                   <label for="chkbox1" id="up2">&#9660</label>
+                               </td>
+                               
+                               <td></td>
+                               <td></td>
+                               <td>
+                                   <label for="postID">Post ID</label>
+                                   <label for="postID" id="up3">&#9650</label>
+                                   <label for="postID" id="up4">&#9660</label>
+                               </td>
+                               
+                               <td></td>
+                               <td></td>
+                               <td>
+                                   <label for="pTitle">Post Title</label>
+                                   
+                                   <label for="pTitle" id="up5">&#9650</label>
+                                   <label for="pTitle" id="up6">&#9660</label>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td></td>
+                               <td></td>
+                               <td></td>
+                               <td><input type="number" id="postID" name="postID"></td>
+                               <td></td>
+                               <td></td>
+                               <td><input type="number" id="pTitle" name="pTitle"></td>
+                           </tr>
+                           <tr></tr>
+                           <tr></tr>
+                           <tr>
+                               <td>
+                                   <input type="checkbox" id="chkbox2" name="chkbox2" >
+                                   <label for="chkbox2" id="view1">&#128065;</label>
+                               </td>
+                               
+                               <td></td>
+                               <td></td>
+                               <td>
+                                   <label for="chkbox2" id="num1">225</label>
+                               </td>
+                               
+                               <td></td>
+                               <td></td>
+                               <td>
+                                   <label for="chkbox2" id="text1">Approved Request for Time-Off</label>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <input type="checkbox" id="chkbox3" name="chkbox3" >
+                                   <label for="chkbox3" id="view1">&#128065;</label>
+                               </td>
+                               
+                               <td></td>
+                               <td></td>
+                               <td>
+                                   <label for="chkbox3" id="num2">184</label>
+                               </td>
+                               
+                               <td></td>
+                               <td></td>
+                               <td>
+                                   <label for="chkbox3" id="text2">Request for updated availability</label>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <input type="checkbox" id="chkbox4" name="chkbox4" >
+                                   <label for="chkbox4" id="view1">&#128065;</label>
+                               </td>
+                               
+                               <td></td>
+                               <td></td>
+                               <td>
+                                   <label for="chkbox4" id="num3">238</label>
+                               </td>
+                               
+                               <td></td>
+                               <td></td>
+                               <td>
+                                   <label for="chkbox4" id="text3">Password Succefully Changed</label>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <input type="checkbox" id="chkbox5" name="chkbox5" >
+                                   <label for="chkbox5" id="view1">&#128065;</label>
+                               </td>
+                               
+                               <td></td>
+                               <td></td>
+                               <td>
+                                   <label for="chkbox5" id="num4">100</label>
+                               </td>
+                               
+                               <td></td>
+                               <td></td>
+                               <td>
+                                   <label for="chkbox5" id="text4">Welcome to ScheduleMD!</label>
+                               </td>
+                           </tr>
+                       </table>
+                   </div>
           </div>
                <script type="text/javascript" src="js/script.js"></script>
      </body>
