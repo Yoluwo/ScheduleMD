@@ -11,6 +11,7 @@
     <class>models.Schedule</class>
     <class>models.UserResetToken</class>
     <class>models.PersonalSchedule</class>
+    <class>models.Notification</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
   </persistence-unit>
 </persistence>

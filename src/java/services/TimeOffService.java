@@ -5,17 +5,18 @@
  */
 package services;
 
-import dataaccess.TimeoffDB;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import models.Timeoff;
+import dataaccess.*;
+import java.util.*;
+import java.text.*;
+import models.*;
+
 
 /**
  *
  * @author 743851
  */
 public class TimeOffService {
+
     public ArrayList<Timeoff> loadAllAprovedRequests(Calendar start, Calendar end) {
         TimeoffDB timeOff = new TimeoffDB();
         ArrayList<Timeoff> timeOffToLoad = new ArrayList<>();
@@ -49,4 +50,98 @@ public class TimeOffService {
         }
         return timeOffToLoad;
     }
+
+    public Timeoff makeTimeOffRequest(User user, Calendar startDate, Calendar endDate){
+        //Making a new time off object with the request dates
+        Timeoff newTimeOff = new Timeoff(0,Calendar.getInstance().getTime(), startDate.getTime(),endDate.getTime(),false);
+        newTimeOff.setUser(user);
+        Notification note = new Notification(0, "User: " + user.getFirstName() + " " + user.getLastName() + " has made a Timeoff Request");
+        saveNotification(note);
+        saveTimeOff(newTimeOff);
+        return newTimeOff;
+    }
+
+    //Requests will be displayed through the servlet
+    public Timeoff approveTimeOffRequest(Timeoff timeOffRequest){
+        //Approve TimeOff Request
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String startDate = format.format(timeOffRequest.getStartDate());
+        String endDate = format.format(timeOffRequest.getEndDate());
+        User userOfTimeOffRequest = timeOffRequest.getUser();
+        Notification note = new Notification(0, "Your time off request for " + startDate + " until " + endDate + " has been approved!");
+        note.setUser(userOfTimeOffRequest);
+        saveNotification(note);
+        timeOffRequest.setIsApproved(true);
+        
+        updateTimeOff(timeOffRequest);
+        return timeOffRequest;
+
+
+    }
+
+    public void denyTimeOffRequest(Timeoff timeOffRequest, String reason){
+        //Needs to have a way to say why its denied
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String startDate = format.format(timeOffRequest.getStartDate());
+        String endDate = format.format(timeOffRequest.getEndDate());
+        User userOfTimeOffRequest = timeOffRequest.getUser();
+       
+        
+
+        if(reason.isEmpty()){
+            Notification note = new Notification(0,userOfTimeOffRequest.getFirstName() + " , your time off request for "+ startDate+" until "+ endDate +" has been denied.");
+            saveNotification(note);
+        }
+
+        else{
+           Notification note = new Notification(0,userOfTimeOffRequest.getFirstName() + " , your time off request for "+ startDate+" until "+ endDate +" has been denied : " + reason);
+           saveNotification(note);
+        }
+
+        deleteTimeOff(timeOffRequest);
+    }
+
+    public void saveTimeOff(Timeoff timeOffRequest){
+
+        TimeoffDB tDB = new TimeoffDB();
+        try{
+        tDB.insert(timeOffRequest);
+        }
+        catch(Exception e){
+            System.out.println("Error in saving timeOffRequest");
+        }
+    }
+
+    public void updateTimeOff(Timeoff timeOffRequest){
+        TimeoffDB tDB = new TimeoffDB();
+
+        try{
+            tDB.update(timeOffRequest);
+         }
+        catch(Exception e){
+            System.out.println("Error in updating timeOffRequest");
+        }
+    }
+
+    public void deleteTimeOff(Timeoff timeOffRequest){
+        TimeoffDB tDB = new TimeoffDB();
+
+        try{
+            tDB.delete(timeOffRequest);
+         }
+        catch(Exception e){
+            System.out.println("Error in deleting timeOffRequest");
+        }
+    }
+    public void saveNotification(Notification note){
+        NotificationDB nDB = new NotificationDB();
+        try{
+            nDB.insert(note);
+        }
+        catch(Exception e){
+            System.out.println("Error in saving notification");
+        }
+    }
+  
 }

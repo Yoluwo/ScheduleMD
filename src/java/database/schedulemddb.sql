@@ -54,7 +54,18 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`user` (
         FOREIGN KEY (`Hospital`)
         REFERENCES `schedulemddb`.`hospital` (`HospitalID`)
 );
-
+-- -----------------------------------------------------
+-- Table `schedulemddb`.`notification`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `schedulemddb`.`notification` (
+    `NotificationID` INT(3) NOT NULL AUTO_INCREMENT,
+    `Note` VARCHAR(100) NOT NULL,
+    `User` INT(4) NOT NULL,
+    PRIMARY KEY (`NotificationID`),
+    CONSTRAINT `fk_user_id_noticiation`
+        FOREIGN KEY (`User`)
+        REFERENCES `schedulemddb`.`user` (`UserID`)
+);
 -- -----------------------------------------------------
 -- Table `schedulemddb`.`user_reset_token`
 -- -----------------------------------------------------

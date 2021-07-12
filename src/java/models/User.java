@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author epaul
+ * @author 743851
  */
 @Entity
 @Table(name = "user")
@@ -64,6 +64,8 @@ public class User implements Serializable {
     private boolean isActive;
     @Column(name = "IsExtender")
     private Boolean isExtender;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Notification> notificationList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Shift> shiftList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -145,6 +147,15 @@ public class User implements Serializable {
 
     public void setIsExtender(Boolean isExtender) {
         this.isExtender = isExtender;
+    }
+
+    @XmlTransient
+    public List<Notification> getNotificationList() {
+        return notificationList;
+    }
+
+    public void setNotificationList(List<Notification> notificationList) {
+        this.notificationList = notificationList;
     }
 
     @XmlTransient
