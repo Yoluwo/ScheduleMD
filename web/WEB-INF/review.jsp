@@ -12,6 +12,7 @@
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
           <title>Review time off requests</title>
           <link href="css/style.css" rel="stylesheet" type="text/css">
+          <link href="css/timeoff.css" rel="stylesheet" type="text/css">
           <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" rel="stylesheet" >
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
@@ -65,14 +66,13 @@
                          <h1>Review Time Off Requests</h1>
                     </div>
                     <div class="time-off">
-                         <h2>Request Time off</h2>
                          <h2>Week 27</h2>
                          <form>
                               <table>
                                    <tr>
-                                        <th>Approve</th>
+                                        <th>Check</th>
                                         <th>Resident</th>
-                                        <th>Days</th> 
+                                        <th>Day(s)</th> 
                                         <th>Time</th>
                                    </tr>
                                    <tr>

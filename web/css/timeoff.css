@@ -10,7 +10,7 @@ and open the template in the editor.
 
 html {
      scroll-behavior: smooth;
-     
+     height: 100%;
 }
 
 /* CSS for designing request time off card */
@@ -18,19 +18,15 @@ html {
      margin-left: 20px;
      margin-top: 20px;
      padding: 0;
-     width: 450px;
-     height: 480px;  
+     width: 480px;
+     height: 55vh;  
      background-color: #dcf4fc;
-}
-
-table {
-     width: 100%;
 }
 
 th {
      text-align: center;
      color: #094c72;
-     font-size: 19px;
+     font-size: 18px;
      padding: 5px 7px;
 }
 
@@ -42,6 +38,49 @@ td {
 
 .time-off form {
      margin: 10px 20px;
+}
+
+
+.btn-cancel {
+     cursor: pointer;
+     display: inline-block;
+     width: 80px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #00254d;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0px 0 220px;
+}
+
+.btn-save {
+     cursor: pointer;
+     display: inline-block;
+     width: 80px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #00254d;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0px 0 20px;
+}
+
+.btn-cancel:hover, .btn-save:hover {
+     color: #dcf4fc;
+}
+
+.btn-cancel:focus, .btn-save:focus {
+     outline: none;
+}
+
+.btn-cancel:active, .btn-save:active {
+     transform: scale(0.96);
+     background-color: #bdd2d9;
+     color: #094c72;
 }
 
 .center {
@@ -81,50 +120,15 @@ input:checked[type="checkbox"]:before {
      left: 14px;
 }
 
-.btn-cancel {
-     cursor: pointer;
-     display: inline-block;
-     width: 80px;
-     background-color: #88cff9;
-     padding: 8px 5px;
-     font-size: 15px;
-     font-family: inherit;
-     color: #00254d;
-     border-radius: 5px;
-     box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 0 225px;
-}
 
-.btn-save {
-     cursor: pointer;
-     display: inline-block;
-     width: 80px;
-     background-color: #88cff9;
-     padding: 8px 5px;
-     font-size: 15px;
-     font-family: inherit;
-     color: #00254d;
-     border-radius: 5px;
-     box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 0 20px;
-}
+@media (min-width: 768px) and (max-width: 480px) {
 
-.btn-cancel:hover, .btn-save:hover {
-     color: #dcf4fc;
-}
+     html {
+          scroll-behavior: smooth;
+          height: 100%;
+          overflow-x: scroll;
+     }
 
-.btn-cancel:focus, .btn-save:focus {
-     outline: none;
-}
-
-.btn-cancel:active, .btn-save:active {
-     transform: scale(0.96);
-     background-color: #bdd2d9;
-     color: #094c72;
-}
-
-
-@media screen and (max-width: 500px) {
      .time-off {
           margin-left: 7px;
           margin-top: 10px;
@@ -132,7 +136,6 @@ input:checked[type="checkbox"]:before {
           width: 95%;
           height: 50vh;  
           background-color: #dcf4fc;
-          overflow-x: scroll;
      }
 
      .time-off form {

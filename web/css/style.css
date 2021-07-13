@@ -13,7 +13,7 @@
 
 html {
      scroll-behavior: smooth;
-     
+     height: 100%;
 }
 
 body {
@@ -410,7 +410,14 @@ p {
 }
 
 /* Cascading style sheets for designing the page's responsiveness */
-@media screen and (max-width: 500px) {
+@media (min-width: 768px) and (max-width: 480px) {
+
+     html {
+          scroll-behavior: smooth;
+          height: 100%;
+          overflow-x: scroll;
+     }
+     
      .navigation {
           width: 175px;
           background: #094c72;
@@ -422,7 +429,7 @@ p {
           width: 100%;
           left: 175px;
      }
-     
+
      .main.active {
           width: calc(100% - 40px);
           left: 40px;
