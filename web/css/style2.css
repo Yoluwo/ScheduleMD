@@ -1,0 +1,244 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12-Jul-2021, 11:30:16 PM
+    Author     : Yetunde Oluwo
+*/
+
+html {
+     scroll-behavior: smooth;
+     height: 100%;
+}
+
+/* CSS for designing request time off card */
+.time-off {
+     margin-left: 20px;
+     margin-top: 20px;
+     padding: 0;
+     width: 480px;
+     height: 500px;  
+     background-color: #dcf4fc;
+}
+
+table {
+     width: 100%;
+     border-collapse: collapse;
+
+}
+
+th {
+     text-align: center;
+     color: #094c72;
+     font-weight: bold;
+     padding: 5px 7px;
+}
+
+td, th {
+     padding: 6px;
+     border: 1px solid #ccc;
+     text-align: center;
+     color: #094c72;
+     padding: 5px 7px;
+}
+
+.time-off form {
+     margin: 10px 20px;
+}
+
+
+.btn-cancel {
+     cursor: pointer;
+     display: inline-block;
+     width: 80px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #00254d;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0px 0 220px;
+}
+
+.btn-save {
+     cursor: pointer;
+     display: inline-block;
+     width: 80px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #00254d;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0px 0 20px;
+}
+
+.btn-cancel:hover, .btn-save:hover {
+     color: #dcf4fc;
+}
+
+.btn-cancel:focus, .btn-save:focus {
+     outline: none;
+}
+
+.btn-cancel:active, .btn-save:active {
+     transform: scale(0.96);
+     background-color: #bdd2d9;
+     color: #094c72;
+}
+
+.center {
+     transform: translate(1%, 4%);
+}
+
+input[type="checkbox"] {
+     position: relative;
+     width: 25px;
+     height: 12px;
+     -webkit-appearance: none;
+     background: #bdc3c7;
+     outline: none;
+     border-radius: 20px;
+     box-shadow: inset 0 0 5px #00254d;
+}
+
+input:checked[type="checkbox"] {
+     background: #88cff9;
+}
+
+input[type="checkbox"]:before {
+     content: "";
+     position: absolute;
+     width: 10px;
+     height: 11px;
+     border-radius: 20px;
+     top: 0px;
+     left: 0px;
+     background: #fff;
+     transform: scale(1.1);
+     transition: 0.5s;
+     box-shadow: 0 2px 5px #bdc3c7;
+}
+
+input:checked[type="checkbox"]:before {
+     left: 14px;
+}
+
+/*CSS for styling the ManageUsers Page */
+.manage {
+     margin-top: 10px;
+     margin-left: 10px;
+     width: 65%;
+     background-color: #dbf3fa;
+}
+
+
+
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+
+     html {
+          scroll-behavior: smooth;
+          height: 100%;
+          overflow-x: auto;
+     }
+
+     .time-off {
+          margin-left: 7px;
+          margin-top: 10px;
+          padding: 0;
+          width: 95%;
+          height: 100%;  
+          background-color: #dcf4fc;
+     }
+
+     h1, h2 {
+          font-size: 20px;
+     }
+
+     .manage {
+          margin-top: 10px;
+          margin-left: 7px;
+          width: 100%;
+          background-color: #dbf3fa;
+          overflow-x: auto;
+     }
+     
+     .time-off form {
+          margin: 1px 1px;
+     }
+
+
+     /* Remove default table settings */
+     table, thead, tbody, tr, th, td {
+          display: block;
+
+     }
+     
+     tr {
+          margin: 0 0 1rem 0;
+     }
+
+     tr:nth-child(odd) {
+          background: #88cff9;
+     }
+
+     td {
+          /* Makes it behave like a row */
+          border: none;
+          border-bottom: 1px solid #eee;
+          position: relative;
+          padding-left: 50%;
+          text-align: left;
+          color: #094c72;
+          padding: 1px 0px;
+          font-size: 13px;
+     }
+
+     td:before {
+          position: absolute;
+          top: 0;
+          left: 6px;
+          width: 45%;
+          padding-right: 10px;
+          white-space: nowrap;
+     }
+     
+     th {
+          text-align: left;
+          color: #094c72;
+          font-size: 15px;
+          padding: 2px 2px;
+     }
+
+     .btn-cancel {
+          cursor: pointer;
+          display: inline-block;
+          width: 65px;
+          background-color: #88cff9;
+          padding: 5px 5px;
+          font-size: 14px;
+          font-family: inherit;
+          color: #094c72;
+          border-radius: 5px;
+          box-shadow: 1px 1px 1px 0px #2f739c;
+          margin: 15px 0px 0 120px;
+     }
+
+     .btn-save {
+          cursor: pointer;
+          display: inline-block;
+          width: 65px;
+          background-color: #88cff9;
+          padding: 7px 5px;
+          font-size: 14px;
+          font-family: inherit;
+          color: #094c72;
+          border-radius: 5px;
+          box-shadow: 1px 1px 1px 0px #2f739c;
+          margin: 15px 0px 0 10px;
+     }
+}

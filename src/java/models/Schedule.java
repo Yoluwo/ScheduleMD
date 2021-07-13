@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * This class describes the Schedule entity
+ * This class describes the Schedule object
  * @author 743851
  */
 @Entity

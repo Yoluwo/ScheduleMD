@@ -295,5 +295,4 @@ public class Shift implements Serializable {
     public String toString() {
         return "models.Shift[ shiftID=" + shiftID + " ]";
     }
-    
-}
+}  

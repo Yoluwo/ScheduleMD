@@ -14,32 +14,32 @@ import models.Hospital;
  */
 public class HospitalService {
 
-    public ArrayList<Integer> findHospitalRoles(Hospital hospital) {
+     public ArrayList<Integer> findHospitalRoles(Hospital hospital) {
 
-        String hospitalRoles = hospital.getRoleList();
-        int length = hospitalRoles.length();
-        ArrayList<Integer> rolesToReturn = new ArrayList<>();
+          String hospitalRoles = hospital.getRoleList();
+          int length = hospitalRoles.length();
+          ArrayList<Integer> rolesToReturn = new ArrayList<>();
 
-        for (int i = 0; i < length; i++) {
+          for (int i = 0; i < length; i++) {
 
-            char roleCheck = hospitalRoles.charAt(i);
+               char roleCheck = hospitalRoles.charAt(i);
 
-            switch (roleCheck) {
+               switch (roleCheck) {
 
-                case 'A':
-                    rolesToReturn.add(1);
-                    break;
-                case 'T':
-                    rolesToReturn.add(2);
-                    break;
-                case 'S':
-                    rolesToReturn.add(3);
-                    break;
-            }
+                    case 'A':
+                         rolesToReturn.add(1);
+                         break;
+                    case 'T':
+                         rolesToReturn.add(2);
+                         break;
+                    case 'S':
+                         rolesToReturn.add(3);
+                         break;
+               }
 
-        }
-        
-        return rolesToReturn;
-    }
-   
+          }
+
+          return rolesToReturn;
+     }
+
 }

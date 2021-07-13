@@ -13,11 +13,13 @@
 
 html {
      scroll-behavior: smooth;
+     height: 100%;
 }
 
 body {
      overflow: hidden;
      font-size: 15px;
+     height: 100%;
 }
 
 .container {
@@ -35,7 +37,7 @@ h1 {
 h2 {
      font-family: 'lato', sans-serif;
      font-size: 25px;
-     padding: 15px;  
+     padding: 20px;  
      color: #094c72;
      text-align: center;
 }
@@ -206,43 +208,16 @@ h2 {
      margin: 15px 0 0 110px;
 }
 
-.btn-cancel {
-     cursor: pointer;
-     display: inline-block;
-     width: 100px;
-     background-color: #88cff9;
-     padding: 10px 5px;
-     font-size: 15px;
-     font-family: inherit;
-     color: #00254d;
-     border-radius: 5px;
-     box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 0 180px;
-}
 
-.btn-save {
-     cursor: pointer;
-     display: inline-block;
-     width: 100px;
-     background-color: #88cff9;
-     padding: 10px 5px;
-     font-size: 15px;
-     font-family: inherit;
-     color: #00254d;
-     border-radius: 5px;
-     box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 0 20px;
-}
-
-.btn:hover, .btn-cancel:hover, .btn-save:hover {
+.btn:hover {
      color: #dcf4fc;
 }
 
-.btn:focus, .btn-cancel:focus, .btn-save:focus {
+.btn:focus {
      outline: none;
 }
 
-.btn:active, .btn-cancel:active, .btn-save:active {
+.btn:active {
      transform: scale(0.96);
      background-color: #bdd2d9;
      color: #094c72;
@@ -368,7 +343,7 @@ p {
 /*CSS for designing the Welcome back portion of the resident and admin pages */
 .dash {
      width: 85%;
-     margin: 10px 0 10px 20px;
+     margin: 10px 0 10px 10px;
 }
 
 .dash img {
@@ -390,8 +365,8 @@ p {
 
 /* CSS for designing the cards */
 .cardMain {
-     margin-left: 20px;
-     margin-top: 45px;
+     margin-left: 10px;
+     margin-top: 30px;
      padding: 0;
      width: 85%;
      height: 100vh;                  
@@ -434,73 +409,15 @@ p {
      color: #00254d;
 }
 
-/* CSS for designing request time off card */
-.time-off {
-     margin-left: 20px;
-     margin-top: 15px;
-     padding: 0;
-     width: 30%;
-     height: 85vh;  
-     background-color: #dcf4fc;
-}
-
-th {
-     text-align: center;
-     color: #094c72;
-     font-size: 19px;
-     padding: 5px 7px;
-}
-
-td {
-     text-align: center;
-     color: #094c72;
-     padding: 5px 7px;
-}
-
-.time-off form {
-     margin: 20px 20px;
-}
-
-.center {
-     transform: translate(1%, 4%);
-}
-
-input[type="checkbox"] {
-     position: relative;
-     width: 25px;
-     height: 12px;
-     -webkit-appearance: none;
-     background: #bdc3c7;
-     outline: none;
-     border-radius: 20px;
-     box-shadow: inset 0 0 5px #00254d;
-}
-
-input:checked[type="checkbox"] {
-     background: #88cff9;
-}
-
-input[type="checkbox"]:before {
-     content: "";
-     position: absolute;
-     width: 10px;
-     height: 11px;
-     border-radius: 20px;
-     top:0px;
-     left:0px;
-     background: #fff;
-     transform: scale(1.1);
-     transition: 0.5s;
-     box-shadow: 0 2px 5px #bdc3c7;
-}
-
-input:checked[type="checkbox"]:before {
-     left: 14px;
-}
-
-
 /* Cascading style sheets for designing the page's responsiveness */
-@media screen and (max-width: 500px) {
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+
+     html {
+          scroll-behavior: smooth;
+          height: 100%;
+          overflow-x: auto;
+     }
+     
      .navigation {
           width: 175px;
           background: #094c72;
@@ -511,6 +428,11 @@ input:checked[type="checkbox"]:before {
      .main {
           width: 100%;
           left: 175px;
+     }
+
+     .main.active {
+          width: calc(100% - 40px);
+          left: 40px;
      }
 
      .navigation ul li a .icon .fa {
@@ -542,11 +464,6 @@ input:checked[type="checkbox"]:before {
           width: 40px;
      }
 
-     .main.active {
-          width: calc(100% - 40px);
-          left: 40px;
-     }
-
      .wrapper {
           margin-left: 10px;
           margin-top: 10px;
@@ -569,7 +486,7 @@ input:checked[type="checkbox"]:before {
           background-color: #2f739c;
           color: #bdd2d9;
      }
-     
+
      .weekdays div {
           font-size: 14px;
           font-weight: lighter;
@@ -627,60 +544,5 @@ input:checked[type="checkbox"]:before {
           display: grid;
           grid-template-columns: repeat(2,52.5%);
           grid-gap: 15px;
-     }
-
-     .time-off {
-          margin-left: 10px;
-          margin-top: 10px;
-          padding: 0;
-          width: 90%;
-          height: 65vh;  
-          background-color: #dcf4fc;
-     }
-
-     form {
-          margin: 10px 10px;
-     }
-
-     th {
-          text-align: left;
-          color: #094c72;
-          font-size: 14px;
-          padding: 2px 2px;
-     }
-
-     td {
-          text-align: left;
-          color: #094c72;
-          padding: 1px 2px;
-          font-size: 10px;
-     }
-
-     .btn-cancel {
-          cursor: pointer;
-          display: inline-block;
-          width: 70px;
-          background-color: #dbf3fa;
-          padding: 10px 5px;
-          font-size: 15px;
-          font-family: inherit;
-          color: #094c72;
-          border-radius: 5px;
-          box-shadow: 1px 1px 1px 0px #2f739c;
-          margin: 15px 0px 0 95px;
-     }
-
-     .btn-save {
-          cursor: pointer;
-          display: inline-block;
-          width: 70px;
-          background-color: #dbf3fa;
-          padding: 10px 5px;
-          font-size: 15px;
-          font-family: inherit;
-          color: #094c72;
-          border-radius: 5px;
-          box-shadow: 1px 1px 1px 0px #2f739c;
-          margin: 15px 0px 0 5px;
      }
 }

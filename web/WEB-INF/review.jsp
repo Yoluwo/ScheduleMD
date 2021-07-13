@@ -12,6 +12,7 @@
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
           <title>Review time off requests</title>
           <link href="css/style.css" rel="stylesheet" type="text/css">
+          <link href="css/style2.css" rel="stylesheet" type="text/css">
           <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" rel="stylesheet" >
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
@@ -65,58 +66,61 @@
                          <h1>Review Time Off Requests</h1>
                     </div>
                     <div class="time-off">
-                         <h2>Request Time off</h2>
                          <h2>Week 27</h2>
                          <form>
-                              <table>
-                                   <tr>
-                                        <th>Approve</th>
-                                        <th>Resident</th>
-                                        <th>Days</th> 
-                                        <th>Time</th>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>Susan</td>
-                                        <td>Sun</td>
-                                        <td>10:00am - 7:00pm</td>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>Alice</td>
-                                        <td>Mon</td>
-                                        <td>9:00am - 8:00pm</td>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>Theo</td>
-                                        <td>Wed - Thurs</td>
-                                        <td>11:00am - 8:00pm</td>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>Adam</td>
-                                        <td>Tues</td>
-                                        <td>9:00am - 5:00pm</td>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>Andrew</td>
-                                        <td>Thurs - Tues</td>
-                                        <td>1:00pm - 5:00pm</td>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>Peter</td>
-                                        <td>Sun - Wed</td>
-                                        <td>9:00am - 4:00pm</td>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>John</td>
-                                        <td>Sat</td>
-                                        <td>9:00am - 5:00pm</td>
-                                   </tr>
+                              <table role="table">
+                                   <thead role="rowgroup">
+                                        <tr role="row">
+                                             <th role="columnheader">Check</th>
+                                             <th role="columnheader">Resident</th>
+                                             <th role="columnheader">Day(s)</th> 
+                                             <th role="columnheader">Time</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody role="rowgroup">
+                                        <tr role="row">
+                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
+                                             <td role="cell">Susan</td>
+                                             <td role="cell">Sun</td>
+                                             <td role="cell">10:00am - 7:00pm</td>
+                                        </tr>
+                                        <tr role="row">
+                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
+                                             <td role="cell">Alice</td>
+                                             <td role="cell">Mon</td>
+                                             <td role="cell">9:00am - 8:00pm</td>
+                                        </tr>
+                                        <tr role="row">
+                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
+                                             <td role="cell">Theo</td>
+                                             <td role="cell">Wed - Thurs</td>
+                                             <td role="cell">11:00am - 8:00pm</td>
+                                        </tr>
+                                        <tr>
+                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
+                                             <td role="cell">Adam</td>
+                                             <td role="cell">Tues</td>
+                                             <td role="cell">9:00am - 5:00pm</td>
+                                        </tr>
+                                        <tr role="row">
+                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
+                                             <td role="cell">Andrew</td>
+                                             <td role="cell">Thurs - Tues</td>
+                                             <td role="cell">1:00pm - 5:00pm</td>
+                                        </tr>
+                                        <tr role="row">
+                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
+                                             <td role="cell">Peter</td>
+                                             <td role="cell">Sun - Wed</td>
+                                             <td role="cell">9:00am - 4:00pm</td>
+                                        </tr>
+                                        <tr role="row">
+                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
+                                             <td role="cell">John</td>
+                                             <td role="cell">Sat</td>
+                                             <td role="cell">9:00am - 5:00pm</td>
+                                        </tr>
+                                   </tbody>
                               </table>
                               <button class="btn-cancel">Cancel</button>
                               <button class="btn-save">Save</button>

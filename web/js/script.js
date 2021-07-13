@@ -32,7 +32,7 @@ const loadCalendar = () => {
 
      /* Variable to store the index number of the first day of the month */
      const firstDayIndex = date.getDay();
-     
+
      /* Variable to store the index number of the last day of the current month */
      const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
 
@@ -83,7 +83,7 @@ const loadCalendar = () => {
      for (let j = 1; j <= nextDays; j++) {
           days += `<div class="next-date">${j}</div>`;
      }
-      monthDays.innerHTML = days;
+     monthDays.innerHTML = days;
 };
 
 /* Making the arrows functional */

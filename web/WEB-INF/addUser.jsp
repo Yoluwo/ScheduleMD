@@ -1,6 +1,6 @@
 <%-- 
-    Document   : manageUsers
-    Created on : 15-Jun-2021, 9:55:28 AM
+    Document   : addUser
+    Created on : 13-Jul-2021, 4:26:47 AM
     Author     : Yetunde Oluwo
 --%>
 
@@ -18,7 +18,7 @@
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
      </head>
      <body>
-          <!--Java Single Page for the Admin to Manage User account settings -->
+          <!--Java Single Page for the Admin to Add User account -->
           <div class="container">
                <div class="navigation">
                     <ul> 
@@ -63,56 +63,10 @@
                <div class="main">
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
-                         <h1>Manage User Profiles</h1>
+                         <h1>Add User Profiles</h1>
                     </div>
                     <div>
-                         <div class="search"><input type="text" name="search"><i class="fa fa-search" aria-hidden="true"></i>Search</div>
-                         <div class="manUser"><a href="addUser"><button>Add User</button></a></div>
-                    </div>
-                    <div class="manage">
-                         <h2>Manage Users </h2>
-                         <table role="table">
-                              <thead role="rowgroup">
-                                   <tr role="row">
-                                        <th role="columnheader">First name</th>
-                                        <th role="columnheader">Last name</th>
-                                        <th role="columnheader">Email</th>
-                                        <th role="columnheader">Role</th> 
-                                        <th role="columnheader">User Since</th>
-                                        <th role="columnheader">Actions</th>
-                                        <th role="columnheader"></th>
-                                   </tr>
-                              </thead>
-                              <tbody role="rowgroup">
-                                   <tr role="row">
-                                        <td role="cell">Susan</td>
-                                        <td role="cell">Anne</td>
-                                        <td role="cell">sanne@gmail.com</td>
-                                        <td role="cell">Resident</td> 
-                                        <td role="cell">July 4, 2021</td>
-                                        <td role="cell"><a href="edit">Edit</a></td>
-                                        <td role="cell"><a href="delete">Delete</a></td>
-                                   </tr>
-                                   <tr role="row">
-                                        <td role="cell">Theo</td>
-                                        <td role="cell">Pythagoras</td>
-                                        <td role="cell">tpy@gmail.com</td>
-                                        <td role="cell">Resident</td> 
-                                        <td role="cell">June 24, 2021</td>
-                                        <td role="cell"><a href="edit">Edit</a></td>
-                                        <td role="cell"><a href="delete">Delete</a></td>
-                                   </tr>
-                                   <tr role="row">
-                                        <td role="cell">John</td>
-                                        <td role="cell">Aimes</td>
-                                        <td role="cell">jaimes@yahoo.com</td>
-                                        <td role="cell">Resident</td>
-                                        <td role="cell">July 26, 2021</td>
-                                        <td role="cell"><a href="edit">Edit</a></td>
-                                        <td role="cell"><a href="delete">Delete</a></td>
-                                   </tr>
-                              </tbody>
-                         </table>
+
                     </div>
                </div>
           </div>
