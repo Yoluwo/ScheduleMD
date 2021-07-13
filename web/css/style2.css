@@ -166,29 +166,52 @@ input:checked[type="checkbox"]:before {
           background-color: #dbf3fa;
           overflow-x: auto;
      }
+     
+     .time-off form {
+          margin: 1px 1px;
+     }
+
 
      /* Remove default table settings */
      table, thead, tbody, tr, th, td {
           display: block;
 
      }
-
-     .time-off form {
-          margin: 1px 1px;
+     
+     tr {
+          margin: 0 0 1rem 0;
      }
 
+     tr:nth-child(odd) {
+          background: #88cff9;
+     }
+
+     td {
+          /* Makes it behave like a row */
+          border: none;
+          border-bottom: 1px solid #eee;
+          position: relative;
+          padding-left: 50%;
+          text-align: left;
+          color: #094c72;
+          padding: 1px 0px;
+          font-size: 13px;
+     }
+
+     td:before {
+          position: absolute;
+          top: 0;
+          left: 6px;
+          width: 45%;
+          padding-right: 10px;
+          white-space: nowrap;
+     }
+     
      th {
           text-align: left;
           color: #094c72;
           font-size: 15px;
           padding: 2px 2px;
-     }
-
-     td {
-          text-align: left;
-          color: #094c72;
-          padding: 1px 0px;
-          font-size: 13px;
      }
 
      .btn-cancel {
@@ -218,6 +241,4 @@ input:checked[type="checkbox"]:before {
           box-shadow: 1px 1px 1px 0px #2f739c;
           margin: 15px 0px 0 10px;
      }
-
-
 }

@@ -71,45 +71,45 @@
                     </div>
                     <div class="manage">
                          <h2>Manage Users </h2>
-                         <table>
-                              <thead>
-                                   <tr>
-                                        <th>First name</th>
-                                        <th>Last name</th>
-                                        <th>Email</th>
-                                        <th>Role</th> 
-                                        <th>User Since</th>
-                                        <th>Actions</th>
-                                        <th></th>
+                         <table role="table">
+                              <thead role="rowgroup">
+                                   <tr role="row">
+                                        <th role="columnheader">First name</th>
+                                        <th role="columnheader">Last name</th>
+                                        <th role="columnheader">Email</th>
+                                        <th role="columnheader">Role</th> 
+                                        <th role="columnheader">User Since</th>
+                                        <th role="columnheader">Actions</th>
+                                        <th role="columnheader"></th>
                                    </tr>
                               </thead>
-                              <tbody>
-                                   <tr>
-                                        <td>Susan</td>
-                                        <td>Anne</td>
-                                        <td>sanne@gmail.com</td>
-                                        <td>Resident</td> 
-                                        <td>July 4, 2021</td>
-                                        <td>Edit</td>
-                                        <td>Delete</td>
+                              <tbody role="rowgroup">
+                                   <tr role="row">
+                                        <td role="cell">Susan</td>
+                                        <td role="cell">Anne</td>
+                                        <td role="cell">sanne@gmail.com</td>
+                                        <td role="cell">Resident</td> 
+                                        <td role="cell">July 4, 2021</td>
+                                        <td role="cell"><a href="edit">Edit</a></td>
+                                        <td role="cell"><a href="delete">Delete</a></td>
                                    </tr>
-                                   <tr>
-                                        <td>Theo</td>
-                                        <td>Pythagoras</td>
-                                        <td>tpy@gmail.com</td>
-                                        <td>Resident</td> 
-                                        <td>June 24, 2021</td>
-                                        <td>Edit</td>
-                                        <td>Delete</td>
+                                   <tr role="row">
+                                        <td role="cell">Theo</td>
+                                        <td role="cell">Pythagoras</td>
+                                        <td role="cell">tpy@gmail.com</td>
+                                        <td role="cell">Resident</td> 
+                                        <td role="cell">June 24, 2021</td>
+                                        <td role="cell"><a href="edit">Edit</a></td>
+                                        <td role="cell"><a href="delete">Delete</a></td>
                                    </tr>
-                                   <tr>
-                                        <td>John</td>
-                                        <td>Aimes</td>
-                                        <td>jaimes@yahoo.com</td>
-                                        <td>Resident</td>
-                                        <td>July 26, 2021</td>
-                                        <td>Edit</td>
-                                        <td>Delete</td>
+                                   <tr role="row">
+                                        <td role="cell">John</td>
+                                        <td role="cell">Aimes</td>
+                                        <td role="cell">jaimes@yahoo.com</td>
+                                        <td role="cell">Resident</td>
+                                        <td role="cell">July 26, 2021</td>
+                                        <td role="cell"><a href="edit">Edit</a></td>
+                                        <td role="cell"><a href="delete">Delete</a></td>
                                    </tr>
                               </tbody>
                          </table>
