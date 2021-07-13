@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
+ * This class describes the Schedule entity
  * @author 743851
  */
 @Entity
@@ -60,60 +60,117 @@ public class Schedule implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "schedule")
     private List<Shift> shiftList;
 
+    /**
+     * The default constructor for the Schedule object
+     */
     public Schedule() {
     }
 
+    /**
+     * This constructs a schedule object using the scheduleID
+     * @param scheduleID - The integer value of the scheduleID
+     */
     public Schedule(Integer scheduleID) {
         this.scheduleID = scheduleID;
     }
 
+    /**
+     * This constructs a schedule object using the scheduleID, startDate and endDate
+     * @param scheduleID - Integer value of the scheduleID
+     * @param startDate - Date the schedule begins
+     * @param endDate - Date the schedule ends
+     */
     public Schedule(Integer scheduleID, Date startDate, Date endDate) {
         this.scheduleID = scheduleID;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
+    /**
+     * This method gets the scheduleID
+     * @return The integer value of the scheduleID
+     */
     public Integer getScheduleID() {
         return scheduleID;
     }
 
+    /**
+     * This method sets the value of the scheduleID
+     * @param scheduleID - Integer value of the scheduleID
+     */
     public void setScheduleID(Integer scheduleID) {
         this.scheduleID = scheduleID;
     }
 
+    /**
+     * This method gets the value of the startDate
+     * @return The start date of the schedule
+     */
     public Date getStartDate() {
         return startDate;
     }
 
+    /**
+     * This method sets the value of the startDate
+     * @param startDate - Date the schedule begins
+     */
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
+    /**
+     * This method gets the value of the endDate
+     * @return The date the schedule ends
+     */
     public Date getEndDate() {
         return endDate;
     }
 
+    /**
+     * This method sets the endDate of the schedule
+     * @param endDate - Date the schedule terminates
+     */
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
+    /**
+     * This method gets the Hospital object
+     * @return The hospital of type Hospital
+     */
     public Hospital getHospital() {
         return hospital;
     }
 
+    /**
+     * This method sets the Hospital object
+     * @param hospital - The Hospital object where the schedule will be implemented
+     */
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
     }
 
+    /**
+     * This method gets a list of all the shifts
+     * @return The list of shifts in the shiftList
+     */
     @XmlTransient
     public List<Shift> getShiftList() {
         return shiftList;
     }
 
+    /**
+     * This method sets the list of shifts
+     * @param shiftList - The shifts in the shiftList
+     */
     public void setShiftList(List<Shift> shiftList) {
         this.shiftList = shiftList;
     }
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public int hashCode() {
         int hash = 0;
@@ -121,6 +178,11 @@ public class Schedule implements Serializable {
         return hash;
     }
 
+    /**
+     * 
+     * @param object
+     * @return 
+     */
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -134,6 +196,10 @@ public class Schedule implements Serializable {
         return true;
     }
 
+    /**
+     * This method prints the details of the Schedule objects
+     * @return - The details of the schedule object
+     */
     @Override
     public String toString() {
         return "models.Schedule[ scheduleID=" + scheduleID + " ]";
