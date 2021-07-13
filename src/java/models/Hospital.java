@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
+ * This class describes the Hospital entity
  * @author 743851
  */
 @Entity
@@ -52,69 +52,134 @@ public class Hospital implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "hospital")
     private List<User> userList;
 
+    /**
+     * This is the default constructor for the Hospital class
+     */
     public Hospital() {
     }
 
+    /**
+     * Constructs the Hospital class using the hospitalID
+     * @param hospitalID The ID number of the hospital
+     */
     public Hospital(Integer hospitalID) {
         this.hospitalID = hospitalID;
     }
 
+    /**
+     * This constructs the Hospital class using the hospitalID, hospitalName and hospitalType
+     * @param hospitalID The ID number of the hospital
+     * @param hospitalName The name of the hospital
+     * @param hospitalType The type of the hospital
+     */
     public Hospital(Integer hospitalID, String hospitalName, String hospitalType) {
         this.hospitalID = hospitalID;
         this.hospitalName = hospitalName;
         this.hospitalType = hospitalType;
     }
 
+    /**
+     * This method gets the hospitalID of this hospital
+     * @return The integer value of hospitalID
+     */
     public Integer getHospitalID() {
         return hospitalID;
     }
 
+    /**
+     * This method sets the value of hospitalID
+     * @param hospitalID - Integer value of hospitalID
+     */
     public void setHospitalID(Integer hospitalID) {
         this.hospitalID = hospitalID;
     }
 
+    /**
+     * This method gets the name of this hospital
+     * @return The String value of hospitalName
+     */
     public String getHospitalName() {
         return hospitalName;
     }
 
+    /**
+     * This method sets the hospital name
+     * @param hospitalName - String value of hospitalName
+     */
     public void setHospitalName(String hospitalName) {
         this.hospitalName = hospitalName;
     }
 
+    /**
+     * This method gets the hospital type
+     * @return The String value of hospitalType
+     */
     public String getHospitalType() {
         return hospitalType;
     }
 
+    /**
+     * This method sets the value of hospitalType
+     * @param hospitalType - The String value of hospitalType
+     */
     public void setHospitalType(String hospitalType) {
         this.hospitalType = hospitalType;
     }
 
+    /**
+     * This method gets the roleList
+     * @return The String value of roleList
+     */
     public String getRoleList() {
         return roleList;
     }
 
+    /**
+     * This method sets the roleList
+     * @param roleList - The String value of roleList
+     */
     public void setRoleList(String roleList) {
         this.roleList = roleList;
     }
 
+    /**
+     * This method gets the list of type Schedule
+     * @return The value of scheduleList
+     */
     @XmlTransient
     public List<Schedule> getScheduleList() {
         return scheduleList;
     }
 
+    /**
+     * This method sets the scheduleList with a list of type Schedule
+     * @param scheduleList - The collection of schedules 
+     */
     public void setScheduleList(List<Schedule> scheduleList) {
         this.scheduleList = scheduleList;
     }
 
+    /**
+     * This method gets the list of users of derived from the User class
+     * @return The list of users in userList
+     */
     @XmlTransient
     public List<User> getUserList() {
         return userList;
     }
 
+    /**
+     * This method sets the list of user objects 
+     * @param userList - The list of users derived from the User class
+     */
     public void setUserList(List<User> userList) {
         this.userList = userList;
     }
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public int hashCode() {
         int hash = 0;
@@ -122,6 +187,11 @@ public class Hospital implements Serializable {
         return hash;
     }
 
+    /**
+     * 
+     * @param object
+     * @return 
+     */
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -135,6 +205,10 @@ public class Hospital implements Serializable {
         return true;
     }
 
+    /**
+     * This method prints the Hospital objects
+     * @return - The values of the attributes of the Hospital objects
+     */
     @Override
     public String toString() {
         return "models.Hospital[ hospitalID=" + hospitalID + " ]";
