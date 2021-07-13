@@ -34,7 +34,7 @@ public class AdminFilter implements Filter {
             UserDB userDB = new UserDB();
             int role = userDB.get(email).getRole().getRoleID();
 
-            if (role != 0) {
+            if (role != 1) {
                 HttpServletResponse httpResponse = (HttpServletResponse) response;
                 httpResponse.sendRedirect("resident");
                 return;

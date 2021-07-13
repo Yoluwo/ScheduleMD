@@ -70,4 +70,18 @@ public class ScheduleDB {
         }
         return null;
     }
+    public void update(Schedule schedule) throws Exception {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+
+        try {
+            trans.begin();
+            em.merge(schedule);
+            trans.commit();
+        } catch (Exception ex) {
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+    }
 }

@@ -7,16 +7,6 @@ import models.*;
 
 public class NotificationDB {
 
-    public List<Notification> getAllByUser(Integer userID) throws Exception {
-        EntityManager em = DBUtil.getEmFactory().createEntityManager();
-         try {
-             List <Notification> notes = em.createNamedQuery("Notificaton.findByUserID", Notification.class).setParameter("userID", userID).getResultList();
-             return notes;
-         } finally {
-             em.close();
-         }
- 
-     }
      public void insert(Notification note) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
