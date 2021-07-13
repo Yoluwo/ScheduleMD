@@ -65,5 +65,4 @@ public class TestDisplayScheduleServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/WEB-INF/testDisplaySchedule.jsp")
                 .forward(request, response);
     }
-
 }

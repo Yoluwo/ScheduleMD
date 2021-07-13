@@ -11,61 +11,52 @@ import services.AccountService;
 import models.User;
 
 public class LoginServlet extends HttpServlet {
-    
-  @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        HttpSession session = request.getSession();
-        
+
+     @Override
+     protected void doGet(HttpServletRequest request, HttpServletResponse response)
+             throws ServletException, IOException {
+
+          HttpSession session = request.getSession();
+
           if (request.getParameter("logout") != null) {
-            session.invalidate();
-            request.setAttribute("message", "Succesfully Logged Out");
-            getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-        }
-          
-        session.invalidate();
-        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-    }
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-    
-        HttpSession session = request.getSession();
-        AccountService accountService = new AccountService();
+               session.invalidate();
+               request.setAttribute("message", "Succesfully Logged Out");
+               getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+          }
 
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+          session.invalidate();
+          getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+     }
 
-        User currentUser = accountService.login(email, password);
+     @Override
+     protected void doPost(HttpServletRequest request, HttpServletResponse response)
+             throws ServletException, IOException {
 
-        if (currentUser == null) {
-            request.setAttribute("message", "Invalid Login");
-            getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+          HttpSession session = request.getSession();
+          AccountService accountService = new AccountService();
 
-            return;
-            
-        }
-    
-        Role roleCheck = currentUser.getRole();
-        
-        session.setAttribute("email", email);
-        session.setAttribute("role", roleCheck);
-        
-        if (roleCheck.getRoleName().equals("system admin"))  {
+          String email = request.getParameter("email");
+          String password = request.getParameter("password");
+
+          User currentUser = accountService.login(email, password);
+
+          if (currentUser == null) {
+               request.setAttribute("message", "Invalid Login");
+               getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+               
+               return;
+          }
+
+          Role roleCheck = currentUser.getRole();
+
+          session.setAttribute("email", email);
+          session.setAttribute("role", roleCheck);
+
+          if (roleCheck.getRoleName().equals("system admin")) {
                response.sendRedirect("admin");
-            
-        } else {
+
+          } else {
                response.sendRedirect("resident");
-          
-            }
-        
-    
-
-        }
-
-  
+          }
+     }
 }
-
-
