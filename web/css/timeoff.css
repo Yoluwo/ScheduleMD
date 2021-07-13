@@ -19,7 +19,7 @@ html {
      margin-top: 20px;
      padding: 0;
      width: 480px;
-     height: 55vh;  
+     height: 500px;  
      background-color: #dcf4fc;
 }
 
@@ -121,7 +121,7 @@ input:checked[type="checkbox"]:before {
 }
 
 
-@media (min-width: 768px) and (max-width: 480px) {
+@media screen and (max-width: 500px) {
 
      html {
           scroll-behavior: smooth;
@@ -134,8 +134,12 @@ input:checked[type="checkbox"]:before {
           margin-top: 10px;
           padding: 0;
           width: 95%;
-          height: 50vh;  
+          height: 100%;  
           background-color: #dcf4fc;
+     }
+     
+     h1, h2 {
+          font-size: 20px;
      }
 
      .time-off form {
@@ -145,7 +149,7 @@ input:checked[type="checkbox"]:before {
      th {
           text-align: left;
           color: #094c72;
-          font-size: 14px;
+          font-size: 15px;
           padding: 2px 2px;
      }
 
@@ -153,27 +157,27 @@ input:checked[type="checkbox"]:before {
           text-align: left;
           color: #094c72;
           padding: 1px 0px;
-          font-size: 10px;
+          font-size: 13px;
      }
 
      .btn-cancel {
           cursor: pointer;
           display: inline-block;
-          width: 60px;
+          width: 65px;
           background-color: #88cff9;
-          padding: 7px 5px;
+          padding: 5px 5px;
           font-size: 14px;
           font-family: inherit;
           color: #094c72;
           border-radius: 5px;
           box-shadow: 1px 1px 1px 0px #2f739c;
-          margin: 15px 0px 0 135px;
+          margin: 15px 0px 0 120px;
      }
 
      .btn-save {
           cursor: pointer;
           display: inline-block;
-          width: 60px;
+          width: 65px;
           background-color: #88cff9;
           padding: 7px 5px;
           font-size: 14px;
@@ -181,6 +185,6 @@ input:checked[type="checkbox"]:before {
           color: #094c72;
           border-radius: 5px;
           box-shadow: 1px 1px 1px 0px #2f739c;
-          margin: 15px 0px 0 5px;
+          margin: 15px 0px 0 10px;
      }
 }
