@@ -116,6 +116,10 @@
         <servlet-name>TestDisplayScheduleServlet</servlet-name>
         <servlet-class>servlets.TestDisplayScheduleServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddUserServlet</servlet-name>
+        <servlet-class>servlets.AddUserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -175,6 +179,10 @@
     <servlet-mapping>
         <servlet-name>TestDisplayScheduleServlet</servlet-name>
         <url-pattern>/testDisplaySchedule</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUserServlet</servlet-name>
+        <url-pattern>/addUser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

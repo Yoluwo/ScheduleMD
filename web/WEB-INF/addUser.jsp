@@ -1,6 +1,6 @@
 <%-- 
-    Document   : review
-    Created on : 14-Jun-2021, 7:07:38 PM
+    Document   : addUser
+    Created on : 13-Jul-2021, 4:26:47 AM
     Author     : Yetunde Oluwo
 --%>
 
@@ -10,7 +10,7 @@
      <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
-          <title>Review time off requests</title>
+          <title>Manage Users</title>
           <link href="css/style.css" rel="stylesheet" type="text/css">
           <link href="css/style2.css" rel="stylesheet" type="text/css">
           <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" rel="stylesheet" >
@@ -18,7 +18,7 @@
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
      </head>
      <body>
-          <!--Java Single Page for review -->
+          <!--Java Single Page for the Admin to Add User account -->
           <div class="container">
                <div class="navigation">
                     <ul> 
@@ -63,65 +63,11 @@
                <div class="main">
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
-                         <h1>Review Time Off Requests</h1>
+                         <h1>Add User Profiles</h1>
                     </div>
-                    <div class="time-off">
-                         <h2>Week 27</h2>
-                         <form>
-                              <table>
-                                   <tr>
-                                        <th>Check</th>
-                                        <th>Resident</th>
-                                        <th>Day(s)</th> 
-                                        <th>Time</th>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>Susan</td>
-                                        <td>Sun</td>
-                                        <td>10:00am - 7:00pm</td>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>Alice</td>
-                                        <td>Mon</td>
-                                        <td>9:00am - 8:00pm</td>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>Theo</td>
-                                        <td>Wed - Thurs</td>
-                                        <td>11:00am - 8:00pm</td>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>Adam</td>
-                                        <td>Tues</td>
-                                        <td>9:00am - 5:00pm</td>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>Andrew</td>
-                                        <td>Thurs - Tues</td>
-                                        <td>1:00pm - 5:00pm</td>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>Peter</td>
-                                        <td>Sun - Wed</td>
-                                        <td>9:00am - 4:00pm</td>
-                                   </tr>
-                                   <tr>
-                                        <td class="center"><input type="checkbox" name="open"></td>
-                                        <td>John</td>
-                                        <td>Sat</td>
-                                        <td>9:00am - 5:00pm</td>
-                                   </tr>
-                              </table>
-                              <button class="btn-cancel">Cancel</button>
-                              <button class="btn-save">Save</button>
-                         </form>
-                    </div>      
+                    <div>
+
+                    </div>
                </div>
           </div>
           <script type="text/javascript" src="js/script.js"></script>
