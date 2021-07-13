@@ -12,6 +12,7 @@
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
           <title>Request Time Off</title>
           <link href="css/style.css" rel="stylesheet" type="text/css">
+          <link href="css/timeoff.css" rel="stylesheet" type="text/css">
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
@@ -71,16 +72,15 @@
                          <h1>Request Time Off</h1>
                     </div>
                     <div class="time-off">
-                         <h2>Request Time off</h2>
                          <form>
                          <h2>Week 27</h2>
                          <table>
                               <tr>
                                    <th>Days</th>
                                    <th>Open</th> 
-                                   <th>From </th>
+                                   <th>From:</th>
                                    <th></th>
-                                   <th>To</th>
+                                   <th>To:</th>
                               </tr>
                               <tr>
                                    <td>Sunday</td>
