@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+
 <!DOCTYPE html>
 <html>
      <head>
@@ -71,77 +73,111 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Request Time Off</h1>
                     </div>
-                    <div class="time-off">
-                         <form>
-                              <h2>Week 27</h2>
+                    <div class="wrapper">
+                         <div class="calendar">
+                              <div class="month">
+                                   <i class="fa fa-angle-left prev" aria-hidden="true"></i>
+                                   <div class="date">
+                                        <h1>July</h1>
+                                        <p>Tuesday July 6, 2021</p>  
+                                   </div>
+                                   <i class="fa fa-angle-right next" aria-hidden="true"></i>
+                              </div>
+                              <div class="weekdays">
+                                   <div>Sun</div>
+                                   <div>Mon</div>
+                                   <div>Tue</div>
+                                   <div>Wed </div>
+                                   <div>Thur</div>
+                                   <div>Fri</div>
+                                   <div>Sat</div>
+                              </div>
+                              <div class="days">
+                                   <div class="prev-date">27</div>
+                                   <div class="prev-date">28</div>
+                                   <div class="prev-date">29</div>
+                                   <div class="prev-date">30</div>
+                                   <div>1</div>
+                                   <div>2</div>
+                                   <div>3</div>
+                                   <div>4</div>
+                                   <div>5</div>
+                                   <div>6</div>
+                                   <div>7</div>
+                                   <div>8</div>
+                                   <div>9</div>
+                                   <div>10</div>
+                                   <div>11</div>
+                                   <div>12</div>
+                                   <div>13</div>
+                                   <div>14</div>
+                                   <div class="today">15</div>
+                                   <div>16</div>
+                                   <div>17</div>
+                                   <div>18</div>
+                                   <div>19</div>
+                                   <div>20</div>
+                                   <div>21</div>
+                                   <div>22</div>
+                                   <div>23</div>
+                                   <div>24</div>
+                                   <div>25</div>
+                                   <div>26</div>
+                                   <div>27</div>
+                                   <div>28</div>
+                                   <div>29</div>
+                                   <div>30</div>
+                                   <div>31</div>
+                                   <div class="next-date">1</div>
+                                   <div class="next-date">2</div>
+                                   <div class="next-date">3</div>
+                                   <div class="next-date">4</div>
+                                   <div class="next-date">5</div>
+                                   <div class="next-date">6</div>
+                                   <div class="next-date">7</div>
+                              </div>
+                         </div>
+                         <div class="time-off">
                               <table role="table">
-                                   <thead role="rowgroup">
-                                        <tr role="row">
-                                             <th role="columnheader">Days</th>
-                                             <th role="columnheader">Open</th> 
-                                             <th role="columnheader">From:</th>
-                                             <th role="columnheader"></th>
-                                             <th role="columnheader">To:</th>
-                                        </tr>
-                                   </thead>
-                                   <tbody role="rowgroup">
-                                        <tr role="row">
-                                             <td role="cell">Sunday</td>
-                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                             <td role="cell">-</td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                        </tr>
-                                        <tr role="row">
-                                             <td role="cell">Monday</td>
-                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                             <td role="cell">-</td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                        </tr>
-                                        <tr role="row">
-                                             <td role="cell">Tuesday</td>
-                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                             <td role="cell">-</td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                        </tr>
-                                        <tr role="row">
-                                             <td role="cell">Wednesday</td>
-                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                             <td role="cell">-</td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                        </tr>
-                                        <tr role="row">
-                                             <td role="cell">Thursday</td>
-                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                             <td role="cell">-</td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                        </tr>
-                                        <tr role="row">
-                                             <td role="cell">Friday</td>
-                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                             <td role="cell">-</td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                        </tr>
-                                        <tr role="row">
-                                             <td role="cell">Saturday</td>
-                                             <td role="cell" class="center"><input type="checkbox" name="open"></td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                             <td role="cell">-</td>
-                                             <td role="cell"><input type="time" id="time" name=time"></td>
-                                        </tr>
-                                   </tbody>
-                              </table>
-                              <button class="btn-cancel">Cancel</button>
-                              <button class="btn-save">Save</button>
-                         </form>
-                    </div>      
+                              <thead role="rowgroup">
+                                   <tr role="row">
+                                        <th role="columnheader">1</th>
+                                        <th role="columnheader">2</th>
+                                        <th role="columnheader">3</th>
+                                        <th role="columnheader">4</th> 
+                                        <th role="columnheader">5</th>
+                                   </tr>
+                              </thead>
+                              <tbody role="rowgroup">
+                                   <tr role="row">
+                                        <td role="cell"></td>
+                                        <td role="cell"></td>
+                                        <td role="cell"></td>
+                                        <td role="cell"></td> 
+                                        <td role="cell"></td>
+                                   </tr>
+                                   <tr role="row">
+                                        <td role="cell"></td>
+                                        <td role="cell"></td>
+                                        <td role="cell"></td>
+                                        <td role="cell"></td> 
+                                        <td role="cell"></td>
+                                   </tr>
+                                   <tr role="row">
+                                        <td role="cell"></td>
+                                        <td role="cell"></td>
+                                        <td role="cell"></td>
+                                        <td role="cell"></td>
+                                        <td role="cell"></td>
+                                        
+                                   </tr>
+                              </tbody>
+                         </table>
+                         </div>
+                    </div>
                </div>
                <script type="text/javascript" src="js/script.js"></script>
+          </div>
      </body>
 </html>
 
