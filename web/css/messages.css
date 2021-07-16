@@ -1,0 +1,34 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 16, 2021, 9:53:39 AM
+    Author     : 585594
+*/
+
+.mtable {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.mtable td {
+    padding: 12px 15px;
+}
+
+.mtable tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.mtable tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.mtable tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
