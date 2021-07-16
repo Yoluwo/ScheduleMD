@@ -15,7 +15,7 @@ html {
 
 /* CSS for designing request time off card */
 .time-off {
-     margin-left: 20px;
+     margin-left: 0px;
      margin-top: 20px;
      padding: 0;
      width: 480px;
@@ -147,7 +147,7 @@ input:checked[type="checkbox"]:before {
      }
 
      .time-off {
-          margin-left: 7px;
+          margin-left: 0px;
           margin-top: 10px;
           padding: 0;
           width: 95%;
