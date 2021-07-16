@@ -140,32 +140,30 @@
                          <div class="time-off">
                               <h2>Schedule</h2>
                               <table role="table">
-                              <thead role="rowgroup">
-                                   <tr role="row">
-                                        <th role="columnheader">1</th>
-                                        <th role="columnheader">2</th>
-                                        <th role="columnheader">3</th>
-                                        <th role="columnheader">4</th> 
-                                        <th role="columnheader">5</th>
-                                   </tr>
-                              </thead>
-                              <tbody role="rowgroup">
-                                   <c:forEach items=" " var="schedule">
-                                   <tr role="row">
-                                        <td role="cell"></td>
-                                        <td role="cell"></td>
-                                        <td role="cell"></td>
-                                        <td role="cell"></td> 
-                                        <td role="cell"></td>
-                                   </tr>
-                                   </c:forEach>
-                              </tbody>
-                         </table>
+                                   <thead role="rowgroup">
+                                        <tr role="row">
+                                             <th role="columnheader">1</th>
+                                             <th role="columnheader">2</th>
+                                             <th role="columnheader">3</th>
+                                             <th role="columnheader">4</th> 
+                                             <th role="columnheader">5</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody role="rowgroup">
+                                        <tr role="row">
+                                             <td role="cell"></td>
+                                             <td role="cell"></td>
+                                             <td role="cell"></td>
+                                             <td role="cell"></td> 
+                                             <td role="cell"></td>
+                                        </tr>
+                                   </tbody>
+                              </table>
                          </div>
                     </div>
                </div>
-               <script type="text/javascript" src="js/script.js"></script>
           </div>
+          <script type="text/javascript" src="js/script.js"></script>
      </body>
 </html>
 
