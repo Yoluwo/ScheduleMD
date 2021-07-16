@@ -93,7 +93,7 @@
                            <jsp:useBean id="messages" class="models.Notification"></jsp:useBean>
                            <c:forEach var="notes" items="{$messages.note}">
                            <tr>
-                               <td>{$notes}</td>
+                               <td>{$notes[0]}</td>
                                <td><button class="btn"><i class="fa fa-trash"></i></button></td>    
                            </tr>
                            </c:forEach>
