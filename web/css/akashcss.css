@@ -9,11 +9,14 @@ and open the template in the editor.
 */
 .settings {
      width: 320px;
-     height: 560px;
+     height: 500px;
      margin: 10px 10px;
      padding: 5px 15px;
+/*     margin-left: 300px;*/
 }
-
+.mylist li{
+    list-style-type: none;
+}
 .row {
      display: -ms-flexbox;
      display: flex;
@@ -110,7 +113,7 @@ input[type=range] {
 
 .crossfade p.options span {
      margin: 5px 0 0;
-     padding: 0;
+   
      width: auto;
 }
 
@@ -118,12 +121,15 @@ input[type=range] {
      position: absolute;
      left: 1%;
      display: block;
+      
 }
 
 .crossfade p.options span:nth-child(2) {
      position: absolute;
      left: 48%;
      display: block;
+     width: 150px;
+     
 }
 
 .crossfade p.options span:nth-child(3) {

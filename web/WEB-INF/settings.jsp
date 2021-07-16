@@ -10,8 +10,8 @@
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
           <title>Settings</title>
-          <link href="css/style.css" rel="stylesheet" type="text/css">
           <link href="css/akashcss.css" rel="stylesheet" type="text/css">
+          <link href="css/style.css" rel="stylesheet" type="text/css">
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
@@ -95,15 +95,18 @@
                               <div class="row">
                                    <section class="account">
                                         <h2>Account Settings</h2>
-                                        <p>account Quality</p><span class="quality">HIGH</span>
-                                        <p>Offline Mode</p><span class="slider"><input type="checkbox" name="offline" id="offline"><label for="offline"></label></span>
+<!--                                        <p>account Quality</p><span class="quality">HIGH</span>
+-->                                        <p>Do Not Disturb</p><span class="slider"><input type="checkbox" name="offline" id="offline"><label for="offline"></label></span>
+<ul class="mylist">
+</ul>
                                         <p>Time Out</p>
                                         <div class="crossfade">
-                                             <input type="range" min="0" max="100" step="50" value="0">
+                                             <input type="range" min="0" max="3" step="3"  id="timeout">
                                              <p class="options">
-                                                  <span>0s</span>
-                                                  <span>5s</span>
-                                                  <span>10s</span>
+                                                
+                                                 <span>0mins</span>
+                                                  <span>3mins</span>
+                                                  
                                              </p>
                                         </div>
                                         <p>Notifications</p><span class="slider"><input type="checkbox" name="notifications" id="notifications"><label for="notifications"></label></span>
@@ -113,7 +116,7 @@
 
                               <div class="row">
                                    <section class="social">
-                                        <p>Sign Out</p>
+<!--                                        <p>Sign Out</p>-->
                                    </section>
                               </div>
                          </div>
