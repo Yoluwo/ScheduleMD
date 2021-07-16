@@ -12,6 +12,7 @@
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
           <title>Manage Schedule Panel</title>
           <link href="css/style.css" rel="stylesheet" type="text/css">
+          <link href="css/style2.css" rel="stylesheet" type="text/css">
           <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" rel="stylesheet" >
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
@@ -63,6 +64,32 @@
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Manage Schedule</h1>
+                    </div>
+                    
+                    <div class="time-off">
+                         <h2>Enter your availability</h2>
+                         <table role="table">
+                              <thead role="rowgroup">
+                                   <tr role="row">
+                                        <th role="columnheader">1</th>
+                                        <th role="columnheader">2</th>
+                                        <th role="columnheader">3</th>
+                                        <th role="columnheader">4</th> 
+                                        <th role="columnheader">5</th>
+                                   </tr>
+                              </thead>
+                              <tbody role="rowgroup">
+                              <c:forEach items=" " var="schedule">
+                                   <tr role="row">
+                                        <td role="cell"></td>
+                                        <td role="cell"></td>
+                                        <td role="cell"></td>
+                                        <td role="cell"></td> 
+                                        <td role="cell"></td>
+                                   </tr>
+                              </c:forEach>
+                              </tbody>
+                         </table>
                     </div>
                     <div class="wrapper">
                          <div class="calendar">

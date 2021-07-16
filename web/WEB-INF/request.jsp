@@ -149,6 +149,7 @@
                                    </tr>
                               </thead>
                               <tbody role="rowgroup">
+                                   <c:forEach items=" " var="schedule">
                                    <tr role="row">
                                         <td role="cell"></td>
                                         <td role="cell"></td>
@@ -156,21 +157,7 @@
                                         <td role="cell"></td> 
                                         <td role="cell"></td>
                                    </tr>
-                                   <tr role="row">
-                                        <td role="cell"></td>
-                                        <td role="cell"></td>
-                                        <td role="cell"></td>
-                                        <td role="cell"></td> 
-                                        <td role="cell"></td>
-                                   </tr>
-                                   <tr role="row">
-                                        <td role="cell"></td>
-                                        <td role="cell"></td>
-                                        <td role="cell"></td>
-                                        <td role="cell"></td>
-                                        <td role="cell"></td>
-                                        
-                                   </tr>
+                                   </c:forEach>
                               </tbody>
                          </table>
                          </div>
