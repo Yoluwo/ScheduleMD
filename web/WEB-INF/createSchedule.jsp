@@ -65,9 +65,8 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Manage Schedule</h1>
                     </div>
-                    
                     <div class="time-off">
-                         <h2>Enter your availability</h2>
+                         <h2>Schedule</h2>
                          <table role="table">
                               <thead role="rowgroup">
                                    <tr role="row">

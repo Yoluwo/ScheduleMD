@@ -138,6 +138,7 @@
                               </div>
                          </div>
                          <div class="time-off">
+                              <h2>Schedule</h2>
                               <table role="table">
                               <thead role="rowgroup">
                                    <tr role="row">
