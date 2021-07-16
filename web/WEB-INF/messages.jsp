@@ -5,12 +5,14 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
      <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
           <title>Messages</title>
+          <link href="css/messages.css" rel="stylesheet" type="text/css">
           <link href="css/style.css" rel="stylesheet" type="text/css" >
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
@@ -68,118 +70,33 @@
                <div class="main">
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
-                              <h1>Messages</h1>
+                              <h1>Notifications</h1>
                     </div>
                    <div>
-                       <table>
+                       <table class="mtable">
                            <tr>
-                               <td>
-                                   <input type="checkbox" id="chkbox1" name="chkbox1" >
-                                   <label for="chkbox1"> Actions</label>
-                                   <label for="chkbox1" id="up1">&#9650</label>
-                                   <label for="chkbox1" id="up2">&#9660</label>
-                               </td>
-                               
-                               <td></td>
-                               <td></td>
-                               <td>
-                                   <label for="postID">Post ID</label>
-                                   <label for="postID" id="up3">&#9650</label>
-                                   <label for="postID" id="up4">&#9660</label>
-                               </td>
-                               
-                               <td></td>
-                               <td></td>
-                               <td>
-                                   <label for="pTitle">Post Title</label>
-                                   
-                                   <label for="pTitle" id="up5">&#9650</label>
-                                   <label for="pTitle" id="up6">&#9660</label>
-                               </td>
+                               <td>Welcome to ScheduleMD!</td>
+                               <td><button class="btn"><i class="fa fa-trash"></i></button></td>
                            </tr>
                            <tr>
-                               <td></td>
-                               <td></td>
-                               <td></td>
-                               <td><input type="number" id="postID" name="postID"></td>
-                               <td></td>
-                               <td></td>
-                               <td><input type="number" id="pTitle" name="pTitle"></td>
-                           </tr>
-                           <tr></tr>
-                           <tr></tr>
-                           <tr>
-                               <td>
-                                   <input type="checkbox" id="chkbox2" name="chkbox2" >
-                                   <label for="chkbox2" id="view1">&#128065;</label>
-                               </td>
-                               
-                               <td></td>
-                               <td></td>
-                               <td>
-                                   <label for="chkbox2" id="num1">225</label>
-                               </td>
-                               
-                               <td></td>
-                               <td></td>
-                               <td>
-                                   <label for="chkbox2" id="text1">Approved Request for Time-Off</label>
-                               </td>
+                               <td>Welcome to ScheduleMD!</td>
+                               <td><button class="btn"><i class="fa fa-trash"></i></button></td>
                            </tr>
                            <tr>
-                               <td>
-                                   <input type="checkbox" id="chkbox3" name="chkbox3" >
-                                   <label for="chkbox3" id="view1">&#128065;</label>
-                               </td>
-                               
-                               <td></td>
-                               <td></td>
-                               <td>
-                                   <label for="chkbox3" id="num2">184</label>
-                               </td>
-                               
-                               <td></td>
-                               <td></td>
-                               <td>
-                                   <label for="chkbox3" id="text2">Request for updated availability</label>
-                               </td>
+                               <td>Welcome to ScheduleMD!</td>
+                               <td><button class="btn"><i class="fa fa-trash"></i></button></td>
                            </tr>
                            <tr>
-                               <td>
-                                   <input type="checkbox" id="chkbox4" name="chkbox4" >
-                                   <label for="chkbox4" id="view1">&#128065;</label>
-                               </td>
-                               
-                               <td></td>
-                               <td></td>
-                               <td>
-                                   <label for="chkbox4" id="num3">238</label>
-                               </td>
-                               
-                               <td></td>
-                               <td></td>
-                               <td>
-                                   <label for="chkbox4" id="text3">Password Successfully Changed</label>
-                               </td>
+                               <td>Welcome to ScheduleMD!</td>
+                               <td><button class="btn"><i class="fa fa-trash"></i></button></td>
                            </tr>
+                           <jsp:useBean id="messages" class="models.Notification"></jsp:useBean>
+                           <c:forEach var="notes" items="{$messages.note}">
                            <tr>
-                               <td>
-                                   <input type="checkbox" id="chkbox5" name="chkbox5" >
-                                   <label for="chkbox5" id="view1">&#128065;</label>
-                               </td>
-                               
-                               <td></td>
-                               <td></td>
-                               <td>
-                                   <label for="chkbox5" id="num4">100</label>
-                               </td>
-                               
-                               <td></td>
-                               <td></td>
-                               <td>
-                                   <label for="chkbox5" id="text4">Welcome to ScheduleMD!</label>
-                               </td>
+                               <td>{$notes}</td>
+                               <td><button class="btn"><i class="fa fa-trash"></i></button></td>    
                            </tr>
+                           </c:forEach>
                        </table>
                    </div>
           </div>
