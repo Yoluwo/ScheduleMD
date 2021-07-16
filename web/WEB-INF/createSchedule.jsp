@@ -65,31 +65,6 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Manage Schedule</h1>
                     </div>
-                    <div class="time-off">
-                         <h2>Schedule</h2>
-                         <table role="table">
-                              <thead role="rowgroup">
-                                   <tr role="row">
-                                        <th role="columnheader">1</th>
-                                        <th role="columnheader">2</th>
-                                        <th role="columnheader">3</th>
-                                        <th role="columnheader">4</th> 
-                                        <th role="columnheader">5</th>
-                                   </tr>
-                              </thead>
-                              <tbody role="rowgroup">
-                              <c:forEach items=" " var="schedule">
-                                   <tr role="row">
-                                        <td role="cell"></td>
-                                        <td role="cell"></td>
-                                        <td role="cell"></td>
-                                        <td role="cell"></td> 
-                                        <td role="cell"></td>
-                                   </tr>
-                              </c:forEach>
-                              </tbody>
-                         </table>
-                    </div>
                     <div class="wrapper">
                          <div class="calendar">
                               <div class="month">
@@ -153,6 +128,31 @@
                                    <div class="next-date">6</div>
                                    <div class="next-date">7</div>
                               </div>
+                         </div>
+                         <div class="time-off">
+                              <h2>Schedule</h2>
+                              <table role="table">
+                                   <thead role="rowgroup">
+                                        <tr role="row">
+                                             <th role="columnheader">1</th>
+                                             <th role="columnheader">2</th>
+                                             <th role="columnheader">3</th>
+                                             <th role="columnheader">4</th> 
+                                             <th role="columnheader">5</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody role="rowgroup">
+                                   <c:forEach items=" " var="schedule">
+                                        <tr role="row">
+                                             <td role="cell"></td>
+                                             <td role="cell"></td>
+                                             <td role="cell"></td>
+                                             <td role="cell"></td> 
+                                             <td role="cell"></td>
+                                        </tr>
+                                   </c:forEach>
+                                   </tbody>
+                              </table>
                          </div>
                     </div>
                </div>

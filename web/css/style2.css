@@ -15,12 +15,13 @@ html {
 
 /* CSS for designing request time off card */
 .time-off {
-     margin-left: 0px;
-     margin-top: 20px;
+     margin-left: 20px;
+     margin-top: 0px;
      padding: 0;
      width: 480px;
      height: 500px;  
      background-color: #dcf4fc;
+     box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
 }
 
 table {
@@ -47,7 +48,6 @@ td, th {
 .time-off form {
      margin: 10px 20px;
 }
-
 
 .btn-cancel {
      cursor: pointer;
@@ -137,7 +137,6 @@ input:checked[type="checkbox"]:before {
 }
 
 
-
 @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
 
      html {
@@ -147,10 +146,11 @@ input:checked[type="checkbox"]:before {
      }
 
      .time-off {
-          margin-left: 0px;
+          display: block;
+          margin-left: 0;
           margin-top: 10px;
           padding: 0;
-          width: 95%;
+          width: 94%;
           height: 100%;  
           background-color: #dcf4fc;
      }
