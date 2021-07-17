@@ -15,10 +15,13 @@ html {
 
 /* CSS for designing request time off card */
 .time-off {
+     margin-top: 10px;
      margin-left: 15px;
      padding: 0;
      width: 480px;
-     height: 500px;  
+     height: auto;
+     font-size: 15px;
+     color: #00254d;
      background-color: #dcf4fc;
      box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
 }
@@ -26,7 +29,6 @@ html {
 table {
      width: 100%;
      border-collapse: collapse;
-
 }
 
 th {
@@ -74,6 +76,20 @@ td, th {
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
      margin: 15px 0px 0 20px;
+}
+
+.btn-submit {
+     cursor: pointer;
+     display: inline-block;
+     width: 80px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #00254d;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0px 0 180px;
 }
 
 .btn-cancel:hover, .btn-save:hover {
@@ -153,7 +169,7 @@ input:checked[type="checkbox"]:before {
 
      .time-off, .rto {
           display: block;
-          margin-left: 0;
+          margin-left: 10px;
           margin-top: 10px;
           padding: 0;
           width: 300px;

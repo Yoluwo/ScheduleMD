@@ -69,56 +69,63 @@
                          <h1>Manage Schedule</h1>
                     </div>
                     <div class="time-off">
-                        <c:if test="${foothills ne null}">
-                            
-                        
-                         <h2>Schedule</h2>
-                         <table>
-                             <tr>
-                                 <td>Date</td>
-                                 <td>Access</td>
-                                 <td>Trauma</td>
-                                 <td>Senior</td>
-                             </tr>
-                             <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="3" varStatus="i">
-                                 <tr>
-                                     <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
-                                     <td> <fmt:formatDate type="date" value="${date}" /> </td>
-                                    <td><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
-                                    <td><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
-                                    <td><c:out value="${shifts.get(counter + 2).getUser().getFirstName()}" /></td>
-                                 </tr>
-                             </c:forEach>
-                         </table>
+                         <c:if test="${foothills ne null}">
+                              <h2>Schedule</h2>
+                              <table class="scheduler" role="table">
+                                   <thead role="rowgroup">
+                                        <tr role="row">
+                                             <th role="columnheader">Date</td>
+                                             <th role="columnheader">Access</td>
+                                             <th role="columnheader">Trauma</td>
+                                             <th role="columnheader">Senior</td>
+                                        </tr>
+                                   </thead>
+                                   <tbody role="rowgroup">
+                                        <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="3" varStatus="i">
+                                             <tr role="row">
+                                                  <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
+                                                  <td role="cell"> <fmt:formatDate type="date" value="${date}" /> </td>
+                                                  <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
+                                                  <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
+                                                  <td role="cell"><c:out value="${shifts.get(counter + 2).getUser().getFirstName()}" /></td>
+                                             </tr>
+                                        </c:forEach>
+                                   </tbody>
+                              </table>
                          </c:if>
                          <c:if test="${peter ne null}">
-                            
-                        
-                         <h2>Schedule</h2>
-                         <table>
-                             <tr>
-                                 <td>Date</td>
-                                 <td>Access</td>
-                                 <td>Senior</td>
-                             </tr>
-                             <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="2" varStatus="i">
-                                 <tr>
-                                    <td><c:out value="${shifts.get(counter).getStartTime()}" /></td>
-                                    <td><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
-                                    <td><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
-                                 </tr>
-                             </c:forEach>
-                         </table>
+
+                              <h2>Schedule</h2>
+                              <table role="table">
+                                   <tbody role="rowgroup">
+                                        <tr role="row">
+                                             <th role="columnheader">Date</td>
+                                             <th role="columnheader">Access</td>
+                                             <th role="columnheader">Senior</td>
+                                        </tr>
+                                        <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="2" varStatus="i">
+                                             <tr role="row">
+                                                  <td role="cell"><c:out value="${shifts.get(counter).getStartTime()}" /></td>
+                                                  <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
+                                                  <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
+                                             </tr>
+                                        </c:forEach>
+                                   </tbody>
+                              </table>
                          </c:if>
                          <form method="POST" action="createSchedule">
-                            Enter start date: 
-                            <input type="date" id="startDate" name="startDate" required></br>
-                            Enter Hospital: 
-                            <select name="hospital" id="hospital">
-                                <option value="1">Foothills Medical Center</option>
-                                <option value="2">Peter Lougheed Hospital</option>     
-                            </select>
-                            <input type="submit">    
+                              <div class="form-control">
+                                   <label for="startDate">Enter start date: </label>
+                                   <input type="date" id="startDate" name="startDate" required>
+                              </div>
+                              <div class="form-control">
+                                   <label for="hospital">Enter Hospital: </label>
+                                   <select name="hospital" id="hospital">
+                                        <option value="1">Foothills Medical Center</option>
+                                        <option value="2">Peter Lougheed Hospital</option>     
+                                   </select>
+                              </div>
+                              <button class="btn-submit">Submit</button>
                          </form>
                          ${message}
                     </div>

@@ -169,7 +169,7 @@ h2 {
      padding: 20px;
 }
 
-.form-control input {
+.form-control input, select {
      background-color: transparent;
      border: 0;
      border-bottom: 2px #094c72 solid;
@@ -194,7 +194,7 @@ h2 {
      font-size: 1rem;
 }
 
-.btn {
+.btn, option {
      cursor: pointer;
      display: inline-block;
      width: 150px;
