@@ -21,90 +21,89 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author 743851
+ * @author epaul
  */
 @Entity
 @Table(name = "notification")
 @XmlRootElement
 @NamedQueries({
-     @NamedQuery(name = "Notification.findAll", query = "SELECT n FROM Notification n")
-     , @NamedQuery(name = "Notification.findByNotificationID", query = "SELECT n FROM Notification n WHERE n.notificationID = :notificationID")
-     , @NamedQuery(name = "Notification.findByNote", query = "SELECT n FROM Notification n WHERE n.note = :note")
-     , @NamedQuery(name = "Notification.findByUserID", query = "SELECT n FROM Notification n WHERE n.user = :user")})
+    @NamedQuery(name = "Notification.findAll", query = "SELECT n FROM Notification n")
+    , @NamedQuery(name = "Notification.findByNotificationID", query = "SELECT n FROM Notification n WHERE n.notificationID = :notificationID")
+    , @NamedQuery(name = "Notification.findByNote", query = "SELECT n FROM Notification n WHERE n.note = :note")})
 public class Notification implements Serializable {
 
-     private static final long serialVersionUID = 1L;
-     @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     @Basic(optional = false)
-     @Column(name = "NotificationID")
-     private Integer notificationID;
-     @Basic(optional = false)
-     @Column(name = "Note")
-     private String note;
-     @JoinColumn(name = "User", referencedColumnName = "UserID")
-     @ManyToOne(optional = false)
-     private User user;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "NotificationID")
+    private Integer notificationID;
+    @Basic(optional = false)
+    @Column(name = "Note")
+    private String note;
+    @JoinColumn(name = "User", referencedColumnName = "UserID")
+    @ManyToOne(optional = false)
+    private User user;
 
-     public Notification() {
-     }
+    public Notification() {
+    }
 
-     public Notification(Integer notificationID) {
-          this.notificationID = notificationID;
-     }
+    public Notification(Integer notificationID) {
+        this.notificationID = notificationID;
+    }
 
-     public Notification(Integer notificationID, String note) {
-          this.notificationID = notificationID;
-          this.note = note;
-     }
+    public Notification(Integer notificationID, String note) {
+        this.notificationID = notificationID;
+        this.note = note;
+    }
 
-     public Integer getNotificationID() {
-          return notificationID;
-     }
+    public Integer getNotificationID() {
+        return notificationID;
+    }
 
-     public void setNotificationID(Integer notificationID) {
-          this.notificationID = notificationID;
-     }
+    public void setNotificationID(Integer notificationID) {
+        this.notificationID = notificationID;
+    }
 
-     public String getNote() {
-          return note;
-     }
+    public String getNote() {
+        return note;
+    }
 
-     public void setNote(String note) {
-          this.note = note;
-     }
+    public void setNote(String note) {
+        this.note = note;
+    }
 
-     public User getUser() {
-          return user;
-     }
+    public User getUser() {
+        return user;
+    }
 
-     public void setUser(User user) {
-          this.user = user;
-     }
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-     @Override
-     public int hashCode() {
-          int hash = 0;
-          hash += (notificationID != null ? notificationID.hashCode() : 0);
-          return hash;
-     }
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (notificationID != null ? notificationID.hashCode() : 0);
+        return hash;
+    }
 
-     @Override
-     public boolean equals(Object object) {
-          // TODO: Warning - this method won't work in the case the id fields are not set
-          if (!(object instanceof Notification)) {
-               return false;
-          }
-          Notification other = (Notification) object;
-          if ((this.notificationID == null && other.notificationID != null) || (this.notificationID != null && !this.notificationID.equals(other.notificationID))) {
-               return false;
-          }
-          return true;
-     }
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Notification)) {
+            return false;
+        }
+        Notification other = (Notification) object;
+        if ((this.notificationID == null && other.notificationID != null) || (this.notificationID != null && !this.notificationID.equals(other.notificationID))) {
+            return false;
+        }
+        return true;
+    }
 
-     @Override
-     public String toString() {
-          return "models.Notification[ notificationID=" + notificationID + " ]";
-     }
-
+    @Override
+    public String toString() {
+        return "models.Notification[ notificationID=" + notificationID + " ]";
+    }
+    
 }

@@ -25,196 +25,196 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author 743851
+ * @author epaul
  */
 @Entity
 @Table(name = "user")
 @XmlRootElement
 @NamedQueries({
-     @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
-     , @NamedQuery(name = "User.findByUserID", query = "SELECT u FROM User u WHERE u.userID = :userID")
-     , @NamedQuery(name = "User.findByFirstName", query = "SELECT u FROM User u WHERE u.firstName = :firstName")
-     , @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName")
-     , @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")
-     , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")
-     , @NamedQuery(name = "User.findByIsActive", query = "SELECT u FROM User u WHERE u.isActive = :isActive")
-     , @NamedQuery(name = "User.findByIsExtender", query = "SELECT u FROM User u WHERE u.isExtender = :isExtender")})
+    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
+    , @NamedQuery(name = "User.findByUserID", query = "SELECT u FROM User u WHERE u.userID = :userID")
+    , @NamedQuery(name = "User.findByFirstName", query = "SELECT u FROM User u WHERE u.firstName = :firstName")
+    , @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName")
+    , @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")
+    , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")
+    , @NamedQuery(name = "User.findByIsActive", query = "SELECT u FROM User u WHERE u.isActive = :isActive")
+    , @NamedQuery(name = "User.findByIsExtender", query = "SELECT u FROM User u WHERE u.isExtender = :isExtender")})
 public class User implements Serializable {
 
-     private static final long serialVersionUID = 1L;
-     @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     @Basic(optional = false)
-     @Column(name = "UserID")
-     private Integer userID;
-     @Basic(optional = false)
-     @Column(name = "FirstName")
-     private String firstName;
-     @Basic(optional = false)
-     @Column(name = "LastName")
-     private String lastName;
-     @Basic(optional = false)
-     @Column(name = "Email")
-     private String email;
-     @Basic(optional = false)
-     @Column(name = "Password")
-     private String password;
-     @Basic(optional = false)
-     @Column(name = "IsActive")
-     private boolean isActive;
-     @Column(name = "IsExtender")
-     private Boolean isExtender;
-     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-     private List<Notification> notificationList;
-     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-     private List<Shift> shiftList;
-     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-     private List<Timeoff> timeoffList;
-     @JoinColumn(name = "Hospital", referencedColumnName = "HospitalID")
-     @ManyToOne(optional = false)
-     private Hospital hospital;
-     @JoinColumn(name = "Role", referencedColumnName = "RoleID")
-     @ManyToOne(optional = false)
-     private Role role;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "UserID")
+    private Integer userID;
+    @Basic(optional = false)
+    @Column(name = "FirstName")
+    private String firstName;
+    @Basic(optional = false)
+    @Column(name = "LastName")
+    private String lastName;
+    @Basic(optional = false)
+    @Column(name = "Email")
+    private String email;
+    @Basic(optional = false)
+    @Column(name = "Password")
+    private String password;
+    @Basic(optional = false)
+    @Column(name = "IsActive")
+    private boolean isActive;
+    @Column(name = "IsExtender")
+    private Boolean isExtender;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Notification> notificationList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Shift> shiftList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Timeoff> timeoffList;
+    @JoinColumn(name = "Hospital", referencedColumnName = "HospitalID")
+    @ManyToOne(optional = false)
+    private Hospital hospital;
+    @JoinColumn(name = "Role", referencedColumnName = "RoleID")
+    @ManyToOne(optional = false)
+    private Role role;
 
-     public User() {
-     }
+    public User() {
+    }
 
-     public User(Integer userID) {
-          this.userID = userID;
-     }
+    public User(Integer userID) {
+        this.userID = userID;
+    }
 
-     public User(Integer userID, String firstName, String lastName, String email, String password, boolean isActive) {
-          this.userID = userID;
-          this.firstName = firstName;
-          this.lastName = lastName;
-          this.email = email;
-          this.password = password;
-          this.isActive = isActive;
-     }
+    public User(Integer userID, String firstName, String lastName, String email, String password, boolean isActive) {
+        this.userID = userID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.isActive = isActive;
+    }
 
-     public Integer getUserID() {
-          return userID;
-     }
+    public Integer getUserID() {
+        return userID;
+    }
 
-     public void setUserID(Integer userID) {
-          this.userID = userID;
-     }
+    public void setUserID(Integer userID) {
+        this.userID = userID;
+    }
 
-     public String getFirstName() {
-          return firstName;
-     }
+    public String getFirstName() {
+        return firstName;
+    }
 
-     public void setFirstName(String firstName) {
-          this.firstName = firstName;
-     }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-     public String getLastName() {
-          return lastName;
-     }
+    public String getLastName() {
+        return lastName;
+    }
 
-     public void setLastName(String lastName) {
-          this.lastName = lastName;
-     }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-     public String getEmail() {
-          return email;
-     }
+    public String getEmail() {
+        return email;
+    }
 
-     public void setEmail(String email) {
-          this.email = email;
-     }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-     public String getPassword() {
-          return password;
-     }
+    public String getPassword() {
+        return password;
+    }
 
-     public void setPassword(String password) {
-          this.password = password;
-     }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-     public boolean getIsActive() {
-          return isActive;
-     }
+    public boolean getIsActive() {
+        return isActive;
+    }
 
-     public void setIsActive(boolean isActive) {
-          this.isActive = isActive;
-     }
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
 
-     public Boolean getIsExtender() {
-          return isExtender;
-     }
+    public Boolean getIsExtender() {
+        return isExtender;
+    }
 
-     public void setIsExtender(Boolean isExtender) {
-          this.isExtender = isExtender;
-     }
+    public void setIsExtender(Boolean isExtender) {
+        this.isExtender = isExtender;
+    }
 
-     @XmlTransient
-     public List<Notification> getNotificationList() {
-          return notificationList;
-     }
+    @XmlTransient
+    public List<Notification> getNotificationList() {
+        return notificationList;
+    }
 
-     public void setNotificationList(List<Notification> notificationList) {
-          this.notificationList = notificationList;
-     }
+    public void setNotificationList(List<Notification> notificationList) {
+        this.notificationList = notificationList;
+    }
 
-     @XmlTransient
-     public List<Shift> getShiftList() {
-          return shiftList;
-     }
+    @XmlTransient
+    public List<Shift> getShiftList() {
+        return shiftList;
+    }
 
-     public void setShiftList(List<Shift> shiftList) {
-          this.shiftList = shiftList;
-     }
+    public void setShiftList(List<Shift> shiftList) {
+        this.shiftList = shiftList;
+    }
 
-     @XmlTransient
-     public List<Timeoff> getTimeoffList() {
-          return timeoffList;
-     }
+    @XmlTransient
+    public List<Timeoff> getTimeoffList() {
+        return timeoffList;
+    }
 
-     public void setTimeoffList(List<Timeoff> timeoffList) {
-          this.timeoffList = timeoffList;
-     }
+    public void setTimeoffList(List<Timeoff> timeoffList) {
+        this.timeoffList = timeoffList;
+    }
 
-     public Hospital getHospital() {
-          return hospital;
-     }
+    public Hospital getHospital() {
+        return hospital;
+    }
 
-     public void setHospital(Hospital hospital) {
-          this.hospital = hospital;
-     }
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
 
-     public Role getRole() {
-          return role;
-     }
+    public Role getRole() {
+        return role;
+    }
 
-     public void setRole(Role role) {
-          this.role = role;
-     }
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
-     @Override
-     public int hashCode() {
-          int hash = 0;
-          hash += (userID != null ? userID.hashCode() : 0);
-          return hash;
-     }
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (userID != null ? userID.hashCode() : 0);
+        return hash;
+    }
 
-     @Override
-     public boolean equals(Object object) {
-          // TODO: Warning - this method won't work in the case the id fields are not set
-          if (!(object instanceof User)) {
-               return false;
-          }
-          User other = (User) object;
-          if ((this.userID == null && other.userID != null) || (this.userID != null && !this.userID.equals(other.userID))) {
-               return false;
-          }
-          return true;
-     }
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof User)) {
+            return false;
+        }
+        User other = (User) object;
+        if ((this.userID == null && other.userID != null) || (this.userID != null && !this.userID.equals(other.userID))) {
+            return false;
+        }
+        return true;
+    }
 
-     @Override
-     public String toString() {
-          return "models.User[ userID=" + userID + " ]";
-     }
-
+    @Override
+    public String toString() {
+        return "models.User[ userID=" + userID + " ]";
+    }
+    
 }

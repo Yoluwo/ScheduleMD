@@ -101,6 +101,7 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`schedule` (
     `Hospital` INT(3) NOT NULL,
     `StartDate` DATE NOT NULL,
     `EndDate` DATE NOT NULL,
+    `IsUsed` TINYINT(1) NOT NULL,
     PRIMARY KEY (`ScheduleID`),
     CONSTRAINT `fk_hospital_id_schedule`
         FOREIGN KEY (`Hospital`)
@@ -140,8 +141,8 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`shift` (
 -- database, this will be removed/changes when we have
 -- real production data instead.
 -- -----------------------------------------------------
-
-INSERT INTO `hospital` VALUES (1, 'test', 'test type','ATS');
+INSERT INTO `hospital` VALUES (1, 'Foothills Medical Center', 'type','ATS');
+INSERT INTO `hospital` VALUES (2, 'Peter Lougheed Hospital', 'type','AS');
 
 INSERT INTO `role` VALUES (1, 'system admin');
 INSERT INTO `role` VALUES (2, 'access');
@@ -217,4 +218,10 @@ INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Passwor
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
     VALUES (4, 1, 'test25first', 'test25last', 'test25@gmail.com', 'password', true,false);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
-    VALUES (5, 1, 'Extender', 'Extender', 'Extender@gmail.com', 'shit', true,true);
+    VALUES (2, 1, 'Extender', 'Extender', 'ExtenderAccess@gmail.com', 'dunno', true,true);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (3, 1, 'Extender', 'Extender', 'ExtenderTrauama@gmail.com', 'dunno', true,true);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (4, 1, 'Extender', 'Extender', 'ExtenderSenior@gmail.com', 'dunno', true,true);
+INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
+    VALUES (5, 1, 'Extender', 'Extender', 'Extender@gmail.com', 'dunno', true,true);

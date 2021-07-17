@@ -4,6 +4,9 @@
     Author     : Yetunde Oluwo
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -65,95 +68,59 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Manage Schedule</h1>
                     </div>
-                    <div class="wrapper">
-                         <div class="calendar">
-                              <div class="month">
-                                   <i class="fa fa-angle-left prev" aria-hidden="true"></i>
-                                   <div class="date">
-                                        <h1>July</h1>
-                                        <p>Tuesday July 6, 2021</p>  
-                                   </div>
-                                   <i class="fa fa-angle-right next" aria-hidden="true"></i>
-                              </div>
-                              <div class="weekdays">
-                                   <div>Sun</div>
-                                   <div>Mon</div>
-                                   <div>Tue</div>
-                                   <div>Wed </div>
-                                   <div>Thur</div>
-                                   <div>Fri</div>
-                                   <div>Sat</div>
-                              </div>
-                              <div class="days">
-                                   <div class="prev-date">27</div>
-                                   <div class="prev-date">28</div>
-                                   <div class="prev-date">29</div>
-                                   <div class="prev-date">30</div>
-                                   <div>1</div>
-                                   <div>2</div>
-                                   <div>3</div>
-                                   <div>4</div>
-                                   <div>5</div>
-                                   <div class="today">6</div>
-                                   <div>7</div>
-                                   <div>8</div>
-                                   <div>9</div>
-                                   <div>10</div>
-                                   <div>11</div>
-                                   <div>12</div>
-                                   <div>13</div>
-                                   <div>14</div>
-                                   <div>15</div>
-                                   <div>16</div>
-                                   <div>17</div>
-                                   <div>18</div>
-                                   <div>19</div>
-                                   <div>20</div>
-                                   <div>21</div>
-                                   <div>22</div>
-                                   <div>23</div>
-                                   <div>24</div>
-                                   <div>25</div>
-                                   <div>26</div>
-                                   <div>27</div>
-                                   <div>28</div>
-                                   <div>29</div>
-                                   <div>30</div>
-                                   <div>31</div>
-                                   <div class="next-date">1</div>
-                                   <div class="next-date">2</div>
-                                   <div class="next-date">3</div>
-                                   <div class="next-date">4</div>
-                                   <div class="next-date">5</div>
-                                   <div class="next-date">6</div>
-                                   <div class="next-date">7</div>
-                              </div>
-                         </div>
-                         <div class="time-off">
-                              <h2>Schedule</h2>
-                              <table role="table">
-                                   <thead role="rowgroup">
-                                        <tr role="row">
-                                             <th role="columnheader">1</th>
-                                             <th role="columnheader">2</th>
-                                             <th role="columnheader">3</th>
-                                             <th role="columnheader">4</th> 
-                                             <th role="columnheader">5</th>
-                                        </tr>
-                                   </thead>
-                                   <tbody role="rowgroup">
-                                   <c:forEach items=" " var="schedule">
-                                        <tr role="row">
-                                             <td role="cell"></td>
-                                             <td role="cell"></td>
-                                             <td role="cell"></td>
-                                             <td role="cell"></td> 
-                                             <td role="cell"></td>
-                                        </tr>
-                                   </c:forEach>
-                                   </tbody>
-                              </table>
-                         </div>
+                    <div class="time-off">
+                        <c:if test="${foothills ne null}">
+                            
+                        
+                         <h2>Schedule</h2>
+                         <table>
+                             <tr>
+                                 <td>Date</td>
+                                 <td>Access</td>
+                                 <td>Trauma</td>
+                                 <td>Senior</td>
+                             </tr>
+                             <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="3" varStatus="i">
+                                 <tr>
+                                     <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
+                                     <td> <fmt:formatDate type="date" value="${date}" /> </td>
+                                    <td><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
+                                    <td><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
+                                    <td><c:out value="${shifts.get(counter + 2).getUser().getFirstName()}" /></td>
+                                 </tr>
+                             </c:forEach>
+                         </table>
+                         </c:if>
+                         <c:if test="${peter ne null}">
+                            
+                        
+                         <h2>Schedule</h2>
+                         <table>
+                             <tr>
+                                 <td>Date</td>
+                                 <td>Access</td>
+                                 <td>Senior</td>
+                             </tr>
+                             <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="2" varStatus="i">
+                                 <tr>
+                                    <td><c:out value="${shifts.get(counter).getStartTime()}" /></td>
+                                    <td><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
+                                    <td><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
+                                 </tr>
+                             </c:forEach>
+                         </table>
+                         </c:if>
+                         <form method="POST" action="createSchedule">
+                            Enter start date: 
+                            <input type="date" id="startDate" name="startDate" required></br>
+                            Enter Hospital: 
+                            <select name="hospital" id="hospital">
+                                <option value="1">Foothills Medical Center</option>
+                                <option value="2">Peter Lougheed Hospital</option>     
+                            </select>
+                            <input type="submit">    
+                         </form>
+                         ${message}
                     </div>
                </div>
           </div>       

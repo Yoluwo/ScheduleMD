@@ -52,7 +52,7 @@ public class SchedulingService {
             }
         }
 
-        Schedule schedule = new Schedule(0, startDate.getTime(), endDate.getTime());
+        Schedule schedule = new Schedule(0, startDate.getTime(), endDate.getTime(), false);
         Schedule scheduleToLoad = null;
 
         schedule.setHospital(hospital);
