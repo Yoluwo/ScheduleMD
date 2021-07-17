@@ -137,28 +137,8 @@
                                    <div class="next-date">7</div>
                               </div>
                          </div>
-                         <div class="time-off">
-                              <h2>Schedule</h2>
-                              <table role="table">
-                                   <thead role="rowgroup">
-                                        <tr role="row">
-                                             <th role="columnheader">1</th>
-                                             <th role="columnheader">2</th>
-                                             <th role="columnheader">3</th>
-                                             <th role="columnheader">4</th> 
-                                             <th role="columnheader">5</th>
-                                        </tr>
-                                   </thead>
-                                   <tbody role="rowgroup">
-                                        <tr role="row">
-                                             <td role="cell"></td>
-                                             <td role="cell"></td>
-                                             <td role="cell"></td>
-                                             <td role="cell"></td> 
-                                             <td role="cell"></td>
-                                        </tr>
-                                   </tbody>
-                              </table>
+                         <div class="rto">
+                              <h2>Enter your availability</h2>
                          </div>
                     </div>
                </div>

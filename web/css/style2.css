@@ -130,11 +130,18 @@ input:checked[type="checkbox"]:before {
 /*CSS for styling the ManageUsers Page */
 .manage {
      margin-top: 10px;
-     margin-left: 10px;
      width: 65%;
+     height: 250px; 
      background-color: #dbf3fa;
 }
 
+.rto {
+     margin-left: 15px;
+     width: 500px;
+     height: 500px; 
+     background-color: #dbf3fa;
+     box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
+}
 
 @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
 
@@ -144,13 +151,13 @@ input:checked[type="checkbox"]:before {
           overflow-x: auto;
      }
 
-     .time-off {
+     .time-off, .rto {
           display: block;
           margin-left: 0;
           margin-top: 10px;
           padding: 0;
-          width: 94%;
-          height: 100%;  
+          width: 300px;
+          height: auto;  
           background-color: #dcf4fc;
      }
 

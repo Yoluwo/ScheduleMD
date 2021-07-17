@@ -66,7 +66,7 @@
                          <h1>Review Time Off Requests</h1>
                     </div>
                     <div class="wrapper">
-                         <div class="time-off">
+                         <div class="rto">
                               <h2>Week 27</h2>
                               <form>
                                    <table role="table">
