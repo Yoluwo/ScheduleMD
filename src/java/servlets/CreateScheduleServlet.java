@@ -24,10 +24,36 @@ public class CreateScheduleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String scheduleCreated = (String) request.getParameter("scheduleCreated");
-        request.setAttribute("scheduleCreated", true);
+        String useSchedule = (String) request.getParameter("useSchedule");
+        String makeNewSchedule = (String) request.getParameter("makeNewSchedule");
         HospitalDB hDB = new HospitalDB();
+        ScheduleDB sDB = new ScheduleDB();
         Hospital h = new Hospital();
         SchedulingService ss = new SchedulingService();
+        request.setAttribute("scheduleCreated", true);
+        
+        if(makeNewSchedule != null){
+            if(makeNewSchedule.equals("true")){
+                request.setAttribute("scheduleCreated", "");
+                getServletContext().getRequestDispatcher("/WEB-INF/createSchedule.jsp")
+                    .forward(request, response);
+            }    
+        }
+        if(useSchedule != null){
+            if(useSchedule.equals("true")){
+                int scheduleID = Integer.parseInt(request.getParameter("scheduleID"));
+                Schedule s = null;
+                try{
+                    s = sDB.getByScheduleID(scheduleID);
+                    s.setIsUsed(true);
+                    sDB.update(s);
+                }
+                catch(Exception e){
+                    
+                }
+                
+            }
+        }
         String start = request.getParameter("startDate");
         String hospital = request.getParameter("hospital");
         int hospitalNumber = Integer.parseInt(hospital);

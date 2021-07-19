@@ -132,6 +132,7 @@
                     </c:if>
                     <c:if test="${not empty scheduleCreated}"> 
                         <form method="POST" action="createSchedule">
+                            <input type="hidden" id="scheduleID" name="scheduleID" value="${schedule.getScheduleID()}">
                             <button class="btn-submit" name="useSchedule" value="true">Use this schedule</button>
                             <button class="btn-submit" name="makeNewSchedule" value="true">Make a new schedule</button>
                         </form>
