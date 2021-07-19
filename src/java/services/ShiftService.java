@@ -24,8 +24,6 @@ public class ShiftService {
 
             startDateShift = dayIncrement.getTime();
             //dayIncrement.add(Calendar.DATE, 1);
-            System.out.println(dayIncrement.getTime());
-            //System.out.println(endDate.());
             endDateShift = dayIncrement.getTime();
 
             // Constructing new shift object with date information
@@ -46,7 +44,6 @@ public class ShiftService {
 
             // Incrementing to the next day
             dayIncrement.add(Calendar.DATE, 1);
-            System.out.println(dayIncrement.getTime());
             increment++;
 
         }

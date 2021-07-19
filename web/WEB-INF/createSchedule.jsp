@@ -114,7 +114,8 @@
                                    </tbody>
                               </table>
                          </c:if>
-                         <form method="POST" action="createSchedule">
+                    <c:if test="${empty scheduleCreated}"> 
+                        <form method="POST" action="createSchedule">
                               <div class="form-control">
                                    <label for="startDate">Enter start date: </label>
                                    <input type="date" id="startDate" name="startDate" required>
@@ -126,9 +127,16 @@
                                         <option value="2">Peter Lougheed Hospital</option>     
                                    </select>
                               </div>
-                              <button class="btn-submit">Submit</button>
+                              <button class="btn-submit" name="scheduleCreated" value="true">Submit</button>
                          </form>
-                         ${message}
+                    </c:if>
+                    <c:if test="${not empty scheduleCreated}"> 
+                        <form method="POST" action="createSchedule">
+                            <button class="btn-submit" name="useSchedule" value="true">Use this schedule</button>
+                            <button class="btn-submit" name="makeNewSchedule" value="true">Make a new schedule</button>
+                        </form>
+                    
+                    </c:if>    
                     </div>
                </div>
           </div>       

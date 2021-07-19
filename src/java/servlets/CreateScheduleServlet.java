@@ -23,6 +23,8 @@ public class CreateScheduleServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String scheduleCreated = (String) request.getParameter("scheduleCreated");
+        request.setAttribute("scheduleCreated", true);
         HospitalDB hDB = new HospitalDB();
         Hospital h = new Hospital();
         SchedulingService ss = new SchedulingService();
