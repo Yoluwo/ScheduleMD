@@ -1,6 +1,6 @@
 <%-- 
-    Document   : admin
-    Created on : 3-Jun-2021, 5:34:36 PM
+    Document   : theSchedule
+    Created on : 19-Jul-2021, 4:12:49 PM
     Author     : Yetunde Oluwo
 --%>
 
@@ -10,14 +10,15 @@
      <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
-          <title>Admin Panel</title>
-          <link href="css/style.css" rel="stylesheet" type="text/css">
-          <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" rel="stylesheet" >
+          <title>Schedule</title>
+          <link href="css/style.css" rel="stylesheet" type="text/css" >
+          <link href="css/style2.css" rel="stylesheet" type="text/css" >
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
      </head>
      <body>
-          <!--Java Single Page for the Admin panel -->
+          <!--Java Single Page for the schedule -->
           <div class="container">
                <div class="navigation">
                     <ul> 
@@ -68,56 +69,34 @@
                <div class="main">
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
-                         <h1>Administrator Panel</h1>
+                         <h1>Schedule</h1>
                     </div>
-                    <div class="dash">
-                         <img src="images/dashboard_1.jpg" alt="Image of doctor doing work">
-                         <div class="text-wrapper">
-                              <h2>Welcome back, ${firstname}</h2>
+                    <div class="wrapper">
+                         <div class="time-off">
+                              <h2>Schedule</h2>
+                              <table role="table">
+                                   <thead role="rowgroup">
+                                        <tr role="row">
+                                             <th role="columnheader">1</th>
+                                             <th role="columnheader">2</th>
+                                             <th role="columnheader">3</th>
+                                             <th role="columnheader">4</th> 
+                                             <th role="columnheader">5</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody role="rowgroup">
+                                   <c:forEach items=" " var="schedule">
+                                        <tr role="row">
+                                             <td role="cell"></td>
+                                             <td role="cell"></td>
+                                             <td role="cell"></td>
+                                             <td role="cell"></td> 
+                                             <td role="cell"></td>
+                                        </tr>
+                                   </c:forEach>
+                                   </tbody>
+                              </table>
                          </div>
-                    </div>
-                    <div class="cardMain">
-                         <div class="cards">
-                              <div class="card">
-                                   <div>
-                                        <div class="numbers">50</div>
-                                        <div class="cardName">Visits</div>
-                                   </div>
-                                   <div class="iconBox">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                   </div>
-                              </div>
-                              <div class="card">
-                                   <div>
-                                        <div class="numbers">15</div>
-                                        <div class="cardName">Open Shifts</div>
-                                   </div>
-                                   <div class="iconBox">
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                   </div>
-                              </div>
-                              <div class="card">
-                                   <div>
-                                        <div class="numbers">20</div>
-                                        <div class="cardName">Users</div>
-                                   </div>
-                                   <div class="iconBox">
-                                        <i class="fa fa-users" aria-hidden="true"></i>
-                                   </div>
-                              </div>
-                              <div class="card">
-                                   <div>
-                                        <div class="numbers">40</div>
-                                        <div class="cardName">Downloads</div>
-                                   </div>
-                                   <div class="iconBox">
-                                        <i class="fa fa-download" aria-hidden="true"></i>
-                                   </div>
-                              </div>
-                              <div class="details">
-
-                              </div>
-                         </div> 
                     </div>
                </div>
           </div>

@@ -35,6 +35,12 @@
                               </a>
                          </li>
                          <li>
+                              <a href="theSchedule">
+                                   <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                   <span class="title">View Schedule</span>
+                              </a>
+                         </li>
+                         <li>
                               <a href="review">
                                    <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
                                    <span class="title">View Requests</span>
