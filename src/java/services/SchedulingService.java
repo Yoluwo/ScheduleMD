@@ -31,6 +31,7 @@ public class SchedulingService {
         ArrayList<Shift> loadedShiftsFinal = new ArrayList<>();
         ArrayList<Shift> sortedShifts = new ArrayList<>();
         ArrayList<User> usersToUpdate = new ArrayList<>();
+        boolean hasTrauma = false;
 
         ArrayList<Timeoff> approvedTimeOff = new ArrayList<>();
         Calendar endDate;
@@ -45,6 +46,7 @@ public class SchedulingService {
                     break;
                 case 3:
                     trauma = userService.findAllActiveUsersByRoleByHospital(roleID, hospital);
+                    hasTrauma = true;
                     break;
                 case 4:
                     senior = userService.findAllActiveUsersByRoleByHospital(roleID, hospital);
@@ -85,7 +87,9 @@ public class SchedulingService {
         seniorShiftsEmpty = shiftService.generateShifts(startDate, endDate, schedule, role3);
         approvedTimeOff = timeOffService.loadAllAprovedRequests(startDate, endDate);
         accessShifts = shiftService.sortShiftsForAssigning(accessShiftsEmpty, acess, approvedTimeOff);
-        traumaShifts = shiftService.sortShiftsForAssigning(traumaShiftsEmpty, trauma, approvedTimeOff);
+        if(hasTrauma){
+            traumaShifts = shiftService.sortShiftsForAssigning(traumaShiftsEmpty, trauma, approvedTimeOff);        
+        }
         seniorShifts = shiftService.sortShiftsForAssigning(seniorShiftsEmpty, senior, approvedTimeOff);
         loadedShiftsFinal.addAll(accessShifts);
         loadedShiftsFinal.addAll(traumaShifts);

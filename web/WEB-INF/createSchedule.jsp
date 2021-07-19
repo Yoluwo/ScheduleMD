@@ -84,7 +84,7 @@
                                         <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="3" varStatus="i">
                                              <tr role="row">
                                                   <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
-                                                  <td role="cell"> <fmt:formatDate type="date" value="${date}" /> </td>
+                                                  <td role="cell"> <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${date}" /> </td>
                                                   <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
                                                   <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
                                                   <td role="cell"><c:out value="${shifts.get(counter + 2).getUser().getFirstName()}" /></td>
@@ -105,7 +105,8 @@
                                         </tr>
                                         <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="2" varStatus="i">
                                              <tr role="row">
-                                                  <td role="cell"><c:out value="${shifts.get(counter).getStartTime()}" /></td>
+                                                  <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
+                                                  <td role="cell"> <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${date}" /> </td>
                                                   <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
                                                   <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
                                              </tr>
