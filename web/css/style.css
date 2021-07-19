@@ -20,6 +20,8 @@ body {
      overflow: hidden;
      font-size: 15px;
      height: 100%;
+     overflow-x: auto;
+     overflow-y: auto;
 }
 
 .container {
