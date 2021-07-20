@@ -31,62 +31,68 @@ public class CreateScheduleServlet extends HttpServlet {
         Hospital h = new Hospital();
         SchedulingService ss = new SchedulingService();
         request.setAttribute("scheduleCreated", true);
-        
         if(makeNewSchedule != null){
             if(makeNewSchedule.equals("true")){
                 request.setAttribute("scheduleCreated", "");
                 getServletContext().getRequestDispatcher("/WEB-INF/createSchedule.jsp")
                     .forward(request, response);
-            }    
+            }
         }
-        if(useSchedule != null){
+        else if(useSchedule != null){
             if(useSchedule.equals("true")){
                 int scheduleID = Integer.parseInt(request.getParameter("scheduleID"));
                 Schedule s = null;
                 try{
                     s = sDB.getByScheduleID(scheduleID);
                     s.setIsUsed(true);
-                    sDB.update(s);
+                    //sDB.update(s);
                 }
                 catch(Exception e){
                     
                 }
-                
-            }
-        }
-        String start = request.getParameter("startDate");
-        String hospital = request.getParameter("hospital");
-        int hospitalNumber = Integer.parseInt(hospital);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = null;
-        try{
-            date = sdf.parse(start);
-            h = hDB.getByHospitalID(hospitalNumber);
-        } catch(Exception e){
+                List<Shift> test = s.getShiftList();
+                ArrayList<Shift> shifts = new ArrayList<>(test);
+                List<Shift> sortedShifts = ss.sortShifts(shifts);
+                request.setAttribute("schedule", s);
+                request.setAttribute("shifts", sortedShifts);
+                getServletContext().getRequestDispatcher("/WEB-INF/theSchedule.jsp")
+                    .forward(request, response);
+            }    
+        }    
+        else{
+            String start = request.getParameter("startDate");
+            String hospital = request.getParameter("hospital");
+            int hospitalNumber = Integer.parseInt(hospital);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = null;
+            try{
+                date = sdf.parse(start);
+                h = hDB.getByHospitalID(hospitalNumber);
+            } catch(Exception e){
             
-        }
-        if(h.getHospitalID() == 1){
-            request.setAttribute("foothills", true);
-        }
-        else if(h.getHospitalID() == 2){
-            request.setAttribute("peter", true);
-        }
+            }
+            if(h.getHospitalID() == 1){
+                request.setAttribute("foothills", true);
+            }
+            else if(h.getHospitalID() == 2){
+                request.setAttribute("peter", true);
+            }
 
-        Calendar startDate = Calendar.getInstance();
-        startDate.setTime(date);
+            Calendar startDate = Calendar.getInstance();
+            startDate.setTime(date);
         
-        Schedule schedule = ss.generateSchedule(startDate, h);
-        ArrayList<Shift> shifts = new ArrayList<>();
-        shifts = (ArrayList) schedule.getShiftList();
-        List<Shift> sortedShifts = ss.sortShifts(shifts);
-        request.setAttribute("roleSize", h.getRoleList());
-        request.setAttribute("schedule", schedule);
-        request.setAttribute("shifts", sortedShifts);
-        
-        
-        
-        
-        getServletContext().getRequestDispatcher("/WEB-INF/createSchedule.jsp")
+            Schedule schedule = ss.generateSchedule(startDate, h);
+            
+            ArrayList<Shift> shifts = new ArrayList<>();
+            shifts = (ArrayList) schedule.getShiftList();
+            List<Shift> sortedShifts = ss.sortShifts(shifts);
+            request.setAttribute("roleSize", h.getRoleList());
+            request.setAttribute("schedule", schedule);
+            request.setAttribute("shifts", sortedShifts);
+
+            getServletContext().getRequestDispatcher("/WEB-INF/createSchedule.jsp")
                 .forward(request, response);
+        }
+        
     }
 }

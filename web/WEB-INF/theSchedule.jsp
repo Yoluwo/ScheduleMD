@@ -3,7 +3,8 @@
     Created on : 19-Jul-2021, 4:12:49 PM
     Author     : Yetunde Oluwo
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -53,6 +54,12 @@
                               </a>
                          </li>
                          <li>
+                              <a href="adminSettings">
+                                   <span class="icon"><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
+                                   <span class="title">Settings</span>
+                              </a>
+                         </li>
+                         <li>
                               <a href="login">
                                    <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
                                    <span class="title">Logout</span>
@@ -67,29 +74,53 @@
                     </div>
                     <div class="wrapper">
                          <div class="time-off">
+                         <c:if test="${schedule.getHospital().getHospitalID() eq 1}">
                               <h2>Schedule</h2>
-                              <table role="table">
+                              <table class="scheduler" role="table">
                                    <thead role="rowgroup">
                                         <tr role="row">
-                                             <th role="columnheader">Date</th>
-                                             <th role="columnheader">Access</th>
-                                             <th role="columnheader">Trauma</th>
-                                             <th role="columnheader">Senior</th>
+                                             <th role="columnheader">${schedule.getHospital().getHospitalID()}fhfhfh</td>
+                                             <th role="columnheader">Access</td>
+                                             <th role="columnheader">Trauma</td>
+                                             <th role="columnheader">Senior</td>
                                         </tr>
                                    </thead>
                                    <tbody role="rowgroup">
-                                   <c:forEach items=" " var="schedule">
-                                        <tr role="row">
-                                             <td role="cell"></td>
-                                             <td role="cell"></td>
-                                             <td role="cell"></td>
-                                             <td role="cell"></td> 
-                                             <td role="cell"></td>
-                                        </tr>
-                                   </c:forEach>
+                                        <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="3" varStatus="i">
+                                             <tr role="row">
+                                                  <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
+                                                  <td role="cell"> <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${date}" /> </td>
+                                                  <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
+                                                  <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
+                                                  <td role="cell"><c:out value="${shifts.get(counter + 2).getUser().getFirstName()}" /></td>
+                                             </tr>
+                                        </c:forEach>
                                    </tbody>
                               </table>
-                         </div>
+                         </c:if>
+                         <c:if test="${schedule.getHospital().getHospitalID() eq 2}">
+
+                              <h2>Schedule</h2>
+                              <table role="table">
+                                   <tbody role="rowgroup">
+                                        <tr role="row">
+                                             <th role="columnheader">${schedule.getHospital().getHospitalID()}</td>
+                                             <th role="columnheader">Access</td>
+                                             <th role="columnheader">Senior</td>
+                                        </tr>
+                                        <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="2" varStatus="i">
+                                             <tr role="row">
+                                                  <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
+                                                  <td role="cell"> <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${date}" /> </td>
+                                                  <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
+                                                  <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
+                                             </tr>
+                                        </c:forEach>
+                                   </tbody>
+                              </table>
+                         </c:if>
+                     
+                        </div>
                     </div>
                </div>
           </div>
