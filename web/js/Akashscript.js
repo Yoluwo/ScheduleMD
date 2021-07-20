@@ -5,13 +5,18 @@ let doNotDisturb = document.getElementById('offline');
 let daysOfTheWeek = ["Monday", "Tuesday","Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 let mylist = document.querySelector('.mylist');
 let timeout = document.querySelector('#timeout');
+
+
+
 const removeElements = (element) =>{
       element.innerHTML = '';
 }
 
 
 doNotDisturb.addEventListener('click', function(){
+    
     if(doNotDisturb.checked){
+       
             for(let days of daysOfTheWeek){
        const newListItem = document.createElement("li");
    let cb = document.createElement( "input" );
@@ -21,7 +26,8 @@ doNotDisturb.addEventListener('click', function(){
      newListItem.appendChild = cb;
      mylist.appendChild(newListItem);
      mylist.appendChild(text);  
-     setTheme.style.height = "800px";
+     
+     setTheme.style.height ="800px";
    }
    }
    else{
@@ -42,7 +48,8 @@ timeout.addEventListener('input', () =>{
 }
 
 })
-    
+
+
 
 
 
@@ -63,10 +70,10 @@ themeButton.addEventListener('click', function () {
      }
 });
 
-accountQuality.addEventListener('click', function () {
-     if (accountQuality.textContent === "HIGH") {
-          accountQuality.textContent = "LOW";
-     } else {
-          accountQuality.textContent = 'HIGH';
-     }
-});
+//accountQuality.addEventListener('click', function () {
+//     if (accountQuality.textContent === "HIGH") {
+//          accountQuality.textContent = "LOW";
+//     } else {
+//          accountQuality.textContent = 'HIGH';
+//     }
+//});

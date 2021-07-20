@@ -109,22 +109,22 @@
                                                   
                                              </p>
                                         </div>
-                                        <p>Notifications</p><span class="slider"><input type="checkbox" name="notifications" id="notifications"><label for="notifications"></label></span>
+                                        <p>Notifications</p><span class="slider noti"><input type="checkbox" name="notifications" id="notifications"><label for="notifications"></label></span>
+                                        <section class="user social">
+                                            
+                                        </section>
                                         <p>Theme Color</p><span id="theme">DARK</span>
                                    </section>
                               </div>
 
-                              <div class="row">
-                                   <section class="social">
-<!--                                        <p>Sign Out</p>-->
-                                   </section>
-                              </div>
+                            
                          </div>
                     </div>
                </div>
 
                <script type="text/javascript" src="js/script.js"></script>
                <script src="js/Akashscript.js"></script>
+               <script src="js/Akash2.js"></script>
 
      </body>
 </html>
