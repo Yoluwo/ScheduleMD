@@ -80,10 +80,10 @@
                               <table class="scheduler" role="table">
                                    <thead role="rowgroup">
                                         <tr role="row">
-                                             <th role="columnheader">Date</td>
-                                             <th role="columnheader">Access</td>
-                                             <th role="columnheader">Trauma</td>
-                                             <th role="columnheader">Senior</td>
+                                             <th role="columnheader">Date</th>
+                                             <th role="columnheader">Access</th>
+                                             <th role="columnheader">Trauma</th>
+                                             <th role="columnheader">Senior</th>
                                         </tr>
                                    </thead>
                                    <tbody role="rowgroup">
@@ -139,8 +139,8 @@
                     <c:if test="${not empty scheduleCreated}"> 
                         <form method="POST" action="createSchedule">
                             <input type="hidden" id="scheduleID" name="scheduleID" value="${schedule.getScheduleID()}">
-                            <button class="btn-submit" name="useSchedule" value="true">Use this schedule</button>
-                            <button class="btn-submit" name="makeNewSchedule" value="true">Make a new schedule</button>
+                            <button class="btn-sched" name="useSchedule" value="true">Use this schedule</button>
+                            <button class="btn-save" name="makeNewSchedule" value="true">New schedule</button>
                         </form>
                     
                     </c:if>    

@@ -77,11 +77,10 @@
                               <table role="table">
                                    <thead role="rowgroup">
                                         <tr role="row">
-                                             <th role="columnheader">1</th>
-                                             <th role="columnheader">2</th>
-                                             <th role="columnheader">3</th>
-                                             <th role="columnheader">4</th> 
-                                             <th role="columnheader">5</th>
+                                             <th role="columnheader">Date</th>
+                                             <th role="columnheader">Access</th>
+                                             <th role="columnheader">Trauma</th>
+                                             <th role="columnheader">Senior</th>
                                         </tr>
                                    </thead>
                                    <tbody role="rowgroup">

@@ -92,15 +92,29 @@ td, th {
      margin: 15px 0px 0 180px;
 }
 
-.btn-cancel:hover, .btn-save:hover {
+.btn-sched {
+     cursor: pointer;
+     display: inline-block;
+     width: 80px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #00254d;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0px 10px 256px;
+}
+
+.btn-cancel:hover, .btn-save:hover, .btn-submit:hover, .btn-sched:hover {
      color: #dcf4fc;
 }
 
-.btn-cancel:focus, .btn-save:focus {
+.btn-cancel:focus, .btn-save:focus, .btn-submit:focus, .btn-sched:focus {
      outline: none;
 }
 
-.btn-cancel:active, .btn-save:active {
+.btn-cancel:active, .btn-save:active, .btn-submit:active, .btn-sched:active {
      transform: scale(0.96);
      background-color: #bdd2d9;
      color: #094c72;
@@ -188,7 +202,7 @@ input:checked[type="checkbox"]:before {
           background-color: #dbf3fa;
           overflow-x: auto;
      }
-     
+
      .time-off form {
           margin: 1px 1px;
      }
@@ -199,7 +213,7 @@ input:checked[type="checkbox"]:before {
           display: block;
 
      }
-     
+
      tr {
           margin: 0 0 1rem 0;
      }
@@ -228,7 +242,7 @@ input:checked[type="checkbox"]:before {
           padding-right: 10px;
           white-space: nowrap;
      }
-     
+
      th {
           text-align: left;
           color: #094c72;
@@ -242,7 +256,7 @@ input:checked[type="checkbox"]:before {
           width: 65px;
           background-color: #88cff9;
           padding: 5px 5px;
-          font-size: 14px;
+          font-size: 13px;
           font-family: inherit;
           color: #094c72;
           border-radius: 5px;
@@ -256,11 +270,25 @@ input:checked[type="checkbox"]:before {
           width: 65px;
           background-color: #88cff9;
           padding: 7px 5px;
-          font-size: 14px;
+          font-size: 13px;
           font-family: inherit;
           color: #094c72;
           border-radius: 5px;
           box-shadow: 1px 1px 1px 0px #2f739c;
           margin: 15px 0px 0 10px;
+     }
+
+     .btn-sched {
+          cursor: pointer;
+          display: inline-block;
+          width: 80px;
+          background-color: #88cff9;
+          padding: 8px 5px;
+          font-size: 13px;
+          font-family: inherit;
+          color: #094c72;
+          border-radius: 5px;
+          box-shadow: 1px 1px 1px 0px #2f739c;
+          margin: 15px 0px 0 130px;
      }
 }
