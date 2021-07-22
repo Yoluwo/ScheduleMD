@@ -74,12 +74,27 @@
                     </div>
                     <div class="wrapper">
                          <div class="time-off">
+                             <div class="form-control">
+                                 <form method="POST" action="theSchedule">
+                                    <label for="scheduleToView">Select schedule to view: ${fromCreated}</label>
+                                    <select name="scheduleToView">
+                                        <c:forEach var="counter" begin="0" end="${scheduleList.size() - 1}" step="1" varStatus="i">
+                                            <option value="${scheduleList.get(counter).getScheduleID()}">${scheduleList.get(counter).getScheduleID()}</option>
+                                        </c:forEach>
+                                    </select>
+                                    <button type="submit">Show schedule</button>
+                             </form>
+                             </div>
+                             
+                         <c:if test="${schedule.getHospital().getHospitalID() eq null}">
+                             <h2></h2>
+                         </c:if>
                          <c:if test="${schedule.getHospital().getHospitalID() eq 1}">
                               <h2>Schedule</h2>
                               <table class="scheduler" role="table">
                                    <thead role="rowgroup">
                                         <tr role="row">
-                                             <th role="columnheader">${schedule.getHospital().getHospitalID()}fhfhfh</td>
+                                             <th role="columnheader">${schedule.getHospital().getHospitalID()}</td>
                                              <th role="columnheader">Access</td>
                                              <th role="columnheader">Trauma</td>
                                              <th role="columnheader">Senior</td>

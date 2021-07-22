@@ -182,15 +182,11 @@ INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Passwor
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
     VALUES (3, 1, 'test9first', 'test9last', 'test9@gmail.com', 'password', true,false);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
-    VALUES (3, 1, 'test9first', 'test9last', 'test9@gmail.com', 'password', true,false);
-INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
     VALUES (3, 1, 'test10first', 'test10last', 'test10@gmail.com', 'password', true,false);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
     VALUES (3, 1, 'test11first', 'test11last', 'test11@gmail.com', 'password', true,false);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
     VALUES (3, 1, 'test12first', 'test12last', 'test12@gmail.com', 'password', true,false);
-INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
-    VALUES (3, 1, 'test13first', 'test13last', 'test13@gmail.com', 'password', true,false);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
     VALUES (3, 1, 'test13first', 'test13last', 'test13@gmail.com', 'password', true,false);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
@@ -227,13 +223,13 @@ INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Passwor
     VALUES (2, 2, 'test29first', 'test29last', 'test29@gmail.com', 'password', true,false);
 
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
-    VALUES (4, 2, 'test36first', 'test36last', 'test36@gmail.com', 'password', true,false);
+    VALUES (4, 2, 'test30first', 'test30last', 'test30@gmail.com', 'password', true,false);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
-    VALUES (4, 2, 'test37first', 'test37last', 'test37@gmail.com', 'password', true,false);
+    VALUES (4, 2, 'test31first', 'test31last', 'test31@gmail.com', 'password', true,false);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
-    VALUES (4, 2, 'test38first', 'test38last', 'test38@gmail.com', 'password', true,false);
+    VALUES (4, 2, 'test32first', 'test32last', 'test32@gmail.com', 'password', true,false);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
-    VALUES (4, 2, 'test39first', 'test39last', 'test39@gmail.com', 'password', true,false);
+    VALUES (4, 2, 'test33first', 'test33last', 'test33@gmail.com', 'password', true,false);
 
 
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)

@@ -45,17 +45,14 @@ public class CreateScheduleServlet extends HttpServlet {
                 try{
                     s = sDB.getByScheduleID(scheduleID);
                     s.setIsUsed(true);
-                    //sDB.update(s);
+                    sDB.update(s);
                 }
                 catch(Exception e){
                     
                 }
-                List<Shift> test = s.getShiftList();
-                ArrayList<Shift> shifts = new ArrayList<>(test);
-                List<Shift> sortedShifts = ss.sortShifts(shifts);
-                request.setAttribute("schedule", s);
-                request.setAttribute("shifts", sortedShifts);
-                getServletContext().getRequestDispatcher("/WEB-INF/theSchedule.jsp")
+                request.getSession().setAttribute("fromCreated", "true");
+                request.getSession().setAttribute("scheduleID", s);
+                getServletContext().getRequestDispatcher("/theSchedule")
                     .forward(request, response);
             }    
         }    
@@ -89,7 +86,7 @@ public class CreateScheduleServlet extends HttpServlet {
             request.setAttribute("roleSize", h.getRoleList());
             request.setAttribute("schedule", schedule);
             request.setAttribute("shifts", sortedShifts);
-
+                
             getServletContext().getRequestDispatcher("/WEB-INF/createSchedule.jsp")
                 .forward(request, response);
         }

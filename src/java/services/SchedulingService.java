@@ -110,6 +110,57 @@ public class SchedulingService {
         
         return shifts;
     }
+    public List<Shift> sortShiftsByRole1(ArrayList<Shift> shifts){
+        for(int i = 0; i < shifts.size(); i+=3){
+            if(shifts.get(i).getRole().getRoleID() != 2) {
+                if(shifts.get(i).getRole().getRoleID() == 4) {
+                    Shift temp = shifts.get(i+2);
+                    shifts.set(i + 2, shifts.get(i)); 
+                    if(temp.getRole().getRoleID() == 3) {
+                        Shift temp2 = shifts.get(i+1);
+                        shifts.set(i+1, temp); 
+                        shifts.set(i, temp2);
+                    }
+                    else {
+                        shifts.set(i, temp);
+                    }
+                    
+                }
+                else if(shifts.get(i).getRole().getRoleID() == 3) {
+                    Shift temp = shifts.get(i+1);
+                    shifts.set(i+1, shifts.get(i));
+                    if(temp.getRole().getRoleID() == 2) {
+                        shifts.set(i, temp);
+                    }
+                    else {
+                        Shift temp2 = shifts.get(i+2);
+                        shifts.set(i, temp2);
+                        shifts.set(i+2, temp); 
+                        
+                    }
+                }
+            }
+            else {
+                if(shifts.get(i+1).getRole().getRoleID() != 3) {
+                    Shift temp = shifts.get(i+1);
+                    Shift temp2 = shifts.get(i+2);
+                    shifts.set(i+1, temp2);
+                    shifts.set(i+2, temp);
+                }
+            }
+        }
+        return shifts;
+    }
+    public List<Shift> sortShiftsByRole2(ArrayList<Shift> shifts){
+        for(int i = 0; i < shifts.size(); i+=2){
+            if(shifts.get(i).getRole().getRoleID() != 2){
+                Shift temp = shifts.get(i);
+                shifts.set(i, shifts.get(i+1));
+                shifts.set(i+1, temp);
+            }
+        }
+        return shifts;
+    }
    public void updateSchedule(Schedule schedule){
        ScheduleDB scDB = new ScheduleDB();
        try{

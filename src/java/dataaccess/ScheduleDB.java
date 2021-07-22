@@ -28,6 +28,15 @@ public class ScheduleDB {
             em.close();
         }
     }
+    public List<Schedule> findByIsActive(boolean isUsed) throws Exception{
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        try{
+            List<Schedule> schedule = em.createNamedQuery("Schedule.findByIsUsed", Schedule.class).setParameter("isUsed", isUsed).getResultList();
+            return schedule;
+        } finally {
+            em.close();
+        }
+    }
     public void insert(Schedule schedule) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
