@@ -26,6 +26,7 @@ public class TheScheduleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        SchedulingService ss = new SchedulingService();
         ScheduleDB sDB = new ScheduleDB();
         List<Schedule> sList = null;
         try{
@@ -34,7 +35,43 @@ public class TheScheduleServlet extends HttpServlet {
             
         }
         ArrayList<Schedule> scheduleList = new ArrayList<>(sList);
-        
+        Date now = new Date();
+        boolean found = false;
+        Schedule schedule = null;
+        List<Shift> sortedShiftsFinal = null;
+        for(int i = 0; i < scheduleList.size() && !found; i++){
+            schedule = scheduleList.get(i);
+            if(schedule.getStartDate().before(now)){
+                if(schedule.getEndDate().after(now)){
+                    List<Shift> test = schedule.getShiftList();
+                    ArrayList<Shift> shifts = new ArrayList<>(test);
+                    List<Shift> sortedShifts = ss.sortShifts(shifts);
+                    ArrayList<Shift> shifts2 = new ArrayList<>(sortedShifts);
+                    if(schedule.getHospital().getHospitalID() == 1){
+                        sortedShiftsFinal = ss.sortShiftsByRole1(shifts2);                
+                    }
+                    else{
+                        sortedShiftsFinal = ss.sortShiftsByRole2(shifts2);
+                    }
+                    found = true;
+            
+                }
+            }
+            else{
+                List<Shift> test = schedule.getShiftList();
+                ArrayList<Shift> shifts = new ArrayList<>(test);
+                List<Shift> sortedShifts = ss.sortShifts(shifts);
+                ArrayList<Shift> shifts2 = new ArrayList<>(sortedShifts);
+                if(schedule.getHospital().getHospitalID() == 1){
+                    sortedShiftsFinal = ss.sortShiftsByRole1(shifts2);                
+                }
+                else{
+                    sortedShiftsFinal = ss.sortShiftsByRole2(shifts2);
+                }
+            }
+        }
+        request.setAttribute("schedule", schedule);
+        request.setAttribute("shifts", sortedShiftsFinal);
         request.setAttribute("scheduleList", scheduleList);
         getServletContext().getRequestDispatcher("/WEB-INF/theSchedule.jsp")
                 .forward(request, response);

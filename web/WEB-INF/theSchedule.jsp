@@ -78,11 +78,14 @@
                                  <form method="POST" action="theSchedule">
                                     <label for="scheduleToView">Select schedule to view: ${fromCreated}</label>
                                     <select name="scheduleToView">
-                                        <c:forEach var="counter" begin="0" end="${scheduleList.size() - 1}" step="1" varStatus="i">
-                                            <option value="${scheduleList.get(counter).getScheduleID()}">${scheduleList.get(counter).getScheduleID()}</option>
-                                        </c:forEach>
-                                    </select>
-                                    <button type="submit">Show schedule</button>
+                                        <c:if test="${scheduleList.size() > 0}">
+                                            <c:forEach var="counter" begin="0" end="${scheduleList.size() - 1}" step="1" varStatus="i">
+                                                <option value="${scheduleList.get(counter).getScheduleID()}">${scheduleList.get(counter).getScheduleID()}</option>
+                                            </c:forEach>
+                                    
+                                            <button type="submit">Show schedule</button>
+                                        </c:if>
+                                    </select>    
                              </form>
                              </div>
                              
