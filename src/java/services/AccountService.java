@@ -1,6 +1,7 @@
 package services;
 import models.User;
 import dataaccess.UserDB;
+import java.util.List;
 
 /*
     The AccountService class is used to validate a user and allow them access
@@ -76,5 +77,11 @@ public class AccountService {
         UserDB userDB = new UserDB();
         User user = userDB.get(email);
         return user;
+    }
+    
+    public List<User> getAll() throws Exception {
+        UserDB userDB = new UserDB();
+        List<User> users = userDB.getAll();
+        return users;
     }
 }

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
      <head>
@@ -65,55 +66,63 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Manage User Profiles</h1>
                     </div>
-                    <div class="tba">
-                         <div class="search"><input type="text" name="search"><i class="fa fa-search" aria-hidden="true"></i>Search</div>
-                         <div class="manUser"><a href="addUser"><button>Add User</button></a></div>
-                    </div>
+                    <p>
+                        <c:if test="${message eq 'add'}">User added.</c:if>
+                        <c:if test="${message eq 'edit'}">User updated.</c:if>
+                        <c:if test="${message eq 'delete'}">User deleted.</c:if>
+                        <c:if test="${message eq 'error'}">Sorry, something went wrong.</c:if>
+                    </p>
                     <div class="wrapper">
                          <div class="manage">
                               <h2>Manage Users </h2>
                               <table role="table">
                                    <thead role="rowgroup">
                                         <tr role="row">
-                                             <th role="columnheader">First name</th>
-                                             <th role="columnheader">Last name</th>
+                                             <th role="columnheader">First Name</th>
+                                             <th role="columnheader">Last Name</th>
                                              <th role="columnheader">Email</th>
+                                             <th role="columnheader">Hospital</th>
                                              <th role="columnheader">Role</th> 
-                                             <th role="columnheader">User Since</th>
-                                             <th role="columnheader">Actions</th>
-                                             <th role="columnheader"></th>
+                                             <th role="columnheader">Edit</th>
+                                             <th role="columnheader">Delete</th>
                                         </tr>
                                    </thead>
                                    <tbody role="rowgroup">
-                                        <tr role="row">
-                                             <td role="cell">Susan</td>
-                                             <td role="cell">Anne</td>
-                                             <td role="cell">sanne@gmail.com</td>
-                                             <td role="cell">Resident</td> 
-                                             <td role="cell">July 4, 2021</td>
-                                             <td role="cell"><a href="edit">Edit</a></td>
-                                             <td role="cell"><a href="delete">Delete</a></td>
-                                        </tr>
-                                        <tr role="row">
-                                             <td role="cell">Theo</td>
-                                             <td role="cell">Pythagoras</td>
-                                             <td role="cell">tpy@gmail.com</td>
-                                             <td role="cell">Resident</td> 
-                                             <td role="cell">June 24, 2021</td>
-                                             <td role="cell"><a href="edit">Edit</a></td>
-                                             <td role="cell"><a href="delete">Delete</a></td>
-                                        </tr>
-                                        <tr role="row">
-                                             <td role="cell">John</td>
-                                             <td role="cell">Aimes</td>
-                                             <td role="cell">jaimes@yahoo.com</td>
-                                             <td role="cell">Resident</td>
-                                             <td role="cell">July 26, 2021</td>
-                                             <td role="cell"><a href="edit">Edit</a></td>
-                                             <td role="cell"><a href="delete">Delete</a></td>
-                                        </tr>
+                                        <c:forEach items="${users}" var="user">
+                                            <c:if test="${user.firstName ne 'Extender'}">
+                                                <tr role="row">
+                                                     <td role="cell">${user.firstName}</td>
+                                                     <td role="cell">${user.lastName}</td>
+                                                     <td role="cell">${user.email}</td>
+                                                     <td role="cell">${user.hospital.hospitalName}</td>
+                                                     <td role="cell">${user.role.roleName}</td> 
+                                                     <td role="cell">
+                                                        <form action="manageUsers" method="get">
+                                                            <input type="hidden" name="action" value="editButton">
+                                                            <input type="hidden" name="editUser" value="${user.email}">
+                                                            <input type="submit" value="Edit">
+                                                        </form>
+                                                     </td>
+                                                     <td role="cell">
+                                                        <c:if test="${user.role.roleID ne 1}">
+                                                            <form action="manageUsers" method="post">
+                                                                <input type="hidden" name="action" value="delete">
+                                                                <input type="hidden" name="deleteUser" value="${user.email}">
+                                                                <input type="submit" value="Delete">
+                                                            </form>
+                                                        </c:if>
+                                                     </td>
+                                                </tr>
+                                            </c:if>
+                                        </c:forEach>
                                    </tbody>
                               </table>
+                              <c:if test="${selectedUser ne null}">
+                                <h2>Edit User</h2>
+                              </c:if>
+                              <c:if test="${selectedUser eq null}">
+                                <h2>Add Users</h2>
+                              </c:if>
                          </div>
                     </div>
                </div>
