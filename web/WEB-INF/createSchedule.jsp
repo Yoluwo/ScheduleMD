@@ -114,30 +114,29 @@
                                    </tbody>
                               </table>
                          </c:if>
-                    <c:if test="${empty scheduleCreated}"> 
-                        <form method="POST" action="createSchedule">
-                              <div class="form-control">
-                                   <label for="startDate">Enter start date: </label>
-                                   <input type="date" id="startDate" name="startDate" required>
-                              </div>
-                              <div class="form-control">
-                                   <label for="hospital">Enter Hospital: </label>
-                                   <select name="hospital" id="hospital">
-                                        <option value="1">Foothills Medical Center</option>
-                                        <option value="2">Peter Lougheed Hospital</option>     
-                                   </select>
-                              </div>
-                              <button class="btn-submit" name="scheduleCreated" value="true">Submit</button>
-                         </form>
-                    </c:if>
-                    <c:if test="${not empty scheduleCreated}"> 
-                        <form method="POST" action="createSchedule">
-                            <input type="hidden" id="scheduleID" name="scheduleID" value="${schedule.getScheduleID()}">
-                            <button class="btn-sched" name="useSchedule" value="true">Use this schedule</button>
-                            <button class="btn-save" name="makeNewSchedule" value="true">New schedule</button>
-                        </form>
-                    
-                    </c:if>    
+                         <c:if test="${empty scheduleCreated}"> 
+                              <form method="POST" action="createSchedule">
+                                   <div class="form-control">
+                                        <label for="startDate">Enter start date: </label>
+                                        <input type="date" id="startDate" name="startDate" required>
+                                   </div>
+                                   <div class="form-control">
+                                        <label for="hospital">Enter Hospital: </label>
+                                        <select name="hospital" id="hospital">
+                                             <option value="1">Foothills Medical Center</option>
+                                             <option value="2">Peter Lougheed Hospital</option>     
+                                        </select>
+                                   </div>
+                                   <button class="btn-submit" name="scheduleCreated" value="true">Submit</button>
+                              </form>
+                         </c:if>
+                         <c:if test="${not empty scheduleCreated}"> 
+                              <form method="POST" action="createSchedule">
+                                   <input type="hidden" id="scheduleID" name="scheduleID" value="${schedule.getScheduleID()}">
+                                   <button class="btn-sched" name="makeNewSchedule" value="true">New schedule</button>
+                                   <button class="btn-save" name="useSchedule" value="true">Use this schedule</button>
+                              </form>
+                         </c:if>    
                     </div>
                </div>
           </div>       

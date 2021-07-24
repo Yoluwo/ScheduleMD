@@ -17,8 +17,9 @@ html {
 .time-off {
      margin-top: 10px;
      margin-left: 15px;
+     margin-bottom: 20px;
      padding: 0;
-     width: 480px;
+     width: 600px;
      height: auto;
      font-size: 15px;
      color: #00254d;
@@ -103,7 +104,7 @@ td, th {
      color: #00254d;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 10px 256px;
+     margin: 15px 0px 10px 370px;
 }
 
 .btn-cancel:hover, .btn-save:hover, .btn-submit:hover, .btn-sched:hover {
@@ -167,6 +168,7 @@ input:checked[type="checkbox"]:before {
 
 .rto {
      margin-left: 15px;
+     padding: 5px 10px 5px 10px;
      width: 500px;
      height: 500px; 
      background-color: #dbf3fa;

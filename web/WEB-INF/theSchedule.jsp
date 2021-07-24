@@ -74,71 +74,69 @@
                     </div>
                     <div class="wrapper">
                          <div class="time-off">
-                             <div class="form-control">
-                                 <form method="POST" action="theSchedule">
-                                    <label for="scheduleToView">Select schedule to view: ${fromCreated}</label>
-                                    <select name="scheduleToView">
-                                        <c:if test="${scheduleList.size() > 0}">
-                                            <c:forEach var="counter" begin="0" end="${scheduleList.size() - 1}" step="1" varStatus="i">
-                                                <option value="${scheduleList.get(counter).getScheduleID()}">${scheduleList.get(counter).getScheduleID()}</option>
-                                            </c:forEach>
-                                    
-                                            <button type="submit">Show schedule</button>
-                                        </c:if>
-                                    </select>    
-                             </form>
-                             </div>
-                             
-                         <c:if test="${schedule.getHospital().getHospitalID() eq null}">
-                             <h2></h2>
-                         </c:if>
-                         <c:if test="${schedule.getHospital().getHospitalID() eq 1}">
-                              <h2>Schedule</h2>
-                              <table class="scheduler" role="table">
-                                   <thead role="rowgroup">
-                                        <tr role="row">
-                                             <th role="columnheader">${schedule.getHospital().getHospitalID()}</td>
-                                             <th role="columnheader">Access</td>
-                                             <th role="columnheader">Trauma</td>
-                                             <th role="columnheader">Senior</td>
-                                        </tr>
-                                   </thead>
-                                   <tbody role="rowgroup">
-                                        <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="3" varStatus="i">
-                                             <tr role="row">
-                                                  <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
-                                                  <td role="cell"> <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${date}" /> </td>
-                                                  <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
-                                                  <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
-                                                  <td role="cell"><c:out value="${shifts.get(counter + 2).getUser().getFirstName()}" /></td>
-                                             </tr>
-                                        </c:forEach>
-                                   </tbody>
-                              </table>
-                         </c:if>
-                         <c:if test="${schedule.getHospital().getHospitalID() eq 2}">
+                              <div class="form-control">
+                                   <form method="POST" action="theSchedule">
+                                        <label for="scheduleToView">Select schedule to view: ${fromCreated}</label>
+                                        <select name="scheduleToView">
+                                             <c:if test="${scheduleList.size() > 0}">
+                                                  <c:forEach var="counter" begin="0" end="${scheduleList.size() - 1}" step="1" varStatus="i">
+                                                       <option value="${scheduleList.get(counter).getScheduleID()}">${scheduleList.get(counter).getScheduleID()}</option>
+                                                  </c:forEach>
+                                                  <button type="submit">Show schedule</button>
+                                             </c:if>
+                                        </select>    
+                                   </form>
+                              </div>
 
-                              <h2>Schedule</h2>
-                              <table role="table">
-                                   <tbody role="rowgroup">
-                                        <tr role="row">
-                                             <th role="columnheader">${schedule.getHospital().getHospitalID()}</td>
-                                             <th role="columnheader">Access</td>
-                                             <th role="columnheader">Senior</td>
-                                        </tr>
-                                        <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="2" varStatus="i">
+                              <c:if test="${schedule.getHospital().getHospitalID() eq null}">
+                                   <h2></h2>
+                              </c:if>
+                              <c:if test="${schedule.getHospital().getHospitalID() eq 1}">
+                                   <h2>Schedule</h2>
+                                   <table class="scheduler" role="table">
+                                        <thead role="rowgroup">
                                              <tr role="row">
-                                                  <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
-                                                  <td role="cell"> <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${date}" /> </td>
-                                                  <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
-                                                  <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
+                                                  <th role="columnheader">${schedule.getHospital().getHospitalID()}</td>
+                                                  <th role="columnheader">Access</td>
+                                                  <th role="columnheader">Trauma</td>
+                                                  <th role="columnheader">Senior</td>
                                              </tr>
-                                        </c:forEach>
-                                   </tbody>
-                              </table>
-                         </c:if>
-                     
-                        </div>
+                                        </thead>
+                                        <tbody role="rowgroup">
+                                             <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="3" varStatus="i">
+                                                  <tr role="row">
+                                                       <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
+                                                       <td role="cell"> <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${date}" /> </td>
+                                                       <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
+                                                       <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
+                                                       <td role="cell"><c:out value="${shifts.get(counter + 2).getUser().getFirstName()}" /></td>
+                                                  </tr>
+                                             </c:forEach>
+                                        </tbody>
+                                   </table>
+                              </c:if>
+                              <c:if test="${schedule.getHospital().getHospitalID() eq 2}">
+
+                                   <h2>Schedule</h2>
+                                   <table role="table">
+                                        <tbody role="rowgroup">
+                                             <tr role="row">
+                                                  <th role="columnheader">${schedule.getHospital().getHospitalID()}</td>
+                                                  <th role="columnheader">Access</td>
+                                                  <th role="columnheader">Senior</td>
+                                             </tr>
+                                             <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="2" varStatus="i">
+                                                  <tr role="row">
+                                                       <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
+                                                       <td role="cell"> <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${date}" /> </td>
+                                                       <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
+                                                       <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
+                                                  </tr>
+                                             </c:forEach>
+                                        </tbody>
+                                   </table>
+                              </c:if>
+                         </div>
                     </div>
                </div>
           </div>
