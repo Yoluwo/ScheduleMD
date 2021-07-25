@@ -240,3 +240,7 @@ INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Passwor
     VALUES (4, 1, 'Extender', 'Extender', 'ExtenderSenior@gmail.com', 'dunno', true,true);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
     VALUES (5, 1, 'Extender', 'Extender', 'Extender@gmail.com', 'dunno', true,true);
+
+
+
+
