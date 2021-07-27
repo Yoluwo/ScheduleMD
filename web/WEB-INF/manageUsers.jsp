@@ -122,6 +122,31 @@
                               </c:if>
                               <c:if test="${selectedUser eq null}">
                                 <h2>Add Users</h2>
+                                <form action="">
+                                    <table>
+                                        <tr>
+                                            <td><label for="html">First Name</label></td>
+                                            <td><input type="text" id="firstName" value=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="html">Last Name</label></td>
+                                            <td><input type="text" id="lastName" value=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="html">Email</label></td>
+                                            <td><input type="text" id="email" value=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="html">Hospital</label></td>
+                                            <td><input type="text" id="hospitalName" value=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="html">Role</label></td>
+                                            <td><input type="text" id="roleName" value=""></td>
+                                        </tr>
+                                    </table>
+                                    <input type="submit" value="Add User">
+                                 </form>
                               </c:if>
                          </div>
                     </div>
