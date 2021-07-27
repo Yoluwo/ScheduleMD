@@ -119,7 +119,7 @@ public class SchedulingService {
                     if(temp.getRole().getRoleID() == 3) {
                         Shift temp2 = shifts.get(i+1);
                         shifts.set(i+1, temp); 
-                        shifts.set(i, temp2);
+                        shifts.set(i, temp2); 
                     }
                     else {
                         shifts.set(i, temp);

@@ -81,9 +81,10 @@
                                              <c:forEach var="counter" begin="0" end="${scheduleList.size() - 1}" step="1" varStatus="i">
                                                   <option value="${scheduleList.get(counter).getScheduleID()}">${scheduleList.get(counter).getScheduleID()}</option>
                                              </c:forEach>
-                                             <button type="submit">Show schedule</button>
+                                             
                                         </c:if>
-                                   </select>    
+                                   </select> 
+                                   <button type="submit">Show schedule</button>
                               </form>
                          </div>
 
