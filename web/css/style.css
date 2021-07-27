@@ -245,7 +245,7 @@ h2 {
 
 /*CSS for designing the submain and calendar UI for the schedule pages*/
 .submain {
-     margin: 20px 0px 10px 20px;
+     margin: 20px 0px 10px 15px;
      background-color: #dcf4fc;
      width: 280px;
      border: 1px dashed #095280;     
@@ -260,8 +260,6 @@ p {
 .wrapper {
      display: flex;
      justify-content: flex-start;
-     margin-left: 15px;
-     margin-top: 20px;
      padding: 0;
      width: 100%;
      height: auto;
@@ -490,6 +488,10 @@ p {
 
      .navigation.active {
           width: 40px;
+     }
+
+     .submain {
+          margin: 10px 0px 10px 10px;    
      }
 
      .wrapper {

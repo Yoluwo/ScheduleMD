@@ -68,7 +68,7 @@
                          <h1>Request Time Off</h1>
                     </div>
                     <div class="wrapper">
-                         <div class="rto">
+                         <div class="req">
                               <h2>Request Time Off</h2>
                               <form method="POST" action="request">
                                    <div class="form-control">
