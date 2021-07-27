@@ -68,7 +68,7 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Manage Schedule</h1>
                     </div>
-                    <div class="time-off">
+                    <div class="rto">
                          <c:if test="${foothills ne null}">
                               <h2>Schedule</h2>
                               <table class="scheduler" role="table">
@@ -94,7 +94,6 @@
                               </table>
                          </c:if>
                          <c:if test="${peter ne null}">
-
                               <h2>Schedule</h2>
                               <table role="table">
                                    <tbody role="rowgroup">
@@ -115,6 +114,7 @@
                               </table>
                          </c:if>
                          <c:if test="${empty scheduleCreated}"> 
+                              <h2>Create Schedule</h2>
                               <form method="POST" action="createSchedule">
                                    <div class="form-control">
                                         <label for="startDate">Enter start date: </label>
@@ -133,8 +133,8 @@
                          <c:if test="${not empty scheduleCreated}"> 
                               <form method="POST" action="createSchedule">
                                    <input type="hidden" id="scheduleID" name="scheduleID" value="${schedule.getScheduleID()}">
-                                   <button class="btn-sched" name="makeNewSchedule" value="true">New schedule</button>
-                                   <button class="btn-save" name="useSchedule" value="true">Use this schedule</button>
+                                   <button class="btn-new" name="makeNewSchedule" value="true">New schedule</button>
+                                   <button class="btn-use" name="useSchedule" value="true">Use this schedule</button>
                               </form>
                          </c:if>    
                     </div>

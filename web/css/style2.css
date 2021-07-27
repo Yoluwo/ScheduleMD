@@ -15,7 +15,7 @@ html {
 
 /* CSS for designing request time off card */
 .time-off {
-     margin-top: 10px;
+     margin-top: 20px;
      margin-left: 15px;
      margin-bottom: 20px;
      padding: 0;
@@ -28,7 +28,8 @@ html {
 }
 
 table {
-     width: 100%;
+     margin-left: 10px;
+     width: 96%;
      border-collapse: collapse;
 }
 
@@ -55,14 +56,14 @@ td, th {
      cursor: pointer;
      display: inline-block;
      width: 80px;
-     background-color: #88cff9;
+     background-color: #dbf3fa;
      padding: 8px 5px;
      font-size: 15px;
      font-family: inherit;
      color: #00254d;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 0 220px;
+     margin: 15px 0px 20px 220px;
 }
 
 .btn-save {
@@ -76,7 +77,7 @@ td, th {
      color: #00254d;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 0 20px;
+     margin: 15px 0px 20px 20px;
 }
 
 .btn-submit {
@@ -90,7 +91,7 @@ td, th {
      color: #00254d;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 0 180px;
+     margin: 15px 0px 20px 180px;
 }
 
 .btn-sched {
@@ -104,18 +105,92 @@ td, th {
      color: #00254d;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 10px 370px;
+     margin: 15px 0px 20px 287px;
 }
 
-.btn-cancel:hover, .btn-save:hover, .btn-submit:hover, .btn-sched:hover {
+.btn-req {
+     cursor: pointer;
+     display: inline-block;
+     width: 90px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #094c72;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0 20px 180px;
+}
+
+.btn-review {
+     cursor: pointer;
+     display: inline-block;
+     width: 70px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #094c72;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0 20px 10px;
+}
+
+.btn-confirm {
+     cursor: pointer;
+     display: inline-block;
+     width: 150px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #094c72;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0 20px 15px;
+}
+
+.btn-new {
+     cursor: pointer;
+     display: inline-block;
+     width: 130px;
+     background-color: #dbf3fa;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #00254d;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0px 20px 165px;
+}
+
+.btn-use {
+     cursor: pointer;
+     display: inline-block;
+     width: 150px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #00254d;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0px 20px 20px;
+}
+
+.btn-save:hover, .btn-submit:hover, .btn-sched:hover, .btn-req:hover, .btn-review:hover, .btn-confirm:hover, .btn-use:hover {
      color: #dcf4fc;
 }
 
-.btn-cancel:focus, .btn-save:focus, .btn-submit:focus, .btn-sched:focus {
+.btn-cancel:hover, .btn-new:hover {
+     background-color: #bdd2d9;
+}
+
+.btn-cancel:focus, .btn-save:focus, .btn-submit:focus, .btn-sched:focus, .btn-req:focus, .btn-review:focus, .btn-confirm:focus, .btn-new:focus, .btn-use:focus {
      outline: none;
 }
 
-.btn-cancel:active, .btn-save:active, .btn-submit:active, .btn-sched:active {
+.btn-cancel:active, .btn-save:active, .btn-submit:active, .btn-sched:active, .btn-req:active, .btn-review:active, .btn-confirm:active, .btn-new:active, .btn-use:active {
      transform: scale(0.96);
      background-color: #bdd2d9;
      color: #094c72;
@@ -167,12 +242,33 @@ input:checked[type="checkbox"]:before {
 }
 
 .rto {
+     margin-top: 20px;
      margin-left: 15px;
+     margin-bottom: 20px;
      padding: 5px 10px 5px 10px;
      width: 500px;
-     height: 500px; 
+     height: auto;
      background-color: #dbf3fa;
+     color: #094c72;
+     font-size: 15px;
      box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
+}
+
+.req {
+     margin-top: 20px;
+     margin-left: 15px;
+     margin-bottom: 20px;
+     padding: 5px 10px 5px 10px;
+     width: 350px;
+     height: auto;
+     background-color: #dbf3fa;
+     color: #094c72;
+     font-size: 15px;
+     box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
+}
+
+.req h2 {
+     text-align: left;
 }
 
 @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -183,7 +279,7 @@ input:checked[type="checkbox"]:before {
           overflow-x: auto;
      }
 
-     .time-off, .rto {
+     .time-off, .rto, .req {
           display: block;
           margin-left: 10px;
           margin-top: 10px;
@@ -213,7 +309,6 @@ input:checked[type="checkbox"]:before {
      /* Remove default table settings */
      table, thead, tbody, tr, th, td {
           display: block;
-
      }
 
      tr {
@@ -291,6 +386,24 @@ input:checked[type="checkbox"]:before {
           color: #094c72;
           border-radius: 5px;
           box-shadow: 1px 1px 1px 0px #2f739c;
-          margin: 15px 0px 0 130px;
+          margin: 15px 0 20px 130px;
+     }
+
+     .btn-req {
+          cursor: pointer;
+          display: inline-block;
+          width: 90px;
+          background-color: #88cff9;
+          padding: 8px 5px;
+          font-size: 15px;
+          font-family: inherit;
+          color: #094c72;
+          border-radius: 5px;
+          box-shadow: 1px 1px 1px 0px #2f739c;
+          margin: 15px 0 20px 170px;
+     }
+
+     .rto, .req {
+          margin-left: 0;
      }
 }

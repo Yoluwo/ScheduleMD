@@ -67,58 +67,58 @@
                          <h1>Manage User Profiles</h1>
                     </div>
                     <p>
-                        <c:if test="${message eq 'add'}">User added.</c:if>
-                        <c:if test="${message eq 'edit'}">User updated.</c:if>
-                        <c:if test="${message eq 'delete'}">User deleted.</c:if>
-                        <c:if test="${message eq 'error'}">Sorry, something went wrong.</c:if>
-                    </p>
-                    <div class="wrapper">
-                         <div class="manage">
-                              <h2>Manage Users </h2>
-                              <table role="table">
-                                   <thead role="rowgroup">
-                                        <tr role="row">
-                                             <th role="columnheader">First Name</th>
-                                             <th role="columnheader">Last Name</th>
-                                             <th role="columnheader">Email</th>
-                                             <th role="columnheader">Hospital</th>
-                                             <th role="columnheader">Role</th> 
-                                             <th role="columnheader">Edit</th>
-                                             <th role="columnheader">Delete</th>
-                                        </tr>
-                                   </thead>
-                                   <tbody role="rowgroup">
+                         <c:if test="${message eq 'add'}">User added.</c:if>
+                         <c:if test="${message eq 'edit'}">User updated.</c:if>
+                         <c:if test="${message eq 'delete'}">User deleted.</c:if>
+                         <c:if test="${message eq 'error'}">Sorry, something went wrong.</c:if>
+                         </p>
+                         <div class="wrapper">
+                              <div class="manage">
+                                   <h2>Manage Users </h2>
+                                   <table role="table">
+                                        <thead role="rowgroup">
+                                             <tr role="row">
+                                                  <th role="columnheader">First Name</th>
+                                                  <th role="columnheader">Last Name</th>
+                                                  <th role="columnheader">Email</th>
+                                                  <th role="columnheader">Hospital</th>
+                                                  <th role="columnheader">Role</th> 
+                                                  <th role="columnheader">Edit</th>
+                                                  <th role="columnheader">Delete</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody role="rowgroup">
                                         <c:forEach items="${users}" var="user">
-                                            <c:if test="${user.firstName ne 'Extender'}">
-                                                <tr role="row">
-                                                     <td role="cell">${user.firstName}</td>
-                                                     <td role="cell">${user.lastName}</td>
-                                                     <td role="cell">${user.email}</td>
-                                                     <td role="cell">${user.hospital.hospitalName}</td>
-                                                     <td role="cell">${user.role.roleName}</td> 
-                                                     <td role="cell">
-                                                        <form action="manageUsers" method="get">
-                                                            <input type="hidden" name="action" value="editButton">
-                                                            <input type="hidden" name="editUser" value="${user.email}">
-                                                            <input type="submit" value="Edit">
-                                                        </form>
-                                                     </td>
-                                                     <td role="cell">
-                                                        <c:if test="${user.role.roleID ne 1}">
-                                                            <form action="manageUsers" method="post">
-                                                                <input type="hidden" name="action" value="delete">
-                                                                <input type="hidden" name="deleteUser" value="${user.email}">
-                                                                <input type="submit" value="Delete">
+                                             <c:if test="${user.firstName ne 'Extender'}">
+                                                  <tr role="row">
+                                                       <td role="cell">${user.firstName}</td>
+                                                       <td role="cell">${user.lastName}</td>
+                                                       <td role="cell">${user.email}</td>
+                                                       <td role="cell">${user.hospital.hospitalName}</td>
+                                                       <td role="cell">${user.role.roleName}</td> 
+                                                       <td role="cell">
+                                                            <form action="manageUsers" method="get">
+                                                                 <input type="hidden" name="action" value="editButton">
+                                                                 <input type="hidden" name="editUser" value="${user.email}">
+                                                                 <input type="submit" value="Edit">
                                                             </form>
-                                                        </c:if>
-                                                     </td>
-                                                </tr>
-                                            </c:if>
+                                                       </td>
+                                                       <td role="cell">
+                                                            <c:if test="${user.role.roleID ne 1}">
+                                                                 <form action="manageUsers" method="post">
+                                                                      <input type="hidden" name="action" value="delete">
+                                                                      <input type="hidden" name="deleteUser" value="${user.email}">
+                                                                      <input type="submit" value="Delete">
+                                                                 </form>
+                                                            </c:if>
+                                                       </td>
+                                                  </tr>
+                                             </c:if>
                                         </c:forEach>
                                    </tbody>
                               </table>
                               <c:if test="${selectedUser ne null}">
-                                <h2>Edit User</h2>
+                                   <h2>Edit User</h2>
                               </c:if>
                               <c:if test="${selectedUser eq null}">
                                 <h2>Add Users</h2>
