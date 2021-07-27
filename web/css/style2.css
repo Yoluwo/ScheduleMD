@@ -15,7 +15,7 @@ html {
 
 /* CSS for designing request time off card */
 .time-off {
-     margin-top: 10px;
+     margin-top: 20px;
      margin-left: 15px;
      margin-bottom: 20px;
      padding: 0;
@@ -55,14 +55,14 @@ td, th {
      cursor: pointer;
      display: inline-block;
      width: 80px;
-     background-color: #88cff9;
+     background-color: #dbf3fa;
      padding: 8px 5px;
      font-size: 15px;
      font-family: inherit;
      color: #00254d;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 0 220px;
+     margin: 15px 0px 20px 220px;
 }
 
 .btn-save {
@@ -76,7 +76,7 @@ td, th {
      color: #00254d;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 0 20px;
+     margin: 15px 0px 20px 20px;
 }
 
 .btn-submit {
@@ -90,7 +90,7 @@ td, th {
      color: #00254d;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 0 180px;
+     margin: 15px 0px 20px 180px;
 }
 
 .btn-sched {
@@ -104,18 +104,60 @@ td, th {
      color: #00254d;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0px 10px 370px;
+     margin: 15px 0px 20px 370px;
 }
 
-.btn-cancel:hover, .btn-save:hover, .btn-submit:hover, .btn-sched:hover {
+.btn-req {
+     cursor: pointer;
+     display: inline-block;
+     width: 90px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #094c72;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0 20px 180px;
+}
+
+.btn-review {
+     cursor: pointer;
+     display: inline-block;
+     width: 70px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #094c72;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0 20px 10px;
+}
+
+.btn-confirm {
+     cursor: pointer;
+     display: inline-block;
+     width: 150px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #094c72;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0 20px 15px;
+}
+
+.btn-cancel:hover, .btn-save:hover, .btn-submit:hover, .btn-sched:hover, .btn-req:hover, .btn-review:hover, .btn-confirm:hover {
      color: #dcf4fc;
 }
 
-.btn-cancel:focus, .btn-save:focus, .btn-submit:focus, .btn-sched:focus {
+.btn-cancel:focus, .btn-save:focus, .btn-submit:focus, .btn-sched:focus, .btn-req:focus, .btn-review:focus, .btn-confirm:focus {
      outline: none;
 }
 
-.btn-cancel:active, .btn-save:active, .btn-submit:active, .btn-sched:active {
+.btn-cancel:active, .btn-save:active, .btn-submit:active, .btn-sched:active, .btn-req:active, .btn-review:active, .btn-confirm:active {
      transform: scale(0.96);
      background-color: #bdd2d9;
      color: #094c72;
@@ -167,11 +209,15 @@ input:checked[type="checkbox"]:before {
 }
 
 .rto {
+     margin-top: 20px;
      margin-left: 15px;
+     margin-bottom: 20px;
      padding: 5px 10px 5px 10px;
      width: 500px;
-     height: 500px; 
+     height: auto;
      background-color: #dbf3fa;
+     color: #094c72;
+     font-size: 15px;
      box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
 }
 
@@ -291,6 +337,24 @@ input:checked[type="checkbox"]:before {
           color: #094c72;
           border-radius: 5px;
           box-shadow: 1px 1px 1px 0px #2f739c;
-          margin: 15px 0px 0 130px;
+          margin: 15px 0 20px 130px;
+     }
+
+     .btn-req {
+          cursor: pointer;
+          display: inline-block;
+          width: 90px;
+          background-color: #88cff9;
+          padding: 8px 5px;
+          font-size: 15px;
+          font-family: inherit;
+          color: #094c72;
+          border-radius: 5px;
+          box-shadow: 1px 1px 1px 0px #2f739c;
+          margin: 15px 0 20px 170px;
+     }
+
+     .rto {
+          margin-left: 0;
      }
 }

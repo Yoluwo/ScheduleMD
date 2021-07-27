@@ -219,16 +219,15 @@ h2 {
      cursor: pointer;
      display: inline-block;
      width: 150px;
-     background-color: #dbf3fa;
+     background-color: #88cff9;
      padding: 10px 5px;
      font-size: 18px;
      font-family: inherit;
      color: #094c72;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0 0 110px;
+     margin: 15px 0 20px 110px;
 }
-
 
 .btn:hover {
      color: #dcf4fc;
@@ -247,7 +246,7 @@ h2 {
 /*CSS for designing the submain and calendar UI for the schedule pages*/
 .submain {
      margin: 20px 0px 10px 20px;
-     background-color: #dbf3fa;
+     background-color: #dcf4fc;
      width: 280px;
      border: 1px dashed #095280;     
 }
@@ -261,14 +260,17 @@ p {
 .wrapper {
      display: flex;
      justify-content: flex-start;
-     margin-left: 20px;
+     margin-left: 15px;
      margin-top: 20px;
      padding: 0;
      width: 100%;
-     height: auto;                  
+     height: auto;
 }
 
 .calendar {
+     margin-left: 20px;
+     margin-top: 20px;
+     margin-bottom: 20px;
      width: 600px;
      height: 500px;
      background-color: #dcf4fc;
@@ -443,7 +445,7 @@ p {
           height: 100%;
           overflow-x: auto;
      }
-     
+
      .navigation {
           width: 175px;
           background: #094c72;
@@ -502,6 +504,8 @@ p {
      .calendar {
           width: 300px;
           height: 440px;
+          margin-left: 0;
+          margin-bottom: 20px;
      }
 
      .weekdays {
@@ -543,12 +547,12 @@ p {
           width: 95%;
           margin: 10px 10px;
      }
-     
+
      img {
           max-width: 100%;
           height: auto;
      }
-     
+
      .text-wrapper {
           width: 100%;
           position: relative;
@@ -576,5 +580,34 @@ p {
           display: grid;
           grid-template-columns: repeat(2,52.5%);
           grid-gap: 15px;
+     }
+
+     .btn, option {
+          cursor: pointer;
+          display: inline-block;
+          width: 150px;
+          background-color: #88cff9;
+          padding: 10px 5px;
+          font-size: 18px;
+          font-family: inherit;
+          color: #094c72;
+          border-radius: 5px;
+          box-shadow: 1px 1px 1px 0px #2f739c;
+          margin: 15px 0 0 110px;
+     }
+
+     /* styling the button in responsive view */
+     .btn:hover {
+          color: #dcf4fc;
+     }
+
+     .btn:focus {
+          outline: none;
+     }
+
+     .btn:active {
+          transform: scale(0.96);
+          background-color: #bdd2d9;
+          color: #094c72;
      }
 }
