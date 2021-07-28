@@ -9,9 +9,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import models.*;
 import services.SchedulingService;
 import dataaccess.*;
+import java.util.concurrent.TimeUnit;
 
 public class ScheduleServlet extends HttpServlet {
 
@@ -19,6 +21,7 @@ public class ScheduleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Show Last month, this month, next month(if exist)
+        HttpSession session = request.getSession();
         SchedulingService ss = new SchedulingService();
         UserDB userDB = new UserDB();
         ScheduleDB sDB = new ScheduleDB();
@@ -26,96 +29,72 @@ public class ScheduleServlet extends HttpServlet {
         User user = null;
         String email = (String) request.getSession().getAttribute("email");
         Date now = new Date();
-        boolean beforeFound = false, afterFound = false;
-        try{
-            sList =  sDB.findByIsActive(true);
+        try {
+            sList = sDB.findByIsActive(true);
             user = userDB.get(email);
-        } catch(Exception e){
-            
+        } catch (Exception e) {
+
         }
         ArrayList<Schedule> scheduleList = new ArrayList<>(sList);
         ArrayList<Schedule> usersScheduleList = new ArrayList<>();
-        int z=1, y=1;
-        for(int i = 0; i < scheduleList.size(); i++){
-            Schedule s = scheduleList.get(i);
-            if(s.getHospital().getHospitalID() == user.getHospital().getHospitalID()){
-                if(s.getStartDate().before(now) && s.getEndDate().after(now)){
-                    while(!beforeFound && !afterFound){
-                        Schedule temp = null;
-                        if(!beforeFound){
-                            try{
-                                temp = sDB.getByScheduleID(s.getScheduleID() - z);
-                                z--;
-                            }
-                            catch(Exception e){
-                                
-                            }
-                            if(temp.getHospital().getHospitalID() == user.getHospital().getHospitalID()){
-                                if(temp.getEndDate().before(s.getStartDate())){
-                                    usersScheduleList.add(s);
-                                    beforeFound = true;
-                                }
-                            }
-                        }
-                        if(!afterFound){
-                            try{
-                                temp = sDB.getByScheduleID(s.getScheduleID() + y);
-                                y--;
-                            }
-                            catch(Exception e){
-                                
-                            }
-                            if(temp.getHospital().getHospitalID() == user.getHospital().getHospitalID()){
-                                if(temp.getStartDate().after(s.getEndDate())){
-                                    usersScheduleList.add(s);
-                                    afterFound = true;
-                                }
-                            }
-                        }
-                    }
-                }
-                
-            }
-        }
-        boolean found = false;
-        Schedule schedule = null;
+        int z = 1, y = 1;
+        boolean curMonthFound = false, beforeMonthFound = false, afterMonthFound = false;
+        Schedule schedule = null, curMonthSchedule = null;
         List<Shift> sortedShiftsFinal = null;
-        for(int i = 0; i < usersScheduleList.size() && !found; i++){
-            schedule = usersScheduleList.get(i);
-            if(schedule.getStartDate().before(now)){
-                if(schedule.getEndDate().after(now)){
+        for (int i = 0; i < scheduleList.size() && !curMonthFound; i++) {
+            schedule = scheduleList.get(i);
+            if (schedule.getHospital().getHospitalID() == user.getHospital().getHospitalID()) {
+                if (schedule.getStartDate().before(now) && schedule.getEndDate().after(now)) {
+                    usersScheduleList.add(schedule);
                     List<Shift> test = schedule.getShiftList();
                     ArrayList<Shift> shifts = new ArrayList<>(test);
                     List<Shift> sortedShifts = ss.sortShifts(shifts);
                     ArrayList<Shift> shifts2 = new ArrayList<>(sortedShifts);
-                    if(schedule.getHospital().getHospitalID() == 1){
-                        sortedShiftsFinal = ss.sortShiftsByRole1(shifts2);                
-                    }
-                    else{
+                    if (schedule.getHospital().getHospitalID() == 1) {
+                        sortedShiftsFinal = ss.sortShiftsByRole1(shifts2);
+                    } else {
                         sortedShiftsFinal = ss.sortShiftsByRole2(shifts2);
                     }
-                    found = true;
-            
+                curMonthFound = true;
+                curMonthSchedule = schedule;
+                }
+
+            }
+        }
+
+
+        if(curMonthFound){
+            Date curStart = curMonthSchedule.getStartDate();
+            Date curEnd = curMonthSchedule.getEndDate();
+            for(int i = 0; i < scheduleList.size(); i++){
+                schedule = scheduleList.get(i);
+                Date end = schedule.getEndDate();
+                long diffInMillis = Math.abs(curStart.getTime() - end.getTime());
+                long diffInDays = TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS);
+                if(diffInDays < 2 && diffInDays >= 0){
+                    usersScheduleList.add(schedule);
                 }
             }
-            else{
-                List<Shift> test = schedule.getShiftList();
-                ArrayList<Shift> shifts = new ArrayList<>(test);
-                List<Shift> sortedShifts = ss.sortShifts(shifts);
-                ArrayList<Shift> shifts2 = new ArrayList<>(sortedShifts);
-                if(schedule.getHospital().getHospitalID() == 1){
-                    sortedShiftsFinal = ss.sortShiftsByRole1(shifts2);                
-                }
-                else{
-                    sortedShiftsFinal = ss.sortShiftsByRole2(shifts2);
+            for(int i = 0; i < scheduleList.size(); i++){
+                schedule = scheduleList.get(i);
+                Date start = schedule.getStartDate();
+                long diffInMillis = Math.abs(start.getTime() - curEnd.getTime());
+                long diffInDays = TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS);
+                if(diffInDays < 2 && diffInDays >= 0){
+                    usersScheduleList.add(schedule);
                 }
             }
         }
-        request.setAttribute("schedule", schedule);
+        else {
+            String message = "You currently have no active schedules.";
+            request.setAttribute("message", message);
+        }
+
+        request.setAttribute("schedule", curMonthSchedule);
         request.setAttribute("shifts", sortedShiftsFinal);
-        request.setAttribute("scheduleList", scheduleList);
+        session.setAttribute("scheduleList", usersScheduleList);
         
-        
+
         getServletContext().getRequestDispatcher("/WEB-INF/schedule.jsp")
                 .forward(request, response);
     }
@@ -123,8 +102,30 @@ public class ScheduleServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int scheduleID = Integer.parseInt(request.getParameter("scheduleToView"));
+        ScheduleDB sDB = new ScheduleDB();
+        SchedulingService ss = new SchedulingService();
+        scheduleID = Integer.parseInt(request.getParameter("scheduleToView"));
+            Schedule schedule = null;
+            try {
+                schedule = sDB.getByScheduleID(scheduleID);
+            } catch (Exception e) {
+
+            }
+            List<Shift> test = schedule.getShiftList();
+            ArrayList<Shift> shifts = new ArrayList<>(test);
+            List<Shift> sortedShifts = ss.sortShifts(shifts);
+            ArrayList<Shift> shifts2 = new ArrayList<>(sortedShifts);
+            List<Shift> sortedShiftsFinal;
+            if (schedule.getHospital().getHospitalID() == 1) {
+                sortedShiftsFinal = ss.sortShiftsByRole1(shifts2);
+            } else {
+                sortedShiftsFinal = ss.sortShiftsByRole2(shifts2);
+            }
+
+            request.setAttribute("schedule", schedule);
+            request.setAttribute("shifts", sortedShiftsFinal);
         getServletContext().getRequestDispatcher("/WEB-INF/schedule.jsp")
                 .forward(request, response);
     }
 }
-
