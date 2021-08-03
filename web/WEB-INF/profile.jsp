@@ -67,6 +67,7 @@
                          <h1>Profile</h1>
                     </div>
                     <section>
+                         <div>
                          <div class="Scriptcontent">
                          <!-- Student Profile -->
                               <div class="student-profile py-4">
@@ -134,6 +135,7 @@
                                         </div>
                                    </div>
                               </div>
+                         </div>
                          </div>
                     </section>
           </div>

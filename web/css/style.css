@@ -225,15 +225,15 @@ h2 {
 }
 
 
-.btn:hover {
+.btn:hover, .btn-add:hover  {
      color: #dcf4fc;
 }
 
-.btn:focus {
+.btn:focus, .btn-add:focus  {
      outline: none;
 }
 
-.btn:active {
+.btn:active, .btn-add:active  {
      transform: scale(0.96);
      background-color: #bdd2d9;
      color: #094c72;
