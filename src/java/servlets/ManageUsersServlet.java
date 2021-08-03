@@ -49,23 +49,22 @@ public class ManageUsersServlet extends HttpServlet {
         try {
             switch (action) {
                 case "add":
-                    /*
-                    String newEmail = request.getParameter("newEmail");
-                    String newFirstName = request.getParameter("newFirstName");
-                    String newLastName = request.getParameter("newLastName");
-                    String newPassword = request.getParameter("newPassword");
-                    if (!newEmail.equals("") && !newFirstName.equals("") && !newLastName.equals("") && !newPassword.equals("")) {
-                        as.insert(newEmail, true, newFirstName, newLastName, newPassword, 2);
+                    String addFirstName = request.getParameter("addFirstName");
+                    String addLastName = request.getParameter("addLastName");
+                    String addEmail = request.getParameter("addEmail");
+                    String addPassword = request.getParameter("addPassword");
+                    String addHospital = request.getParameter("addHospitalName");
+                    String addRole = request.getParameter("addRoleName");
+                    if (!addFirstName.equals("") && !addLastName.equals("") && !addEmail.equals("") &&  !addPassword.equals("") && !addHospital.equals("") && !addRole.equals("")) {
+                        as.insert(addFirstName, addLastName, addEmail, addPassword, addHospital, addRole, true);
                     } else {
                         throw new Exception();
                     }
-                    */
+                    
                     break;
                 case "delete":
-                    /*
                     String deleteUser = request.getParameter("deleteUser");
                     as.delete(deleteUser);
-                    */
                     break;
                 case "edit":
                     /*

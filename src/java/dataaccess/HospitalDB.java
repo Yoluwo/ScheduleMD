@@ -25,6 +25,17 @@ public class HospitalDB {
                em.close();
           }
      }
+     
+     public Hospital getByHospitalName (String hospitalName) throws Exception {
+          EntityManager em = DBUtil.getEmFactory().createEntityManager();
+          Hospital hospital = null;
+          try {
+              hospital = em.createNamedQuery("Hospital.findByHospitalName", Hospital.class).setParameter("hospitalName", hospitalName).getSingleResult();
+              return hospital;
+          } finally {
+              em.close();
+          }
+     }
 
      public void insert(Hospital hospital) throws Exception {
           EntityManager em = DBUtil.getEmFactory().createEntityManager();

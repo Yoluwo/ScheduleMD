@@ -119,32 +119,63 @@
                               </table>
                               <c:if test="${selectedUser ne null}">
                                    <h2>Edit User</h2>
+                                   <form action="manageUsers" method="post">
+                                        <table>
+                                            <tr>
+                                                <td><label for="html">First Name</label></td>
+                                                <td><input type="text" name="editFirstName" value="${selectedUser.firstName}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label for="html">Last Name</label></td>
+                                                <td><input type="text" name="editLastName" value="${selectedUser.lastName}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label for="html">Email</label></td>
+                                                <td><input type="text" name="editEmail" value="${selectedUser.email}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label for="html">Hospital</label></td>
+                                                <td><input type="text" name="editHospitalName" value="${selectedUser.hospital.hospitalName}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label for="html">Role</label></td>
+                                                <td><input type="text" name="editRoleName" value="${selectedUser.role.roleName}"></td>
+                                            </tr>
+                                        </table>
+                                        <input type="hidden" name="action" value="edit">
+                                        <input type="submit" value="Edit User">
+                                     </form>
                               </c:if>
                               <c:if test="${selectedUser eq null}">
                                 <h2>Add Users</h2>
-                                <form action="">
+                                <form action="manageUsers" method="post">
                                     <table>
                                         <tr>
                                             <td><label for="html">First Name</label></td>
-                                            <td><input type="text" id="firstName" value=""></td>
+                                            <td><input type="text" name="addFirstName" value=""></td>
                                         </tr>
                                         <tr>
                                             <td><label for="html">Last Name</label></td>
-                                            <td><input type="text" id="lastName" value=""></td>
+                                            <td><input type="text" name="addLastName" value=""></td>
                                         </tr>
                                         <tr>
                                             <td><label for="html">Email</label></td>
-                                            <td><input type="text" id="email" value=""></td>
+                                            <td><input type="text" name="addEmail" value=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="html">Password</label></td>
+                                            <td><input type="text" name="addPassword" value=""></td>
                                         </tr>
                                         <tr>
                                             <td><label for="html">Hospital</label></td>
-                                            <td><input type="text" id="hospitalName" value=""></td>
+                                            <td><input type="text" name="addHospitalName" value=""></td>
                                         </tr>
                                         <tr>
                                             <td><label for="html">Role</label></td>
-                                            <td><input type="text" id="roleName" value=""></td>
+                                            <td><input type="text" name="addRoleName" value=""></td>
                                         </tr>
                                     </table>
+                                    <input type="hidden" name="action" value="add">
                                     <input type="submit" value="Add User">
                                  </form>
                               </c:if>

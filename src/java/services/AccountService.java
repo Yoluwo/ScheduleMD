@@ -1,7 +1,13 @@
 package services;
+import dataaccess.HospitalDB;
+import dataaccess.RoleDB;
 import models.User;
 import dataaccess.UserDB;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import models.Hospital;
+import models.Role;
 
 /*
     The AccountService class is used to validate a user and allow them access
@@ -83,5 +89,31 @@ public class AccountService {
         UserDB userDB = new UserDB();
         List<User> users = userDB.getAll();
         return users;
+    }
+
+    public void insert(String addFirstName, String addLastName, String addEmail, String addPassword, String addHospital, String addRole, boolean isActive) throws Exception {
+        UserDB userDB = new UserDB();
+        HospitalDB hospitalDB = new HospitalDB();
+        RoleDB roleDB = new RoleDB();
+        
+        User user = new User(0, addFirstName, addLastName, addEmail, addPassword, isActive);
+        
+        Hospital hospital = hospitalDB.getByHospitalName(addHospital);
+        user.setHospital(hospital);
+        
+        Role role = roleDB.getByRoleName(addRole);
+        user.setRole(role);
+        
+        userDB.insert(user); 
+    }
+
+    public void delete(String deleteUser) throws Exception {
+        UserDB userDB = new UserDB();
+        User user = userDB.get(deleteUser);
+        if (user.getRole().getRoleID() != 1) {
+            userDB.delete(user);
+        } else {
+            throw new Exception();
+        }
     }
 }
