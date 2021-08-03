@@ -233,14 +233,6 @@ input:checked[type="checkbox"]:before {
      left: 14px;
 }
 
-/*CSS for styling the ManageUsers Page */
-.manage {
-     margin-top: 10px;
-     width: 65%;
-     height: 250px; 
-     background-color: #dbf3fa;
-}
-
 .rto {
      margin-top: 20px;
      margin-left: 15px;

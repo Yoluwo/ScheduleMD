@@ -13,7 +13,7 @@
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
           <title>Manage Users</title>
           <link href="css/style.css" rel="stylesheet" type="text/css">
-         <link href="css/manUsers.css" rel="stylesheet" type="text/css">
+          <link href="css/manUsers.css" rel="stylesheet" type="text/css">
           <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" rel="stylesheet" >
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
@@ -66,28 +66,28 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Manage User Profiles</h1>
                     </div>
-                    <p>
-                         <c:if test="${message eq 'add'}">User added.</c:if>
-                         <c:if test="${message eq 'edit'}">User updated.</c:if>
-                         <c:if test="${message eq 'delete'}">User deleted.</c:if>
-                         <c:if test="${message eq 'error'}">Sorry, something went wrong.</c:if>
-                         </p>
-                         <div class="wrapper">
-                              <div class="manage">
-                                   <h2>Manage Users </h2>
-                                   <table role="table">
-                                        <thead role="rowgroup">
-                                             <tr role="row">
-                                                  <th role="columnheader">First Name</th>
-                                                  <th role="columnheader">Last Name</th>
-                                                  <th role="columnheader">Email</th>
-                                                  <th role="columnheader">Hospital</th>
-                                                  <th role="columnheader">Role</th> 
-                                                  <th role="columnheader">Edit</th>
-                                                  <th role="columnheader">Delete</th>
-                                             </tr>
-                                        </thead>
-                                        <tbody role="rowgroup">
+                    <div class="wrapper">
+                          <p>
+                              <c:if test="${message eq 'add'}">User added.</c:if>
+                              <c:if test="${message eq 'edit'}">User updated.</c:if>
+                              <c:if test="${message eq 'delete'}">User deleted.</c:if>
+                              <c:if test="${message eq 'error'}">Sorry, something went wrong.</c:if>
+                              </p>
+                         <div class="manage">
+                              <h2>Manage Users </h2>
+                              <table role="table">
+                                   <thead role="rowgroup">
+                                        <tr role="row">
+                                             <th role="columnheader">First Name</th>
+                                             <th role="columnheader">Last Name</th>
+                                             <th role="columnheader">Email</th>
+                                             <th role="columnheader">Hospital</th>
+                                             <th role="columnheader">Role</th> 
+                                             <th role="columnheader">Edit</th>
+                                             <th role="columnheader">Delete</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody role="rowgroup">
                                         <c:forEach items="${users}" var="user">
                                              <c:if test="${user.firstName ne 'Extender'}">
                                                   <tr role="row">
@@ -97,7 +97,7 @@
                                                        <td role="cell">${user.hospital.hospitalName}</td>
                                                        <td role="cell">${user.role.roleName}</td> 
                                                        <td role="cell">
-                                                            <form action="manageUsers" method="get">
+                                                            <form action="manageUsers" method="GET">
                                                                  <input type="hidden" name="action" value="editButton">
                                                                  <input type="hidden" name="editUser" value="${user.email}">
                                                                  <input type="submit" value="Edit">
@@ -118,67 +118,75 @@
                                    </tbody>
                               </table>
                               <c:if test="${selectedUser ne null}">
-                                   <h2>Edit User</h2>
-                                   <form action="manageUsers" method="post">
-                                        <table>
-                                            <tr>
-                                                <td><label for="html">First Name</label></td>
-                                                <td><input type="text" name="editFirstName" value="${selectedUser.firstName}"></td>
-                                            </tr>
-                                            <tr>
-                                                <td><label for="html">Last Name</label></td>
-                                                <td><input type="text" name="editLastName" value="${selectedUser.lastName}"></td>
-                                            </tr>
-                                            <tr>
-                                                <td><label for="html">Email</label></td>
-                                                <td><input type="text" name="editEmail" value="${selectedUser.email}"></td>
-                                            </tr>
-                                            <tr>
-                                                <td><label for="html">Hospital</label></td>
-                                                <td><input type="text" name="editHospitalName" value="${selectedUser.hospital.hospitalName}"></td>
-                                            </tr>
-                                            <tr>
-                                                <td><label for="html">Role</label></td>
-                                                <td><input type="text" name="editRoleName" value="${selectedUser.role.roleName}"></td>
-                                            </tr>
-                                        </table>
-                                        <input type="hidden" name="action" value="edit">
-                                        <input type="submit" value="Edit User">
-                                     </form>
+                                   <div class="addUser">
+                                        <h2>Edit User</h2>
+                                        <form action="manageUsers" method="POST">
+                                             <table role="table">
+                                                  <tbody role="rowgroup">
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">First Name</label></td>
+                                                            <td role="cell"><input type="text" name="editFirstName" value="${selectedUser.firstName}"></td>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">Last Name</label></td>
+                                                            <td role="cell"><input type="text" name="editLastName" value="${selectedUser.lastName}"></td>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">Email</label></td>
+                                                            <td role="cell"><input type="text" name="editEmail" value="${selectedUser.email}"></td>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">Hospital</label></td>
+                                                            <td role="cell"><input type="text" name="editHospitalName" value="${selectedUser.hospital.hospitalName}"></td>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">Role</label></td>
+                                                            <td role="cell"><input type="text" name="editRoleName" value="${selectedUser.role.roleName}"></td>
+                                                       </tr>
+                                                  </tbody>
+                                             </table>
+                                             <input type="hidden" name="action" value="edit">
+                                             <button class="btn" type="submit" value="Edit User">Edit User</button>
+                                        </form>
+                                   </div>
                               </c:if>
                               <c:if test="${selectedUser eq null}">
-                                <h2>Add Users</h2>
-                                <form action="manageUsers" method="post">
-                                    <table>
-                                        <tr>
-                                            <td><label for="html">First Name</label></td>
-                                            <td><input type="text" name="addFirstName" value=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="html">Last Name</label></td>
-                                            <td><input type="text" name="addLastName" value=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="html">Email</label></td>
-                                            <td><input type="text" name="addEmail" value=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="html">Password</label></td>
-                                            <td><input type="text" name="addPassword" value=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="html">Hospital</label></td>
-                                            <td><input type="text" name="addHospitalName" value=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="html">Role</label></td>
-                                            <td><input type="text" name="addRoleName" value=""></td>
-                                        </tr>
-                                    </table>
-                                    <input type="hidden" name="action" value="add">
-                                    <input type="submit" value="Add User">
-                                 </form>
-                              </c:if>
+                                   <div class="addUser">
+                                        <h2>Add Users</h2>
+                                        <form action="manageUsers" method="POST">
+                                             <table role="table">
+                                                  <tbody role="rowgroup">
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">First Name</label></td>
+                                                            <td role="cell"><input type="text" name="addFirstName" value=""></td>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">Last Name</label></td>
+                                                            <td role="cell"><input type="text" name="addLastName" value=""></td>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">Email</label></td>
+                                                            <td role="cell"><input type="text" name="addEmail" value=""></td>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">Password</label></td>
+                                                            <td role="cell"><input type="text" name="addPassword" value=""></td>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <td><label for="html">Hospital</label></td>
+                                                            <td><input type="text" name="addHospitalName" value=""></td>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">Role</label></td>
+                                                            <td role="cell"><input type="text" name="addRoleName" value=""></td>
+                                                       </tr>
+                                                  </tbody>
+                                             </table>
+                                             <input type="hidden" name="action" value="add">
+                                             <button class="btn" type="submit">Add User</button>
+                                        </form>
+                                   </c:if>
+                              </div>
                          </div>
                     </div>
                </div>
