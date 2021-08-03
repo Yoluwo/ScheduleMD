@@ -19,7 +19,7 @@
      <body>
           <!--Java Single Page for the forgot password link -->
           <div class="logo"> 
-               <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
+               <h1><a href="login"><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</a></h1>
           </div>
           <div class="container">
                <!-- Insert back button here -->

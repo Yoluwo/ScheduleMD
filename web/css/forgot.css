@@ -36,6 +36,12 @@ body {
      margin-top: 0;
 }
 
+a {
+     background-color: #094c72;
+     color: #fff;
+     text-decoration: none;
+}
+
 /* CSS for designing the forgot and reset password forms */
 .container {
      max-width: 400px;
