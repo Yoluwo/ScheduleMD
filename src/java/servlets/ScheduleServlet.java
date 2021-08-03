@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import models.*;
 import services.SchedulingService;
 import dataaccess.*;
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 public class ScheduleServlet extends HttpServlet {
@@ -45,6 +46,10 @@ public class ScheduleServlet extends HttpServlet {
             schedule = scheduleList.get(i);
             if (schedule.getHospital().getHospitalID() == user.getHospital().getHospitalID()) {
                 if (schedule.getStartDate().before(now) && schedule.getEndDate().after(now)) {
+                    Calendar c = Calendar.getInstance();
+                    c.setTime(schedule.getEndDate());
+                    c.add(Calendar.DATE, -1);
+                    schedule.setEndDate(c.getTime());
                     usersScheduleList.add(schedule);
                     List<Shift> test = schedule.getShiftList();
                     ArrayList<Shift> shifts = new ArrayList<>(test);
@@ -72,6 +77,10 @@ public class ScheduleServlet extends HttpServlet {
                 long diffInMillis = Math.abs(curStart.getTime() - end.getTime());
                 long diffInDays = TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS);
                 if(diffInDays < 2 && diffInDays >= 0){
+                    Calendar c = Calendar.getInstance();
+                    c.setTime(end);
+                    c.add(Calendar.DATE, -1);
+                    schedule.setEndDate(c.getTime());
                     usersScheduleList.add(schedule);
                 }
             }
@@ -81,6 +90,11 @@ public class ScheduleServlet extends HttpServlet {
                 long diffInMillis = Math.abs(start.getTime() - curEnd.getTime());
                 long diffInDays = TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS);
                 if(diffInDays < 2 && diffInDays >= 0){
+                    Calendar c = Calendar.getInstance();
+                    c.setTime(start);
+                    c.add(Calendar.DATE, -1);
+                    schedule.setEndDate(c.getTime());
+                    usersScheduleList.add(schedule);
                     usersScheduleList.add(schedule);
                 }
             }

@@ -53,8 +53,8 @@ public class TheScheduleServlet extends HttpServlet {
                 found = true;
             }
         }
-        if(!found){
-            for(int i = 0; i < scheduleList.size() && !found; i++){
+        if (!found) {
+            for (int i = 0; i < scheduleList.size() && !found; i++) {
                 schedule = scheduleList.get(i);
                 List<Shift> test = schedule.getShiftList();
                 ArrayList<Shift> shifts = new ArrayList<>(test);
@@ -69,7 +69,12 @@ public class TheScheduleServlet extends HttpServlet {
                 }
             }
         }
-        
+        for (int i = 0; i < scheduleList.size(); i++) {
+            Calendar c = Calendar.getInstance();
+            c.setTime(scheduleList.get(i).getEndDate());
+            c.add(Calendar.DATE, -1);
+            scheduleList.get(i).setEndDate(c.getTime());
+        }
         request.setAttribute("schedule", schedule);
         request.setAttribute("shifts", sortedShiftsFinal);
         request.setAttribute("scheduleList", scheduleList);
@@ -137,6 +142,13 @@ public class TheScheduleServlet extends HttpServlet {
 
         }
         ArrayList<Schedule> scheduleList = new ArrayList<>(sList);
+
+        for (int i = 0; i < scheduleList.size(); i++) {
+            Calendar c = Calendar.getInstance();
+            c.setTime(scheduleList.get(i).getEndDate());
+            c.add(Calendar.DATE, -1);
+            scheduleList.get(i).setEndDate(c.getTime());
+        }
 
         request.setAttribute("scheduleList", scheduleList);
         getServletContext().getRequestDispatcher("/WEB-INF/theSchedule.jsp")
