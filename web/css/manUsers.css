@@ -68,6 +68,10 @@ td, th {
 
 .wrapper p {
      margin: 0;
+     color: #dbf3fa;
+     background-color: #2f739c;
+     text-align: center;
+     font-size: 22px;
 }
 
 .addUser {

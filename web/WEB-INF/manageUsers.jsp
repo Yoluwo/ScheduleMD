@@ -67,13 +67,13 @@
                          <h1>Manage User Profiles</h1>
                     </div>
                     <div class="wrapper">
-                          <p>
+                         <div class="manage">
+                              <p>
                               <c:if test="${message eq 'add'}">User added.</c:if>
                               <c:if test="${message eq 'edit'}">User updated.</c:if>
                               <c:if test="${message eq 'delete'}">User deleted.</c:if>
                               <c:if test="${message eq 'error'}">Sorry, something went wrong.</c:if>
                               </p>
-                         <div class="manage">
                               <h2>Manage Users </h2>
                               <table role="table">
                                    <thead role="rowgroup">
