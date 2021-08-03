@@ -26,7 +26,7 @@
                          <li>
                               <a href="resident">
                                    <span class="icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
-                                   <span class="title"><h1 style="margin-top: 10px; font-size: 27px; font-family: 'lato', sans-serif;">ScheduleMD</h1></span>
+                                   <span class="title"><h1>ScheduleMD</h1></span>
                               </a>
                          </li>
                          <li>
@@ -54,12 +54,6 @@
                               </a>
                          </li>
                          <li>
-                              <a href="settings">
-                                   <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                                   <span class="title">Settings</span>
-                              </a>
-                         </li>
-                         <li>
                               <a href="login">
                                    <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
                                    <span class="title">Logout</span>
@@ -68,7 +62,7 @@
                     </ul>
                </div>
                <div class="main">
-                    <div class="topbar" style="width: 1702px;">
+                    <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Profile</h1>
                     </div>
@@ -115,16 +109,15 @@
                                                                            </tr>
                                                                       </table>
                                                                  </div>
-                                                            </div>
                                                        </div>
-
-                                                       <div class="wrapper">
-                                                            <form method="POST" action="profile">
-                                                                 <h2>Reset Password </h2>
-                                                                 <div class="form-control">
-                                                                      <label for="oldPassword">Old Password: </label>
-                                                                      <input type="password" name="oldPassword" id="oldpassword" required>
-                                                                 </div>
+                                                  </div>
+                                                  <div class="submain">
+                                                       <form method="POST" action="profile">
+                                                            <h2>Reset Password </h2>
+                                                            <div class="form-control">
+                                                                 <label for="oldPassword">Old Password: </label>
+                                                                 <input type="password" name="oldPassword" id="oldpassword" required>
+                                                            </div>
                                                                  <div class="form-control">
                                                                       <label for="newPassword">New Password: </label>
                                                                       <input type="password" name="newPassword" id="newpassword" required>
@@ -132,12 +125,12 @@
                                                                  <div class="form-control">
                                                                       <label for="confirmPassword">Confirm Password: </label>
                                                                       <input type="password" name="confirmPassword" id="confirmPassword" required>
-                                                                 </div>
+                                                            </div>
                                                                  <button class="btn">Submit</button>
-                                                            </form>
+                                                       </form>
                                                             <br>
                                                             <p> ${message}</p>
-                                                       </div>
+                                                  </div>
                                         </div>
                                    </div>
                               </div>

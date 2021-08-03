@@ -183,7 +183,7 @@
                                                   </tbody>
                                              </table>
                                              <input type="hidden" name="action" value="add">
-                                             <button class="btn" type="submit">Add User</button>
+                                             <button class="btn-add" type="submit">Add User</button>
                                         </form>
                                    </c:if>
                               </div>

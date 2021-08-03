@@ -182,25 +182,6 @@ h2 {
      font-family: 'merriweather', sans-serif;
 }
 
-.decide select {
-     background-color: #dcf4fc;
-     border: 2px #094c72 solid;
-     border-radius: 5px;
-     box-sizing: border-box;
-     display: block;
-     width: 45%;
-     margin:0;
-     padding: 10px 23px 8px 13px;
-     font-size: 15px;
-     font-weight: 600;
-     font-family: 'merriweather', sans-serif;
-     color: #094c72;
-}
-
-.decide option {
-     font-weight: normal;
-}
-
 .form-control input:focus, 
 .form-control input:valid {
      outline: none;
@@ -226,8 +207,23 @@ h2 {
      color: #094c72;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0 20px 110px;
+}
+
+.btn-add{
+     cursor: pointer;
+     display: inline-block;
+     width: 150px;
+     background-color: #88cff9;
+     padding: 10px 5px;
+     font-size: 18px;
+     font-family: inherit;
+     color: #094c72;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
      margin: 15px 0 20px 525px;
 }
+
 
 .btn:hover {
      color: #dcf4fc;
@@ -433,6 +429,26 @@ p {
 
 .cards .card .icon {
      color: #00254d;
+}
+
+/*CSS for designing the approve/deny form of the review page */
+.decide select {
+     background-color: #dcf4fc;
+     border: 2px #094c72 solid;
+     border-radius: 5px;
+     box-sizing: border-box;
+     display: block;
+     width: 45%;
+     margin:0;
+     padding: 10px 23px 8px 13px;
+     font-size: 15px;
+     font-weight: 600;
+     font-family: 'merriweather', sans-serif;
+     color: #094c72;
+}
+
+.decide option {
+     font-weight: normal;
 }
 
 /* Cascading style sheets for designing the page's responsiveness */
