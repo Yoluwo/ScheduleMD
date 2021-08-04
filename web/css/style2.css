@@ -178,7 +178,7 @@ td, th {
      margin: 15px 0px 20px 20px;
 }
 
-.btn-save:hover, .btn-submit:hover, .btn-sched:hover, .btn-req:hover, .btn-review:hover, .btn-confirm:hover, .btn-use:hover {
+.btn-save:hover, .btn-submit:hover, .btn-sched:hover, .btn-req:hover, .btn-review:hover, .btn-confirm:hover, .btn-use:hover, input[type="submit"]:hover {
      color: #dcf4fc;
 }
 
@@ -186,11 +186,11 @@ td, th {
      background-color: #bdd2d9;
 }
 
-.btn-cancel:focus, .btn-save:focus, .btn-submit:focus, .btn-sched:focus, .btn-req:focus, .btn-review:focus, .btn-confirm:focus, .btn-new:focus, .btn-use:focus {
+.btn-cancel:focus, .btn-save:focus, .btn-submit:focus, .btn-sched:focus, .btn-req:focus, .btn-review:focus, .btn-confirm:focus, .btn-new:focus, .btn-use:focus, input[type="submit"]:focus {
      outline: none;
 }
 
-.btn-cancel:active, .btn-save:active, .btn-submit:active, .btn-sched:active, .btn-req:active, .btn-review:active, .btn-confirm:active, .btn-new:active, .btn-use:active {
+.btn-cancel:active, .btn-save:active, .btn-submit:active, .btn-sched:active, .btn-req:active, .btn-review:active, .btn-confirm:active, .btn-new:active, .btn-use:active, input[type="submit"]:active {
      transform: scale(0.96);
      background-color: #bdd2d9;
      color: #094c72;
@@ -262,6 +262,22 @@ input:checked[type="checkbox"]:before {
 .req h2 {
      text-align: left;
 }
+
+input[type="submit"] {
+     cursor: pointer;
+     display: inline-block;
+     width: 150px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #00254d;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0px 20px 20px;
+}
+
+
 
 @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
 
