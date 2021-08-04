@@ -86,7 +86,7 @@
                     <c:if test="${hidden eq null}">
                         <table class="mtable">
                             <c:forEach items="${noteList}" var="note">
-                                <c:if test="${note.isHidden eq null}">
+                                <c:if test="${note.isHidden eq false}">
                                 <tr>
                                     <td>${note.note}</td>
                                     <td>
