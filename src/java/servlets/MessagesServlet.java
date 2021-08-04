@@ -91,7 +91,7 @@ public class MessagesServlet extends HttpServlet {
 
                 notificationList = noteService.findNotificationByUser(currentUser);
                 request.setAttribute("noteList", notificationList);
-                request.setAttribute("hidden", true);
+                request.setAttribute("hidden", false);
                 break;
                
         }
