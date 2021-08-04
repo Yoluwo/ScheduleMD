@@ -67,12 +67,14 @@
                     <h1>Notifications</h1>
                 </div>
                 <div>
+                    <table>
                     <c:forEach items="${noteList}" var="note">
                         <tr role="row">
                             <td role="cell">${note.note}</td>
                         </tr>
-
+                        
                     </c:forEach>
+                    </table>   
                 </div>
             </div>
             <script type="text/javascript" src="js/script.js"></script>

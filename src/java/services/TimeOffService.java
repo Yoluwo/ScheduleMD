@@ -88,9 +88,11 @@ public class TimeOffService {
 
         if (reason.isEmpty()) {
             Notification note = new Notification(0, userOfTimeOffRequest.getFirstName() + " , your time off request for " + startDate + " until " + endDate + " has been denied.");
+            note.setUser(userOfTimeOffRequest);
             saveNotification(note);
         } else {
             Notification note = new Notification(0, userOfTimeOffRequest.getFirstName() + " , your time off request for " + startDate + " until " + endDate + " has been denied : " + reason);
+            note.setUser(userOfTimeOffRequest);
             saveNotification(note);
         }
 

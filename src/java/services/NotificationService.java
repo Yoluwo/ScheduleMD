@@ -17,23 +17,25 @@ public class NotificationService {
 
     public List<Notification> findNotificationByUser(User user) {
 
-        ArrayList<Notification> notifications = new ArrayList<>();
-        List notificationsToReturn = null;
+        ArrayList notificationsToReturn = new ArrayList<>();
         int userID = user.getUserID();
 
         NotificationDB noteDB = new NotificationDB();
         try {
-            notifications = (ArrayList) noteDB.getAll();
+
+            List<Notification> notifications = noteDB.getAll();
+
+            for (Notification note : notifications) {
+                int currentUserID = note.getUser().getUserID();
+                if (currentUserID == userID) {
+                    notificationsToReturn.add(note);
+                }
+            }
+
         } catch (Exception e) {
 
         }
-        for (Notification note : notifications) {
-            int currentUserID = note.getUser().getUserID();
-            if (currentUserID == userID) {
-                notificationsToReturn.add(note);
-            }
-        }
+
         return notificationsToReturn;
     }
 }
-
