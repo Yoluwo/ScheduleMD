@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `schedulemddb`.`notification` (
     `NotificationID` INT(3) NOT NULL AUTO_INCREMENT,
     `Note` VARCHAR(100) NOT NULL,
     `User` INT(4) NOT NULL,
+    `IsHidden` boolean,
     PRIMARY KEY (`NotificationID`),
     CONSTRAINT `fk_user_id_noticiation`
         FOREIGN KEY (`User`)

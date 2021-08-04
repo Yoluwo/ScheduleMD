@@ -9,6 +9,7 @@ import dataaccess.*;
 import java.util.*;
 import java.text.*;
 import models.*;
+import services.*;
 
 /**
  *
@@ -52,11 +53,12 @@ public class TimeOffService {
 
     public Timeoff makeTimeOffRequest(User user, Date startDate, Date endDate) {
         //Making a new time off object with the request dates
+        NotificationService noteService = new NotificationService();
         Timeoff newTimeOff = new Timeoff(0, Calendar.getInstance().getTime(), startDate, endDate, false);
         newTimeOff.setUser(user);
         Notification note = new Notification(0, "User: " + user.getFirstName() + " " + user.getLastName() + " has made a Timeoff Request");
         note.setUser(user);
-        saveNotification(note);
+        noteService.saveNotification(note);
         saveTimeOff(newTimeOff);
         return newTimeOff;
     }
@@ -64,13 +66,14 @@ public class TimeOffService {
     //Requests will be displayed through the servlet
     public Timeoff approveTimeOffRequest(Timeoff timeOffRequest) {
         //Approve TimeOff Request
+        NotificationService noteService = new NotificationService();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String startDate = format.format(timeOffRequest.getStartDate());
         String endDate = format.format(timeOffRequest.getEndDate());
         User userOfTimeOffRequest = timeOffRequest.getUser();
         Notification note = new Notification(0, "Your time off request for " + startDate + " until " + endDate + " has been approved!");
         note.setUser(userOfTimeOffRequest);
-        saveNotification(note);
+        noteService.saveNotification(note);
         timeOffRequest.setIsApproved(true);
 
         updateTimeOff(timeOffRequest);
@@ -80,7 +83,7 @@ public class TimeOffService {
 
     public void denyTimeOffRequest(Timeoff timeOffRequest, String reason) {
         //Needs to have a way to say why its denied
-
+        NotificationService noteService = new NotificationService();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String startDate = format.format(timeOffRequest.getStartDate());
         String endDate = format.format(timeOffRequest.getEndDate());
@@ -89,11 +92,11 @@ public class TimeOffService {
         if (reason.isEmpty()) {
             Notification note = new Notification(0, userOfTimeOffRequest.getFirstName() + " , your time off request for " + startDate + " until " + endDate + " has been denied.");
             note.setUser(userOfTimeOffRequest);
-            saveNotification(note);
+            noteService.saveNotification(note);
         } else {
             Notification note = new Notification(0, userOfTimeOffRequest.getFirstName() + " , your time off request for " + startDate + " until " + endDate + " has been denied : " + reason);
             note.setUser(userOfTimeOffRequest);
-            saveNotification(note);
+            noteService.saveNotification(note);
         }
 
         deleteTimeOff(timeOffRequest);
@@ -129,15 +132,6 @@ public class TimeOffService {
         }
     }
 
-    public void saveNotification(Notification note) {
-        NotificationDB nDB = new NotificationDB();
-        try {
-            nDB.insert(note);
-        } catch (Exception e) {
-            System.out.println("Error in saving notification");
-        }
-    }
-
     public List<Timeoff> getPendingRequests() {
 
         TimeoffDB tDB = new TimeoffDB();
@@ -169,7 +163,7 @@ public class TimeOffService {
         Timeoff timeOff = null;
 
         try {
-             timeOff = tDB.getByTimeOffID(timeOffID);
+            timeOff = tDB.getByTimeOffID(timeOffID);
         } catch (Exception e) {
         }
         return timeOff;

@@ -67,14 +67,44 @@
                     <h1>Notifications</h1>
                 </div>
                 <div>
-                    <table>
-                    <c:forEach items="${noteList}" var="note">
-                        <tr role="row">
-                            <td role="cell">${note.note}</td>
-                        </tr>
-                        
-                    </c:forEach>
-                    </table>   
+                    <c:if test="${hidden ne null}">
+                        <table class="mtable">
+                            <c:forEach items="${noteList}" var="note">
+                                <c:if test="${note.isHidden eq true}">
+                                    <tr>
+                                        <td>${note.note}</td>
+                                    </tr>
+                                </c:if>
+                            </c:forEach>
+                        </table>
+                         <form action="messages" method="post">
+                            <input type="submit" name="hideDeleted" value="Hide Deleted Notifications">
+                            <input type="hidden" name="action" value="hideDeleted">
+                        </form>
+                    </c:if>
+
+                    <c:if test="${hidden eq null}">
+                        <table class="mtable">
+                            <c:forEach items="${noteList}" var="note">
+                                <c:if test="${note.isHidden eq false}">
+                                <tr>
+                                    <td>${note.note}</td>
+                                    <td>
+                                        <form action="messages" method="post">
+                                            <input type="submit" name="deleteNote" value="Delete">
+                                            <input type="hidden" name="action" value="delete">
+                                            <input type="hidden" name="deleteNoteHidden" value="${note.notificationID}">
+                                        </form>
+                                    <td>
+                                </tr>
+                                </c:if>
+                            </c:forEach>
+                        </table> 
+                        <form action="messages" method="post">
+                            <input type="submit" name="showDeleted" value="Show Deleted Notifications">
+                            <input type="hidden" name="action" value="showDeleted">
+                        </form>
+                    </c:if>
                 </div>
             </div>
             <script type="text/javascript" src="js/script.js"></script>

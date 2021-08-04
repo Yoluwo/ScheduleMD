@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author epaul
+ * @author 743851
  */
 @Entity
 @Table(name = "notification")
@@ -29,7 +29,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Notification.findAll", query = "SELECT n FROM Notification n")
     , @NamedQuery(name = "Notification.findByNotificationID", query = "SELECT n FROM Notification n WHERE n.notificationID = :notificationID")
-    , @NamedQuery(name = "Notification.findByNote", query = "SELECT n FROM Notification n WHERE n.note = :note")})
+    , @NamedQuery(name = "Notification.findByNote", query = "SELECT n FROM Notification n WHERE n.note = :note")
+    , @NamedQuery(name = "Notification.findByIsHidden", query = "SELECT n FROM Notification n WHERE n.isHidden = :isHidden")})
 public class Notification implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -41,6 +42,8 @@ public class Notification implements Serializable {
     @Basic(optional = false)
     @Column(name = "Note")
     private String note;
+    @Column(name = "IsHidden")
+    private Boolean isHidden;
     @JoinColumn(name = "User", referencedColumnName = "UserID")
     @ManyToOne(optional = false)
     private User user;
@@ -71,6 +74,14 @@ public class Notification implements Serializable {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public Boolean getIsHidden() {
+        return isHidden;
+    }
+
+    public void setIsHidden(Boolean isHidden) {
+        this.isHidden = isHidden;
     }
 
     public User getUser() {

@@ -34,4 +34,18 @@ public class NotificationDB {
         }
 
     }
+
+    public Notification getByTimeOffID(int notificationID) throws Exception {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        Notification notification = null;
+        try {
+            notification = em.createNamedQuery("Notification.findByNotificationID", Notification.class).setParameter("notificationID", notificationID).getSingleResult();
+            return notification;
+        } finally {
+            em.close();
+        }
+    }
+    
+   
+
 }
