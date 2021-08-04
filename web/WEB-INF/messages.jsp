@@ -8,92 +8,73 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-     <head>
-          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-          <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
-          <title>Messages</title>
-          <link href="css/messages.css" rel="stylesheet" type="text/css">
-          <link href="css/style.css" rel="stylesheet" type="text/css" >
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-          <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
-          <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
-     </head>
-     <body>
-          <!--Java Single Page for the Resident's Messages -->
-          <div class="container">
-               <div class="navigation">
-                    <ul> 
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
+        <title>Messages</title>
+        <link href="css/messages.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css" >
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <!--Java Single Page for the Resident's Messages -->
+        <div class="container">
+            <div class="navigation">
+                <ul> 
                     <li>
-                         <a href="resident">
-                         <span class="icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
-                         <span class="title"><h1>ScheduleMD</h1></span>
-                         </a>
+                        <a href="resident">
+                            <span class="icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+                            <span class="title"><h1>ScheduleMD</h1></span>
+                        </a>
                     </li>
                     <li>
-                         <a href="schedule">
-                         <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                         <span class="title">Schedule</span>
-                         </a>
+                        <a href="schedule">
+                            <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                            <span class="title">Schedule</span>
+                        </a>
                     </li>
                     <li>
-                         <a href="profile">
-                         <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                         <span class="title">Profile</span>
-                         </a>
+                        <a href="profile">
+                            <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                            <span class="title">Profile</span>
+                        </a>
                     </li>
                     <li>
-                         <a href="request">
-                         <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
-                         <span class="title">Request Time Off</span>
-                         </a>
+                        <a href="request">
+                            <span class="icon"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
+                            <span class="title">Request Time Off</span>
+                        </a>
                     </li>
                     <li>
-                         <a href="messages">
-                         <span class="icon"><i class="fa fa-comment" aria-hidden="true"></i></span>
-                         <span class="title">Messages</span>
-                         </a>
+                        <a href="messages">
+                            <span class="icon"><i class="fa fa-comment" aria-hidden="true"></i></span>
+                            <span class="title">Messages</span>
+                        </a>
                     </li>
                     <li>
-                         <a href="login">
-                         <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
-                         <span class="title">Logout</span>
-                         </a>
+                        <a href="login">
+                            <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                            <span class="title">Logout</span>
+                        </a>
                     </li>
-                    </ul>
-               </div>
-               <div class="main">
-                    <div class="topbar">
-                         <div class="toggle" onclick="toggleMenu()"></div>
-                              <h1>Notifications</h1>
-                    </div>
-                   <div>
-                       <table class="mtable">
-                           <tr>
-                               <td>Welcome to ScheduleMD!</td>
-                               <td><button class="btn"><i class="fa fa-trash"></i></button></td>
-                           </tr>
-                           <tr>
-                               <td>Welcome to ScheduleMD!</td>
-                               <td><button class="btn"><i class="fa fa-trash"></i></button></td>
-                           </tr>
-                           <tr>
-                               <td>Welcome to ScheduleMD!</td>
-                               <td><button class="btn"><i class="fa fa-trash"></i></button></td>
-                           </tr>
-                           <tr>
-                               <td>Welcome to ScheduleMD!</td>
-                               <td><button class="btn"><i class="fa fa-trash"></i></button></td>
-                           </tr>
-                           <jsp:useBean id="messages" class="models.Notification"></jsp:useBean>
-                           <c:forEach var="notes" items="{$messages.note}">
-                           <tr>
-                               <td>{$notes[0]}</td>
-                               <td><button class="btn"><i class="fa fa-trash"></i></button></td>    
-                           </tr>
-                           </c:forEach>
-                       </table>
-                   </div>
-          </div>
-               <script type="text/javascript" src="js/script.js"></script>
-     </body>
+                </ul>
+            </div>
+            <div class="main">
+                <div class="topbar">
+                    <div class="toggle" onclick="toggleMenu()"></div>
+                    <h1>Notifications</h1>
+                </div>
+                <div>
+                    <c:forEach items="${noteList}" var="note">
+                        <tr role="row">
+                            <td role="cell">${note.note}</td>
+                        </tr>
+
+                    </c:forEach>
+                </div>
+            </div>
+            <script type="text/javascript" src="js/script.js"></script>
+    </body>
 </html>

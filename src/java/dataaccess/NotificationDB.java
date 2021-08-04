@@ -7,11 +7,10 @@ import models.*;
 
 public class NotificationDB {
 
-     public void insert(Notification note) throws Exception {
+    public void insert(Notification note) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         try {
-       
 
             trans.begin();
             em.persist(note);
@@ -22,5 +21,17 @@ public class NotificationDB {
         } finally {
             em.close();
         }
+    }
+
+    public List<Notification> getAll() throws Exception {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+
+        try {
+            List<Notification> notifications = em.createNamedQuery("Notification.findAll", Notification.class).getResultList();
+            return notifications;
+        } finally {
+            em.close();
+        }
+
     }
 }
