@@ -49,7 +49,7 @@ public class MessagesServlet extends HttpServlet {
         NotificationService noteService = new NotificationService();
         AccountService accountService = new AccountService();
         HttpSession session = request.getSession();
-        
+
         String email = (String) session.getAttribute("email");
         User currentUser = null;
 
@@ -59,6 +59,15 @@ public class MessagesServlet extends HttpServlet {
 
                 int noteID = Integer.parseInt(request.getParameter("deleteNoteHidden"));
                 noteService.hideNotification(noteID);
+
+                try {
+                    currentUser = accountService.getUser(email);
+                } catch (Exception ex) {
+                    Logger.getLogger(MessagesServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                List<Notification> notificationList = noteService.findNotificationByUser(currentUser);
+                request.setAttribute("noteList", notificationList);
                 break;
 
             case "showDeleted":
@@ -69,24 +78,22 @@ public class MessagesServlet extends HttpServlet {
                     Logger.getLogger(MessagesServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
-                List<Notification> notificationListHidden = noteService.findNotificationByUser(currentUser);
-
-                request.setAttribute("noteList", notificationListHidden);
+                notificationList = noteService.findNotificationByUser(currentUser);
+                request.setAttribute("noteList", notificationList);
                 request.setAttribute("hidden", true);
                 break;
             case "hideDeleted":
-
                 try {
                     currentUser = accountService.getUser(email);
                 } catch (Exception ex) {
                     Logger.getLogger(MessagesServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
-                List<Notification> notificationList = noteService.findNotificationByUser(currentUser);
-
+                notificationList = noteService.findNotificationByUser(currentUser);
                 request.setAttribute("noteList", notificationList);
-                request.setAttribute("hidden", null);
+                request.setAttribute("hidden", true);
                 break;
+               
         }
 
         getServletContext().getRequestDispatcher("/WEB-INF/messages.jsp")

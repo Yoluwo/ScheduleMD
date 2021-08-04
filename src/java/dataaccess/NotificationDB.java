@@ -46,6 +46,21 @@ public class NotificationDB {
         }
     }
     
+       public void update(Notification notification) throws Exception {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+
+        try {
+            trans.begin();
+            em.merge(notification);
+            trans.commit();
+        } catch (Exception ex) {
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+    }
+    
    
 
 }
