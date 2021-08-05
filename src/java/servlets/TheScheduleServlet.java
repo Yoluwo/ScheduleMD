@@ -28,6 +28,7 @@ public class TheScheduleServlet extends HttpServlet {
             throws ServletException, IOException {
         SchedulingService ss = new SchedulingService();
         ScheduleDB sDB = new ScheduleDB();
+        HttpSession session = request.getSession();
         List<Schedule> sList = null;
         try {
             sList = sDB.findByIsActive(true);
@@ -77,6 +78,7 @@ public class TheScheduleServlet extends HttpServlet {
             scheduleList.get(i).setEndDate(c.getTime());
         }
         request.setAttribute("schedule", schedule);
+        session.setAttribute("scheduleID", schedule.getScheduleID());
         request.setAttribute("shifts", sortedShiftsFinal);
         request.setAttribute("scheduleList", scheduleList);
         getServletContext().getRequestDispatcher("/WEB-INF/theSchedule.jsp")
@@ -95,21 +97,23 @@ public class TheScheduleServlet extends HttpServlet {
         boolean swapConfirm = false;
         Schedule schedule = null;
         String action = request.getParameter("action");
-
-        switch (action) {
-            case "swap":
-                request.setAttribute("swap", true);
-                scheduleID = (int) session.getAttribute("scheduleID");
-                swap = true;
-                break;
-            case "swapConfirm":
-                scheduleID = (int) session.getAttribute("scheduleID");
-                int swapScheduleID = scheduleID;
-                int shiftSwap1 = Integer.parseInt(request.getParameter("shiftSwap1"));
-                int shiftSwap2 = Integer.parseInt(request.getParameter("shiftSwap2"));
-                swapConfirm = true;
-                schedule = ss.swapShifts(swapScheduleID, shiftSwap1, shiftSwap2);
-                break;
+        
+        if (action != null) {
+            switch (action) {
+                case "swap":
+                    request.setAttribute("swap", true);
+                    scheduleID = (int) session.getAttribute("scheduleID");
+                    swap = true;
+                    break;
+                case "swapConfirm":
+                    scheduleID = (int) session.getAttribute("scheduleID");
+                    int swapScheduleID = scheduleID;
+                    int shiftSwap1 = Integer.parseInt(request.getParameter("swap1List"));
+                    int shiftSwap2 = Integer.parseInt(request.getParameter("swap2List"));
+                    swapConfirm = true;
+                    schedule = ss.swapShifts(swapScheduleID, shiftSwap1, shiftSwap2);
+                    break;
+            }
         }
 
         if (fromCreated == null || fromCreated.isEmpty()) {

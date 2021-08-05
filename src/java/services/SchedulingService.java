@@ -196,7 +196,7 @@ public class SchedulingService {
 
     }
 
-    public Schedule swapShifts(Integer scheduleID, Integer shiftID1, Integer shiftID2) {
+    public Schedule swapShifts(int scheduleID, int shiftID1, int shiftID2) {
         
         ShiftDB shiftdb = new ShiftDB();
         ScheduleDB scheduleDB = new ScheduleDB();
@@ -215,25 +215,31 @@ public class SchedulingService {
 
         
         List<Shift> shiftList = schedule.getShiftList();
+        ArrayList<Shift> shiftListArray = new ArrayList<>();
+        
 
         int i = 0;
         for (Shift shift : shiftList) {
             
-            if (shift.getShiftID() == shiftID1) {
+            if (shift.getShiftID().equals(shiftID1) ) {
                 shift1 = shift;
                 shift1User = shift.getUser();
                 shiftList.remove(i);
-            } else if (shift.getShiftID() == shiftID1) {
+            } else if (shift.getShiftID().equals(shiftID1)) {
                 shift2 = shift;
-                shift1User = shift.getUser();
+                shift2User = shift.getUser();
                 shiftList.remove(i);
             }
             i++;
         }
         shift1.setUser(shift2User);
         shift2.setUser(shift1User);
-        shiftList.add(shift1);
-        shiftList.add(shift2);
+       
+        shiftListArray = (ArrayList)shiftList;
+        shiftListArray.add(shift1);
+        shiftListArray.add(shift2);
+        
+       List<Shift> shiftListUpdated = shiftListArray;
         
         try {
             shiftdb.update(shift1);
@@ -242,7 +248,7 @@ public class SchedulingService {
             Logger.getLogger(SchedulingService.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        schedule.setShiftList(shiftList);
+        schedule.setShiftList(shiftListUpdated);
         updateSchedule(schedule);
 
         return schedule;
