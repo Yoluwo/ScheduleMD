@@ -197,7 +197,7 @@ public class SchedulingService {
     }
 
     public Schedule swapShifts(int scheduleID, int shiftID1, int shiftID2) {
-        
+
         ShiftDB shiftdb = new ShiftDB();
         ScheduleDB scheduleDB = new ScheduleDB();
         Shift shift1 = null;
@@ -207,23 +207,20 @@ public class SchedulingService {
         Schedule schedule = null;
         int firstRemovalIndex = 0;
         int secondRemovalIndex = 0;
-        
-       
+
         try {
             schedule = scheduleDB.getByScheduleID(scheduleID);
         } catch (Exception ex) {
             Logger.getLogger(SchedulingService.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
         List<Shift> shiftList = schedule.getShiftList();
         ArrayList<Shift> shiftListArray = new ArrayList<>(shiftList);
-        
 
         int i = 0;
         for (Shift shift : shiftListArray) {
-            
-            if (shift.getShiftID().equals(shiftID1) ) {
+
+            if (shift.getShiftID().equals(shiftID1)) {
                 shift1 = shift;
                 shift1User = shift.getUser();
                 firstRemovalIndex = i;
@@ -231,29 +228,31 @@ public class SchedulingService {
                 shift2 = shift;
                 shift2User = shift.getUser();
                 secondRemovalIndex = i;
-                
+
             }
             i++;
         }
-        
+
         shiftListArray.remove(firstRemovalIndex);
-        shiftListArray.remove(secondRemovalIndex);
+        if (firstRemovalIndex < secondRemovalIndex) {
+            shiftListArray.remove(secondRemovalIndex - 1);
+        }
+
         shift1.setUser(shift2User);
         shift2.setUser(shift1User);
-       
-        
+
         shiftListArray.add(shift1);
         shiftListArray.add(shift2);
-        
-       List<Shift> shiftListUpdated = shiftListArray;
-        
+
+        List<Shift> shiftListUpdated = shiftListArray;
+
         try {
             shiftdb.update(shift1);
             shiftdb.update(shift2);
         } catch (Exception ex) {
             Logger.getLogger(SchedulingService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         schedule.setShiftList(shiftListUpdated);
         updateSchedule(schedule);
 
