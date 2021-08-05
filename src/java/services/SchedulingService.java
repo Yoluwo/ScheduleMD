@@ -259,4 +259,41 @@ public class SchedulingService {
         return schedule;
     }
 
+    public Schedule fillExtender(int scheduleID, int shiftID, int userID) {
+        ShiftDB shiftdb = new ShiftDB();
+        ScheduleDB scheduleDB = new ScheduleDB();
+        UserDB userDB = new UserDB();
+
+        User user = null;
+        Schedule schedule = null;
+        ArrayList<Shift> shiftList = new ArrayList<>();
+
+        try {
+            user = userDB.getUserByID(userID);
+            schedule = scheduleDB.getByScheduleID(scheduleID);
+        } catch (Exception ex) {
+            Logger.getLogger(SchedulingService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        shiftList =  new ArrayList(schedule.getShiftList());
+        int i = 0;
+        for (Shift shifts : shiftList) {
+            if (shifts.getShiftID() == shiftID) {
+                shifts.setUser(user);
+                try {
+                    shiftdb.update(shifts);
+
+                } catch (Exception ex) {
+                    Logger.getLogger(SchedulingService.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        List<Shift> shiftListUpdated = shiftList;
+
+        schedule.setShiftList(shiftListUpdated);
+        updateSchedule(schedule);
+
+        return schedule;
+
+    }
+
 }

@@ -96,6 +96,7 @@ public class TheScheduleServlet extends HttpServlet {
         HttpSession session = request.getSession();
         SchedulingService ss = new SchedulingService();
         String fromCreated = (String) request.getSession().getAttribute("fromCreated");
+        AccountService as = new AccountService();
         int scheduleID = 0;
         boolean swap = false;
         boolean swapConfirm = false;
@@ -106,7 +107,7 @@ public class TheScheduleServlet extends HttpServlet {
             switch (action) {
                 case "swap":
                     request.setAttribute("swap", true);
-                    scheduleID = (int)session.getAttribute("scheduleID");
+                    scheduleID = (int) session.getAttribute("scheduleID");
                     swap = true;
                     break;
                 case "swapConfirm":
@@ -116,6 +117,34 @@ public class TheScheduleServlet extends HttpServlet {
                     int shiftSwap2 = Integer.parseInt(request.getParameter("swap2List"));
                     swapConfirm = true;
                     schedule = ss.swapShifts(swapScheduleID, shiftSwap1, shiftSwap2);
+                    break;
+
+                case "fill":
+
+                    scheduleID = (int) session.getAttribute("scheduleID");
+                    swap = true;
+                    int fillShiftID = Integer.parseInt(request.getParameter("fillHidden"));
+                    session.setAttribute("fillShiftID", fillShiftID);
+                    request.setAttribute("fill", true);
+
+                    try {
+                        List<User> users = as.getAll();
+                        request.setAttribute("usersFill", users);
+                    } catch (Exception e) {
+                        request.setAttribute("message", "error");
+                    }
+
+                    break;
+                case "fillExtenderWithUser":
+
+                    scheduleID = (int) session.getAttribute("scheduleID");
+                    int fillShift = (int) session.getAttribute("fillShiftID");
+                    int userID = Integer.parseInt(request.getParameter("fillExtenderWithUser"));
+                    schedule = ss.fillExtender(scheduleID, fillShift, userID);
+                    request.setAttribute("fill", null);
+
+                    swapConfirm = true;
+
                     break;
             }
         }
