@@ -77,8 +77,12 @@ public class TheScheduleServlet extends HttpServlet {
             c.add(Calendar.DATE, -1);
             scheduleList.get(i).setEndDate(c.getTime());
         }
+        if (schedule != null) {
+            session.setAttribute("scheduleID", schedule.getScheduleID());
+        }
+
         request.setAttribute("schedule", schedule);
-        session.setAttribute("scheduleID", schedule.getScheduleID());
+
         request.setAttribute("shifts", sortedShiftsFinal);
         request.setAttribute("scheduleList", scheduleList);
         getServletContext().getRequestDispatcher("/WEB-INF/theSchedule.jsp")
@@ -97,12 +101,12 @@ public class TheScheduleServlet extends HttpServlet {
         boolean swapConfirm = false;
         Schedule schedule = null;
         String action = request.getParameter("action");
-        
+
         if (action != null) {
             switch (action) {
                 case "swap":
                     request.setAttribute("swap", true);
-                    scheduleID = (int) session.getAttribute("scheduleID");
+                    scheduleID = (int)session.getAttribute("scheduleID");
                     swap = true;
                     break;
                 case "swapConfirm":
@@ -167,6 +171,7 @@ public class TheScheduleServlet extends HttpServlet {
             } else {
                 sortedShiftsFinal = ss.sortShiftsByRole2(shifts2);
             }
+            session.setAttribute("scheduleID", schedule.getScheduleID());
             request.setAttribute("schedule", schedule);
             request.setAttribute("shifts", sortedShiftsFinal);
 

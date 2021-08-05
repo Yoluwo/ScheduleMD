@@ -205,6 +205,8 @@ public class SchedulingService {
         User shift1User = null;
         User shift2User = null;
         Schedule schedule = null;
+        int firstRemovalIndex = 0;
+        int secondRemovalIndex = 0;
         
        
         try {
@@ -215,27 +217,31 @@ public class SchedulingService {
 
         
         List<Shift> shiftList = schedule.getShiftList();
-        ArrayList<Shift> shiftListArray = new ArrayList<>();
+        ArrayList<Shift> shiftListArray = new ArrayList<>(shiftList);
         
 
         int i = 0;
-        for (Shift shift : shiftList) {
+        for (Shift shift : shiftListArray) {
             
             if (shift.getShiftID().equals(shiftID1) ) {
                 shift1 = shift;
                 shift1User = shift.getUser();
-                shiftList.remove(i);
-            } else if (shift.getShiftID().equals(shiftID1)) {
+                firstRemovalIndex = i;
+            } else if (shift.getShiftID().equals(shiftID2)) {
                 shift2 = shift;
                 shift2User = shift.getUser();
-                shiftList.remove(i);
+                secondRemovalIndex = i;
+                
             }
             i++;
         }
+        
+        shiftListArray.remove(firstRemovalIndex);
+        shiftListArray.remove(secondRemovalIndex);
         shift1.setUser(shift2User);
         shift2.setUser(shift1User);
        
-        shiftListArray = (ArrayList)shiftList;
+        
         shiftListArray.add(shift1);
         shiftListArray.add(shift2);
         
