@@ -87,6 +87,14 @@
                                 </select> 
                                 <button type="submit">Show schedule</button>
                             </form> 
+                            <form method="POST" action="theSchedule">
+                                <select name="hospitalToView">
+                                    <option value="foothills">Foothills Medical Center</option>
+                                    <option value="peter">Peter Lougheed Hospital</option>
+                                    <input type="hidden" name="scheduleToView" value="${schedule.getScheduleID()}">
+                                </select>
+                                <button type="submit">Submit</button>
+                            </form>
                         </c:if>
 
                     </div>

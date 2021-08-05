@@ -102,6 +102,7 @@ public class TheScheduleServlet extends HttpServlet {
         boolean swapConfirm = false;
         Schedule schedule = null;
         String action = request.getParameter("action");
+        String hospitalToView = request.getParameter("hospitalToView");
 
         if (action != null) {
             switch (action) {
@@ -213,7 +214,25 @@ public class TheScheduleServlet extends HttpServlet {
 
         }
         ArrayList<Schedule> scheduleList = new ArrayList<>(sList);
-
+        ArrayList<Schedule> scheduleListFinal = new ArrayList<>();
+        if(hospitalToView != null){
+            for(int i = 0; i < scheduleList.size(); i++){
+                if(hospitalToView.equals("peter")){
+                    if(scheduleList.get(i).getHospital().getHospitalID() == 2){
+                        scheduleListFinal.add(scheduleList.get(i));
+                    }
+                }
+                else if(hospitalToView.equals("foothills")){
+                    if(scheduleList.get(i).getHospital().getHospitalID() == 1){
+                        scheduleListFinal.add(scheduleList.get(i));
+                    }
+                }
+            }
+            
+        }
+        else{
+            scheduleListFinal = scheduleList;
+        }
         for (int i = 0; i < scheduleList.size(); i++) {
             Calendar c = Calendar.getInstance();
             c.setTime(scheduleList.get(i).getEndDate());
@@ -221,7 +240,7 @@ public class TheScheduleServlet extends HttpServlet {
             scheduleList.get(i).setEndDate(c.getTime());
         }
 
-        request.setAttribute("scheduleList", scheduleList);
+        request.setAttribute("scheduleList", scheduleListFinal);
         getServletContext().getRequestDispatcher("/WEB-INF/theSchedule.jsp")
                 .forward(request, response);
     }
