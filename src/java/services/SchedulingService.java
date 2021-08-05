@@ -18,7 +18,7 @@ public class SchedulingService {
         UserService userService = new UserService();
         ShiftService shiftService = new ShiftService();
         TimeOffService timeOffService = new TimeOffService();
-        
+
         ArrayList<User> acess = new ArrayList<>();
         ArrayList<User> trauma = new ArrayList<>();
         ArrayList<User> senior = new ArrayList<>();
@@ -87,8 +87,8 @@ public class SchedulingService {
         seniorShiftsEmpty = shiftService.generateShifts(startDate, endDate, schedule, role3);
         approvedTimeOff = timeOffService.loadAllAprovedRequests(startDate, endDate);
         accessShifts = shiftService.sortShiftsForAssigning(accessShiftsEmpty, acess, approvedTimeOff);
-        if(hasTrauma){
-            traumaShifts = shiftService.sortShiftsForAssigning(traumaShiftsEmpty, trauma, approvedTimeOff);        
+        if (hasTrauma) {
+            traumaShifts = shiftService.sortShiftsForAssigning(traumaShiftsEmpty, trauma, approvedTimeOff);
         }
         seniorShifts = shiftService.sortShiftsForAssigning(seniorShiftsEmpty, senior, approvedTimeOff);
         loadedShiftsFinal.addAll(accessShifts);
@@ -104,73 +104,71 @@ public class SchedulingService {
         return schedule;
     }
 
-    public List<Shift> sortShifts(ArrayList<Shift> shifts){
+    public List<Shift> sortShifts(ArrayList<Shift> shifts) {
         Comparator<Shift> shiftComparator = Comparator.comparing(Shift::getNumberInBlock);
         shifts.sort(shiftComparator);
-        
+
         return shifts;
     }
-    public List<Shift> sortShiftsByRole1(ArrayList<Shift> shifts){
-        for(int i = 0; i < shifts.size(); i+=3){
-            if(shifts.get(i).getRole().getRoleID() != 2) {
-                if(shifts.get(i).getRole().getRoleID() == 4) {
-                    Shift temp = shifts.get(i+2);
-                    shifts.set(i + 2, shifts.get(i)); 
-                    if(temp.getRole().getRoleID() == 3) {
-                        Shift temp2 = shifts.get(i+1);
-                        shifts.set(i+1, temp); 
-                        shifts.set(i, temp2); 
-                    }
-                    else {
-                        shifts.set(i, temp);
-                    }
-                    
-                }
-                else if(shifts.get(i).getRole().getRoleID() == 3) {
-                    Shift temp = shifts.get(i+1);
-                    shifts.set(i+1, shifts.get(i));
-                    if(temp.getRole().getRoleID() == 2) {
-                        shifts.set(i, temp);
-                    }
-                    else {
-                        Shift temp2 = shifts.get(i+2);
+
+    public List<Shift> sortShiftsByRole1(ArrayList<Shift> shifts) {
+        for (int i = 0; i < shifts.size(); i += 3) {
+            if (shifts.get(i).getRole().getRoleID() != 2) {
+                if (shifts.get(i).getRole().getRoleID() == 4) {
+                    Shift temp = shifts.get(i + 2);
+                    shifts.set(i + 2, shifts.get(i));
+                    if (temp.getRole().getRoleID() == 3) {
+                        Shift temp2 = shifts.get(i + 1);
+                        shifts.set(i + 1, temp);
                         shifts.set(i, temp2);
-                        shifts.set(i+2, temp); 
-                        
+                    } else {
+                        shifts.set(i, temp);
+                    }
+
+                } else if (shifts.get(i).getRole().getRoleID() == 3) {
+                    Shift temp = shifts.get(i + 1);
+                    shifts.set(i + 1, shifts.get(i));
+                    if (temp.getRole().getRoleID() == 2) {
+                        shifts.set(i, temp);
+                    } else {
+                        Shift temp2 = shifts.get(i + 2);
+                        shifts.set(i, temp2);
+                        shifts.set(i + 2, temp);
+
                     }
                 }
-            }
-            else {
-                if(shifts.get(i+1).getRole().getRoleID() != 3) {
-                    Shift temp = shifts.get(i+1);
-                    Shift temp2 = shifts.get(i+2);
-                    shifts.set(i+1, temp2);
-                    shifts.set(i+2, temp);
+            } else {
+                if (shifts.get(i + 1).getRole().getRoleID() != 3) {
+                    Shift temp = shifts.get(i + 1);
+                    Shift temp2 = shifts.get(i + 2);
+                    shifts.set(i + 1, temp2);
+                    shifts.set(i + 2, temp);
                 }
             }
         }
         return shifts;
     }
-    public List<Shift> sortShiftsByRole2(ArrayList<Shift> shifts){
-        for(int i = 0; i < shifts.size(); i+=2){
-            if(shifts.get(i).getRole().getRoleID() != 2){
+
+    public List<Shift> sortShiftsByRole2(ArrayList<Shift> shifts) {
+        for (int i = 0; i < shifts.size(); i += 2) {
+            if (shifts.get(i).getRole().getRoleID() != 2) {
                 Shift temp = shifts.get(i);
-                shifts.set(i, shifts.get(i+1));
-                shifts.set(i+1, temp);
+                shifts.set(i, shifts.get(i + 1));
+                shifts.set(i + 1, temp);
             }
         }
         return shifts;
     }
-   public void updateSchedule(Schedule schedule){
-       ScheduleDB scDB = new ScheduleDB();
-       try{
-           scDB.update(schedule);
-       }
-       catch(Exception e){
-           
-       }
-   }
-    
+
+    public void updateSchedule(Schedule schedule) {
+        ScheduleDB scDB = new ScheduleDB();
+        try {
+            scDB.update(schedule);
+        } catch (Exception e) {
+
+        }
+    }
+
     public Calendar findEndDate(Calendar startDate) {
 
         Calendar endDate = Calendar.getInstance();
@@ -179,10 +177,6 @@ public class SchedulingService {
 
         return endDate;
     }
-
-
-
-    
 
     //test
     public void saveSchedule(Schedule schedule) {
@@ -200,6 +194,58 @@ public class SchedulingService {
         ScheduleDB scdb = new ScheduleDB();
         return scdb.getByStartDate(startDate, hospital);
 
+    }
+
+    public Schedule swapShifts(Integer scheduleID, Integer shiftID1, Integer shiftID2) {
+        
+        ShiftDB shiftdb = new ShiftDB();
+        ScheduleDB scheduleDB = new ScheduleDB();
+        Shift shift1 = null;
+        Shift shift2 = null;
+        User shift1User = null;
+        User shift2User = null;
+        Schedule schedule = null;
+        
+       
+        try {
+            schedule = scheduleDB.getByScheduleID(scheduleID);
+        } catch (Exception ex) {
+            Logger.getLogger(SchedulingService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+        List<Shift> shiftList = schedule.getShiftList();
+
+        int i = 0;
+        for (Shift shift : shiftList) {
+            
+            if (shift.getShiftID() == shiftID1) {
+                shift1 = shift;
+                shift1User = shift.getUser();
+                shiftList.remove(i);
+            } else if (shift.getShiftID() == shiftID1) {
+                shift2 = shift;
+                shift1User = shift.getUser();
+                shiftList.remove(i);
+            }
+            i++;
+        }
+        shift1.setUser(shift2User);
+        shift2.setUser(shift1User);
+        shiftList.add(shift1);
+        shiftList.add(shift2);
+        
+        try {
+            shiftdb.update(shift1);
+            shiftdb.update(shift2);
+        } catch (Exception ex) {
+            Logger.getLogger(SchedulingService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        schedule.setShiftList(shiftList);
+        updateSchedule(schedule);
+
+        return schedule;
     }
 
 }

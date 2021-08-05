@@ -120,12 +120,14 @@ public class ScheduleServlet extends HttpServlet {
         ScheduleDB sDB = new ScheduleDB();
         SchedulingService ss = new SchedulingService();
         scheduleID = Integer.parseInt(request.getParameter("scheduleToView"));
+        
             Schedule schedule = null;
             try {
                 schedule = sDB.getByScheduleID(scheduleID);
             } catch (Exception e) {
 
             }
+         
             List<Shift> test = schedule.getShiftList();
             ArrayList<Shift> shifts = new ArrayList<>(test);
             List<Shift> sortedShifts = ss.sortShifts(shifts);

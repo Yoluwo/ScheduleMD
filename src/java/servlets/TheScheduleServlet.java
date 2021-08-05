@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import dataaccess.*;
 import models.*;
 import java.util.*;
+import javax.servlet.http.HttpSession;
 import services.*;
 
 /**
@@ -86,17 +87,48 @@ public class TheScheduleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ScheduleDB sDB = new ScheduleDB();
+        HttpSession session = request.getSession();
         SchedulingService ss = new SchedulingService();
         String fromCreated = (String) request.getSession().getAttribute("fromCreated");
         int scheduleID = 0;
-        if (fromCreated == null || fromCreated.isEmpty()) {
-            scheduleID = Integer.parseInt(request.getParameter("scheduleToView"));
-            Schedule schedule = null;
-            try {
-                schedule = sDB.getByScheduleID(scheduleID);
-            } catch (Exception e) {
+        boolean swap = false;
+        boolean swapConfirm = false;
+        Schedule schedule = null;
+        String action = request.getParameter("action");
 
+        switch (action) {
+            case "swap":
+                request.setAttribute("swap", true);
+                scheduleID = (int) session.getAttribute("scheduleID");
+                swap = true;
+                break;
+            case "swapConfirm":
+                scheduleID = (int) session.getAttribute("scheduleID");
+                int swapScheduleID = scheduleID;
+                int shiftSwap1 = Integer.parseInt(request.getParameter("shiftSwap1"));
+                int shiftSwap2 = Integer.parseInt(request.getParameter("shiftSwap2"));
+                swapConfirm = true;
+                schedule = ss.swapShifts(swapScheduleID, shiftSwap1, shiftSwap2);
+                break;
+        }
+
+        if (fromCreated == null || fromCreated.isEmpty()) {
+            if (!swapConfirm) {
+
+                if (!swap) {
+                    scheduleID = Integer.parseInt(request.getParameter("scheduleToView"));
+                    session.setAttribute("scheduleID", scheduleID);
+                }
+
+                try {
+                    schedule = sDB.getByScheduleID(scheduleID);
+                } catch (Exception e) {
+
+                }
             }
+            List<Shift> swapShiftList = schedule.getShiftList();
+            request.setAttribute("swapShiftList", swapShiftList);
+
             List<Shift> test = schedule.getShiftList();
             ArrayList<Shift> shifts = new ArrayList<>(test);
             List<Shift> sortedShifts = ss.sortShifts(shifts);
@@ -114,7 +146,7 @@ public class TheScheduleServlet extends HttpServlet {
             request.getSession().setAttribute("fromCreated", null);
             Schedule newSched = (Schedule) request.getSession().getAttribute("scheduleID");
             int newSchedID = newSched.getScheduleID();
-            Schedule schedule = null;
+
             try {
                 schedule = sDB.getByScheduleID(newSchedID);
             } catch (Exception e) {
@@ -133,6 +165,7 @@ public class TheScheduleServlet extends HttpServlet {
             }
             request.setAttribute("schedule", schedule);
             request.setAttribute("shifts", sortedShiftsFinal);
+
         }
 
         List<Schedule> sList = null;
