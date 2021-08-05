@@ -27,8 +27,8 @@ public class ManageUsersServlet extends HttpServlet {
         String action = request.getParameter("action");
         if (action != null && action.equals("editButton")) {
             try {
-                String editUser = request.getParameter("editUser");
-                User user = as.getUser(editUser);
+                int editUser = Integer.parseInt(request.getParameter("editUser"));
+                User user = as.getUserByID(editUser);
                 request.setAttribute("selectedUser", user);
             } catch (Exception e) {
 
@@ -53,31 +53,32 @@ public class ManageUsersServlet extends HttpServlet {
                     String addLastName = request.getParameter("addLastName");
                     String addEmail = request.getParameter("addEmail");
                     String addPassword = request.getParameter("addPassword");
-                    String addHospital = request.getParameter("addHospitalName");
-                    String addRole = request.getParameter("addRoleName");
+                    String addHospital = request.getParameter("addHospital");
+                    String addRole = request.getParameter("addRole");
                     if (!addFirstName.equals("") && !addLastName.equals("") && !addEmail.equals("") &&  !addPassword.equals("") && !addHospital.equals("") && !addRole.equals("")) {
-                        as.insert(addFirstName, addLastName, addEmail, addPassword, addHospital, addRole, true);
+                        as.insert(addFirstName, addLastName, addEmail, addPassword, addHospital, addRole, true, false);
                     } else {
                         throw new Exception();
                     }
                     
                     break;
                 case "delete":
-                    String deleteUser = request.getParameter("deleteUser");
+                    int deleteUser = Integer.parseInt(request.getParameter("deleteUser"));
                     as.delete(deleteUser);
                     break;
                 case "edit":
-                    /*
-                    String editEmail = request.getParameter("editEmail");
+                    int editID = Integer.parseInt(request.getParameter("editID"));
                     String editFirstName = request.getParameter("editFirstName");
                     String editLastName = request.getParameter("editLastName");
-                    String editPassword = request.getParameter("editPassword");
-                    if (!editEmail.equals("") && !editFirstName.equals("") && !editLastName.equals("") && !editPassword.equals("")) {
-                        as.update(editEmail, editFirstName, editLastName, editPassword);
+                    String editEmail = request.getParameter("editEmail");
+                    String editHospital = request.getParameter("editHospital");
+                    String editRole = request.getParameter("editRole");
+                    if (!editFirstName.equals("") && !editLastName.equals("") && !editEmail.equals("") && !editHospital.equals("") && !editRole.equals("")) {
+                        as.update(editID, editFirstName, editLastName, editEmail, editHospital, editRole);
                     } else {
                         throw new Exception();
                     }
-                    */
+                    
             }
             request.setAttribute("message", action);
         } catch (Exception e) {

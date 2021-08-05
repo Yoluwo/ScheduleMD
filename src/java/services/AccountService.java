@@ -85,13 +85,19 @@ public class AccountService {
         return user;
     }
     
+    public User getUserByID(int userID) throws Exception {
+        UserDB userDB = new UserDB();
+        User user = userDB.getUserByID(userID);
+        return user;
+    }
+    
     public List<User> getAll() throws Exception {
         UserDB userDB = new UserDB();
         List<User> users = userDB.getAll();
         return users;
     }
 
-    public void insert(String addFirstName, String addLastName, String addEmail, String addPassword, String addHospital, String addRole, boolean isActive) throws Exception {
+    public void insert(String addFirstName, String addLastName, String addEmail, String addPassword, String addHospital, String addRole, boolean isActive, boolean isExtender) throws Exception {
         UserDB userDB = new UserDB();
         HospitalDB hospitalDB = new HospitalDB();
         RoleDB roleDB = new RoleDB();
@@ -104,16 +110,40 @@ public class AccountService {
         Role role = roleDB.getByRoleName(addRole);
         user.setRole(role);
         
+        user.setIsExtender(isExtender);
+        
         userDB.insert(user); 
     }
 
-    public void delete(String deleteUser) throws Exception {
+    public void delete(int deleteUser) throws Exception {
         UserDB userDB = new UserDB();
-        User user = userDB.get(deleteUser);
+        User user = userDB.getUserByID(deleteUser);
+        System.out.println(user.getFirstName());
         if (user.getRole().getRoleID() != 1) {
             userDB.delete(user);
         } else {
             throw new Exception();
         }
+    }
+
+    public void update(int editID, String editFirstName, String editLastName, String editEmail, String editHospital, String editRole) throws Exception {
+        UserDB userDB = new UserDB();
+        HospitalDB hospitalDB = new HospitalDB();
+        RoleDB roleDB = new RoleDB();
+        
+        User user = userDB.getUserByID(editID);
+        
+        System.out.println(user.getFirstName());
+        
+        Hospital hospital = hospitalDB.getByHospitalName(editHospital);
+        Role role = roleDB.getByRoleName(editRole);
+        
+        user.setFirstName(editFirstName);
+        user.setLastName(editLastName);
+        user.setEmail(editEmail);
+        user.setHospital(hospital);
+        user.setRole(role);
+        
+        userDB.update(user);
     }
 }
