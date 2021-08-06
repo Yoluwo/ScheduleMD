@@ -54,9 +54,12 @@ public class TimeOffService {
     public Timeoff makeTimeOffRequest(User user, Date startDate, Date endDate) {
         //Making a new time off object with the request dates
         NotificationService noteService = new NotificationService();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Timeoff newTimeOff = new Timeoff(0, Calendar.getInstance().getTime(), startDate, endDate, false);
+        String startDateFmt = format.format(newTimeOff.getStartDate());
+        String endDateFmt = format.format(newTimeOff.getEndDate());
         newTimeOff.setUser(user);
-        Notification note = new Notification(0, "User: " + user.getFirstName() + " " + user.getLastName() + " has made a Timeoff Request");
+        Notification note = new Notification(0, user.getFirstName() + ", your request for time off from" + startDateFmt +" until " +endDateFmt+" is pending review");
         note.setUser(user);
         noteService.saveNotification(note);
         saveTimeOff(newTimeOff);

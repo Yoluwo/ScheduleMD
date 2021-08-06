@@ -33,7 +33,7 @@ public class MessagesServlet extends HttpServlet {
         }
 
         List<Notification> notificationList = noteService.findNotificationByUser(currentUser);
-
+        
         request.setAttribute("noteList", notificationList);
 
         getServletContext().getRequestDispatcher("/WEB-INF/messages.jsp")
