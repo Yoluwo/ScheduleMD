@@ -106,19 +106,7 @@ public class TheScheduleServlet extends HttpServlet {
 
         if (action != null) {
             switch (action) {
-                case "swap":
-                    request.setAttribute("swap", true);
-                    scheduleID = (int) session.getAttribute("scheduleID");
-                    swap = true;
-                    break;
-                case "swapConfirm":
-                    scheduleID = (int) session.getAttribute("scheduleID");
-                    int swapScheduleID = scheduleID;
-                    int shiftSwap1 = Integer.parseInt(request.getParameter("swap1List"));
-                    int shiftSwap2 = Integer.parseInt(request.getParameter("swap2List"));
-                    swapConfirm = true;
-                    schedule = ss.swapShifts(swapScheduleID, shiftSwap1, shiftSwap2);
-                    break;
+                
 
                 case "fill":
 

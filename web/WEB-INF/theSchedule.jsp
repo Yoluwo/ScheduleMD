@@ -193,33 +193,8 @@
                             </tbody>
                         </table>
                     </c:if>
-                    <c:if test="${swap ne null}">
-                        <form method="POST" action="theSchedule">
-
-                            <label for="swap1List">Select Shift to swap:</label>
-
-                            <select name="swap1List">
-                                <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="1" varStatus="i">
-                                    <c:set var="swapShiftList" value="${shifts.get(counter).getStartTime()}"/>
-                                    <option value="${shifts.get(counter).getShiftID()}"><fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${swapShiftList}"/>, ${shifts.get(counter).getUser().getFirstName()}</option>
-                                </c:forEach>
-                            </select>
-                            <label for="swap2List">Select Shift to swap:</label>
-                            <select name="swap2List">
-                                <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="1" varStatus="i">
-                                    <c:set var="swapShiftList" value="${shifts.get(counter).getStartTime()}"/>
-                                    <option value="${shifts.get(counter).getShiftID()}"><fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${swapShiftList}"/>, ${shifts.get(counter).getUser().getFirstName()}</option>
-                                </c:forEach>
-                            </select>                            <input type="submit" name="swap" value="Confirm Swap">
-                            <input type="hidden" name="action" value="swapConfirm">
-                        </form>
-                    </c:if>
-                    <c:if test="${swap eq null}">
-                        <form method="POST" action="theSchedule">
-                            <input type="submit" name="swap" value="Swap Shifts">
-                            <input type="hidden" name="action" value="swap">
-                        </form>
-                    </c:if>
+                    
+                  
                 </div>
                 <c:if test="${fill ne null}">
                     <table role="table">
