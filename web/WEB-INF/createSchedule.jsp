@@ -118,11 +118,11 @@
                               <form method="POST" action="createSchedule">
                               <jsp:useBean id="now" class="java.util.Date" />
                               <fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd" />
-                                   <div class="form-control">
+                                   <div class="form-schedule">
                                         <label for="startDate">Enter start date: </label>
                                         <input type="date" id="startDate" name="startDate" min="${today}" required>
                                    </div>
-                                   <div class="form-control">
+                                   <div class="form-schedule">
                                         <label for="hospital">Enter Hospital: </label>
                                         <select name="hospital" id="hospital">
                                              <option value="1">Foothills Medical Center</option>

@@ -238,12 +238,43 @@ input:checked[type="checkbox"]:before {
      margin-left: 15px;
      margin-bottom: 20px;
      padding: 5px 10px 5px 10px;
-     width: 500px;
+     width: 80%;
      height: auto;
+     text-align: center;
      background-color: #dbf3fa;
      color: #094c72;
-     font-size: 15px;
+     font-size: 25px;
      box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
+}
+
+.form-schedule {
+     position: relative;
+     margin: 0;
+     width: 100%;
+     text-align: center;
+     color: #094c72;
+     font-size: 20px;
+     padding: 20px;
+}
+
+.form-schedule input, select {
+     background-color: #fff;
+     border: 0;
+     border-bottom: 2px #094c72 solid;
+     width: 200px;
+     padding: 15px 0px 0px 0px;
+     font-size: 18px;
+     text-align: center;
+     font-family: 'merriweather', sans-serif;
+}
+
+.form-schedule label {
+     position: absolute;
+     top: 15px;
+     left: 40%;
+     text-align: center;
+     padding: 0px 0 0 20px;
+     font-size: 20px;
 }
 
 .req {
