@@ -103,11 +103,11 @@
                         <h2></h2>
                     </c:if>
                     <c:if test="${schedule.getHospital().getHospitalID() eq 1}">
-                        <h2>Schedule</h2>
+                        <h2>Schedule for ${schedule.hospital.hospitalName}</h2>
                         <table class="scheduler" role="table">
                             <thead role="rowgroup">
                                 <tr role="row">
-                                    <th role="columnheader">${schedule.getHospital().getHospitalID()}</td>
+                                    <th role="columnheader">Date</td>
                                     <th role="columnheader">Access</td>
                                     <th role="columnheader">Trauma</td>
                                     <th role="columnheader">Senior</td>
@@ -158,11 +158,11 @@
                     </c:if>
                     <c:if test="${schedule.getHospital().getHospitalID() eq 2}">
 
-                        <h2>Schedule</h2>
+                        <h2>Schedule for ${schedule.hospital.hospitalName}</h2>
                         <table role="table">
                             <tbody role="rowgroup">
                                 <tr role="row">
-                                    <th role="columnheader">${schedule.getHospital().getHospitalID()}</td>
+                                    <th role="columnheader">Date</td>
                                     <th role="columnheader">Access</td>
                                     <th role="columnheader">Senior</td>
                                 </tr>

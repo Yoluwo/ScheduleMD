@@ -125,15 +125,15 @@
                                                   <tbody role="rowgroup">
                                                        <tr role="row">
                                                             <td role="cell"><label for="html">First Name</label></td>
-                                                            <td role="cell"><input type="text" name="editFirstName" value="${selectedUser.firstName}"></td>
+                                                            <td role="cell"><input type="text" name="editFirstName" value="${selectedUser.firstName}" required></td>
                                                        </tr>
                                                        <tr role="row">
                                                             <td role="cell"><label for="html">Last Name</label></td>
-                                                            <td role="cell"><input type="text" name="editLastName" value="${selectedUser.lastName}"></td>
+                                                            <td role="cell"><input type="text" name="editLastName" value="${selectedUser.lastName}" required></td>
                                                        </tr>
                                                        <tr role="row">
                                                             <td role="cell"><label for="html">Email</label></td>
-                                                            <td role="cell"><input type="text" name="editEmail" value="${selectedUser.email}"></td>
+                                                            <td role="cell"><input type="text" name="editEmail" value="${selectedUser.email}" required></td>
                                                        </tr>
                                                        <tr role="row">
                                                            <c:choose>
@@ -224,19 +224,19 @@
                                                   <tbody role="rowgroup">
                                                        <tr role="row">
                                                             <td role="cell"><label for="html">First Name</label></td>
-                                                            <td role="cell"><input type="text" name="addFirstName" value=""></td>
+                                                            <td role="cell"><input type="text" name="addFirstName" value="" required></td>
                                                        </tr>
                                                        <tr role="row">
                                                             <td role="cell"><label for="html">Last Name</label></td>
-                                                            <td role="cell"><input type="text" name="addLastName" value=""></td>
+                                                            <td role="cell"><input type="text" name="addLastName" value="" required></td>
                                                        </tr>
                                                        <tr role="row">
                                                             <td role="cell"><label for="html">Email</label></td>
-                                                            <td role="cell"><input type="text" name="addEmail" value=""></td>
+                                                            <td role="cell"><input type="text" name="addEmail" value="" required></td>
                                                        </tr>
                                                        <tr role="row">
                                                             <td role="cell"><label for="html">Password</label></td>
-                                                            <td role="cell"><input type="text" name="addPassword" value=""></td>
+                                                            <td role="cell"><input type="text" name="addPassword" value="" required></td>
                                                        </tr>
                                                        <tr role="row">
                                                             <td><label for="html">Hospital</label></td>

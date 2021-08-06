@@ -70,7 +70,7 @@
                     </div>
                     <div class="rto">
                          <c:if test="${foothills ne null}">
-                              <h2>Schedule</h2>
+                              <h2>Schedule for ${schedule.hospital.hospitalName}</h2>
                               <table class="scheduler" role="table">
                                    <thead role="rowgroup">
                                         <tr role="row">
@@ -94,7 +94,7 @@
                               </table>
                          </c:if>
                          <c:if test="${peter ne null}">
-                              <h2>Schedule</h2>
+                              <h2>Schedule for ${schedule.hospital.hospitalName}</h2>
                               <table role="table">
                                    <tbody role="rowgroup">
                                         <tr role="row">

@@ -14,10 +14,6 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>AuthenticationFilter</filter-name>
-        <servlet-name>AdminSettingsServlet</servlet-name>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>AuthenticationFilter</filter-name>
         <servlet-name>CreateScheduleServlet</servlet-name>
     </filter-mapping>
     <filter-mapping>
@@ -50,11 +46,27 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>AuthenticationFilter</filter-name>
-        <servlet-name>SettingsServlet</servlet-name>
+        <servlet-name>TheScheduleServlet</servlet-name>
     </filter-mapping>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
         <servlet-name>AdminServlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <servlet-name>CreateScheduleServlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <servlet-name>ManageUsersServlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <servlet-name>ReviewServlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <servlet-name>TheScheduleServlet</servlet-name>
     </filter-mapping>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
@@ -77,10 +89,6 @@
         <servlet-class>servlets.ProfileServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SettingsServlet</servlet-name>
-        <servlet-class>servlets.SettingsServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ReviewServlet</servlet-name>
         <servlet-class>servlets.ReviewServlet</servlet-class>
     </servlet>
@@ -97,10 +105,6 @@
         <servlet-class>servlets.CreateScheduleServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AdminSettingsServlet</servlet-name>
-        <servlet-class>servlets.AdminSettingsServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ManageUsersServlet</servlet-name>
         <servlet-class>servlets.ManageUsersServlet</servlet-class>
     </servlet>
@@ -111,14 +115,6 @@
     <servlet>
         <servlet-name>RequestServlet</servlet-name>
         <servlet-class>servlets.RequestServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>TestDisplayScheduleServlet</servlet-name>
-        <servlet-class>servlets.TestDisplayScheduleServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddUserServlet</servlet-name>
-        <servlet-class>servlets.AddUserServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>TheScheduleServlet</servlet-name>
@@ -145,10 +141,6 @@
         <url-pattern>/profile</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SettingsServlet</servlet-name>
-        <url-pattern>/settings</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ReviewServlet</servlet-name>
         <url-pattern>/review</url-pattern>
     </servlet-mapping>
@@ -165,10 +157,6 @@
         <url-pattern>/createSchedule</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AdminSettingsServlet</servlet-name>
-        <url-pattern>/adminSettings</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ManageUsersServlet</servlet-name>
         <url-pattern>/manageUsers</url-pattern>
     </servlet-mapping>
@@ -179,14 +167,6 @@
     <servlet-mapping>
         <servlet-name>RequestServlet</servlet-name>
         <url-pattern>/request</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>TestDisplayScheduleServlet</servlet-name>
-        <url-pattern>/testDisplaySchedule</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddUserServlet</servlet-name>
-        <url-pattern>/addUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TheScheduleServlet</servlet-name>
