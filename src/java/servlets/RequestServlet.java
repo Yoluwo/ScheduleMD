@@ -18,6 +18,18 @@ public class RequestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        Date date= new Date();
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String dateString;
+        cal.setTime (date);
+        cal.add (Calendar.DATE, 56);
+        date = cal.getTime ();
+        dateString = dateFormat.format(date);
+        
+        request.setAttribute("eightWeeks", dateString);
+        
         getServletContext().getRequestDispatcher("/WEB-INF/request.jsp")
                 .forward(request, response);
 

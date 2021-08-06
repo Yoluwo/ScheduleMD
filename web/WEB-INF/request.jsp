@@ -74,11 +74,11 @@
                               <form method="POST" action="request">
                                    <div class="form-control">
                                         <label for="startDate">Enter start date: </label>
-                                        <input type="date" id="startDate" name="startDate" required>
+                                        <input type="date" id="startDate" name="startDate" min="${eightWeeks}" required>
                                    </div>
                                    <div class="form-control">
                                         <label for="endDate">Enter end date: </label>
-                                        <input type="date" id="startDate" name="endDate" required>
+                                        <input type="date" id="startDate" name="endDate" min="${eightWeeks}" required>
                                    </div>
                                    <input type="submit" name="request" value="Make Request">
                                    <input type="hidden" name="action" value="request">

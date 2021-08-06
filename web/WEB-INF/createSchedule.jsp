@@ -116,9 +116,11 @@
                          <c:if test="${empty scheduleCreated}"> 
                               <h2>Create Schedule</h2>
                               <form method="POST" action="createSchedule">
+                              <jsp:useBean id="now" class="java.util.Date" />
+                              <fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd" />
                                    <div class="form-control">
                                         <label for="startDate">Enter start date: </label>
-                                        <input type="date" id="startDate" name="startDate" required>
+                                        <input type="date" id="startDate" name="startDate" min="${today}" required>
                                    </div>
                                    <div class="form-control">
                                         <label for="hospital">Enter Hospital: </label>
