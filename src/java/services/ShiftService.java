@@ -1,9 +1,12 @@
 package services;
 
+import dataaccess.NotificationDB;
 import dataaccess.ScheduleDB;
 import dataaccess.ShiftDB;
 import dataaccess.UserDB;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.*;
 
 public class ShiftService {
@@ -62,17 +65,18 @@ public class ShiftService {
         unScheduledUsers.addAll(usersBeforeScheduling);
         ArrayList<Shift> shiftsFilled = new ArrayList<>();
         Integer[][] shiftCounter = new Integer[users.size()][2];
-       
-        for(int i = 0; i < users.size(); i++){
-            shiftCounter[i][0] =  users.get(i).getUserID();
+
+        for (int i = 0; i < users.size(); i++) {
+            shiftCounter[i][0] = users.get(i).getUserID();
             shiftCounter[i][1] = 0;
         }
         UserDB userDB = new UserDB();
         User extender = null;
-        try{
+        try {
             extender = userDB.get("extender@gmail.com");
-        } catch(Exception e){}
-        
+        } catch (Exception e) {
+        }
+
         boolean canWork = false;
         boolean worksFriday = false;
         int counter = 0;
@@ -97,21 +101,21 @@ public class ShiftService {
                 weekdays.add(currentShift);
             }
         }
-        
+
         for (int i = 0; i < friday.size(); i++) {
             canWork = false;
             while (!canWork) {
-                
+
                 worksFriday = false;
                 int rnd = new Random().nextInt(users.size());
                 User userRandom = users.get(rnd);
                 for (int z = 0; z < shiftsFilled.size(); z++) {
-                    
+
                     if (shiftsFilled.get(z).getUser().getUserID() == userRandom.getUserID()) {
                         worksFriday = true;
                     }
                 }
-                if((shiftsFilled.size() / 2) == users.size()){
+                if ((shiftsFilled.size() / 2) == users.size()) {
                     worksFriday = true;
                     canWork = false;
                     List<Shift> shiftList = new ArrayList<>();
@@ -121,37 +125,36 @@ public class ShiftService {
                     extender.setShiftList(shiftList);
                     shiftsFilled.add(friday.get(i));
                     shiftsFilled.add(sunday.get(i));
-                    
+
                 }
-                if(!worksFriday){
+                if (!worksFriday) {
                     canWork = shiftAvalibiltyCheck(approvedTimeOffs, userRandom, friday.get(i));
                 }
                 if (canWork && !worksFriday) {
                     canWork = shiftAvalibiltyCheck(approvedTimeOffs, userRandom, sunday.get(i));
                     if (canWork) {
-                        for(int z = 0; z < shiftCounter.length; z++){
-                            if(shiftCounter[z][0] == userRandom.getUserID()){
-                                if(shiftCounter[z][1] < 7){
-                                    
-                                
+                        for (int z = 0; z < shiftCounter.length; z++) {
+                            if (shiftCounter[z][0] == userRandom.getUserID()) {
+                                if (shiftCounter[z][1] < 7) {
+
                                     shiftCounter[z][1]++;
                                     shiftCounter[z][1]++;
                                     friday.get(i).setUser(userRandom);
                                     sunday.get(i).setUser(userRandom);
-                        
+
                                     List<Shift> shiftList = new ArrayList<>();
                                     shiftList = userRandom.getShiftList();
                                     shiftList.add(friday.get(i));
                                     shiftList.add(sunday.get(i));
                                     userRandom.setShiftList(shiftList);
-                        
+
                                     shiftsFilled.add(friday.get(i));
                                     counter++;
                                     shiftsFilled.add(sunday.get(i));
                                     counter++;
-                                } else{
+                                } else {
                                     canWork = false;
-                                } 
+                                }
                             }
                         }
 
@@ -167,9 +170,9 @@ public class ShiftService {
                 canWork = shiftAvalibiltyCheck(approvedTimeOffs, userRandom, saturday.get(i));
                 if (canWork) {
                     if (weekendAvalibilityCheck(shiftsFilled, saturday.get(i), userRandom)) {
-                        for(int z = 0; z < shiftCounter.length; z++){
-                            if(shiftCounter[z][0] == userRandom.getUserID()){
-                                if(shiftCounter[z][1] < 7){
+                        for (int z = 0; z < shiftCounter.length; z++) {
+                            if (shiftCounter[z][0] == userRandom.getUserID()) {
+                                if (shiftCounter[z][1] < 7) {
                                     shiftCounter[z][1]++;
                                     saturday.get(i).setUser(userRandom);
                                     List<Shift> shiftList = new ArrayList<>();
@@ -178,11 +181,11 @@ public class ShiftService {
                                     userRandom.setShiftList(shiftList);
                                     shiftsFilled.add(saturday.get(i));
                                     unScheduledUsers.remove(rnd);
-                                } else{
+                                } else {
                                     canWork = false;
                                 }
                             }
-                        } 
+                        }
                     }
 
                 }
@@ -199,9 +202,9 @@ public class ShiftService {
                 User userRandom = unScheduledUsers.get(rnd);
                 canWork = shiftAvalibiltyCheck(approvedTimeOffs, userRandom, weekdays.get(i));
                 if (canWork) {
-                    for(int z = 0; z < shiftCounter.length; z++){
-                        if(shiftCounter[z][0] == userRandom.getUserID()){
-                            if(shiftCounter[z][1] < 7){
+                    for (int z = 0; z < shiftCounter.length; z++) {
+                        if (shiftCounter[z][0] == userRandom.getUserID()) {
+                            if (shiftCounter[z][1] < 7) {
                                 shiftCounter[z][1]++;
                                 weekdays.get(i).setUser(userRandom);
                                 List<Shift> shiftList = new ArrayList<>();
@@ -209,9 +212,9 @@ public class ShiftService {
                                 shiftList.add(weekdays.get(i));
                                 userRandom.setShiftList(shiftList);
                                 shiftsFilled.add(weekdays.get(i));
-                    
+
                                 canWork = true;
-                            } else{
+                            } else {
                                 canWork = false;
                             }
                         }
@@ -260,10 +263,11 @@ public class ShiftService {
 
     public void saveShifts(ArrayList<Shift> shiftList) {
         ShiftDB shiftDB = new ShiftDB();
-        for(Shift shift : shiftList){
-            try{
+        for (Shift shift : shiftList) {
+            try {
                 shiftDB.insert(shift);
-            } catch(Exception e){}
+            } catch (Exception e) {
+            }
         }
 
     }
@@ -305,7 +309,7 @@ public class ShiftService {
         boolean hasSunday = false;
 
         for (Shift shift : shiftsFilled) {
-            
+
             if (shiftDayOfWeekCheck(shift) == 1) {
                 if (userID == shift.getUser().getUserID()) {
                     fridayShiftInt = shift.getNumberInBlock();
@@ -326,8 +330,45 @@ public class ShiftService {
             if ((saturdayShiftInt - 1) == fridayShiftInt) {
                 return false;
             }
-            
+
         }
         return true;
     }
+
+    public List<Shift> personalScheduleMaker(String email) {
+        ShiftDB shiftDB = new ShiftDB();
+        UserDB userDB = new UserDB();
+        SchedulingService scheduleService = new SchedulingService();
+
+        User user = null;
+        ArrayList<Shift> shiftListArrayList = new ArrayList<>();
+        Date currentDate = new Date();
+        try {
+            user = userDB.get(email);
+            List<Shift> shiftList = shiftDB.getAll();
+
+            for (Shift shifts : shiftList) {
+                int currentUserID = shifts.getUser().getUserID();
+                Date shiftDate = shifts.getStartTime();
+
+                if (currentUserID == user.getUserID() && shiftDate.after(currentDate)) {
+                    shiftListArrayList.add(shifts);
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ShiftService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        List<Shift> shiftListToReturn = sortShiftsPersonal(shiftListArrayList);
+        return shiftListToReturn;
+    }
+    
+    public List<Shift> sortShiftsPersonal(ArrayList<Shift> shifts) {
+        Comparator<Shift> shiftComparator = Comparator.comparing(Shift::getStartTime);
+        shifts.sort(shiftComparator);
+
+        return shifts;
+    }
 }
+
+

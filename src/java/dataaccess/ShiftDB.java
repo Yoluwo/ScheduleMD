@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package dataaccess;
+
+import java.util.List;
 import models.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -13,7 +15,8 @@ import javax.persistence.EntityTransaction;
  * @author epaul
  */
 public class ShiftDB {
-        public Shift getByShiftID(int shiftID) throws Exception {
+
+    public Shift getByShiftID(int shiftID) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         Shift shift = null;
         try {
@@ -24,12 +27,23 @@ public class ShiftDB {
         }
     }
 
-        public void insert(Shift shift) throws Exception {
+    public List<Shift> getAll() throws Exception {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+
+        try {
+            List<Shift> shifts = em.createNamedQuery("Shift.findAll", Shift.class).getResultList();
+            return shifts;
+        } finally {
+            em.close();
+        }
+
+    }
+
+    public void insert(Shift shift) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
-        
+
         try {
-       
 
             trans.begin();
             em.persist(shift);
@@ -42,7 +56,7 @@ public class ShiftDB {
         }
     }
 
-        public void update(Shift shift) throws Exception {
+    public void update(Shift shift) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
 
@@ -56,4 +70,5 @@ public class ShiftDB {
             em.close();
         }
     }
+
 }
