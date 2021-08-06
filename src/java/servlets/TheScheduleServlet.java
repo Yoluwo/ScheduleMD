@@ -143,6 +143,34 @@ public class TheScheduleServlet extends HttpServlet {
                     int userID = Integer.parseInt(request.getParameter("fillExtenderWithUser"));
                     schedule = ss.fillExtender(scheduleID, fillShift, userID);
                     request.setAttribute("fill", null);
+                    session.setAttribute("fillShiftID", null);
+
+                    swapConfirm = true;
+
+                    break;
+                case "editUser":
+
+                    scheduleID = (int) session.getAttribute("scheduleID");
+                    swap = true;
+                    int editUserShiftID = Integer.parseInt(request.getParameter("editUserHidden"));
+                    session.setAttribute("editUserShift", editUserShiftID);
+                    request.setAttribute("edit", true);
+
+                    try {
+                        List<User> users = as.getAll();
+                        request.setAttribute("usersFill", users);
+                    } catch (Exception e) {
+                        request.setAttribute("message", "error");
+                    }
+
+                    break;
+                case "editUserFinal":
+
+                    scheduleID = (int) session.getAttribute("scheduleID");
+                    editUserShiftID = (int) session.getAttribute("editUserShift");
+                    int editUserID = Integer.parseInt(request.getParameter("editUserHiddenFinal"));
+                    schedule = ss.fillExtender(scheduleID, editUserShiftID, editUserID);
+                    request.setAttribute("edit", null);
 
                     swapConfirm = true;
 
@@ -215,22 +243,20 @@ public class TheScheduleServlet extends HttpServlet {
         }
         ArrayList<Schedule> scheduleList = new ArrayList<>(sList);
         ArrayList<Schedule> scheduleListFinal = new ArrayList<>();
-        if(hospitalToView != null){
-            for(int i = 0; i < scheduleList.size(); i++){
-                if(hospitalToView.equals("peter")){
-                    if(scheduleList.get(i).getHospital().getHospitalID() == 2){
+        if (hospitalToView != null) {
+            for (int i = 0; i < scheduleList.size(); i++) {
+                if (hospitalToView.equals("peter")) {
+                    if (scheduleList.get(i).getHospital().getHospitalID() == 2) {
                         scheduleListFinal.add(scheduleList.get(i));
                     }
-                }
-                else if(hospitalToView.equals("foothills")){
-                    if(scheduleList.get(i).getHospital().getHospitalID() == 1){
+                } else if (hospitalToView.equals("foothills")) {
+                    if (scheduleList.get(i).getHospital().getHospitalID() == 1) {
                         scheduleListFinal.add(scheduleList.get(i));
                     }
                 }
             }
-            
-        }
-        else{
+
+        } else {
             scheduleListFinal = scheduleList;
         }
         for (int i = 0; i < scheduleList.size(); i++) {

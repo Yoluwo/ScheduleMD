@@ -117,7 +117,8 @@
                                 <c:forEach var="counter" begin="0" end="${shifts.size() - 1}" step="3" varStatus="i">
                                     <tr role="row">
                                         <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
-                                        <td role="cell"> <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${date}" /> </td>
+                                        <td role="cell"> <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${date}" /> 
+                                        </td>
                                         <c:if test="${shifts.get(counter).getUser().getFirstName() eq 'Extender'}">
                                             <td role="cell"> <c:out value="${shifts.get(counter).getUser().getFirstName()}" /> 
                                                 <form action="theSchedule" method="post">
@@ -127,10 +128,15 @@
                                                 </form> </td>
                                             </c:if>
                                             <c:if test="${shifts.get(counter).getUser().getFirstName() ne 'Extender'}">
-                                            <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /> 
+                                            <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" />   
+                                                <form action="theSchedule" method="post">
+                                                    <input type="submit" name="edit" value="Edit">
+                                                    <input type="hidden" name="action" value="editUser">
+                                                    <input type="hidden" name="editUserHidden" value="${shifts.get(counter).getShiftID()}">
+                                                </form></td>
                                             </c:if>
                                             <c:if test="${shifts.get(counter + 1).getUser().getFirstName() eq 'Extender'}">
-                                            <td role="cell"> <c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /> 
+                                            <td role="cell"> <c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" />
                                                 <form action="theSchedule" method="post">
                                                     <input type="submit" name="fillExtender" value="Fill">
                                                     <input type="hidden" name="action" value="fill">
@@ -139,6 +145,11 @@
                                             </c:if>
                                             <c:if test="${shifts.get(counter + 1).getUser().getFirstName() ne 'Extender'}">
                                             <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /> 
+                                                <form action="theSchedule" method="post">
+                                                    <input type="submit" name="edit" value="Edit">
+                                                    <input type="hidden" name="action" value="editUser">
+                                                    <input type="hidden" name="editUserHidden" value="${shifts.get(counter + 1).getShiftID()}">
+                                                </form> </td>
                                             </c:if>
                                             <c:if test="${shifts.get(counter + 2).getUser().getFirstName() eq 'Extender'}">
                                             <td role="cell"> <c:out value="${shifts.get(counter + 2).getUser().getFirstName()}" /> 
@@ -150,6 +161,11 @@
                                             </c:if>
                                             <c:if test="${shifts.get(counter + 2).getUser().getFirstName() ne 'Extender'}">
                                             <td role="cell"><c:out value="${shifts.get(counter + 2).getUser().getFirstName()}" /> 
+                                                <form action="theSchedule" method="post">
+                                                    <input type="submit" name="edit" value="Edit">
+                                                    <input type="hidden" name="action" value="editUser">
+                                                    <input type="hidden" name="editUserHidden" value="${shifts.get(counter+2).getShiftID()}">
+                                                </form></td>
                                             </c:if>
                                     </tr>
                                 </c:forEach>
@@ -214,7 +230,7 @@
                                 <th role="columnheader">Hospital</th>
                                 <th role="columnheader">Role</th> 
                                 <th role="columnheader">Fill</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody role="rowgroup">
@@ -235,9 +251,44 @@
                                     </tr>
                                 </c:if>
                             </c:forEach>
-                        </c:if>
-                    </tbody>
-                </table>
+
+                        </tbody>
+                    </table>
+                </c:if>
+                <c:if test="${edit ne null}">
+                    <table role="table">
+                        <thead role="rowgroup">
+                            <tr role="row">
+                                <th role="columnheader">First Name</th>
+                                <th role="columnheader">Last Name</th>
+                                <th role="columnheader">Hospital</th>
+                                <th role="columnheader">Role</th> 
+                                <th role="columnheader">Add</th>
+
+                            </tr>
+                        </thead>
+                        <tbody role="rowgroup">
+                            <c:forEach items="${usersFill}" var="user">
+                                <c:if test="${user.firstName ne 'Extender'}">
+                                    <tr role="row">
+                                        <td role="cell">${user.firstName}</td>
+                                        <td role="cell">${user.lastName}</td>
+                                        <td role="cell">${user.hospital.hospitalName}</td>
+                                        <td role="cell">${user.role.roleName}</td> 
+                                        <td role="cell">
+                                            <form action="theSchedule" method="POST">
+                                                <input type="hidden" name="action" value="editUserFinal">
+                                                <input type="hidden" name="editUserHiddenFinal" value="${user.userID}">
+                                                <input type="submit" value="Add">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </c:if>
+                            </c:forEach>
+
+                        </tbody>
+                    </table>
+                </c:if>
             </div>
 
         </div>
