@@ -137,7 +137,7 @@
                    <div class="card-body pt-0">
              <form method="POST" action="profile">
                               <h2>Reset Password </h2>
-                              <div class="a" style="margin-left: 39px">
+                              <div class="a" style="margin-left: 39px">  
                                    <label for="oldPassword">Old Password:   </label>
                                    <input type="password" name="oldPassword" id="oldpassword" required>
                               </div>
