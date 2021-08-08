@@ -237,7 +237,8 @@ input:checked[type="checkbox"]:before {
 
 .rto {
      margin-top: 20px;
-     margin-left: 15px;
+     margin-left: 150px;
+     margin-right: 150px;
      margin-bottom: 20px;
      padding: 5px 10px 5px 10px;
      width: 80%;
@@ -247,6 +248,7 @@ input:checked[type="checkbox"]:before {
      color: #094c72;
      font-size: 25px;
      box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
+     display: flex;
 }
 
 .form-schedule {

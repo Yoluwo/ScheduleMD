@@ -54,12 +54,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="adminSettings">
-                            <span class="icon"><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
-                            <span class="title">Settings</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="login">
                             <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
                             <span class="title">Logout</span>
@@ -72,7 +66,7 @@
                     <div class="toggle" onclick="toggleMenu()"></div>
                     <h1>Schedule</h1>
                 </div>
-                <div class="time-off">
+                <div class="rto">
                     <div class="form-control">
 
                         <c:if test="${scheduleList.size() > 0}">
