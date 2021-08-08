@@ -74,11 +74,11 @@
                          </div>
                     </div>
                     <div class="cardMain">
-                         <!--<div class="cards">
+                         <div class="cards">
                               <div class="card">
                                    <div>
-                                        <div class="numbers">200</div>
-                                        <div class="cardName">Hours Worked</div>
+                                        <div class="numbers">View</div>
+                                        <div class="cardName">Profile</div>
                                    </div>
                                    <div class="iconBox">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -86,7 +86,7 @@
                               </div>
                               <div class="card">
                                    <div>
-                                        <div class="numbers">2</div>
+                                        <div class="numbers">View</div>
                                         <div class="cardName">Messages</div>
                                    </div>
                                    <div class="iconBox">
@@ -95,39 +95,37 @@
                               </div>
                               <div class="card">
                                    <div>
-                                        <div class="numbers">20</div>
-                                        <div class="cardName">Users</div>
+                                        <div class="numbers">View</div>
+                                        <div class="cardName">Schedule</div>
                                    </div>
                                    <div class="iconBox">
                                         <i class="fa fa-users" aria-hidden="true"></i>
                                    </div>
                               </div>
                               <div class="card">
-                                   <div>
-                                        <div class="numbers">4</div>
-                                        <div class="cardName">Downloads</div>
-                                   </div>
-
-                                   <div class="iconBox">
-                                        <i class="fa fa-download" aria-hidden="true"></i>
-                                   </div>
-                              </div>-->
-                              <div class="details">
-                                   <div class="recent"></div>
-                                   <c:if test="${shifts ne null}"> 
-                                        <h2>Upcoming Shifts</h2>
-                                        <table>
-
-                                             <c:forEach items="${shifts}" var="shift">
-                                                  <tr>
-                                                       <td><fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${shift.startTime}" /> </td>
-
-                                                  </tr>
-
-                                             </c:forEach>
-                                        </table>
-                                   </c:if>
+                                   <a href="request">
+                                        <div>
+                                             <div class="numbers">Make</div>
+                                             <div class="cardName">Request</div>
+                                        </div>
+                                        <div class="iconBox">
+                                             <i class="fa fa-download" aria-hidden="true"></i>
+                                        </div>
+                                   </a>
                               </div>
+                         </div>
+                         <div class="details">
+                              <div class="recent"></div>
+                              <c:if test="${shifts ne null}"> 
+                                   <h2>Upcoming Shifts</h2>
+                                   <table>
+                                        <c:forEach items="${shifts}" var="shift">
+                                             <tr>
+                                                  <td><fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${shift.startTime}" /> </td>
+                                             </tr>
+                                        </c:forEach>
+                                   </table>
+                              </c:if>
                          </div>
                     </div>
                </div>

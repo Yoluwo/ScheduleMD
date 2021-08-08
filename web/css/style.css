@@ -386,7 +386,7 @@ p {
 .cardMain {
      position: absolute;
      margin-left: 10px;
-     margin-top: 15px;
+     margin-top: 30px;
      margin-bottom: 20px;
      padding: 0;
      width: 85%;
@@ -409,11 +409,12 @@ p {
      display: flex;
      justify-content: space-between;
      cursor: pointer;
+     box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
 }
 
 .cards .card .numbers {
      position: relative;
-     font-size: 32px;
+     font-size: 25px;
      font-weight: 500;
 }
 

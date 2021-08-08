@@ -68,9 +68,8 @@
                          <h1>Request Time Off</h1>
                     </div>
                     <div class="wrapper">
-                         <div class="rto">
-                              <h2>Make Request</h2>
-
+                         <div class="time-off">
+                              <h2>Make Time Off Request</h2>
                               <form method="POST" action="request">
                                    <div class="form-control">
                                         <label for="startDate">Enter start date: </label>
@@ -79,9 +78,9 @@
                                    <div class="form-control">
                                         <label for="endDate">Enter end date: </label>
                                         <input type="date" id="startDate" name="endDate" min="${eightWeeks}" required>
+                                        <input type="submit" name="request" value="Make Request">
+                                        <input type="hidden" name="action" value="request">
                                    </div>
-                                   <input type="submit" name="request" value="Make Request">
-                                   <input type="hidden" name="action" value="request">
                               </form>
                               <div class="calendar">
                                    <div class="month">
