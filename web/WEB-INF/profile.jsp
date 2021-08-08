@@ -87,11 +87,10 @@
       <div class="col-lg-4">
         <div class="card shadow-sm" style="margin-bottom: 30px">
           <div class="card-header bg-transparent text-center">
-            <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="doctor dp">
+            <img class="profile_img" src="images/user.jpg" alt="doctor dp">
             <h3>${firstName}</h3>
           </div>
           <div class="card-body">
-            <p class="mb-0"><strong class="pr-1">Role ID:</strong>${role}</p>
             <p class="mb-0"><strong class="pr-1">Role Name:</strong>${rolename}</p>
 <!--            <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>-->
           </div>
@@ -138,11 +137,11 @@
                    <div class="card-body pt-0">
              <form method="POST" action="profile">
                               <h2>Reset Password </h2>
-                              <div class="a">
-                                   <label for="oldPassword">Old Password    :   </label>
+                              <div class="a" style="margin-left: 39px">
+                                   <label for="oldPassword">Old Password:   </label>
                                    <input type="password" name="oldPassword" id="oldpassword" required>
                               </div>
-                              <div class="a">
+                              <div class="a" style="margin-left: 31px">
                                    <label for="newPassword">New Password: </label>
                                    <input type="password" name="newPassword" id="newpassword" required>
                               </div>
