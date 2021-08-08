@@ -171,7 +171,7 @@ h2 {
      padding: 20px;
 }
 
-.form-control input, select {
+.form-control input, form-schedule, select {
      background-color: transparent;
      border: 0;
      border-bottom: 2px #094c72 solid;

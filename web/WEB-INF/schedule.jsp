@@ -66,7 +66,8 @@
                     <div class="toggle" onclick="toggleMenu()"></div>
                     <h1>Schedule</h1>
                 </div>
-                <div class="time-off">
+                <div class="rto">
+                      <h2>Schedule for ${schedule.hospital.hospitalName}</h2>
                     <div class="form-control">
 
                         <c:if test="${scheduleList.size() > 0}">
@@ -92,7 +93,7 @@
                         <h2></h2>
                     </c:if>
                     <c:if test="${schedule.getHospital().getHospitalID() eq 1}">
-                        <h2>Schedule for ${schedule.hospital.hospitalName}</h2>
+                        
                         <table class="scheduler" role="table">
                             <thead role="rowgroup">
                                 <tr role="row">

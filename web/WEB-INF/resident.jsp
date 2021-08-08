@@ -74,7 +74,7 @@
                          </div>
                     </div>
                     <div class="cardMain">
-                         <div class="cards">
+                         <!--<div class="cards">
                               <div class="card">
                                    <div>
                                         <div class="numbers">200</div>
@@ -111,7 +111,7 @@
                                    <div class="iconBox">
                                         <i class="fa fa-download" aria-hidden="true"></i>
                                    </div>
-                              </div>
+                              </div>-->
                               <div class="details">
                                    <div class="recent"></div>
                                    <c:if test="${shifts ne null}"> 
