@@ -313,6 +313,18 @@ input[type="submit"] {
      margin: 15px 0px 20px 20px;
 }
 
+.details {
+     margin-top: 20px;
+     margin-left: 15px;
+     margin-bottom: 20px;
+     padding: 5px 10px 5px 10px;
+     width: 350px;
+     height: auto;
+     background-color: #dbf3fa;
+     color: #094c72;
+     font-size: 15px;
+     box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
+}
 
 
 @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
