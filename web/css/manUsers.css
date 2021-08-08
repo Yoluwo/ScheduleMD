@@ -14,7 +14,7 @@ html {
      margin-left: 15px;
      width: 70%;
      height: 100%;
-     background-color: #fff;
+     background-color: #dbf3fa;
      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -48,7 +48,7 @@ table {
      width: 96%;
      margin-left: 10px;
      border-collapse: collapse;
-     background-color: #dbf3fa;
+     background-color: #fff;
 }
 
 th {

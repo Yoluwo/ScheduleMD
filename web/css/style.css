@@ -224,7 +224,6 @@ h2 {
      margin: 15px 0 20px 525px;
 }
 
-
 .btn:hover, .btn-add:hover  {
      color: #dcf4fc;
 }
@@ -433,7 +432,7 @@ p {
 
 /*CSS for designing the approve/deny form of the review page */
 .decide select {
-     background-color: #dcf4fc;
+     background-color: #fff;
      border: 2px #094c72 solid;
      border-radius: 5px;
      box-sizing: border-box;
