@@ -24,6 +24,14 @@ public class ResidentServlet extends HttpServlet {
         TimeOffService timeOffService = new TimeOffService();
         ShiftService shiftService = new ShiftService();
         String email = (String) session.getAttribute("email");
+        
+        try{
+            User user = accountService.getUser(email);
+            request.setAttribute("user", user);
+        }
+        catch(Exception e){
+            
+        }
 
         try {
             List<Shift> shifts = shiftService.personalScheduleMaker(email);
