@@ -60,7 +60,7 @@ public class TimeOffService {
         String endDateFmt = format.format(newTimeOff.getEndDate());
         Date date = new Date();
         newTimeOff.setUser(user);
-        Notification note = new Notification(0,format.format(date) +":  "+  user.getFirstName() + ", your request for time off from" + startDateFmt +" until " +endDateFmt+" is pending review");
+        Notification note = new Notification(0,format.format(date) +":  "+  user.getFirstName() + ", your request for time off from " + startDateFmt +" until " +endDateFmt+" is pending review");
         note.setUser(user);
         noteService.saveNotification(note);
         saveTimeOff(newTimeOff);
