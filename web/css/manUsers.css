@@ -11,7 +11,9 @@ html {
 /*CSS for styling the ManageUsers Page */
 .manage {
      margin-top: 20px;
-     margin-left: 15px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 20px;
      width: 70%;
      height: 100%;
      background-color: #dbf3fa;
@@ -46,7 +48,8 @@ input[type=submit]:hover {
 
 table {
      width: 96%;
-     margin-left: 10px;
+     margin-left: auto;
+     margin-right: auto;
      border-collapse: collapse;
      background-color: #fff;
 }

@@ -209,10 +209,10 @@
                                              </table>
                                              <input type="hidden" name="editID" value="${selectedUser.userID}">
                                              <input type="hidden" name="action" value="edit">
-                                             <button class="btn" type="submit" value="Edit User">Edit User</button>
+                                             <button class="btn-confirm" type="submit" value="Edit User">Edit User</button>
                                         </form>
                                         <form action="manageUsers" method="GET">
-                                            <button class="btn" type="submit" value="cancel">Cancel</button>
+                                            <button class="btn-confirm" type="submit" value="cancel">Cancel</button>
                                         </form>
                                    </div>
                               </c:if>

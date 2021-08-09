@@ -210,6 +210,20 @@ h2 {
      margin: 15px 0 20px 110px;
 }
 
+.btn-confirm {
+     cursor: pointer;
+     display: inline-block;
+     width: 150px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #094c72;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0 20px 15px;
+}
+
 .btn-add{
      cursor: pointer;
      display: inline-block;
