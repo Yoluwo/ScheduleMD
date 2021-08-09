@@ -163,7 +163,7 @@ h2 {
 /*CSS for designing the Reset password form of the profile page */
 .form-control {
      position: relative;
-     margin: 0;
+     margin-top: 20px;
      width: 280px;
      text-align: left;
      color: #094c72;

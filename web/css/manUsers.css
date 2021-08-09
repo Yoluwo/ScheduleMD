@@ -21,7 +21,7 @@ html {
 }
 
 input[type=text] {
-     width: 100%;
+     width: 60%;
      padding: 12px 20px;
      margin: 8px 0;
      display: inline-block;
@@ -47,11 +47,12 @@ input[type=submit]:hover {
 }
 
 table {
-     width: 96%;
+     background-color: #fff;
      margin-left: auto;
      margin-right: auto;
+     margin-bottom: 20px;
+     width: 96%;
      border-collapse: collapse;
-     background-color: #fff;
 }
 
 th {
@@ -61,8 +62,7 @@ th {
      padding: 5px 7px;
 }
 
-td, th {
-     padding: 6px;
+td {
      border: 1px solid #ccc;
      text-align: left;
      color: #094c72;
@@ -78,7 +78,7 @@ td, th {
 }
 
 .addUser {
-     margin-left: 10px;
+     margin-left: 20px;
      margin-top: 40px;
      margin-bottom: 20px;
      width: 70%;
