@@ -62,7 +62,7 @@ public class ReviewServlet extends HttpServlet {
 
                 if (decision.equalsIgnoreCase("approve")) {
                     //Approve request
-                    timeOffService.deleteTimeOff(selectedTimeOffDecideRequest);
+                    timeOffService.approveTimeOffRequest(selectedTimeOffDecideRequest);
                 } else if (decision.equalsIgnoreCase("deny")) {
                     //Deny Request
                     String reason = (String) request.getParameter("reason");
