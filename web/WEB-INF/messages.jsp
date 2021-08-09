@@ -68,7 +68,6 @@
                     <h1>Messages</h1>
                 </div>
                 <div class="rto">
-                    
                     <c:if test="${isEmpty ne null}">
                      <p>You have no new messages</p>
                      </c:if>
@@ -95,13 +94,13 @@
                                 <c:if test="${note.isHidden eq null}">
                                 <tr>
                                     <td>${note.note}</td>
-                                    <td>
+                                    <td colspan="2">
                                         <form action="messages" method="post">
                                             <input type="submit" name="deleteNote" value="Delete">
                                             <input type="hidden" name="action" value="delete">
                                             <input type="hidden" name="deleteNoteHidden" value="${note.notificationID}">
                                         </form>
-                                    <td>
+                                    </td>
                                 </tr>
                                 </c:if>
                             </c:forEach>
