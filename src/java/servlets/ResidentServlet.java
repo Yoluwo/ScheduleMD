@@ -28,7 +28,9 @@ public class ResidentServlet extends HttpServlet {
         try {
             List<Shift> shifts = shiftService.personalScheduleMaker(email);
             if(shifts != null){
-            request.setAttribute("shifts", shifts);
+                if(shifts.size() > 0){
+                    request.setAttribute("shifts", shifts); 
+                }
             }
 
         } catch (Exception e) {
