@@ -85,7 +85,7 @@ public class ProfileServlet extends HttpServlet {
         boolean isChanged = accountService.changePassword(email, oldPassword, newPassword);
 
         if(!isChanged){
-            request.setAttribute("message", "Password did not meet requirements, please try again.");
+            request.setAttribute("message", "Password did not meet requirements 8 characters, 1 Symbol, 1 Uppercase minimum, please try again.");
             getServletContext().getRequestDispatcher("/WEB-INF/profile.jsp")
                     .forward(request, response);
         }
