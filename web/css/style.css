@@ -185,7 +185,6 @@ h2 {
 .form-control input:focus, 
 .form-control input:valid {
      outline: none;
-     transform: translateY(20px);
 }
 
 .form-control label {
