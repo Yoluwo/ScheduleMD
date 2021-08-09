@@ -91,8 +91,8 @@
                                    </form>
                               </c:if>
                          </div>
-                         <c:if test="${edit ne null}">
-                         <div class="rto">
+                         <c:if test="${fill ne null}">
+                              <h2>Fill</h2>
                               <table role="table">
                                    <thead role="rowgroup">
                                         <tr role="row">
@@ -100,7 +100,7 @@
                                              <th role="columnheader">Last Name</th>
                                              <th role="columnheader">Hospital</th>
                                              <th role="columnheader">Role</th> 
-                                             <th role="columnheader">Add</th>
+                                             <th role="columnheader">Fill</th>
 
                                         </tr>
                                    </thead>
@@ -114,9 +114,9 @@
                                                        <td role="cell">${user.role.roleName}</td> 
                                                        <td role="cell">
                                                             <form action="theSchedule" method="POST">
-                                                                 <input type="hidden" name="action" value="editUserFinal">
-                                                                 <input type="hidden" name="editUserHiddenFinal" value="${user.userID}">
-                                                                 <input type="submit" value="Add">
+                                                                 <input type="hidden" name="action" value="fillExtenderWithUser">
+                                                                 <input type="hidden" name="fillExtenderWithUser" value="${user.userID}">
+                                                                 <input type="submit" value="Fill">
                                                             </form>
                                                        </td>
                                                   </tr>
@@ -125,10 +125,45 @@
 
                                    </tbody>
                               </table>
-                         </div>
-                    </c:if>
-                         
-                         <div class="">
+                         </c:if>
+                         <c:if test="${edit ne null}">
+                              <div class="rto">
+                                   <h2> Edit Schedule </h2>
+                                   <table role="table">
+                                        <thead role="rowgroup">
+                                             <tr role="row">
+                                                  <th role="columnheader">First Name</th>
+                                                  <th role="columnheader">Last Name</th>
+                                                  <th role="columnheader">Hospital</th>
+                                                  <th role="columnheader">Role</th> 
+                                                  <th role="columnheader">Add</th>
+
+                                             </tr>
+                                        </thead>
+                                        <tbody role="rowgroup">
+                                             <c:forEach items="${usersFill}" var="user">
+                                                  <c:if test="${user.firstName ne 'Extender'}">
+                                                       <tr role="row">
+                                                            <td role="cell">${user.firstName}</td>
+                                                            <td role="cell">${user.lastName}</td>
+                                                            <td role="cell">${user.hospital.hospitalName}</td>
+                                                            <td role="cell">${user.role.roleName}</td> 
+                                                            <td role="cell">
+                                                                 <form action="theSchedule" method="POST">
+                                                                      <input type="hidden" name="action" value="editUserFinal">
+                                                                      <input type="hidden" name="editUserHiddenFinal" value="${user.userID}">
+                                                                      <input type="submit" value="Add">
+                                                                 </form>
+                                                            </td>
+                                                       </tr>
+                                                  </c:if>
+                                             </c:forEach>
+
+                                        </tbody>
+                                   </table>
+                              </div>
+                         </c:if>
+                         <div>
                               <c:if test="${schedule.getHospital().getHospitalID() eq null}">
                                    <h2>Schedule for ${schedule.hospital.hospitalName}</h2>
                               </c:if>
@@ -225,41 +260,6 @@
                               </c:if>
                          </div>
                     </div>
-                    <c:if test="${fill ne null}">
-                         <table role="table">
-                              <thead role="rowgroup">
-                                   <tr role="row">
-                                        <th role="columnheader">First Name</th>
-                                        <th role="columnheader">Last Name</th>
-                                        <th role="columnheader">Hospital</th>
-                                        <th role="columnheader">Role</th> 
-                                        <th role="columnheader">Fill</th>
-
-                                   </tr>
-                              </thead>
-                              <tbody role="rowgroup">
-                                   <c:forEach items="${usersFill}" var="user">
-                                        <c:if test="${user.firstName ne 'Extender'}">
-                                             <tr role="row">
-                                                  <td role="cell">${user.firstName}</td>
-                                                  <td role="cell">${user.lastName}</td>
-                                                  <td role="cell">${user.hospital.hospitalName}</td>
-                                                  <td role="cell">${user.role.roleName}</td> 
-                                                  <td role="cell">
-                                                       <form action="theSchedule" method="POST">
-                                                            <input type="hidden" name="action" value="fillExtenderWithUser">
-                                                            <input type="hidden" name="fillExtenderWithUser" value="${user.userID}">
-                                                            <input type="submit" value="Fill">
-                                                       </form>
-                                                  </td>
-                                             </tr>
-                                        </c:if>
-                                   </c:forEach>
-
-                              </tbody>
-                         </table>
-                    </c:if>
-                   
                </div>
           </div>
           <script type="text/javascript" src="js/script.js"></script>
