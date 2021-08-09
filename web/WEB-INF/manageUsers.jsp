@@ -69,11 +69,112 @@
                     <div class="wrapper">
                          <div class="manage">
                               <p>
-                              <c:if test="${message eq 'add'}">User added.</c:if>
-                              <c:if test="${message eq 'edit'}">User updated.</c:if>
-                              <c:if test="${message eq 'delete'}">User deleted.</c:if>
-                              <c:if test="${message eq 'error'}">Sorry, something went wrong.</c:if>
-                              </p>
+                                   <c:if test="${message eq 'add'}">User added.</c:if>
+                                   <c:if test="${message eq 'edit'}">User updated.</c:if>
+                                   <c:if test="${message eq 'delete'}">User deleted.</c:if>
+                                   <c:if test="${message eq 'error'}">Sorry, something went wrong.</c:if>
+                                   </p>
+
+                              <c:if test="${selectedUser ne null}">
+                                   <div class="addUser">
+                                        <h2>Edit User</h2>
+                                        <form action="manageUsers" method="POST">
+                                             <table role="table">
+                                                  <tbody role="rowgroup">
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">First Name</label></td>
+                                                            <td role="cell"><input type="text" name="editFirstName" value="${selectedUser.firstName}" required></td>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">Last Name</label></td>
+                                                            <td role="cell"><input type="text" name="editLastName" value="${selectedUser.lastName}" required></td>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <td role="cell"><label for="html">Email</label></td>
+                                                            <td role="cell"><input type="text" name="editEmail" value="${selectedUser.email}" required></td>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <c:choose>
+                                                                 <c:when test="${selectedUser.hospital.hospitalName == 'Foothills Medical Center'}">
+                                                                      <td role="cell"><label for="html">Hospital</label></td>
+                                                                      <td>
+                                                                           <select name="editHospital">
+                                                                                <option value="Foothills Medical Center" selected >Foothills Medical Center</option>
+                                                                                <option value="Peter Lougheed Hospital">Peter Lougheed Hospital</option>     
+                                                                           </select>
+                                                                      </td>
+                                                                 </c:when>
+                                                                 <c:otherwise>
+                                                                      <td role="cell"><label for="html">Hospital</label></td>
+                                                                      <td>
+                                                                           <select name="editHospital">
+                                                                                <option value="Foothills Medical Center">Foothills Medical Center</option>
+                                                                                <option value="Peter Lougheed Hospital" selected >Peter Lougheed Hospital</option>     
+                                                                           </select>
+                                                                      </td>
+                                                                 </c:otherwise>
+                                                            </c:choose>
+                                                       </tr>
+                                                       <tr role="row">
+                                                            <c:choose>
+                                                                 <c:when test="${selectedUser.role.roleName == 'system admin'}">
+                                                                      <td role="cell"><label for="html">Role</label></td>
+                                                                      <td>
+                                                                           <select name="editRole">
+                                                                                <option value="system admin" selected >system admin</option>
+                                                                                <option value="access" >access</option>    
+                                                                                <option value="trauma">trauma</option>
+                                                                                <option value="senior">senior</option>
+                                                                           </select>
+                                                                      </td>
+                                                                 </c:when>
+                                                                 <c:when test="${selectedUser.role.roleName == 'access'}">
+                                                                      <td role="cell"><label for="html">Role</label></td>
+                                                                      <td>
+                                                                           <select name="editRole">
+                                                                                <option value="system admin" >system admin</option>
+                                                                                <option value="access" selected >access</option>    
+                                                                                <option value="trauma">trauma</option>
+                                                                                <option value="senior">senior</option>
+                                                                           </select>
+                                                                      </td>
+                                                                 </c:when>
+                                                                 <c:when test="${selectedUser.role.roleName == 'trauma'}">
+                                                                      <td role="cell"><label for="html">Role</label></td>
+                                                                      <td>
+                                                                           <select name="editRole">
+                                                                                <option value="system admin" >system admin</option>
+                                                                                <option value="access" >access</option>    
+                                                                                <option value="trauma" selected >trauma</option>
+                                                                                <option value="senior">senior</option>
+                                                                           </select>
+                                                                      </td>
+                                                                 </c:when>
+                                                                 <c:otherwise>
+                                                                      <td role="cell"><label for="html">Role</label></td>
+                                                                      <td>
+                                                                           <select name="editRole">
+                                                                                <option value="system admin" >system admin</option>
+                                                                                <option value="access" >access</option>    
+                                                                                <option value="trauma" >trauma</option>
+                                                                                <option value="senior" selected >senior</option>
+                                                                           </select>
+                                                                      </td>
+                                                                 </c:otherwise>
+                                                            </c:choose>
+                                                       </tr>
+                                                  </tbody>
+                                             </table>
+                                             <input type="hidden" name="editID" value="${selectedUser.userID}">
+                                             <input type="hidden" name="action" value="edit">
+                                             <button class="btn-confirm" type="submit" value="Edit User">Edit User</button>
+                                        </form>
+                                        <form action="manageUsers" method="GET">
+                                             <button class="btn-confirm" type="submit" value="cancel">Cancel</button>
+                                        </form>
+                                   </div>
+                              </c:if>
+
                               <h2>Manage Users </h2>
                               <table role="table">
                                    <thead role="rowgroup">
@@ -117,105 +218,7 @@
                                         </c:forEach>
                                    </tbody>
                               </table>
-                              <c:if test="${selectedUser ne null}">
-                                   <div class="addUser">
-                                        <h2>Edit User</h2>
-                                        <form action="manageUsers" method="POST">
-                                             <table role="table">
-                                                  <tbody role="rowgroup">
-                                                       <tr role="row">
-                                                            <td role="cell"><label for="html">First Name</label></td>
-                                                            <td role="cell"><input type="text" name="editFirstName" value="${selectedUser.firstName}" required></td>
-                                                       </tr>
-                                                       <tr role="row">
-                                                            <td role="cell"><label for="html">Last Name</label></td>
-                                                            <td role="cell"><input type="text" name="editLastName" value="${selectedUser.lastName}" required></td>
-                                                       </tr>
-                                                       <tr role="row">
-                                                            <td role="cell"><label for="html">Email</label></td>
-                                                            <td role="cell"><input type="text" name="editEmail" value="${selectedUser.email}" required></td>
-                                                       </tr>
-                                                       <tr role="row">
-                                                           <c:choose>
-                                                                <c:when test="${selectedUser.hospital.hospitalName == 'Foothills Medical Center'}">
-                                                                    <td role="cell"><label for="html">Hospital</label></td>
-                                                                        <td>
-                                                                            <select name="editHospital">
-                                                                                <option value="Foothills Medical Center" selected >Foothills Medical Center</option>
-                                                                                <option value="Peter Lougheed Hospital">Peter Lougheed Hospital</option>     
-                                                                            </select>
-                                                                        </td>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <td role="cell"><label for="html">Hospital</label></td>
-                                                                        <td>
-                                                                            <select name="editHospital">
-                                                                                <option value="Foothills Medical Center">Foothills Medical Center</option>
-                                                                                <option value="Peter Lougheed Hospital" selected >Peter Lougheed Hospital</option>     
-                                                                            </select>
-                                                                        </td>
-                                                                </c:otherwise>
-                                                           </c:choose>
-                                                       </tr>
-                                                       <tr role="row">
-                                                           <c:choose>
-                                                               <c:when test="${selectedUser.role.roleName == 'system admin'}">
-                                                                    <td role="cell"><label for="html">Role</label></td>
-                                                                        <td>
-                                                                            <select name="editRole">
-                                                                                <option value="system admin" selected >system admin</option>
-                                                                                <option value="access" >access</option>    
-                                                                                <option value="trauma">trauma</option>
-                                                                                <option value="senior">senior</option>
-                                                                            </select>
-                                                                        </td>
-                                                               </c:when>
-                                                               <c:when test="${selectedUser.role.roleName == 'access'}">
-                                                                    <td role="cell"><label for="html">Role</label></td>
-                                                                        <td>
-                                                                            <select name="editRole">
-                                                                                <option value="system admin" >system admin</option>
-                                                                                <option value="access" selected >access</option>    
-                                                                                <option value="trauma">trauma</option>
-                                                                                <option value="senior">senior</option>
-                                                                            </select>
-                                                                        </td>
-                                                               </c:when>
-                                                               <c:when test="${selectedUser.role.roleName == 'trauma'}">
-                                                                    <td role="cell"><label for="html">Role</label></td>
-                                                                        <td>
-                                                                            <select name="editRole">
-                                                                                <option value="system admin" >system admin</option>
-                                                                                <option value="access" >access</option>    
-                                                                                <option value="trauma" selected >trauma</option>
-                                                                                <option value="senior">senior</option>
-                                                                            </select>
-                                                                        </td>
-                                                               </c:when>
-                                                               <c:otherwise>
-                                                                    <td role="cell"><label for="html">Role</label></td>
-                                                                        <td>
-                                                                            <select name="editRole">
-                                                                                <option value="system admin" >system admin</option>
-                                                                                <option value="access" >access</option>    
-                                                                                <option value="trauma" >trauma</option>
-                                                                                <option value="senior" selected >senior</option>
-                                                                            </select>
-                                                                        </td>
-                                                               </c:otherwise>
-                                                           </c:choose>
-                                                       </tr>
-                                                  </tbody>
-                                             </table>
-                                             <input type="hidden" name="editID" value="${selectedUser.userID}">
-                                             <input type="hidden" name="action" value="edit">
-                                             <button class="btn-confirm" type="submit" value="Edit User">Edit User</button>
-                                        </form>
-                                        <form action="manageUsers" method="GET">
-                                            <button class="btn-confirm" type="submit" value="cancel">Cancel</button>
-                                        </form>
-                                   </div>
-                              </c:if>
+
                               <c:if test="${selectedUser eq null}">
                                    <div class="addUser">
                                         <h2>Add Users</h2>
@@ -241,21 +244,21 @@
                                                        <tr role="row">
                                                             <td><label for="html">Hospital</label></td>
                                                             <td>
-                                                                <select name="addHospital">
-                                                                    <option value="Foothills Medical Center">Foothills Medical Center</option>
-                                                                    <option value="Peter Lougheed Hospital">Peter Lougheed Hospital</option>     
-                                                                </select>
+                                                                 <select name="addHospital">
+                                                                      <option value="Foothills Medical Center">Foothills Medical Center</option>
+                                                                      <option value="Peter Lougheed Hospital">Peter Lougheed Hospital</option>     
+                                                                 </select>
                                                             </td>
                                                        </tr>
                                                        <tr role="row">
                                                             <td role="cell"><label for="html">Role</label></td>
                                                             <td>
-                                                                <select name="addRole" id="role">
-                                                                    <option value="system admin">system admin</option>
-                                                                    <option value="access" selected >access</option>    
-                                                                    <option value="trauma">trauma</option>
-                                                                    <option value="senior">senior</option>
-                                                                </select>
+                                                                 <select name="addRole" id="role">
+                                                                      <option value="system admin">system admin</option>
+                                                                      <option value="access" selected >access</option>    
+                                                                      <option value="trauma">trauma</option>
+                                                                      <option value="senior">senior</option>
+                                                                 </select>
                                                             </td>
                                                        </tr>
                                                   </tbody>

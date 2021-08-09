@@ -74,6 +74,20 @@ td {
      width: 50px;
 }
 
+.btn-submit {
+     cursor: pointer;
+     display: inline-block;
+     width: 150px;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #094c72;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0 20px 120px;
+}
+
 .btn-cancel {
      cursor: pointer;
      display: inline-block;
@@ -275,6 +289,8 @@ input:checked[type="checkbox"]:before {
 
 .rto form {
      width: 50%;
+     margin-left: auto;
+     margin-right: auto;
 }
 
 .rto table {
@@ -283,19 +299,22 @@ input:checked[type="checkbox"]:before {
 
 .form-schedule {
      position: relative;
-     margin: 0;
-     width: 100%;
-     text-align: center;
+     margin-top: 10px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 10px;
+     width: auto;
+     text-align: left;
      color: #094c72;
      font-size: 20px;
-     padding: 20px;
+     padding: 10px;
 }
 
 .form-schedule input, select {
      background-color: transparent;
      border: 0;
      border-bottom: 2px #094c72 solid;
-     width: auto;
+     width: 250px;
      padding: 35px 0px 0px 0px;
      font-size: 18px;
      text-align: left;
@@ -305,10 +324,9 @@ input:checked[type="checkbox"]:before {
 }
 
 .form-schedule label {
-     position: absolute;
      top: 15px;
      left: 40%;
-     text-align: center;
+     text-align: left;
      margin-bottom: 5px;
      padding: 0px 0 0 20px;
      font-size: 20px;
