@@ -67,7 +67,7 @@
                          <h1>Schedule</h1>
                     </div>
                     <div class="rto">
-                         <h2>Schedules</h2>
+                         <h2>The Schedule</h2>
                          <div class="form-control">
                               <c:if test="${scheduleList.size() > 0}">
                                    <form method="POST" action="theSchedule">
@@ -122,7 +122,6 @@
                                                   </tr>
                                              </c:if>
                                         </c:forEach>
-
                                    </tbody>
                               </table>
                          </c:if>
@@ -158,7 +157,6 @@
                                                        </tr>
                                                   </c:if>
                                              </c:forEach>
-
                                         </tbody>
                                    </table>
                               </div>
@@ -168,7 +166,6 @@
                                    <h2>Schedule for ${schedule.hospital.hospitalName}</h2>
                               </c:if>
                               <c:if test="${schedule.getHospital().getHospitalID() eq 1}">
-                                   <h2>Schedule for ${schedule.hospital.hospitalName}</h2>
                                    <table class="scheduler" role="table">
                                         <thead role="rowgroup">
                                              <tr role="row">
