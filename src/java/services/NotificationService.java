@@ -74,17 +74,12 @@ public class NotificationService {
 
     public boolean notificationListCheck(List<Notification> notificationList) {
         for (Notification note : notificationList) {
-            if (note.getIsHidden() == null) {
-                return false;
-            }
-            if (note.getIsHidden() != null) {
-                if (note.getIsHidden() == false) {
-                    return false;
-                }
+            if(note.getIsHidden() == false){
+                return true;
             }
         }
-
-        return true;
+        
+        return false;
     }
 
 }

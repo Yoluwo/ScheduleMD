@@ -68,11 +68,11 @@
                     <h1>Messages</h1>
                 </div>
                 <div class="rto">
-
+                    
                     <c:if test="${isEmpty ne null}">
-                        <p>You have no messages</p>
-                    </c:if>
-
+                     <p>You have no messages</p>
+                     </c:if>
+                     
                     <c:if test="${hidden ne null}">
                         <table class="mtable">
                             <c:forEach items="${noteList}" var="note">
@@ -83,7 +83,7 @@
                                 </c:if>
                             </c:forEach>
                         </table>
-                        <form action="messages" method="post">
+                         <form action="messages" method="post">
                             <input type="submit" name="hideDeleted" value="Hide Deleted Notifications">
                             <input type="hidden" name="action" value="hideDeleted">
                         </form>
@@ -93,16 +93,16 @@
                         <table class="mtable">
                             <c:forEach items="${noteList}" var="note">
                                 <c:if test="${note.isHidden eq null}">
-                                    <tr>
-                                        <td>${note.note}</td>
-                                        <td>
-                                            <form action="messages" method="post">
-                                                <input type="submit" name="deleteNote" value="Delete">
-                                                <input type="hidden" name="action" value="delete">
-                                                <input type="hidden" name="deleteNoteHidden" value="${note.notificationID}">
-                                            </form>
-                                        <td>
-                                    </tr>
+                                <tr>
+                                    <td>${note.note}</td>
+                                    <td>
+                                        <form action="messages" method="post">
+                                            <input type="submit" name="deleteNote" value="Delete">
+                                            <input type="hidden" name="action" value="delete">
+                                            <input type="hidden" name="deleteNoteHidden" value="${note.notificationID}">
+                                        </form>
+                                    <td>
+                                </tr>
                                 </c:if>
                             </c:forEach>
                         </table> 
