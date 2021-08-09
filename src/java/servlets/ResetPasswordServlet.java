@@ -51,7 +51,7 @@ public class ResetPasswordServlet extends HttpServlet {
                         AccountService ac = new AccountService();
                         boolean isChanged = ac.changePassword(user.getEmail(), user.getPassword(), newPassword);
                     if(!isChanged){
-                        request.setAttribute("message", "Password did not meet requirements, please try again.");
+                        request.setAttribute("message", "Password did not meet requirements, minimum  8 characters, 1 symbol, 1 uppercase - please try again.");
                         getServletContext().getRequestDispatcher("/WEB-INF/resetPassword.jsp").forward(request, response);
                     }
                     else{
