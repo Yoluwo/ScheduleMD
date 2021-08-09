@@ -65,7 +65,7 @@
             <div class="main">
                 <div class="topbar">
                     <div class="toggle" onclick="toggleMenu()"></div>
-                    <h1>Notifications</h1>
+                    <h1>Messages</h1>
                 </div>
                 <div class="rto">
                      <p>You have no messages</p>
