@@ -58,7 +58,18 @@ public class ProfileServlet extends HttpServlet {
         String newPassword = request.getParameter("newPassword");
         String confirmPassword = request.getParameter("confirmPassword");
         String email = (String) session.getAttribute("email");
-
+        User user = null;
+        try{
+            user = accountService.getUser(email);
+        }
+        catch(Exception e){
+            
+        }
+        String firstName = user.getFirstName();
+        String lastName = user.getLastName();
+        request.setAttribute("firstName", firstName);
+        request.setAttribute("lastName", lastName);
+        
         if(oldPassword.equals(newPassword)){
             request.setAttribute("message", "Old and New passwords cannot be the same");
             getServletContext().getRequestDispatcher("/WEB-INF/profile.jsp")
