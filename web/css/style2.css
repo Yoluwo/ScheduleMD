@@ -72,7 +72,7 @@ td {
      color: #094c72;
      background-color: #fff;
      padding: 10px 20px;
-     width: 50px;
+     width: auto;
 }
 
 .btn-submit {
@@ -351,6 +351,20 @@ input:checked[type="checkbox"]:before {
 }
 
 input[type="submit"] {
+     cursor: pointer;
+     display: inline-block;
+     width: auto;
+     background-color: #88cff9;
+     padding: 8px 5px;
+     font-size: 15px;
+     font-family: inherit;
+     color: #00254d;
+     border-radius: 5px;
+     box-shadow: 1px 1px 1px 0px #2f739c;
+     margin: 15px 0px 20px 20px;
+}
+
+input[type="delete"] {
      cursor: pointer;
      display: inline-block;
      width: auto;

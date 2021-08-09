@@ -73,7 +73,7 @@
                                    <c:if test="${message eq 'edit'}">User updated.</c:if>
                                    <c:if test="${message eq 'delete'}">User deleted.</c:if>
                                    <c:if test="${message eq 'error'}">Sorry, something went wrong.</c:if>
-                                   </p>
+                              </p>
 
                               <c:if test="${selectedUser ne null}">
                                    <div class="addUser">

@@ -83,7 +83,7 @@
                             </c:forEach>
                         </table>
                          <form action="messages" method="post">
-                            <input type="submit" name="hideDeleted" value="Hide Deleted Notifications">
+                            <input type="submit" name="hideDeleted" value="Hide Deleted Messages">
                             <input type="hidden" name="action" value="hideDeleted">
                         </form>
                     </c:if>
@@ -94,9 +94,9 @@
                                 <c:if test="${note.isHidden eq null}">
                                 <tr>
                                     <td>${note.note}</td>
-                                    <td colspan="2">
+                                    <td>
                                         <form action="messages" method="post">
-                                            <input type="submit" name="deleteNote" value="Delete">
+                                            <input type="delete" name="deleteNote" value="Delete">
                                             <input type="hidden" name="action" value="delete">
                                             <input type="hidden" name="deleteNoteHidden" value="${note.notificationID}">
                                         </form>
@@ -106,7 +106,7 @@
                             </c:forEach>
                         </table> 
                         <form action="messages" method="post">
-                            <input type="submit" name="showDeleted" value="Show Deleted Notifications">
+                            <input type="submit" name="showDeleted" value="Show Deleted Messages">
                             <input type="hidden" name="action" value="showDeleted">
                         </form>
                     </c:if>
