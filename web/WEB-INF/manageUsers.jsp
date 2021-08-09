@@ -66,17 +66,17 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Manage User Profiles</h1>
                     </div>
-                    <div class="wrapper">
+                    <div class="rto">
                          <div class="manage">
                               <p>
                                    <c:if test="${message eq 'add'}">User added.</c:if>
                                    <c:if test="${message eq 'edit'}">User updated.</c:if>
                                    <c:if test="${message eq 'delete'}">User deleted.</c:if>
                                    <c:if test="${message eq 'error'}">Sorry, something went wrong.</c:if>
-                              </p>
+                                   </p>
 
                               <c:if test="${selectedUser ne null}">
-                                   <div class="addUser">
+                                   <div class="time-off">
                                         <h2>Edit User</h2>
                                         <form action="manageUsers" method="POST">
                                              <table role="table">
@@ -220,7 +220,7 @@
                               </table>
 
                               <c:if test="${selectedUser eq null}">
-                                   <div class="addUser">
+                                   <div class="rto">
                                         <h2>Add Users</h2>
                                         <form action="manageUsers" method="POST">
                                              <table role="table">
@@ -266,8 +266,8 @@
                                              <input type="hidden" name="action" value="add">
                                              <button class="btn-add" type="submit">Add User</button>
                                         </form>
-                                   </c:if>
-                              </div>
+                                   </div>
+                              </c:if>
                          </div>
                     </div>
                </div>
