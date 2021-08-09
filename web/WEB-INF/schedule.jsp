@@ -111,9 +111,9 @@
                                     <tr role="row">
                                         <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
                                         <td role="cell"> <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${date}" /> </td>
-                                        <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
-                                        <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
-                                        <td role="cell"><c:out value="${shifts.get(counter + 2).getUser().getFirstName()}" /></td>
+                                        <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()} ${shifts.get(counter).getUser().getLastName()}" /></td>
+                                        <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()} ${shifts.get(counter + 1).getUser().getLastName()}" /></td>
+                                        <td role="cell"><c:out value="${shifts.get(counter + 2).getUser().getFirstName()} ${shifts.get(counter + 2).getUser().getLastName()}" /></td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
@@ -133,8 +133,8 @@
                                     <tr role="row">
                                         <c:set var="date" value="${shifts.get(counter).getStartTime()}"/>
                                         <td role="cell"> <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${date}" /> </td>
-                                        <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()}" /></td>
-                                        <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()}" /></td>
+                                        <td role="cell"><c:out value="${shifts.get(counter).getUser().getFirstName()} ${shifts.get(counter).getUser().getLastName()}" /></td>
+                                        <td role="cell"><c:out value="${shifts.get(counter + 1).getUser().getFirstName()} ${shifts.get(counter + 1).getUser().getLastName()}" /></td>
                                     </tr>
                                 </c:forEach>
                             </tbody>

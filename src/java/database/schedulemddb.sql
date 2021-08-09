@@ -234,13 +234,13 @@ INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Passwor
 
 
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
-    VALUES (2, 1, 'Extender', 'Extender', 'ExtenderAccess@gmail.com', 'dunno', true,true);
+    VALUES (2, 1, 'Extender', '', 'ExtenderAccess@gmail.com', 'dunno', true,true);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
-    VALUES (3, 1, 'Extender', 'Extender', 'ExtenderTrauama@gmail.com', 'dunno', true,true);
+    VALUES (3, 1, 'Extender', '', 'ExtenderTrauama@gmail.com', 'dunno', true,true);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
-    VALUES (4, 1, 'Extender', 'Extender', 'ExtenderSenior@gmail.com', 'dunno', true,true);
+    VALUES (4, 1, 'Extender', '', 'ExtenderSenior@gmail.com', 'dunno', true,true);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
-    VALUES (5, 1, 'Extender', 'Extender', 'Extender@gmail.com', 'dunno', true,true);
+    VALUES (5, 1, 'Extender', '', 'Extender@gmail.com', 'dunno', true,true);
 
 
 
