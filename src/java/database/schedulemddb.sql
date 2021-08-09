@@ -161,7 +161,7 @@ INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Passwor
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
     VALUES (2, 1, 'Alex', 'Zecevic', 'alexz@gmail.com', 'password', true,false);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
-    VALUES (2, 1, 'Tom', 'Skiff', 'toms@gmail.com', 'password', true,false);
+    VALUES (2, 1, 'Tom', 'Skiff', 'Thomas.Skiffington@edu.sait.ca', 'password', true,false);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)
     VALUES (2, 1, 'Ethan', 'Paul', 'ethanpaul20@outlook.com', 'password', true,false);
 INSERT INTO `user` (`Role`, `Hospital`, `FirstName`,`LastName`,`Email`, `Password`, `IsActive`, `IsExtender`)

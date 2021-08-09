@@ -68,7 +68,11 @@
                     <h1>Messages</h1>
                 </div>
                 <div class="rto">
+                    
+                    <c:if test="${isEmpty ne null}">
                      <p>You have no messages</p>
+                     </c:if>
+                     
                     <c:if test="${hidden ne null}">
                         <table class="mtable">
                             <c:forEach items="${noteList}" var="note">

@@ -62,14 +62,24 @@ public class NotificationService {
             System.out.println("Error in saving notification");
         }
     }
-    
-      public void updateNotification(Notification note) {
+
+    public void updateNotification(Notification note) {
         NotificationDB nDB = new NotificationDB();
         try {
             nDB.update(note);
         } catch (Exception e) {
             System.out.println("Error in saving notification");
         }
+    }
+
+    public boolean notificationListCheck(List<Notification> notificationList) {
+        for (Notification note : notificationList) {
+            if(note.getIsHidden() == false){
+                return true;
+            }
+        }
+        
+        return false;
     }
 
 }

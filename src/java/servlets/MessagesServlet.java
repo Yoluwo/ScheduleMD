@@ -22,6 +22,7 @@ public class MessagesServlet extends HttpServlet {
         HttpSession session = request.getSession();
         AccountService accountService = new AccountService();
         NotificationService noteService = new NotificationService();
+        boolean isEmpty = true;
 
         String email = (String) session.getAttribute("email");
         User currentUser = null;
@@ -32,7 +33,16 @@ public class MessagesServlet extends HttpServlet {
             Logger.getLogger(MessagesServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        
         List<Notification> notificationList = noteService.findNotificationByUser(currentUser);
+        if(notificationList.size() > 0){
+            isEmpty = true;
+        }
+        isEmpty = noteService.notificationListCheck(notificationList);
+        if(isEmpty){
+            request.setAttribute("empty", true);
+        }
+        
         
         request.setAttribute("noteList", notificationList);
 
