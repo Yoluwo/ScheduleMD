@@ -70,7 +70,7 @@
                 <div class="rto">
                     
                     <c:if test="${isEmpty ne null}">
-                     <p>You have no messages</p>
+                     <p>You have no new messages</p>
                      </c:if>
                      
                     <c:if test="${hidden ne null}">

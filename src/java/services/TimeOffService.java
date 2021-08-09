@@ -58,8 +58,9 @@ public class TimeOffService {
         Timeoff newTimeOff = new Timeoff(0, Calendar.getInstance().getTime(), startDate, endDate, false);
         String startDateFmt = format.format(newTimeOff.getStartDate());
         String endDateFmt = format.format(newTimeOff.getEndDate());
+        Date date = new Date();
         newTimeOff.setUser(user);
-        Notification note = new Notification(0, user.getFirstName() + ", your request for time off from" + startDateFmt +" until " +endDateFmt+" is pending review");
+        Notification note = new Notification(0,format.format(date) +":  "+  user.getFirstName() + ", your request for time off from" + startDateFmt +" until " +endDateFmt+" is pending review");
         note.setUser(user);
         noteService.saveNotification(note);
         saveTimeOff(newTimeOff);
@@ -74,7 +75,8 @@ public class TimeOffService {
         String startDate = format.format(timeOffRequest.getStartDate());
         String endDate = format.format(timeOffRequest.getEndDate());
         User userOfTimeOffRequest = timeOffRequest.getUser();
-        Notification note = new Notification(0, "Your time off request for " + startDate + " until " + endDate + " has been approved!");
+        Date date = new Date();
+        Notification note = new Notification(0,format.format(date) +":  "+ "Your time off request for " + startDate + " until " + endDate + " has been approved!");
         note.setUser(userOfTimeOffRequest);
         noteService.saveNotification(note);
         timeOffRequest.setIsApproved(true);
@@ -91,13 +93,14 @@ public class TimeOffService {
         String startDate = format.format(timeOffRequest.getStartDate());
         String endDate = format.format(timeOffRequest.getEndDate());
         User userOfTimeOffRequest = timeOffRequest.getUser();
+        Date date = new Date();
 
         if (reason.isEmpty()) {
-            Notification note = new Notification(0, userOfTimeOffRequest.getFirstName() + " , your time off request for " + startDate + " until " + endDate + " has been denied.");
+            Notification note = new Notification(0, format.format(date) +":  "+ userOfTimeOffRequest.getFirstName() + " , your time off request for " + startDate + " until " + endDate + " has been denied.");
             note.setUser(userOfTimeOffRequest);
             noteService.saveNotification(note);
         } else {
-            Notification note = new Notification(0, userOfTimeOffRequest.getFirstName() + " , your time off request for " + startDate + " until " + endDate + " has been denied : " + reason);
+            Notification note = new Notification(0, format.format(date) +":  "+ userOfTimeOffRequest.getFirstName() + " , your time off request for " + startDate + " until " + endDate + " has been denied : " + reason);
             note.setUser(userOfTimeOffRequest);
             noteService.saveNotification(note);
         }
