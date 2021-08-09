@@ -87,14 +87,14 @@ public class ScheduleServlet extends HttpServlet {
             for(int i = 0; i < scheduleList.size(); i++){
                 schedule = scheduleList.get(i);
                 Date start = schedule.getStartDate();
+                Date end = schedule.getEndDate();
                 long diffInMillis = Math.abs(start.getTime() - curEnd.getTime());
                 long diffInDays = TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS);
                 if(diffInDays < 2 && diffInDays >= 0){
                     Calendar c = Calendar.getInstance();
-                    c.setTime(start);
+                    c.setTime(end);
                     c.add(Calendar.DATE, -1);
                     schedule.setEndDate(c.getTime());
-                    usersScheduleList.add(schedule);
                     usersScheduleList.add(schedule);
                 }
             }
