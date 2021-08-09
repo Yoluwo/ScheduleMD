@@ -72,46 +72,52 @@
                     </div>
                     <div class="cardMain">
                          <div class="cards">
+                              <div class="cards">
                               <div class="card">
-                                   <div>
-                                        <div class="numbers">50</div>
-                                        <div class="cardName">Visits</div>
-                                   </div>
-                                   <div class="iconBox">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                   </div>
-                              </div>
-                              <div class="card">
-                                   <div>
-                                        <div class="numbers">15</div>
-                                        <div class="cardName">Open Shifts</div>
-                                   </div>
-                                   <div class="iconBox">
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                   </div>
+                                   <a href="profile">
+                                        <div>
+                                             <div class="numbers">View</div>
+                                             <div class="cardName">Profile</div>
+                                        </div>
+                                        <div class="iconBox">
+                                             <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        </div>
+                                   </a>
                               </div>
                               <div class="card">
-                                   <div>
-                                        <div class="numbers">20</div>
-                                        <div class="cardName">Users</div>
-                                   </div>
-                                   <div class="iconBox">
-                                        <i class="fa fa-users" aria-hidden="true"></i>
-                                   </div>
+                                   <a href="messages">
+                                        <div>
+                                             <div class="numbers">View</div>
+                                             <div class="cardName">Messages</div>
+                                        </div>
+                                        <div class="iconBox">
+                                             <i class="fa fa-comment" aria-hidden="true"></i>
+                                        </div>
+                                   </a>
                               </div>
                               <div class="card">
-                                   <div>
-                                        <div class="numbers">40</div>
-                                        <div class="cardName">Downloads</div>
-                                   </div>
-                                   <div class="iconBox">
-                                        <i class="fa fa-download" aria-hidden="true"></i>
-                                   </div>
+                                   <a href="schedule">
+                                        <div>
+                                             <div class="numbers">View</div>
+                                             <div class="cardName">Schedule</div>
+                                        </div>
+                                        <div class="iconBox">
+                                             <i class="fa fa-users" aria-hidden="true"></i>
+                                        </div>
+                                   </a>
                               </div>
-                              <div class="details">
-
+                              <div class="card">
+                                   <a href="request">
+                                        <div>
+                                             <div class="numbers">Make</div>
+                                             <div class="cardName">Request</div>
+                                        </div>
+                                        <div class="iconBox">
+                                             <i class="fa fa-download" aria-hidden="true"></i>
+                                        </div>
+                                   </a>
                               </div>
-                         </div> 
+                         </div>
                     </div>
                </div>
           </div>

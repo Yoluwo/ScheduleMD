@@ -13,20 +13,7 @@ html {
      height: 100%;
 }
 
-/* CSS for designing request time off card 
-.time-off {
-     margin-top: 20px;
-     margin-left: 15px;
-     margin-bottom: 20px;
-     padding: 0;
-     width: 600px;
-     height: auto;
-     font-size: 15px;
-     color: #00254d;
-     background-color: #dcf4fc;
-     box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
-}
-*/
+/* CSS for designing request time off card*/
 .time-off {
      margin-top: 20px;
      margin-left: auto;
@@ -42,12 +29,12 @@ html {
      box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
      display: flex;
      flex-direction: row;
-     justify-content: flex-start;
+     justify-content: space-around;
 }
 
 .time-off form {
-     margin: 10px 20px;
-     width: 50%;
+     margin: 20px 20px;
+     width: 25%;
 }
 
 table {

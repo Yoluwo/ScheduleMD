@@ -1,33 +1,14 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-
- color: #094c72;
-.mtable tr:nth-of-type(even) {
-    background-color: #5EC3FF;
-}
-
-.mtable tr:last-of-type {
-    border-bottom: 2px solid #009879;
-}
-*/
 /* 
     Created on : Jul 16, 2021, 9:53:39 AM
     Author     : Kilanga Maxwell
 */
-
-
-
 
 .mtable {
     border-collapse: collapse;
     margin: 25px 0 10px 20px;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    display: flex;
 }
 
 .mtable td {
@@ -38,7 +19,6 @@ and open the template in the editor.
 .mtable tr {
     background-color: #dbf3fa;
     border-bottom: 1px solid #094c72;
-    
 }
 
 
