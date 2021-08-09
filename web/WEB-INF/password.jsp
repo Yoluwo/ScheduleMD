@@ -32,7 +32,7 @@
                    ${message}
                     <button class="btn">Submit</button>
                </form>
-                    <button class="btn">Continue to Log in</button>
+                    <button class="btn"><a href="login">Continue to Log in</a></button>
           </div>
      </body>
 </html>
