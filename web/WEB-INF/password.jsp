@@ -32,6 +32,7 @@
                    ${message}
                     <button class="btn">Submit</button>
                </form>
+                    <button class="btn">Continue to Log in</button>
           </div>
      </body>
 </html>
