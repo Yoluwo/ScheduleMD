@@ -80,7 +80,7 @@
                                         <option value="${scheduleList.get(counter).getScheduleID()}">From: <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${scheduleStart}" />, To: <fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${scheduleEnd}" /></option>
                                     </c:forEach>
                                 </select>
-                                <button type="submit">Show schedule</button>
+                                <button class="btn-add" type="submit">Show schedule</button>
                             </form>
                         </c:if>
                         <c:if test="${message ne null}">
