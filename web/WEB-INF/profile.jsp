@@ -92,17 +92,17 @@
                                                        <div class="col-lg-8">
                                                             <div class="card shadow-sm">
                                                                  <div class="card-header bg-transparent border-0">
-                                                                      <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                                                                      <h3 class="mb-0">General Information</h3>
                                                                  </div>
                                                                  <div class="card-body pt-0">
                                                                       <table class="table table-bordered">
                                                                            <tr>
-                                                                                <th width="30%">FirstName:</th>
+                                                                                <th width="30%">First Name:</th>
                                                                                 <td width="2%">:</td>
                                                                                 <td>${firstName}</td>
                                                                            </tr>
                                                                            <tr>
-                                                                                <th width="30%">LastName:</th>
+                                                                                <th width="30%">Last Name:</th>
                                                                                 <td width="2%">:</td>
                                                                                 <td>${lastName}</td>
                                                                            </tr>

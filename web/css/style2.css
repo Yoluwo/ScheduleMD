@@ -86,7 +86,7 @@ td {
      color: #094c72;
      border-radius: 5px;
      box-shadow: 1px 1px 1px 0px #2f739c;
-     margin: 15px 0 20px 120px;
+     margin: 15px 0 20px 180px;
 }
 
 .btn-cancel {
@@ -315,8 +315,8 @@ input:checked[type="checkbox"]:before {
      background-color: transparent;
      border: 0;
      border-bottom: 2px #094c72 solid;
-     width: auto;
-     padding: 35px 0px 0px 0px;
+     width: 270px;
+     padding: 35px 0px 0px 10px;
      font-size: 18px;
      text-align: left;
      top: 15px;

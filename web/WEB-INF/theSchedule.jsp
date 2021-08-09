@@ -67,7 +67,6 @@
                          <h1>Schedule</h1>
                     </div>
                     <div class="rto">
-                         <h2>The Schedule</h2>
                          <div class="form-control">
                               <c:if test="${scheduleList.size() > 0}">
                                    <form method="POST" action="theSchedule">
