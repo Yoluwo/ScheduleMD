@@ -66,8 +66,11 @@
                     <div class="toggle" onclick="toggleMenu()"></div>
                     <h1>Schedule</h1>
                 </div>
+                
                 <div class="rto">
+                     <c:if test="${scheduleExists eq null}">
                       <h2>Schedule for ${schedule.hospital.hospitalName}</h2>
+                      </c:if>
                     <div class="form-control">
 
                         <c:if test="${scheduleList.size() > 0}">

@@ -102,6 +102,7 @@ public class ScheduleServlet extends HttpServlet {
         else {
             String message = "You currently have no active schedules.";
             request.setAttribute("message", message);
+            request.setAttribute("scheduleExists", true);
         }
 
         request.setAttribute("schedule", curMonthSchedule);
