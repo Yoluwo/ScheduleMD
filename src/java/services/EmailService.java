@@ -63,7 +63,7 @@ public class EmailService {
                urtDB.update(urt);
           } catch (Exception e) {
           }
-          URL url = new URL("http://localhost:8080/Schedule-MD/resetPassword?t=" + token);
+          URL url = new URL("http://localhost:8084/Schedule-MD/resetPassword?t=" + token);
           this.recipient = recipientEmail;
           //Get system properties
           Properties properties = System.getProperties();
