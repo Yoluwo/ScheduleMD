@@ -96,7 +96,7 @@
                                     <td>${note.note}</td>
                                     <td>
                                         <form action="messages" method="post">
-                                            <input type="delete" name="deleteNote" value="Delete">
+                                            <input type="submit" name="deleteNote" value="Delete">
                                             <input type="hidden" name="action" value="delete">
                                             <input type="hidden" name="deleteNoteHidden" value="${note.notificationID}">
                                         </form>
