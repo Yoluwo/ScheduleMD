@@ -22,7 +22,7 @@ public class MessagesServlet extends HttpServlet {
         HttpSession session = request.getSession();
         AccountService accountService = new AccountService();
         NotificationService noteService = new NotificationService();
-        boolean isEmpty = true;
+        boolean isEmpty = false;
 
         String email = (String) session.getAttribute("email");
         User currentUser = null;
@@ -33,17 +33,17 @@ public class MessagesServlet extends HttpServlet {
             Logger.getLogger(MessagesServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
         List<Notification> notificationList = noteService.findNotificationByUser(currentUser);
-        if(notificationList.size() > 0){
+        if (notificationList.isEmpty()) {
             isEmpty = true;
+        } else {
+            isEmpty = noteService.notificationListCheck(notificationList);
         }
-        isEmpty = noteService.notificationListCheck(notificationList);
-        if(isEmpty){
-            request.setAttribute("empty", true);
+
+        if (isEmpty) {
+            request.setAttribute("isEmpty", true);
         }
-        
-        
+
         request.setAttribute("noteList", notificationList);
 
         getServletContext().getRequestDispatcher("/WEB-INF/messages.jsp")
@@ -62,6 +62,7 @@ public class MessagesServlet extends HttpServlet {
 
         String email = (String) session.getAttribute("email");
         User currentUser = null;
+        boolean isEmpty = false;
 
         switch (action) {
 
@@ -103,8 +104,21 @@ public class MessagesServlet extends HttpServlet {
                 request.setAttribute("noteList", notificationList);
                 request.setAttribute("hidden", null);
                 break;
-               
+
         }
+
+        List<Notification> notificationList = noteService.findNotificationByUser(currentUser);
+        if (notificationList.isEmpty()) {
+            isEmpty = true;
+        } else {
+            isEmpty = noteService.notificationListCheck(notificationList);
+        }
+
+        if (isEmpty) {
+            request.setAttribute("isEmpty", true);
+        }
+
+        request.setAttribute("noteList", notificationList);
 
         getServletContext().getRequestDispatcher("/WEB-INF/messages.jsp")
                 .forward(request, response);
