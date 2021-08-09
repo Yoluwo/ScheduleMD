@@ -218,6 +218,7 @@ td {
      transform: translate(1%, 4%);
 }
 
+/*
 input[type="checkbox"] {
      position: relative;
      width: 25px;
@@ -249,6 +250,17 @@ input[type="checkbox"]:before {
 
 input:checked[type="checkbox"]:before {
      left: 14px;
+} */
+
+input[type=text] {
+     width: 80%;
+     padding: 12px 20px;
+     margin: 8px 0;
+     display: inline-block;
+     border: 2px solid #ccc;
+     border-radius: 4px;
+     box-sizing: border-box;
+     color: #094c72;
 }
 
 .rto {
@@ -302,6 +314,7 @@ input:checked[type="checkbox"]:before {
      top: 15px;
      left: 40%;
      font-family: 'merriweather', sans-serif;
+     color: #094c72;
 }
 
 .form-schedule label {
