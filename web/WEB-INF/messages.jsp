@@ -101,7 +101,7 @@
                                             <input type="hidden" name="action" value="delete">
                                             <input type="hidden" name="deleteNoteHidden" value="${note.notificationID}">
                                         </form>
-                                    <td>
+                                    </td>
                                 </tr>
                                 </c:if>
                             </c:forEach>
