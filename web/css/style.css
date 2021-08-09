@@ -410,7 +410,7 @@ p {
 .cards {
      position: relative;
      width: 100%;
-     padding: 0px;
+     padding: 0;
      display: grid;
      grid-template-columns: repeat(4,1fr);
      grid-gap: 20px;

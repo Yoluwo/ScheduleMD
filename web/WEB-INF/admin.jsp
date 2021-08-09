@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
      <head>
@@ -12,6 +14,7 @@
           <meta name="viewport" content="width-device-width, initial-scale=1.0"> 
           <title>Admin Panel</title>
           <link href="css/style.css" rel="stylesheet" type="text/css">
+          <link href="css/style2.css" rel="stylesheet" type="text/css">
           <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" rel="stylesheet" >
           <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,300italic,100" rel="stylesheet" type="text/css">
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
@@ -72,12 +75,11 @@
                     </div>
                     <div class="cardMain">
                          <div class="cards">
-                              <div class="cards">
                               <div class="card">
-                                   <a href="profile">
+                                   <a href="review">
                                         <div>
                                              <div class="numbers">View</div>
-                                             <div class="cardName">Profile</div>
+                                             <div class="cardName">Requests</div>
                                         </div>
                                         <div class="iconBox">
                                              <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -85,10 +87,10 @@
                                    </a>
                               </div>
                               <div class="card">
-                                   <a href="messages">
+                                   <a href="theSchedule">
                                         <div>
-                                             <div class="numbers">View</div>
-                                             <div class="cardName">Messages</div>
+                                             <div class="numbers">Edit</div>
+                                             <div class="cardName">Schedule</div>
                                         </div>
                                         <div class="iconBox">
                                              <i class="fa fa-comment" aria-hidden="true"></i>
@@ -96,10 +98,10 @@
                                    </a>
                               </div>
                               <div class="card">
-                                   <a href="schedule">
+                                   <a href="manageUsers">
                                         <div>
-                                             <div class="numbers">View</div>
-                                             <div class="cardName">Schedule</div>
+                                             <div class="numbers">Edit</div>
+                                             <div class="cardName">Users</div>
                                         </div>
                                         <div class="iconBox">
                                              <i class="fa fa-users" aria-hidden="true"></i>
@@ -107,16 +109,32 @@
                                    </a>
                               </div>
                               <div class="card">
-                                   <a href="request">
+                                   <a href="createSchedule">
                                         <div>
                                              <div class="numbers">Make</div>
-                                             <div class="cardName">Request</div>
+                                             <div class="cardName">Schedule</div>
                                         </div>
                                         <div class="iconBox">
                                              <i class="fa fa-download" aria-hidden="true"></i>
                                         </div>
                                    </a>
                               </div>
+                         </div>
+                         <div class="details">
+                              <div class="recent"></div>
+                              <c:if test="${shifts ne null}"> 
+                                   <h2>Upcoming Shifts</h2>
+                                   <table>
+                                        <c:forEach items="${shifts}" var="shift">
+                                             <tr>
+                                                  <td><fmt:formatDate pattern="EEEE MMM dd, yyyy" value="${shift.startTime}" /> </td>
+                                             </tr>
+                                        </c:forEach>
+                                   </table>
+                              </c:if>
+                              <c:if test="${shifts eq null}">
+                                   <h2>No Upcoming Shifts</h2>
+                              </c:if>
                          </div>
                     </div>
                </div>
