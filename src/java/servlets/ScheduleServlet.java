@@ -104,7 +104,12 @@ public class ScheduleServlet extends HttpServlet {
             request.setAttribute("message", message);
             request.setAttribute("scheduleExists", true);
         }
-
+        usersScheduleList.clear();
+        for(int i = 0; i < scheduleList.size(); i++){
+            if(scheduleList.get(i).getHospital().getHospitalID() == user.getHospital().getHospitalID()){
+                usersScheduleList.add(scheduleList.get(i));
+            }
+        }
         request.setAttribute("schedule", curMonthSchedule);
         request.setAttribute("shifts", sortedShiftsFinal);
         session.setAttribute("scheduleList", usersScheduleList);
