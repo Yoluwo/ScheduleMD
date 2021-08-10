@@ -252,6 +252,11 @@ h2 {
      color: #094c72;
 }
 
+a {
+     text-decoration: none;
+     color: #094c72;
+}
+
 /*CSS for designing the submain and calendar UI for the schedule pages*/
 .submain {
      margin: 20px 0px 10px 15px;
@@ -414,6 +419,7 @@ p {
      display: grid;
      grid-template-columns: repeat(4,1fr);
      grid-gap: 20px;
+     text-align: center;
 }
 
 .cards .card {
@@ -433,13 +439,13 @@ p {
 }
 
 .cards .card .cardName {
-     color: #00254d;
+     color: #094c72;
+     font-size: 18px;
 }
 
 .cards .card .iconBox {
      font-size: 30px;
      color: #5ccbff;
-     margin-left: 20px;
 }
 
 .cards .card .icon {
