@@ -82,7 +82,7 @@
                                              <div class="cardName">Profile</div>
                                         </div>
                                         <div class="iconBox">
-                                             <i class="fa fa-calendar" aria-hidden="true"></i>
+                                             <i class="fa fa-users" aria-hidden="true"></i>
                                         </div>
                                    </a>
                               </div>
@@ -104,7 +104,7 @@
                                              <div class="cardName">Schedule</div>
                                         </div>
                                         <div class="iconBox">
-                                             <i class="fa fa-users" aria-hidden="true"></i>
+                                             <i class="fa fa-calendar" aria-hidden="true"></i></i>
                                         </div>
                                    </a>
                               </div>
@@ -115,7 +115,7 @@
                                              <div class="cardName">Request</div>
                                         </div>
                                         <div class="iconBox">
-                                             <i class="fa fa-download" aria-hidden="true"></i>
+                                             <i class="fa fa-question-circle" aria-hidden="true"></i>
                                         </div>
                                    </a>
                               </div>

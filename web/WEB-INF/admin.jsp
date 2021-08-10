@@ -82,7 +82,7 @@
                                              <div class="cardName">Requests</div>
                                         </div>
                                         <div class="iconBox">
-                                             <i class="fa fa-calendar" aria-hidden="true"></i>
+                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                         </div>
                                    </a>
                               </div>
@@ -93,7 +93,7 @@
                                              <div class="cardName">Schedule</div>
                                         </div>
                                         <div class="iconBox">
-                                             <i class="fa fa-comment" aria-hidden="true"></i>
+                                             <i class="fa fa-calendar-times-o" aria-hidden="true"></i></i>
                                         </div>
                                    </a>
                               </div>
@@ -115,7 +115,7 @@
                                              <div class="cardName">Schedule</div>
                                         </div>
                                         <div class="iconBox">
-                                             <i class="fa fa-download" aria-hidden="true"></i>
+                                             <i class="fa fa-calendar" aria-hidden="true"></i>
                                         </div>
                                    </a>
                               </div>

@@ -419,16 +419,16 @@ p {
 .cards .card {
      position: relative;
      background: #dcf4fc;
-     padding: 20px;
+     padding: 15px;
      display: flex;
-     justify-content: space-between;
+     justify-content: center;
      cursor: pointer;
      box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
 }
 
 .cards .card .numbers {
      position: relative;
-     font-size: 20px;
+     font-size: 25px;
      font-weight: 500;
 }
 
@@ -439,6 +439,7 @@ p {
 .cards .card .iconBox {
      font-size: 30px;
      color: #5ccbff;
+     margin-left: 20px;
 }
 
 .cards .card .icon {
