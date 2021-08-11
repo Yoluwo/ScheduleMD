@@ -1,7 +1,7 @@
 <%-- 
     Document   : resetPassword
     Created on : 28-Jun-2021, 2:51:22 PM
-    Author     : 805580
+    Author     : Yetunde Oluwo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
