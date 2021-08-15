@@ -14,6 +14,10 @@ import models.*;
 import services.*;
 import java.util.Calendar;
 
+/**
+ * PasswordServlet will recieve a email parameter, and construct an e-mail to send a link to reset the Users password
+ * @author epaul
+ */
 public class PasswordServlet extends HttpServlet {
     
     @Override
@@ -30,17 +34,21 @@ public class PasswordServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        //Initializing DataAccess/Services
         UserDB userDB = new UserDB();
+        EmailService es = new EmailService();
+        
         User user = null;
+        //Getting email parameter
         String email = request.getParameter("email");
         try{
+            //Get user from database
             user = userDB.get(email);
         } catch (Exception e) {}
-
+        
         if (user != null){
-            EmailService es = new EmailService();
             try {
+                //call sendForgotPasswordEmail with the users email, and userID
                 es.sendForgotPasswordEmail(user.getEmail(), user.getUserID());
             }
               catch (NoSuchAlgorithmException ex) {}
