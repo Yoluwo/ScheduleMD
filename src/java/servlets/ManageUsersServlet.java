@@ -9,8 +9,27 @@ import javax.servlet.http.HttpServletResponse;
 import models.User;
 import services.AccountService;
 
+/**
+ * This class contains the code that manages the users for the manageUsers JSP.
+ * The servlet will load data onto the manageUsers JSP and will also take data
+ * from the webpage and send it off to other classes for processing. When all of
+ * the data from the page is processed it will reload the page with the new data.
+ * 
+ * @author Alex Zecevic
+ */
 public class ManageUsersServlet extends HttpServlet {
     
+    /**
+     * The doGet method will load data onto the webpage when the webpage first 
+     * loads on the screen, it will also do this every time the doGet method is 
+     * called in a form or in Java. In this case the method will load all of the 
+     * users in the database as well as any user the admin has selected.
+     * 
+     * @param request The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -39,6 +58,18 @@ public class ManageUsersServlet extends HttpServlet {
                 .forward(request, response);
     }
 
+    /**
+     * The doPost method will load data onto the webpage whenever the doPost
+     * method is called either in a form or Java. In this case the method will 
+     * be checking if the user is clicking on the add, delete, or edit buttons
+     * in the JSP and will be performing that action to the selected user. Once
+     * the action is completed it will reload the updated user list to the page.
+     * 
+     * @param request The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

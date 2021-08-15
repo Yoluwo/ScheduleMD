@@ -20,8 +20,20 @@ import javax.servlet.http.HttpSession;
  * 
  * @author Alex Zecevic
  */
-
 public class AuthenticationFilter implements Filter {
+    
+    /**
+     * The doFilter method contains all the code required to execute the filter.
+     * In this case the method will check if the email in the request object is
+     * null and if it is it will redirect the user back to the login page
+     * otherwise it will allow the user access to the system.
+     * 
+     * @param request The ServletRequest object.
+     * @param response The ServletResponde object.
+     * @param chain The FilterChain object of the filters.
+     * @throws IOException
+     * @throws ServletException 
+     */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
@@ -39,9 +51,17 @@ public class AuthenticationFilter implements Filter {
         chain.doFilter(request, response);
     }
 
+    /**
+     * The init method is empty in our case.
+     * @param filterConfig The FilterConfig object.
+     * @throws ServletException 
+     */
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {}
-
+    
+    /**
+     * The destroy method is empty in our case.
+     */
     @Override
     public void destroy() {}
 }

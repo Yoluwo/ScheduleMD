@@ -21,8 +21,21 @@ import javax.servlet.http.HttpSession;
  * 
  * @author Alex Zecevic
  */
-
 public class AdminFilter implements Filter {
+    
+    /**
+     * The doFilter method contains all the code required to execute the filter.
+     * In this case the method will be checking if the users role ID is 1, if 
+     * the ID is 1 then the user will be allowed to pass to the admin servlets
+     * otherwise the user will be redirected back to the resident servlet and
+     * denied access.
+     * 
+     * @param request The ServletRequest object.
+     * @param response The ServletResponde object.
+     * @param chain The FilterChain object of the filters.
+     * @throws IOException
+     * @throws ServletException 
+     */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
@@ -44,9 +57,17 @@ public class AdminFilter implements Filter {
         } catch (Exception ex) {}
     }   
 
+    /**
+     * The init method is empty in our case.
+     * @param filterConfig The FilterConfig object.
+     * @throws ServletException 
+     */
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {}
 
+    /**
+     * The destroy method is empty in our case.
+     */
     @Override
     public void destroy() {}
 }
