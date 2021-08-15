@@ -15,7 +15,7 @@ import services.*;
  * TimeOffService Class contains all methods and functionality required for
  * Making / approving / denying TimeOff Requests
  *
- * @author epaul
+ * @author epaul, Thomas Skiffington
  */
 public class TimeOffService {
 

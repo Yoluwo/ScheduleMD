@@ -11,11 +11,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 /**
- *
- * @author epaul
+ * ShiftDB class that contains all the methods for retrieving, updating, and inserting shift objects to and from the database.
+ * ShiftDB is for the Shift Model.
+ * @author epaul, Thomas Skiffington
  */
 public class ShiftDB {
 
+    /**
+     * getByShiftID method that retrieves the shift object from the database
+     * with the matching ID
+     *
+     * @param shiftID of shift to retrieve
+     * @return shift
+     * @throws Exception if shift could not be retrieved
+     */
     public Shift getByShiftID(int shiftID) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         Shift shift = null;
@@ -27,6 +36,12 @@ public class ShiftDB {
         }
     }
 
+    /**
+     * getAll method that retrieves all the Shift objects from the database
+     *
+     * @return shifts
+     * @throws Exception if shifts could not be retrieved
+     */
     public List<Shift> getAll() throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
 
@@ -39,6 +54,12 @@ public class ShiftDB {
 
     }
 
+    /**
+     * insert method inserts and commits a new Shift object into the database
+     *
+     * @param shift to insert into database
+     * @throws Exception if shift could not be inserted
+     */
     public void insert(Shift shift) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
@@ -56,6 +77,13 @@ public class ShiftDB {
         }
     }
 
+    /**
+     * update will update a Shift object in the database to include newly added
+     * information
+     *
+     * @param shift to update
+     * @throws Exception if shift could not be updated
+     */
     public void update(Shift shift) throws Exception {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();

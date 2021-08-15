@@ -14,7 +14,7 @@ import servlets.PasswordServlet;
  * SchedulingService class contains all methods and functionality required for
  * generating a schedule
  *
- * @author epaul
+ * @author epaul,Thomas Skiffington
  */
 public class SchedulingService {
 

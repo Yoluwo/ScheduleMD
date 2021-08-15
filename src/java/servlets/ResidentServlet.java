@@ -13,8 +13,19 @@ import services.SchedulingService;
 import services.ShiftService;
 import services.TimeOffService;
 
+/**
+ * ResidentServlet class is the servlet for the resident.jsp, this is the welcome/homepage of the application and contains a list of the users upcoming shifts
+ * @author Thomas Skiffington
+ */
 public class ResidentServlet extends HttpServlet {
 
+    /**
+     * doGet method 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -24,20 +35,22 @@ public class ResidentServlet extends HttpServlet {
         TimeOffService timeOffService = new TimeOffService();
         ShiftService shiftService = new ShiftService();
         String email = (String) session.getAttribute("email");
-        
-        try{
+
+        //Getting the user by their email
+        try {
             User user = accountService.getUser(email);
             request.setAttribute("user", user);
-        }
-        catch(Exception e){
-            
+        } catch (Exception e) {
+
         }
 
+        //Calling the personalScheduleMaker method which will get the users upcoming shifts to display
         try {
             List<Shift> shifts = shiftService.personalScheduleMaker(email);
-            if(shifts != null){
-                if(shifts.size() > 0){
-                    request.setAttribute("shifts", shifts); 
+            if (shifts != null) {
+                if (shifts.size() > 0) {
+                    //Setting the shifts to be used in the jsp in a jstl loop which will display all the shifts in the list
+                    request.setAttribute("shifts", shifts);
                 }
             }
 
@@ -49,6 +62,13 @@ public class ResidentServlet extends HttpServlet {
 
     }
 
+    /**
+     * doPost method
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
