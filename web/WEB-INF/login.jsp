@@ -18,7 +18,7 @@
 
      </head>
      <body>
-          <!--Java Single Page for log in  -->
+          <!--Java Single Page for log in form -->
           <div class="logo"> 
                <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
           </div>

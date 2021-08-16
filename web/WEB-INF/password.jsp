@@ -22,17 +22,17 @@
                <h1><a href="login"><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</a></h1>
           </div>
           <div class="container">
-               <!-- Insert back button here -->
+               <!-- Forgot Password form -->
                <h2>Forgot Password?</h2>
                <form method="POST" action="password">
                     <div class="form-control">
                          <label for="email">Email: </label>
                          <input type="text" name="email" id="email" required>
                     </div>
-                   ${message}
+                    ${message}
                     <button class="btn">Submit</button>
                </form>
-                    <button class="btn"><a href="login">Continue to Log in</a></button>
+               <button class="btn"><a href="login">Continue to Log in</a></button>
           </div>
      </body>
 </html>

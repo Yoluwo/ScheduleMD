@@ -23,6 +23,7 @@
      <body>
           <!--Java Single Page for creating the schedule -->
           <div class="container">
+               <!--Navigation menu and links -->
                <div class="navigation">
                     <ul> 
                          <li>
@@ -63,11 +64,13 @@
                          </li>
                     </ul>
                </div>
+               <!--Toggle hamburger icon-->
                <div class="main">
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Manage Schedule</h1>
                     </div>
+                    <!--Schedule tables-->
                     <div class="rto">
                          <c:if test="${foothills ne null}">
                               <h2>Schedule for ${schedule.hospital.hospitalName}</h2>
@@ -116,8 +119,8 @@
                          <c:if test="${empty scheduleCreated}"> 
                               <h2>Create Schedule</h2>
                               <form method="POST" action="createSchedule">
-                              <jsp:useBean id="now" class="java.util.Date" />
-                              <fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd" />
+                                   <jsp:useBean id="now" class="java.util.Date" />
+                                   <fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd" />
                                    <div class="form-schedule">
                                         <label for="startDate">Enter start date: </label>
                                         <input type="date" id="startDate" name="startDate" min="${today}" required>

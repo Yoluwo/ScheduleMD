@@ -21,6 +21,7 @@
      <body>
           <!--Java Single Page for the Admin to Manage User account settings -->
           <div class="container">
+               <!--Navigation menu and links -->
                <div class="navigation">
                     <ul> 
                          <li>
@@ -61,6 +62,7 @@
                          </li>
                     </ul>
                </div>
+               <!--Toggle icon and title of page -->
                <div class="main">
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
@@ -76,6 +78,7 @@
                                    </p>
 
                               <c:if test="${selectedUser ne null}">
+                                   <!--Edit users form -->
                                    <div class="rto">
                                         <h2>Edit User</h2>
                                         <form action="manageUsers" method="POST">
@@ -221,6 +224,7 @@
 
                               <c:if test="${selectedUser eq null}">
                                    <div class="rto">
+                                        <!--Add users form -->
                                         <h2>Add Users</h2>
                                         <form action="manageUsers" method="POST">
                                              <table role="table">

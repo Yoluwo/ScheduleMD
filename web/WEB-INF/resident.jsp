@@ -20,8 +20,9 @@
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
      </head>
      <body>
-          <!--Java Single Page for the Resident account page -->
+          <!--Java Single Page for the Resident account dashboard page -->
           <div class="container">
+               <!--Navigation menu and links -->
                <div class="navigation">
                     <ul> 
                          <li>
@@ -63,6 +64,7 @@
                     </ul>
                </div>
                <div class="main">
+                    <!--Toggle hamburger icon and title of page -->
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Dashboard</h1>
@@ -73,6 +75,7 @@
                               <h2>Welcome back, ${user.firstName}</h2>
                          </div>
                     </div>
+                    <!--Cards that contain quick links to web pages -->
                     <div class="cardMain">
                          <div class="cards">
                               <div class="card">

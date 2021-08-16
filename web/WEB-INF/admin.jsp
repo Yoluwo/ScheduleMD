@@ -20,8 +20,9 @@
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
      </head>
      <body>
-          <!--Java Single Page for the Admin panel -->
+          <!--Java Single Page for the Admin dashboard -->
           <div class="container">
+               <!--Navigation menu and links -->
                <div class="navigation">
                     <ul> 
                          <li>
@@ -67,12 +68,14 @@
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Administrator Panel</h1>
                     </div>
+                    <!--Image for the welcome back portion of webpage -->
                     <div class="dash">
                          <img src="images/dashboard_1.jpg" alt="Image of doctor doing work">
                          <div class="text-wrapper">
                               <h2>Welcome back, ${firstname}</h2>
                          </div>
                     </div>
+                    <!--Cards that contain quick links to webpages -->
                     <div class="cardMain">
                          <div class="cards">
                               <div class="card">
@@ -120,8 +123,8 @@
                                    </a>
                               </div>
                          </div>
+                         <!--Upcoming shifts table -->
                          <div class="details">
-                              <div class="recent"></div>
                               <c:if test="${shifts ne null}"> 
                                    <h2>Upcoming Shifts</h2>
                                    <table>

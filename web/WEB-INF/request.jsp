@@ -22,6 +22,7 @@
      <body>
           <!--Java Single Page for Request time off -->
           <div class="container">
+               <!--Navigation menu and links -->
                <div class="navigation">
                     <ul> 
                          <li>
@@ -63,12 +64,14 @@
                     </ul>
                </div>
                <div class="main">
+                    <!--Toggle hamburger icon and title of page -->
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Request Time Off</h1>
                     </div>
                     <div class="wrapper">
                          <div class="time-off">
+                              <!--Request time off form -->
                               <form method="POST" action="request">
                                    <div class="form-control">
                                         <label for="startDate">Enter start date: </label>
@@ -82,6 +85,7 @@
                                    </div>
                               </form>
                               <div>
+                                   <!--Calendar -->
                                    <div class="calendar">
                                         <div class="month">
                                              <i class="fa fa-angle-left prev" aria-hidden="true"></i>

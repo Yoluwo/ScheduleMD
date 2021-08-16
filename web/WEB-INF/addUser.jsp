@@ -18,8 +18,9 @@
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
      </head>
      <body>
-          <!--Java Single Page for the Admin to Add User account -->
+          <!--Java Single Page for the Admin to Add/Edit/Delete User account -->
           <div class="container">
+               <!--Navigation menu and links -->
                <div class="navigation">
                     <ul> 
                          <li>
@@ -58,9 +59,6 @@
                     <div class="topbar">
                          <div class="toggle" onclick="toggleMenu()"></div>
                          <h1>Add User Profiles</h1>
-                    </div>
-                    <div>
-
                     </div>
                </div>
           </div>

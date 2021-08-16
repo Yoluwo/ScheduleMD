@@ -16,27 +16,31 @@
           <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,700,400italic,700italic,900" rel="stylesheet" type="text/css">
 
      </head>
+     <!--Java Single Page for the reset password link -->
      <body>
-          <!--Java Single Page for the reset password link -->
+          <!--Schedule MD logo -->
           <div class="logo"> 
                <h1><i class="fa fa-hospital-o" aria-hidden="true"></i> ScheduleMD</h1>
           </div>
+
+          <!--Java Single Page for the reset password form -->
           <div class="container">
                <h2>Reset Password?</h2>
                <form method="POST" action="resetPassword">
-                        <div class="form-control">
-                            <label for="newPassword">New Password: </label>
-                            <input type="password" name="newPassword" id="newPassword" required>
-                        </div>
-                        <div class="form-control">
-                            <label for="confirmPassword">Confirm Password: </label>
-                            <input type="password" name="confirmPassword" id="confirmPassword" required>
-                            <input type="hidden" name="t" id="t" value="<%= request.getParameter("t") %>">
-                            <input type="hidden" name="token" id="token" value="<%= request.getAttribute("token") %>">
-                        </div>
-                        <button class="btn">Submit</button>
-                    </form>
-                            ${message}</br>
+                    <div class="form-control">
+                         <label for="newPassword">New Password: </label>
+                         <input type="password" name="newPassword" id="newPassword" required>
+                    </div>
+                    <div class="form-control">
+                         <label for="confirmPassword">Confirm Password: </label>
+                         <input type="password" name="confirmPassword" id="confirmPassword" required>
+                         <input type="hidden" name="t" id="t" value="<%= request.getParameter("t")%>">
+                         <input type="hidden" name="token" id="token" value="<%= request.getAttribute("token")%>">
+                    </div>
+                    <button class="btn">Submit</button>
+               </form>
+               ${message}
+               <br>
           </div>
      </body>
 </html>
